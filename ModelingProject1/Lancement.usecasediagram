@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="1aa32e15-9671-4fc0-9fa9-70a8a9c66da8" name="Lancement" linkedPackageId="338a5299-6e03-4417-83fc-5841b201ef23" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="cdf88348-b153-4beb-a6d3-c85eb278dc8a" name="Joueur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="dfc1cc95-bdc9-4968-9be8-c298ce5b59c3" />
+        <targetEnds>
+          <association Id="8779ccdd-420e-4dc1-b086-ac63bac83724" isDerived="false" sourceEndRoleName="Joueur" targetEndRoleName="Lancer le jeu" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9c50e9fd-c40a-4583-9fe0-3e7a7ec33303" LastKnownName="Lancer le jeu" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="50729e73-d921-4534-ad41-6fce012cb321" name="Joueur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="efebeac5-ddfb-4f10-84dc-bc6b536749ac" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c042a404-9d61-4912-bc77-701d5655e172" name="Lancer le jeu" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d61385ad-5e16-4607-964c-e413064e994a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c091611e-199b-4d87-82f8-8658d8f2a863" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6e8b21af-07f8-4305-afee-00d5d2c6344b" name="Créer une partie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5ddf883f-92fd-4a50-a862-2aafe3e93c41" />
+        <additions>
+          <include Id="8fdaf088-3f3b-4e21-854d-ea80b6541090">
+            <useCaseMoniker Id="de0edcad-321d-4478-9e56-ff5489b76149" LastKnownName="Choisir son peuple" />
+            <elementDefinition Id="7de74fc7-9bbe-4ad3-847c-4b2165f85c77" />
+          </include>
+          <include Id="c6e48e3d-1148-44b6-bc9c-463ad903b167">
+            <useCaseMoniker Id="0a4251b8-6b9c-4e06-b072-8dbb25cfe789" LastKnownName="Placer ses unités" />
+            <elementDefinition Id="15333e6e-19e4-4de4-817c-a0682d60645b" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4115cd93-81ac-40b3-8e5f-824a2e961493" name="Charger une partie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="956d256f-5b22-4e5c-8e50-94cd266a9e9a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9c50e9fd-c40a-4583-9fe0-3e7a7ec33303" name="Lancer le jeu" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fae04d5d-5702-4142-b817-9876b00fcf06" />
+        <extendedCases>
+          <extend Id="c7863881-07e6-444e-9061-f3adb9567af5">
+            <useCaseMoniker Id="6e8b21af-07f8-4305-afee-00d5d2c6344b" LastKnownName="Créer une partie" />
+            <elementDefinition Id="9f75868f-ec75-4906-b152-ec97c5aa8549" />
+          </extend>
+          <extend Id="09b0cd54-5d31-4d14-9f7a-b30808c8b228">
+            <useCaseMoniker Id="4115cd93-81ac-40b3-8e5f-824a2e961493" LastKnownName="Charger une partie" />
+            <elementDefinition Id="0234232c-236b-47ab-9841-b06d62c161d4" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="de0edcad-321d-4478-9e56-ff5489b76149" name="Choisir son peuple" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="4428cf30-4f64-48ce-9f25-f1ee32fc9c46" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="0a4251b8-6b9c-4e06-b072-8dbb25cfe789" name="Placer ses unités" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1d72c81b-ef75-4f7c-8933-b7451bb08496" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="338a5299-6e03-4417-83fc-5841b201ef23" name="ModelingProject1">
+    <elementDefinition Id="622ed13b-0f6e-4504-a974-ed38d4f073ea" />
+    <profileInstances>
+      <packageHasProfileInstances Id="044e5fbe-50aa-49be-b7f0-a6ac0218570c">
+        <profileInstance Id="a8f9da4b-f11b-4fe8-b506-ff99e7afe44d" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="30b922f2-d59a-4fff-883d-c186dbb10953">
+        <profileInstance Id="5ab6e2f7-5c16-43e0-becc-81991b42d6ec" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="622ed13b-0f6e-4504-a974-ed38d4f073ea"
+  name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="dfc1cc95-bdc9-4968-9be8-c298ce5b59c3"
+        name="Joueur"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="c091611e-199b-4d87-82f8-8658d8f2a863"
+            isDerived="false"
+            sourceEndRoleName="Joueur"
+            targetEndRoleName="Lancer le jeu"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fae04d5d-5702-4142-b817-9876b00fcf06"
+              LastKnownName="Lancer le jeu"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="efebeac5-ddfb-4f10-84dc-bc6b536749ac"
+                  name="Joueur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d61385ad-5e16-4607-964c-e413064e994a"
+                  name="Lancer le jeu"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5ddf883f-92fd-4a50-a862-2aafe3e93c41"
+        name="Créer une partie"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="7de74fc7-9bbe-4ad3-847c-4b2165f85c77">
+            <useCaseMoniker
+              Id="4428cf30-4f64-48ce-9f25-f1ee32fc9c46"
+              LastKnownName="Choisir son peuple"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+          <include
+            Id="15333e6e-19e4-4de4-817c-a0682d60645b">
+            <useCaseMoniker
+              Id="1d72c81b-ef75-4f7c-8933-b7451bb08496"
+              LastKnownName="Placer ses unités"
+              LastKnownLocation="ModelingProject1.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="956d256f-5b22-4e5c-8e50-94cd266a9e9a"
+        name="Charger une partie"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fae04d5d-5702-4142-b817-9876b00fcf06"
+        name="Lancer le jeu"
+        isAbstract="false"
+        isLeaf="false">
+        <extendedCases>
+          <extend
+            Id="9f75868f-ec75-4906-b152-ec97c5aa8549">
+            <useCaseMoniker
+              Id="5ddf883f-92fd-4a50-a862-2aafe3e93c41"
+              LastKnownName="Créer une partie"
+              LastKnownLocation="ModelingProject1.uml" />
+          </extend>
+          <extend
+            Id="0234232c-236b-47ab-9841-b06d62c161d4">
+            <useCaseMoniker
+              Id="956d256f-5b22-4e5c-8e50-94cd266a9e9a"
+              LastKnownName="Charger une partie"
+              LastKnownLocation="ModelingProject1.uml" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="4428cf30-4f64-48ce-9f25-f1ee32fc9c46"
+        name="Choisir son peuple"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="73800118-a6a4-4777-81f6-ce588ca29257"
+        name="Joueur"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="a4e04157-48d4-474a-a9c0-386680c7119b"
+            isDerived="false"
+            sourceEndRoleName="Joueur"
+            targetEndRoleName="Passer son tour"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b9f2b46d-73f8-435f-a06b-0aa1d2c76589"
+              LastKnownName="Passer son tour"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bc32429d-2585-444e-8289-b99b86712cde"
+                  name="Joueur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="59f13882-4ea3-46a3-bbc1-2faa5b999ce9"
+                  name="Passer son tour"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1786e2fc-275c-4abc-a962-bc319f182be9"
+            isDerived="false"
+            sourceEndRoleName="Joueur"
+            targetEndRoleName="Déplacer ses unités"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="37399ff7-7eef-4d34-a1c1-69aea2451583"
+              LastKnownName="Déplacer ses unités"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="04324532-d0b8-41af-b134-72f2c9125f6d"
+                  name="Joueur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1856edd9-65cb-43ab-bb57-ed35bf4fc0e2"
+                  name="Déplacer ses unités"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="03aa6e72-4477-4ff3-9f5d-87cad09de001"
+            isDerived="false"
+            sourceEndRoleName="Joueur"
+            targetEndRoleName="Attaquer"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fd152870-53b2-4aab-b9da-f0d4ff8817f6"
+              LastKnownName="Attaquer"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3511e307-5715-47d2-a66e-62e5217f840a"
+                  name="Joueur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="57c81a7e-30c8-4b9f-9bdb-f589570f259e"
+                  name="Attaquer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="225ddd8d-a0e8-4885-a3fd-819afeda6a61"
+            isDerived="false"
+            sourceEndRoleName="Joueur"
+            targetEndRoleName="Finir son tour"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="47f53342-a7f0-4dd6-aa7b-933e9da3b934"
+              LastKnownName="Finir son tour"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ce78347-728a-4ad5-9815-61af01bbe8cb"
+                  name="Joueur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c358b06c-b585-4ab4-b96c-ac229b37b2a1"
+                  name="Finir son tour"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b9f2b46d-73f8-435f-a06b-0aa1d2c76589"
+        name="Passer son tour"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="37399ff7-7eef-4d34-a1c1-69aea2451583"
+        name="Déplacer ses unités"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fd152870-53b2-4aab-b9da-f0d4ff8817f6"
+        name="Attaquer"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="257e510e-84cf-4fa0-8199-2d45dca84c4d">
+            <useCaseMoniker
+              Id="37399ff7-7eef-4d34-a1c1-69aea2451583"
+              LastKnownName="Déplacer ses unités"
+              LastKnownLocation="ModelingProject1.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="47f53342-a7f0-4dd6-aa7b-933e9da3b934"
+        name="Finir son tour"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1d72c81b-ef75-4f7c-8933-b7451bb08496"
+        name="Placer ses unités"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>
