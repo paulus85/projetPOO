@@ -64,11 +64,11 @@
     <Compile Include="TypeNormale.cs" />
     <Compile Include="TypePartie.cs" />
     <Compile Include="TypePetite.cs" />
+    <Compile Include="Unite.cs" />
     <Compile Include="UniteElfe.cs" />
     <Compile Include="UniteImpl.cs" />
     <Compile Include="UniteNain.cs" />
     <Compile Include="UniteOrc.cs" />
-    <Compile Include="Unité.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
