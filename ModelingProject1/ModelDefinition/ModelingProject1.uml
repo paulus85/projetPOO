@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="622ed13b-0f6e-4504-a974-ed38d4f073ea"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -253,45 +253,6 @@
               </associationHasOwnedEnds>
             </relationshipOwnedElementsInternal>
           </association>
-          <association
-            Id="225ddd8d-a0e8-4885-a3fd-819afeda6a61"
-            isDerived="false"
-            sourceEndRoleName="Joueur"
-            targetEndRoleName="Finir son tour"
-            isLeaf="false"
-            isAbstract="false">
-            <useCaseMoniker
-              Id="47f53342-a7f0-4dd6-aa7b-933e9da3b934"
-              LastKnownName="Finir son tour"
-              LastKnownLocation="ModelingProject1.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="2ce78347-728a-4ad5-9815-61af01bbe8cb"
-                  name="Joueur"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="c358b06c-b585-4ab4-b96c-ac229b37b2a1"
-                  name="Finir son tour"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
         </targetEnds>
       </actor>
     </packageHasNamedElement>
@@ -307,7 +268,49 @@
         Id="37399ff7-7eef-4d34-a1c1-69aea2451583"
         name="Déplacer ses unités"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="8eb91d37-ee38-4ac9-9fab-6ad25bfee409"
+            isDerived="false"
+            sourceEndRoleName="Déplacer ses unités"
+            targetEndRoleName="Finir son tour"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="47f53342-a7f0-4dd6-aa7b-933e9da3b934"
+              LastKnownName="Finir son tour"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9127efe2-bb9b-4470-8765-5c3f30547526"
+                  name="Déplacer ses unités"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="642fc1f2-54ac-41f2-8f03-a95d4c5e59c9"
+                  name="Finir son tour"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -324,6 +327,47 @@
               LastKnownLocation="ModelingProject1.uml" />
           </dependency>
         </suppliersInternal>
+        <targetEnds>
+          <association
+            Id="d61bdca6-5bbd-43cd-bca5-602108948a8b"
+            isDerived="false"
+            sourceEndRoleName="Attaquer"
+            targetEndRoleName="Finir son tour"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="47f53342-a7f0-4dd6-aa7b-933e9da3b934"
+              LastKnownName="Finir son tour"
+              LastKnownLocation="ModelingProject1.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0e741083-b28e-4e91-82b5-606c5b33c4e2"
+                  name="Attaquer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2d9fe9df-eead-4020-8c7e-590451899c1d"
+                  name="Finir son tour"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
       </useCase>
     </packageHasNamedElement>
     <packageHasNamedElement>
