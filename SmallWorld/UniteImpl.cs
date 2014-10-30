@@ -7,5 +7,7 @@ namespace SmallWorld
 {
     public abstract class UniteImpl : Unité
     {
+        private int points;
+        private int pointsDeplacement;
     }
 }
