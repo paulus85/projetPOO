@@ -67,7 +67,7 @@
   <Class Name="SmallWorld.UniteImpl">
     <Position X="8" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
   </Class>
