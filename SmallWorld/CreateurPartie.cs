@@ -7,6 +7,28 @@ namespace SmallWorld
 {
     public class CreateurPartie
     {
+        public Joueur Joueur1
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public int Joueur2
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+    
         public TypePartie creationPartie()
         {
             throw new System.NotImplementedException();

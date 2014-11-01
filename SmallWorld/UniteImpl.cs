@@ -9,5 +9,7 @@ namespace SmallWorld
     {
         private int points;
         private int pointsDeplacement;
+        private int x;
+        private int y;
     }
 }

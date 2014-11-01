@@ -29,6 +29,13 @@
       <SubType>Content</SubType>
       <DependentUpon>SequenceLancement.sequencediagram</DependentUpon>
     </Content>
+    <Content Include="Tour.sequencediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tour.sequencediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Tour.sequencediagram</DependentUpon>
+    </Content>
     <Content Include="Tour.usecasediagram">
       <SubType>Content</SubType>
     </Content>
