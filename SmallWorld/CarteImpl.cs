@@ -8,6 +8,7 @@ namespace SmallWorld
     public class CarteImpl : Carte
     {
         public List<Case> Case
+            //Liste ordonnée des cases
         {
             get
             {

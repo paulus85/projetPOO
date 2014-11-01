@@ -177,7 +177,7 @@
   <Class Name="SmallWorld.FabriqueCase">
     <Position X="10.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAAAAABABAAAAAAAAACA=</HashCode>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQCAAAAABABEAAAAAAIACA=</HashCode>
       <FileName>FabriqueCase.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

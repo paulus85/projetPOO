@@ -50,5 +50,25 @@ namespace SmallWorld
             {
             }
         }
+
+        public CasePlaine creerPlaine()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public CaseDesert creerDesert()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public CaseMontagne creerMontagne()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public CaseForet creerForet()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
