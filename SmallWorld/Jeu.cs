@@ -5,4 +5,7 @@ using System.Text;
 
 namespace SmallWorld
 {
+    public interface Jeu
+    {
+    }
 }

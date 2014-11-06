@@ -1,41 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Comment CommentText="Poids-mouche">
     <Position X="7.737" Y="3.948" Height="0.438" Width="1.127" />
   </Comment>
   <Comment CommentText="Monteur">
-    <Position X="18.708" Y="2.375" Height="0.385" Width="0.835" />
+    <Position X="16.958" Y="2.125" Height="0.385" Width="0.835" />
   </Comment>
   <Comment CommentText="Fabrique">
-    <Position X="3.312" Y="6.833" Height="0.417" Width="0.96" />
+    <Position X="1.144" Y="8.067" Height="0.417" Width="0.96" />
   </Comment>
-  <Class Name="SmallWorld.CreateurPartie">
-    <Position X="11.75" Y="0.75" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAAACQAAAAEAASAA=</HashCode>
-      <FileName>CreateurPartie.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SmallWorld.MonteurNPartie">
-    <Position X="16.75" Y="2" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MonteurNPartie.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="SmallWorld.MonteurPartieSauv">
-    <Position X="20" Y="2" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MonteurPartieSauv.cs</FileName>
-    </TypeIdentifier>
-  </Class>
+  <Comment CommentText="Stratégie">
+    <Position X="7.549" Y="6.635" Height="0.427" Width="1.169" />
+  </Comment>
   <Class Name="SmallWorld.Monteur">
     <Position X="18.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAAACQAAAAEAASAA=</HashCode>
       <FileName>Monteur.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.FabriquePeuple">
     <Position X="0.75" Y="5.75" Width="2" />
@@ -148,39 +131,42 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypePartie">
-    <Position X="16.75" Y="3.5" Width="1.5" />
+    <Position X="17.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIACAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypePartie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypeDemo">
-    <Position X="14.75" Y="6.25" Width="1.5" />
+    <Position X="15.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypeDemo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypePetite">
-    <Position X="16.75" Y="6.25" Width="1.5" />
+    <Position X="17.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypePetite.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypeNormale">
-    <Position X="18.75" Y="6.25" Width="1.5" />
+    <Position X="19.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypeNormale.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.JoueurImpl">
-    <Position X="3" Y="2.25" Width="1.5" />
+    <Position X="3" Y="2.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAA=</HashCode>
       <FileName>JoueurImpl.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="UniteImpl" />
+    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.FabriqueCase">
@@ -195,6 +181,20 @@
       <Property Name="CaseMontagne" />
       <Property Name="CaseForet" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="SmallWorld.MonteurNPartie">
+    <Position X="16.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MonteurNPartie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmallWorld.MonteurPartieSauv">
+    <Position X="20" Y="3.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MonteurPartieSauv.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="SmallWorld.Peuple">
     <Position X="1" Y="0.5" Width="1.5" />
@@ -222,6 +222,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Unite.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="SmallWorld.Jeu">
+    <Position X="9" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Jeu.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />
