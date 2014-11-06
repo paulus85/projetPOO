@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="3167abf4-f965-4295-b44c-821e6822b51e" name="Tour" linkedPackageId="5c824ef4-131c-49d9-96ff-4601052ad293" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="3167abf4-f965-4295-b44c-821e6822b51e" name="Tour" linkedPackageId="5c824ef4-131c-49d9-96ff-4601052ad293" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <interaction Id="26fb1074-0002-4633-bf63-5d00707032e2" name="Tour" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
@@ -346,16 +346,16 @@
               <lifelineMoniker Id="4627a613-f700-46f6-89d1-aaf3425e3f78" LastKnownName="Carte" />
             </covered>
           </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification Id="807d8e50-540a-40d6-8569-befe1aa62c08" name="MessageOccurrenceSpecification9">
-            <elementDefinition Id="e013c78a-1b00-413b-9112-6b848f42a84d" />
-            <covered>
-              <lifelineMoniker Id="4627a613-f700-46f6-89d1-aaf3425e3f78" LastKnownName="Carte" />
-            </covered>
-          </messageOccurrenceSpecification>
           <messageOccurrenceSpecification Id="8bd03ae5-66be-436b-950a-ddf39959f8ba" name="MessageOccurrenceSpecification10">
             <elementDefinition Id="d5ac2ae9-25d4-4692-a002-a401e7bc69bc" />
             <covered>
               <lifelineMoniker Id="df5b785e-0ec2-400d-8a71-37e619a8e2f2" LastKnownName="Joueur" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification Id="807d8e50-540a-40d6-8569-befe1aa62c08" name="MessageOccurrenceSpecification9">
+            <elementDefinition Id="e013c78a-1b00-413b-9112-6b848f42a84d" />
+            <covered>
+              <lifelineMoniker Id="4627a613-f700-46f6-89d1-aaf3425e3f78" LastKnownName="Carte" />
             </covered>
           </messageOccurrenceSpecification>
           <executionOccurrenceSpecification Id="3d79ed2d-eaa6-4b74-97f9-741ab2e528b2" name="ExecutionOccurrenceSpecification6">
@@ -1065,10 +1065,10 @@
               <lifelineMoniker Id="df5b785e-0ec2-400d-8a71-37e619a8e2f2" LastKnownName="Joueur" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="cbb78ccf-65a2-4723-9801-b90b8724e36a" name="OperandOccurrenceSpecification12">
-            <elementDefinition Id="2ec4657b-e38c-49b9-97a0-df433ae6a802" />
+          <operandOccurrenceSpecification Id="4ada027b-06d5-436e-8f69-63b48553fa82" name="OperandOccurrenceSpecification10">
+            <elementDefinition Id="5f68f23e-867b-4adf-897c-35998d7b724e" />
             <covered>
-              <lifelineMoniker Id="4627a613-f700-46f6-89d1-aaf3425e3f78" LastKnownName="Carte" />
+              <lifelineMoniker Id="df5b785e-0ec2-400d-8a71-37e619a8e2f2" LastKnownName="Joueur" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="97620bdc-9a5c-4544-9b56-17e4f6add3b9" name="OperandOccurrenceSpecification14">
@@ -1077,10 +1077,10 @@
               <lifelineMoniker Id="f55b3393-6332-4b8f-a0f3-2aa3e499ed6e" LastKnownName="Combat" />
             </covered>
           </operandOccurrenceSpecification>
-          <operandOccurrenceSpecification Id="4ada027b-06d5-436e-8f69-63b48553fa82" name="OperandOccurrenceSpecification10">
-            <elementDefinition Id="5f68f23e-867b-4adf-897c-35998d7b724e" />
+          <operandOccurrenceSpecification Id="cbb78ccf-65a2-4723-9801-b90b8724e36a" name="OperandOccurrenceSpecification12">
+            <elementDefinition Id="2ec4657b-e38c-49b9-97a0-df433ae6a802" />
             <covered>
-              <lifelineMoniker Id="df5b785e-0ec2-400d-8a71-37e619a8e2f2" LastKnownName="Joueur" />
+              <lifelineMoniker Id="4627a613-f700-46f6-89d1-aaf3425e3f78" LastKnownName="Carte" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification Id="2d27618d-1d7b-436e-a319-dcae943aaef4" name="OperandOccurrenceSpecification19">
@@ -1227,6 +1227,9 @@
               <operandOccurrenceSpecificationMoniker Id="339d05dc-9cbe-44c5-be3e-017325976807" LastKnownName="OperandOccurrenceSpecification18" />
               <operandOccurrenceSpecificationMoniker Id="675d3cc4-56df-4fe8-9329-5749ae3caef1" LastKnownName="OperandOccurrenceSpecification6" />
             </topLevelOccurrences>
+          </lifeline>
+          <lifeline Id="b872b16d-01ce-4b2f-b82a-57f8e012453a" name="Unité" isActor="false" lifelineDisplayName="Unité">
+            <elementDefinition Id="e2436e05-9a08-4091-849e-09aad80bec15" />
           </lifeline>
           <lifeline Id="f55b3393-6332-4b8f-a0f3-2aa3e499ed6e" name="Combat" isActor="false" lifelineDisplayName="Combat">
             <elementDefinition Id="4acc55a8-2f0f-48b4-b5ef-9b15e5b4ad59" />
