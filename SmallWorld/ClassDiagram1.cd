@@ -1,5 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Poids-mouche">
+    <Position X="7.737" Y="3.948" Height="0.438" Width="1.127" />
+  </Comment>
+  <Comment CommentText="Monteur">
+    <Position X="18.708" Y="2.375" Height="0.385" Width="0.835" />
+  </Comment>
+  <Comment CommentText="Fabrique">
+    <Position X="3.312" Y="6.833" Height="0.417" Width="0.96" />
+  </Comment>
   <Class Name="SmallWorld.CreateurPartie">
     <Position X="11.75" Y="0.75" Width="2.25" />
     <TypeIdentifier>
@@ -29,7 +38,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.FabriquePeuple">
-    <Position X="1" Y="5.25" Width="2" />
+    <Position X="0.75" Y="5.75" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAABAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FabriquePeuple.cs</FileName>

@@ -457,7 +457,7 @@
                 LastKnownLocation="ModelingProject1.uml" />
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
               <lifelineMoniker
                 Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -479,7 +479,7 @@
                     LastKnownLocation="ModelingProject1.uml" />
                   <lifelineMoniker
                     Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                    LastKnownName="Tour"
+                    LastKnownName="Joueur"
                     LastKnownLocation="ModelingProject1.uml" />
                   <lifelineMoniker
                     Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -498,7 +498,7 @@
                     <coveredLifelines>
                       <lifelineMoniker
                         Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                        LastKnownName="Tour"
+                        LastKnownName="Joueur"
                         LastKnownLocation="ModelingProject1.uml" />
                       <lifelineMoniker
                         Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -516,7 +516,7 @@
                         <coveredLifelines>
                           <lifelineMoniker
                             Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                            LastKnownName="Tour"
+                            LastKnownName="Joueur"
                             LastKnownLocation="ModelingProject1.uml" />
                           <lifelineMoniker
                             Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -535,7 +535,7 @@
                             <coveredLifelines>
                               <lifelineMoniker
                                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                                LastKnownName="Tour"
+                                LastKnownName="Joueur"
                                 LastKnownLocation="ModelingProject1.uml" />
                               <lifelineMoniker
                                 Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -553,7 +553,7 @@
                                 <coveredLifelines>
                                   <lifelineMoniker
                                     Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                                    LastKnownName="Tour"
+                                    LastKnownName="Joueur"
                                     LastKnownLocation="ModelingProject1.uml" />
                                   <lifelineMoniker
                                     Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -572,7 +572,7 @@
                                     <coveredLifelines>
                                       <lifelineMoniker
                                         Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                                        LastKnownName="Tour"
+                                        LastKnownName="Joueur"
                                         LastKnownLocation="ModelingProject1.uml" />
                                       <lifelineMoniker
                                         Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -586,7 +586,7 @@
                                         <coveredLifelines>
                                           <lifelineMoniker
                                             Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                                            LastKnownName="Tour"
+                                            LastKnownName="Joueur"
                                             LastKnownLocation="ModelingProject1.uml" />
                                           <lifelineMoniker
                                             Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -623,7 +623,7 @@
                                         <coveredLifelines>
                                           <lifelineMoniker
                                             Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                                            LastKnownName="Tour"
+                                            LastKnownName="Joueur"
                                             LastKnownLocation="ModelingProject1.uml" />
                                           <lifelineMoniker
                                             Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -695,7 +695,7 @@
                                 <coveredLifelines>
                                   <lifelineMoniker
                                     Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                                    LastKnownName="Tour"
+                                    LastKnownName="Joueur"
                                     LastKnownLocation="ModelingProject1.uml" />
                                   <lifelineMoniker
                                     Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -779,7 +779,7 @@
                         <coveredLifelines>
                           <lifelineMoniker
                             Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                            LastKnownName="Tour"
+                            LastKnownName="Joueur"
                             LastKnownLocation="ModelingProject1.uml" />
                           <lifelineMoniker
                             Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
@@ -893,7 +893,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -923,7 +923,7 @@
             <coveredLifelines>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </coveredLifelines>
             <finish>
@@ -971,7 +971,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -981,7 +981,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1051,7 +1051,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1066,22 +1066,22 @@
             </covered>
           </messageOccurrenceSpecification>
           <messageOccurrenceSpecification
-            Id="d5ac2ae9-25d4-4692-a002-a401e7bc69bc"
-            name="MessageOccurrenceSpecification10">
-            <covered>
-              <lifelineMoniker
-                Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
-                LastKnownLocation="ModelingProject1.uml" />
-            </covered>
-          </messageOccurrenceSpecification>
-          <messageOccurrenceSpecification
             Id="e013c78a-1b00-413b-9112-6b848f42a84d"
             name="MessageOccurrenceSpecification9">
             <covered>
               <lifelineMoniker
                 Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
                 LastKnownName="Carte"
+                LastKnownLocation="ModelingProject1.uml" />
+            </covered>
+          </messageOccurrenceSpecification>
+          <messageOccurrenceSpecification
+            Id="d5ac2ae9-25d4-4692-a002-a401e7bc69bc"
+            name="MessageOccurrenceSpecification10">
+            <covered>
+              <lifelineMoniker
+                Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1119,7 +1119,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1137,7 +1137,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1147,7 +1147,7 @@
             <coveredLifelines>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </coveredLifelines>
             <finish>
@@ -1187,7 +1187,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1197,7 +1197,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1217,7 +1217,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1245,7 +1245,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1255,7 +1255,7 @@
             <coveredLifelines>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </coveredLifelines>
             <finish>
@@ -1295,7 +1295,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1315,7 +1315,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1335,7 +1335,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1353,7 +1353,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1363,7 +1363,7 @@
             <coveredLifelines>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </coveredLifelines>
             <finish>
@@ -1491,7 +1491,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1511,7 +1511,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1531,7 +1531,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -1601,7 +1601,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1631,7 +1631,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1679,7 +1679,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -1749,7 +1749,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1769,7 +1769,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1797,7 +1797,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -1817,7 +1817,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1827,7 +1827,7 @@
             <coveredLifelines>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </coveredLifelines>
             <finish>
@@ -1871,7 +1871,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -1881,7 +1881,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1951,7 +1951,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -1961,7 +1961,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2007,7 +2007,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -2027,7 +2027,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2037,7 +2037,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2057,7 +2057,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2087,7 +2087,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2107,7 +2107,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2137,7 +2137,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2147,7 +2147,7 @@
             <coveredLifelines>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </coveredLifelines>
             <finish>
@@ -2191,7 +2191,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -2201,7 +2201,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2261,7 +2261,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2291,7 +2291,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2327,7 +2327,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -2357,17 +2357,17 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="5f68f23e-867b-4adf-897c-35998d7b724e"
-            name="OperandOccurrenceSpecification10">
+            Id="2ec4657b-e38c-49b9-97a0-df433ae6a802"
+            name="OperandOccurrenceSpecification12">
             <covered>
               <lifelineMoniker
-                Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
+                LastKnownName="Carte"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2382,12 +2382,12 @@
             </covered>
           </operandOccurrenceSpecification>
           <operandOccurrenceSpecification
-            Id="2ec4657b-e38c-49b9-97a0-df433ae6a802"
-            name="OperandOccurrenceSpecification12">
+            Id="5f68f23e-867b-4adf-897c-35998d7b724e"
+            name="OperandOccurrenceSpecification10">
             <covered>
               <lifelineMoniker
-                Id="bd6d9be0-0a4d-46e1-82a5-d7fa4bc48983"
-                LastKnownName="Carte"
+                Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2417,7 +2417,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2447,7 +2447,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2467,7 +2467,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </messageOccurrenceSpecification>
@@ -2485,7 +2485,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </executionOccurrenceSpecification>
@@ -2525,7 +2525,7 @@
             <covered>
               <lifelineMoniker
                 Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-                LastKnownName="Tour"
+                LastKnownName="Joueur"
                 LastKnownLocation="ModelingProject1.uml" />
             </covered>
           </operandOccurrenceSpecification>
@@ -2581,9 +2581,14 @@
           </lifeline>
           <lifeline
             Id="d09784a5-7b5f-45e5-978a-3816fc267cd5"
-            name="Tour"
-            isActor="false"
-            lifelineDisplayName="Tour">
+            name="Joueur"
+            isActor="true"
+            lifelineDisplayName="Joueur">
+            <represents>
+              <propertyMoniker
+                Id="1f64102d-8cd0-408e-9c95-272e42715f44"
+                LastKnownLocation="ModelingProject1.uml" />
+            </represents>
             <topLevelOccurrences>
               <operandOccurrenceSpecificationMoniker
                 Id="14a5db95-eca4-4254-a9dd-0478413a2031"
@@ -3165,6 +3170,22 @@
         <ownedAttributesInternal>
           <property
             Id="59e9fd91-bc2c-49a3-9a79-088b313783c6"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <actorMoniker
+                Id="dfc1cc95-bdc9-4968-9be8-c298ce5b59c3"
+                LastKnownName="Joueur"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1f64102d-8cd0-408e-9c95-272e42715f44"
             isLeaf="false"
             isStatic="false"
             isReadOnly="false"
