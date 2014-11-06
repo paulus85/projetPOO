@@ -19,5 +19,16 @@ namespace SmallWorld
             {
             }
         }
+
+        public PeupleImpl PeupleImpl
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }

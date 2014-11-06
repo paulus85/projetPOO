@@ -7,7 +7,7 @@
     <Position X="16.958" Y="2.125" Height="0.385" Width="0.835" />
   </Comment>
   <Comment CommentText="Fabrique">
-    <Position X="1.144" Y="8.067" Height="0.417" Width="0.96" />
+    <Position X="0.977" Y="8.411" Height="0.417" Width="0.96" />
   </Comment>
   <Comment CommentText="Stratégie">
     <Position X="7.549" Y="6.635" Height="0.427" Width="1.169" />
@@ -160,10 +160,18 @@
   </Class>
   <Class Name="SmallWorld.JoueurImpl">
     <Position X="3" Y="2.25" Width="2" />
+    <AssociationLine Name="PeupleImpl" Type="SmallWorld.PeupleImpl">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.046" Y="0.185" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIQAAA=</HashCode>
       <FileName>JoueurImpl.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PeupleImpl" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="UniteImpl" />
     </ShowAsCollectionAssociation>
