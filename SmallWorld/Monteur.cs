@@ -7,27 +7,8 @@ namespace SmallWorld
 {
     public abstract class Monteur : Jeu
     {
-        public Joueur Joueur1
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public int Joueur2
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private Joueur Joueur1;
+        private int Joueur2;
 
         public void choixPremierJoueur()
         {

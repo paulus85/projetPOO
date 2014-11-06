@@ -15,7 +15,7 @@
   <Class Name="SmallWorld.Monteur">
     <Position X="18.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAAACQAAAAEAASAA=</HashCode>
+      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAABAACQAAAAEBASAA=</HashCode>
       <FileName>Monteur.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
