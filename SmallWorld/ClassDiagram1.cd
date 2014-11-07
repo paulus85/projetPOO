@@ -10,15 +10,14 @@
     <Position X="0.977" Y="8.411" Height="0.417" Width="0.96" />
   </Comment>
   <Comment CommentText="Stratégie">
-    <Position X="7.549" Y="6.635" Height="0.427" Width="1.169" />
+    <Position X="16.205" Y="7.052" Height="0.427" Width="1.169" />
   </Comment>
   <Class Name="SmallWorld.Monteur">
-    <Position X="18.25" Y="0.5" Width="1.5" />
+    <Position X="18.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAABAACQAAAAEBASAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Monteur.cs</FileName>
     </TypeIdentifier>
-    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.FabriquePeuple">
     <Position X="0.75" Y="5.75" Width="2" />
@@ -62,6 +61,7 @@
       <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAABgAIAAAAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.UniteOrc">
     <Position X="10.25" Y="9.75" Width="1.5" />
@@ -203,6 +203,14 @@
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MonteurPartieSauv.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="SmallWorld.JeuManager">
+    <Position X="13.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAAACQAAAAEAASAA=</HashCode>
+      <FileName>JeuManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="SmallWorld.Peuple">
     <Position X="1" Y="0.5" Width="1.5" />

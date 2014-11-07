@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SequenceDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="5be010b6-b8d6-40c7-8b9d-43c5139d8260" name="Lancement" linkedPackageId="89e77940-a1f9-4069-b901-2b9d130b1a8e" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="357212e2-77a2-402b-a439-86df3e18a447">
+      <profileInstance Id="e583218f-7ddf-41f6-9b31-03ba8880b891" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="56f2f8e7-4f9a-4f17-9732-c6e8f586b546">
+      <profileInstance Id="0996ab4b-dffb-4f87-9088-ca60bf6a4691" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <interaction Id="2735c4bd-8d7a-4a07-bcb9-1f67b8b1883e" name="Lancement" collapseFragmentsFlag="false" isActiveClass="false" isAbstract="false" isLeaf="false" isReentrant="false">
+        <elementDefinition Id="5413b6e2-ed55-4833-9bf7-f87ce25d0793" />
+        <lifelines>
+          <lifeline Id="d6f965b3-efa3-4437-ae88-34e5b69e41b9" name="Jeu" isActor="false" lifelineDisplayName="Jeu">
+            <elementDefinition Id="5a0adace-1ade-4665-aed1-e494c382cdef" />
+          </lifeline>
+          <lifeline Id="ae58a351-8afc-4729-9068-33c35c092b33" name="Monteur" isActor="false" lifelineDisplayName="Monteur">
+            <elementDefinition Id="74aa7926-4017-4048-b820-08f16176a8d8" />
+          </lifeline>
+          <lifeline Id="375d4990-b437-40b8-a626-6b64113cd452" name="TypePartie" isActor="false" lifelineDisplayName="TypePartie">
+            <elementDefinition Id="9b597610-5424-4de2-ba5d-13b7852262d1" />
+          </lifeline>
+          <lifeline Id="d7520711-61d6-4afc-80c0-354ba58308a8" name="Joueur" isActor="true" lifelineDisplayName="Joueur">
+            <elementDefinition Id="528928bf-fc79-47ee-b487-ae607a8db496" />
+            <represents>
+              <propertyMoniker Id="a0b625e7-d015-4ebf-b2a8-1bfff0bcba4d" />
+            </represents>
+          </lifeline>
+          <lifeline Id="cf908fc8-b476-485f-91f5-303020c700c4" name="Peuple" isActor="false" lifelineDisplayName="Peuple">
+            <elementDefinition Id="151196a0-106a-4e31-988d-8037d4c90d1e" />
+          </lifeline>
+          <lifeline Id="d11aa1ae-8bb2-4dc8-a5bf-389e0f35fd6b" name="Unité" isActor="false" lifelineDisplayName="Unité">
+            <elementDefinition Id="202450bd-cc5a-4f0a-9481-df4a41762093" />
+          </lifeline>
+        </lifelines>
+        <ownedAttributesInternal>
+          <property Id="a0b625e7-d015-4ebf-b2a8-1bfff0bcba4d" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b9d2a378-4955-497e-945d-e0eb4de35558" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="46e6c716-0521-4d62-9966-1f7841ef3454" LastKnownName="Joueur" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="46e6c716-0521-4d62-9966-1f7841ef3454" name="Joueur" isAbstract="false" isLeaf="false" cachedFullName="ModelingProject1::Joueur">
+        <elementDefinition Id="dfc1cc95-bdc9-4968-9be8-c298ce5b59c3" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="89e77940-a1f9-4069-b901-2b9d130b1a8e" name="ModelingProject1">
+    <elementDefinition Id="622ed13b-0f6e-4504-a974-ed38d4f073ea" />
+  </package>
+</SequenceDesignerModel>

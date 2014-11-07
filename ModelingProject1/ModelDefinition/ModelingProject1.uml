@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner"
   dslVersion="1.0.0.0"
   Id="622ed13b-0f6e-4504-a974-ed38d4f073ea"
   name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -2821,6 +2821,73 @@
       <executionEvent
         Id="b95b4742-e00a-4800-bad8-25b537d6e4ed"
         name="ExecutionEvent" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <interaction
+        Id="5413b6e2-ed55-4833-9bf7-f87ce25d0793"
+        name="Lancement"
+        collapseFragmentsFlag="false"
+        isActiveClass="false"
+        isAbstract="false"
+        isLeaf="false"
+        isReentrant="false">
+        <lifelines>
+          <lifeline
+            Id="5a0adace-1ade-4665-aed1-e494c382cdef"
+            name="Jeu"
+            isActor="false"
+            lifelineDisplayName="Jeu" />
+          <lifeline
+            Id="74aa7926-4017-4048-b820-08f16176a8d8"
+            name="Monteur"
+            isActor="false"
+            lifelineDisplayName="Monteur" />
+          <lifeline
+            Id="9b597610-5424-4de2-ba5d-13b7852262d1"
+            name="TypePartie"
+            isActor="false"
+            lifelineDisplayName="TypePartie" />
+          <lifeline
+            Id="528928bf-fc79-47ee-b487-ae607a8db496"
+            name="Joueur"
+            isActor="true"
+            lifelineDisplayName="Joueur">
+            <represents>
+              <propertyMoniker
+                Id="b9d2a378-4955-497e-945d-e0eb4de35558"
+                LastKnownLocation="ModelingProject1.uml" />
+            </represents>
+          </lifeline>
+          <lifeline
+            Id="151196a0-106a-4e31-988d-8037d4c90d1e"
+            name="Peuple"
+            isActor="false"
+            lifelineDisplayName="Peuple" />
+          <lifeline
+            Id="202450bd-cc5a-4f0a-9481-df4a41762093"
+            name="Unité"
+            isActor="false"
+            lifelineDisplayName="Unité" />
+        </lifelines>
+        <ownedAttributesInternal>
+          <property
+            Id="b9d2a378-4955-497e-945d-e0eb4de35558"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <type_NamedElement>
+              <actorMoniker
+                Id="dfc1cc95-bdc9-4968-9be8-c298ce5b59c3"
+                LastKnownName="Joueur"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </interaction>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

@@ -51,6 +51,7 @@
     <Compile Include="FabriqueCase.cs" />
     <Compile Include="FabriquePeuple.cs" />
     <Compile Include="Jeu.cs" />
+    <Compile Include="JeuManager.cs" />
     <Compile Include="Joueur.cs" />
     <Compile Include="JoueurImpl.cs" />
     <Compile Include="Monteur.cs" />

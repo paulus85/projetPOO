@@ -1,0 +1,22 @@
+Scénario : lancement nouvelle partie
+
+- Sélection du type de partie 
+	- Démo
+	- Petite 
+	- Normale
+
+- Création de la carte (uniquement parce qu'on crée une nouvelle partie)
+	- Le monteur commande la création des cases via la fabrique
+	- Retourne à JeuManager la fabrique (ou une référence à)
+
+
+- Création des joueurs
+	- MAJ nom joueur
+	- Choix du peuple
+	- Génération des unités en fonction du type de partie
+		- via l'objet peuple (qui génère les bonnes unités)
+
+
+
+- Répartitions des unités sur la carte
+	- via DLL
