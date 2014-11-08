@@ -5,6 +5,8 @@ Scénario : lancement nouvelle partie
 	- Petite 
 	- Normale
 
+TOUTE LA LOGIQUE DE CREATION DE PARTIE SE FAIT GRACE AU MONTEUR QUI ADAPTE LES METHODES
+
 - Création de la carte (uniquement parce qu'on crée une nouvelle partie)
 	- Le monteur commande la création des cases via la fabrique
 	- Retourne à JeuManager la fabrique (ou une référence à)

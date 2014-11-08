@@ -12,10 +12,16 @@
   <Comment CommentText="Stratégie">
     <Position X="16.205" Y="7.052" Height="0.427" Width="1.169" />
   </Comment>
+  <Comment CommentText="NE PAS OUBLIER DE METTRE LES CONSTRUCTEURS !!!!">
+    <Position X="11.375" Y="0.792" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Est-ce CarteImpl ou FabriqueCarte qui possdède les tableaux qui externalisent les propriétés des cases ?">
+    <Position X="5.979" Y="4.604" Height="1.135" Width="1.95" />
+  </Comment>
   <Class Name="SmallWorld.Monteur">
     <Position X="18.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Monteur.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -207,9 +213,12 @@
   <Class Name="SmallWorld.JeuManager">
     <Position X="13.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAAACQAAAAEAASAA=</HashCode>
+      <HashCode>AAAAABAAAEIAAAAAAAAAAAAAAAAAAAAAQAAAAEAASAA=</HashCode>
       <FileName>JeuManager.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Monteur" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="SmallWorld.Peuple">

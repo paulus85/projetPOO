@@ -7,5 +7,14 @@ namespace SmallWorld
 {
     public abstract class Monteur
     {
+        public void preparerPartie()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public abstract CarteImpl creationCarte()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

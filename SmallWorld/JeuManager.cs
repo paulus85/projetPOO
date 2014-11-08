@@ -11,6 +11,17 @@ namespace SmallWorld
 
         private Joueur Joueur2;
 
+        public Monteur Monteur
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public TypePartie creationPartie()
         {
             throw new System.NotImplementedException();
@@ -22,11 +33,6 @@ namespace SmallWorld
         }
 
         public JoueurImpl creationJoueur()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public CarteImpl creationCarte()
         {
             throw new System.NotImplementedException();
         }
