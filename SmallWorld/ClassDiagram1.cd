@@ -15,13 +15,10 @@
   <Comment CommentText="NE PAS OUBLIER DE METTRE LES CONSTRUCTEURS !!!!">
     <Position X="11.375" Y="0.792" Height="0.75" Width="1.7" />
   </Comment>
-  <Comment CommentText="Est-ce CarteImpl ou FabriqueCarte qui possdède les tableaux qui externalisent les propriétés des cases ?">
-    <Position X="5.979" Y="4.604" Height="1.135" Width="1.95" />
-  </Comment>
   <Class Name="SmallWorld.Monteur">
     <Position X="18.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
       <FileName>Monteur.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -35,7 +32,7 @@
   <Class Name="SmallWorld.PeupleImpl">
     <Position X="2.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>PeupleImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -43,48 +40,48 @@
   <Class Name="SmallWorld.PeupleOrc">
     <Position X="0.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>PeupleOrc.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.PeupleElfe">
     <Position X="4.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>PeupleElfe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.PeupleNain">
     <Position X="2.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>PeupleNain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteImpl">
-    <Position X="8" Y="7.75" Width="1.5" />
+    <Position X="8" Y="7.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAABgAIAAAAA=</HashCode>
+      <HashCode>AAAAASCAAAAAAAAAAAAAAAAAAAAAAAAAAABgAIAAAAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.UniteOrc">
-    <Position X="10.25" Y="9.75" Width="1.5" />
+    <Position X="10.25" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UniteOrc.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteElfe">
-    <Position X="8.5" Y="9.75" Width="1.5" />
+    <Position X="8.5" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UniteElfe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteNain">
-    <Position X="6.75" Y="9.75" Width="1.5" />
+    <Position X="6.75" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UniteNain.cs</FileName>
@@ -197,27 +194,29 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SmallWorld.MonteurNPartie">
-    <Position X="16.25" Y="3.25" Width="1.5" />
+    <Position X="17" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
       <FileName>MonteurNPartie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.MonteurPartieSauv">
-    <Position X="20" Y="3.25" Width="1.75" />
+    <Position X="19.5" Y="3.25" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
       <FileName>MonteurPartieSauv.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.JeuManager">
     <Position X="13.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAEIAAAAAAAAAAAAAAAAAAAAAQAAAAEAASAA=</HashCode>
+      <HashCode>AAAAABAAAEIAAAAAAAAAAAAAAAAAAAAAQAAQAEAASAg=</HashCode>
       <FileName>JeuManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Monteur" />
+      <Property Name="CarteImpl" />
+      <Property Name="TypePartie" />
     </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>

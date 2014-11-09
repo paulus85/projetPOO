@@ -11,5 +11,7 @@ namespace SmallWorld
         private int pointsDeplacement;
         private int x;
         private int y;
+        private int pointsAttaque;
+        private int pointsDefense;
     }
 }

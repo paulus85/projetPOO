@@ -9,14 +9,15 @@ TOUTE LA LOGIQUE DE CREATION DE PARTIE SE FAIT GRACE AU MONTEUR QUI ADAPTE LES M
 
 - Création de la carte (uniquement parce qu'on crée une nouvelle partie)
 	- Le monteur commande la création des cases via la fabrique
-	- Retourne à JeuManager la fabrique (ou une référence à)
-
+	- JeuManager interagit avec la carte depuis l'objet Carte
 
 - Création des joueurs
 	- MAJ nom joueur
 	- Choix du peuple
 	- Génération des unités en fonction du type de partie
 		- via l'objet peuple (qui génère les bonnes unités)
+
+- Sélection "à qui le tour ?"
 
 
 

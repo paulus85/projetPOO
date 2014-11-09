@@ -16,5 +16,11 @@ namespace SmallWorld
         {
             throw new System.NotImplementedException();
         }
+
+        public abstract Joueur[] creationJoueurs();
+
+        public abstract TypePartie choixTypePartie();
+
+        public abstract Joueur choixPremierJoueur();
     }
 }

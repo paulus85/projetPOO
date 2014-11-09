@@ -7,5 +7,6 @@ namespace SmallWorld
 {
     public abstract class PeupleImpl : Peuple
     {
+        public abstract void generationUnites(int nbrUnites);
     }
 }

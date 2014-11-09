@@ -22,6 +22,28 @@ namespace SmallWorld
             }
         }
 
+        public CarteImpl CarteImpl
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public TypePartie TypePartie
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public TypePartie creationPartie()
         {
             throw new System.NotImplementedException();
