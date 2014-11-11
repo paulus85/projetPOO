@@ -7,7 +7,12 @@ namespace SmallWorld
 {
     public class PeupleNain : PeupleImpl
     {
-        public void generationUnites(int nbrUnites)
+        public PeupleNain()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void generationUnites(int nbrUnites, int xinit, int yinit)
         {
             throw new System.NotImplementedException();
 }

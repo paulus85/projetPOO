@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public abstract class UniteImpl : Unité, Unite
+    public abstract class UniteImpl : Unite
     {
         private int points;
         private int pointsDeplacement;

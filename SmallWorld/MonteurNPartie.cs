@@ -7,6 +7,11 @@ namespace SmallWorld
 {
     public class MonteurNPartie : Monteur
     {
+        public MonteurNPartie()
+        {
+            throw new System.NotImplementedException();
+        }
+    
         public TypePartie choixTypePartie()
         {
             throw new System.NotImplementedException();

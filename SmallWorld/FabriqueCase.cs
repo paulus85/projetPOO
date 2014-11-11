@@ -7,6 +7,11 @@ namespace SmallWorld
 {
     public class FabriqueCase
     {
+        public FabriqueCase()
+        {
+            throw new System.NotImplementedException();
+        }
+    
         public CasePlaine CasePlaine
         {
             get

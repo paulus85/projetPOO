@@ -7,5 +7,6 @@ namespace SmallWorld
 {
     public interface Peuple
     {
+        void generationUnites(int nbrUnites, int xinit, int yinit);
     }
 }

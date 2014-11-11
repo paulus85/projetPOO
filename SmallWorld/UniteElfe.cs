@@ -7,5 +7,9 @@ namespace SmallWorld
 {
     public class UniteElfe : UniteImpl
     {
+        public UniteElfe()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

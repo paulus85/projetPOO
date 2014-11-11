@@ -7,5 +7,9 @@ namespace SmallWorld
 {
     public class UniteNain : UniteImpl
     {
+        public UniteNain()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

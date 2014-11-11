@@ -8,6 +8,11 @@ namespace SmallWorld
     public class JoueurImpl : Joueur
     {
         private String nomJoueur;
+
+        public JoueurImpl()
+        {
+            throw new System.NotImplementedException();
+        }
     
         public List<UniteImpl> UniteImpl
         {
@@ -29,6 +34,22 @@ namespace SmallWorld
             set
             {
             }
+        }
+
+        public String NomJoueur
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
+        public void choisirPeuple(int xinit, int yinit)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

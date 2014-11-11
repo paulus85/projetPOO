@@ -7,6 +7,11 @@ namespace SmallWorld
 {
     public class FabriquePeuple
     {
+        public FabriquePeuple()
+        {
+            throw new System.NotImplementedException();
+        }
+    
         public Peuple creerOrc()
         {
             throw new System.NotImplementedException();

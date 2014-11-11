@@ -7,5 +7,9 @@ namespace SmallWorld
 {
     public class UniteOrc : UniteImpl
     {
+        public UniteOrc()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

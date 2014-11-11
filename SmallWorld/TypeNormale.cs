@@ -7,5 +7,9 @@ namespace SmallWorld
 {
     public class TypeNormale : TypePartie
     {
+        public TypeNormale()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

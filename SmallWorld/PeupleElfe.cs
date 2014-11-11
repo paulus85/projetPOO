@@ -7,9 +7,14 @@ namespace SmallWorld
 {
     public class PeupleElfe : PeupleImpl
     {
-        public void generationUnites(int nbrUnites)
+        public PeupleElfe()
         {
             throw new System.NotImplementedException();
-}
+        }
+
+        public void generationUnites(int nbrUnites, int xinit, int yinit)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

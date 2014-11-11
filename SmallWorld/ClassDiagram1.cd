@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Comment CommentText="Poids-mouche">
-    <Position X="7.737" Y="3.948" Height="0.438" Width="1.127" />
+    <Position X="8.636" Y="4.195" Height="0.438" Width="1.127" />
   </Comment>
   <Comment CommentText="Monteur">
     <Position X="16.958" Y="2.125" Height="0.385" Width="0.835" />
@@ -15,8 +15,11 @@
   <Comment CommentText="NE PAS OUBLIER DE METTRE LES CONSTRUCTEURS !!!!">
     <Position X="11.375" Y="0.792" Height="0.75" Width="1.7" />
   </Comment>
+  <Comment CommentText="Représentation des cases dans Carte ?&#xD;&#xA;&#xD;&#xA;">
+    <Position X="5.918" Y="4.529" Height="0.75" Width="1.7" />
+  </Comment>
   <Class Name="SmallWorld.Monteur">
-    <Position X="18.25" Y="1" Width="1.5" />
+    <Position X="18.25" Y="1" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
       <FileName>Monteur.cs</FileName>
@@ -38,7 +41,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.PeupleOrc">
-    <Position X="0.5" Y="9.75" Width="1.5" />
+    <Position X="0.5" Y="9.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>PeupleOrc.cs</FileName>
@@ -88,7 +91,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.CarteImpl">
-    <Position X="7.25" Y="2.75" Width="1.5" />
+    <Position X="6" Y="3" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CarteImpl.cs</FileName>
@@ -162,14 +165,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.JoueurImpl">
-    <Position X="3" Y="2.25" Width="2" />
+    <Position X="3" Y="2.25" Width="2.25" />
     <AssociationLine Name="PeupleImpl" Type="SmallWorld.PeupleImpl">
       <MemberNameLabel ManuallyPlaced="true">
         <Position X="-0.046" Y="0.185" />
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAIQAAA=</HashCode>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAQAAAAAAAAIAAAAAIQAAA=</HashCode>
       <FileName>JoueurImpl.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -181,7 +184,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.FabriqueCase">
-    <Position X="10.5" Y="7.25" Width="1.5" />
+    <Position X="10.5" Y="7.25" Width="2.5" />
     <TypeIdentifier>
       <HashCode>AAAAAEAAAAAAAAAAAAAAAAQCAAAAABABEAAAAAAIACA=</HashCode>
       <FileName>FabriqueCase.cs</FileName>
@@ -194,14 +197,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SmallWorld.MonteurNPartie">
-    <Position X="17" Y="3.25" Width="1.5" />
+    <Position X="16.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
       <FileName>MonteurNPartie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.MonteurPartieSauv">
-    <Position X="19.5" Y="3.25" Width="1.75" />
+    <Position X="19.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
       <FileName>MonteurPartieSauv.cs</FileName>
@@ -210,7 +213,7 @@
   <Class Name="SmallWorld.JeuManager">
     <Position X="13.75" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAEIAAAAAAAAAAAAAAAAAAAAAQAAQAEAASAg=</HashCode>
+      <HashCode>AAAAABAAAEIAAAAAAAAAAAAAAAAAABAAQAAQAEAASAg=</HashCode>
       <FileName>JeuManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -218,12 +221,15 @@
       <Property Name="CarteImpl" />
       <Property Name="TypePartie" />
     </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Joueurs" />
+    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="SmallWorld.Peuple">
     <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Peuples.cs</FileName>
     </TypeIdentifier>
   </Interface>

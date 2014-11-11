@@ -44,6 +44,17 @@ namespace SmallWorld
             }
         }
 
+        public JoueurImpl[] Joueurs
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
+
         public TypePartie creationPartie()
         {
             throw new System.NotImplementedException();
