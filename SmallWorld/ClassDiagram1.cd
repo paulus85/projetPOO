@@ -15,8 +15,11 @@
   <Comment CommentText="NE PAS OUBLIER DE METTRE LES CONSTRUCTEURS !!!!">
     <Position X="11.375" Y="0.792" Height="0.75" Width="1.7" />
   </Comment>
-  <Comment CommentText="Représentation des cases dans Carte ?&#xD;&#xA;&#xD;&#xA;">
+  <Comment CommentText="Représentation des cases dans Carte ?&#xD;&#xA;&#xD;&#xA;Singleton ?&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
     <Position X="5.918" Y="4.529" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Attributs dans Monteur : joueurs, carte,...&#xD;&#xA;Singleton ?">
+    <Position X="20.303" Y="2.437" Height="0.75" Width="1.7" />
   </Comment>
   <Class Name="SmallWorld.Monteur">
     <Position X="18.25" Y="1" Width="2.25" />
@@ -41,7 +44,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.PeupleOrc">
-    <Position X="0.5" Y="9.75" Width="2.25" />
+    <Position X="0.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>PeupleOrc.cs</FileName>

@@ -2951,6 +2951,16 @@
                 LastKnownLocation="ModelingProject1.uml" />
             </annotatedElements>
           </comment>
+          <comment
+            Id="0fab892e-5d17-42d9-9e3a-b6455b785c20">
+            <body>La DLL nous fournit la répartition des différents types de terrain</body>
+            <annotatedElements>
+              <combinedFragmentMoniker
+                Id="29e50b02-ea3b-45fb-a789-960f957d8d60"
+                LastKnownName="CombinedFragment2"
+                LastKnownLocation="ModelingProject1.uml" />
+            </annotatedElements>
+          </comment>
         </ownedCommentsInternal>
         <fragments>
           <behaviorExecutionSpecification

@@ -25,6 +25,13 @@
               <behaviorExecutionSpecificationMoniker Id="7ec3f78d-f8fc-48ac-8012-999940f227d3" LastKnownName="BehaviorExecutionSpecification17" />
             </annotatedElements>
           </comment>
+          <comment Id="d29b2d2a-fd84-43c2-b665-07b7fac64eb3">
+            <elementDefinition Id="0fab892e-5d17-42d9-9e3a-b6455b785c20" />
+            <body>La DLL nous fournit la répartition des différents types de terrain</body>
+            <annotatedElements>
+              <combinedFragmentMoniker Id="85c0f6c3-989f-4a8b-abd3-5b59f1045a23" LastKnownName="CombinedFragment2" />
+            </annotatedElements>
+          </comment>
         </ownedCommentsInternal>
         <elementDefinition Id="5413b6e2-ed55-4833-9bf7-f87ce25d0793" />
         <fragments>
