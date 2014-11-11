@@ -7,9 +7,6 @@ namespace SmallWorld
 {
     public class JeuManager : Jeu
     {
-        private Joueur Joueur1;
-
-        private Joueur Joueur2;
 
         public Monteur Monteur
         {
@@ -55,22 +52,7 @@ namespace SmallWorld
             }
         }
 
-        public TypePartie creationPartie()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void placerUnites()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public JoueurImpl creationJoueur()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void choixPremierJoueur()
+        public void checkAllUnites()
         {
             throw new System.NotImplementedException();
         }

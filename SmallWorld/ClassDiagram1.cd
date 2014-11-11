@@ -12,11 +12,11 @@
   <Comment CommentText="Stratégie">
     <Position X="16.205" Y="7.052" Height="0.427" Width="1.169" />
   </Comment>
-  <Comment CommentText="NE PAS OUBLIER DE METTRE LES CONSTRUCTEURS !!!!">
-    <Position X="11.375" Y="0.792" Height="0.75" Width="1.7" />
+  <Comment CommentText="Gestion des joueurs&#xD;&#xA;et des tours">
+    <Position X="12.196" Y="1.092" Height="0.75" Width="1.7" />
   </Comment>
   <Comment CommentText="Représentation des cases dans Carte ?&#xD;&#xA;&#xD;&#xA;Singleton ?&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
-    <Position X="5.918" Y="4.529" Height="0.75" Width="1.7" />
+    <Position X="6.035" Y="4.125" Height="0.75" Width="1.7" />
   </Comment>
   <Comment CommentText="Attributs dans Monteur : joueurs, carte,...&#xD;&#xA;Singleton ?">
     <Position X="20.303" Y="2.437" Height="0.75" Width="1.7" />
@@ -67,29 +67,29 @@
   <Class Name="SmallWorld.UniteImpl">
     <Position X="8" Y="7.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAASCAAAAAAAAAAAAAAAAAAAAAAAAAAABgAIAAAAA=</HashCode>
+      <HashCode>AAAAASCAAAEAAAAAABAAAAAAAAAAAAAAAABgAKAAAAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.UniteOrc">
-    <Position X="10.25" Y="10.25" Width="1.5" />
+    <Position X="10.25" Y="11.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>UniteOrc.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteElfe">
-    <Position X="8.5" Y="10.25" Width="1.5" />
+    <Position X="8.5" Y="11.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>UniteElfe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteNain">
-    <Position X="6.75" Y="10.25" Width="1.5" />
+    <Position X="6.75" Y="11.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>UniteNain.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -215,8 +215,13 @@
   </Class>
   <Class Name="SmallWorld.JeuManager">
     <Position X="13.75" Y="1" Width="1.5" />
+    <AssociationLine Name="CarteImpl" Type="SmallWorld.CarteImpl">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.138" Y="-0.867" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAABAAAEIAAAAAAAAAAAAAAAAAABAAQAAQAEAASAg=</HashCode>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAABAAAAAQAAAABAg=</HashCode>
       <FileName>JeuManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -253,7 +258,7 @@
   <Interface Name="SmallWorld.Unite">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
       <FileName>Unite.cs</FileName>
     </TypeIdentifier>
   </Interface>
