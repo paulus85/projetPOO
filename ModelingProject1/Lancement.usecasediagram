@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="1aa32e15-9671-4fc0-9fa9-70a8a9c66da8" name="Lancement" linkedPackageId="338a5299-6e03-4417-83fc-5841b201ef23" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/SequenceDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="1aa32e15-9671-4fc0-9fa9-70a8a9c66da8" name="Lancement" linkedPackageId="338a5299-6e03-4417-83fc-5841b201ef23" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="cdf88348-b153-4beb-a6d3-c85eb278dc8a" name="Joueur" isAbstract="false" isLeaf="false">
@@ -29,19 +29,25 @@
         <elementDefinition Id="5ddf883f-92fd-4a50-a862-2aafe3e93c41" />
         <additions>
           <include Id="8fdaf088-3f3b-4e21-854d-ea80b6541090">
-            <useCaseMoniker Id="de0edcad-321d-4478-9e56-ff5489b76149" LastKnownName="Choisir son peuple" />
+            <useCaseMoniker Id="de0edcad-321d-4478-9e56-ff5489b76149" LastKnownName="Choisir type carte" />
             <elementDefinition Id="7de74fc7-9bbe-4ad3-847c-4b2165f85c77" />
           </include>
           <include Id="c6e48e3d-1148-44b6-bc9c-463ad903b167">
-            <useCaseMoniker Id="0a4251b8-6b9c-4e06-b072-8dbb25cfe789" LastKnownName="Placer ses unités" />
+            <useCaseMoniker Id="0a4251b8-6b9c-4e06-b072-8dbb25cfe789" LastKnownName="Créer Joueurs" />
             <elementDefinition Id="15333e6e-19e4-4de4-817c-a0682d60645b" />
           </include>
         </additions>
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="4115cd93-81ac-40b3-8e5f-824a2e961493" name="Charger une partie" isAbstract="false" isLeaf="false">
         <elementDefinition Id="956d256f-5b22-4e5c-8e50-94cd266a9e9a" />
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -57,18 +63,58 @@
             <elementDefinition Id="0234232c-236b-47ab-9841-b06d62c161d4" />
           </extend>
         </extendedCases>
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="de0edcad-321d-4478-9e56-ff5489b76149" name="Choisir son peuple" isAbstract="false" isLeaf="false">
+      <useCase Id="de0edcad-321d-4478-9e56-ff5489b76149" name="Choisir type carte" isAbstract="false" isLeaf="false">
         <elementDefinition Id="4428cf30-4f64-48ce-9f25-f1ee32fc9c46" />
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
-      <useCase Id="0a4251b8-6b9c-4e06-b072-8dbb25cfe789" name="Placer ses unités" isAbstract="false" isLeaf="false">
+      <useCase Id="0a4251b8-6b9c-4e06-b072-8dbb25cfe789" name="Créer Joueurs" isAbstract="false" isLeaf="false">
         <elementDefinition Id="1d72c81b-ef75-4f7c-8933-b7451bb08496" />
+        <additions>
+          <include Id="e1b2446f-f0c4-40bc-8bf0-9d901fd7d26d">
+            <useCaseMoniker Id="6311a86c-7268-4743-9f84-85a45437ca0c" LastKnownName="Choisir Nom" />
+            <elementDefinition Id="2f2f07e8-a2f5-4e28-84d1-b594a87120db" />
+          </include>
+          <include Id="646b5375-22df-4710-9011-dd13325dd02c">
+            <useCaseMoniker Id="cfd4a9a6-d80b-4076-b109-9ea1c2cc4076" LastKnownName="Choisir Peuple" />
+            <elementDefinition Id="1c53c201-f733-44f0-ae13-c3a87f3507b5" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
       </useCase>
     </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9d11f9cf-cc3e-46e9-9b54-03fbb6a7984b" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="6311a86c-7268-4743-9f84-85a45437ca0c" name="Choisir Nom" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d6e7430c-3617-478f-9399-d9ced4978af2" />
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="cfd4a9a6-d80b-4076-b109-9ea1c2cc4076" name="Choisir Peuple" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b1a8a66b-a30b-4aea-9d03-b223353d196c" />
+        <subjects>
+          <subsystemMoniker Id="cc08d556-1430-4bc6-9b9a-0bcc720c2d6a" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
   </packagedElements>
   <package Id="338a5299-6e03-4417-83fc-5841b201ef23" name="ModelingProject1">
     <elementDefinition Id="622ed13b-0f6e-4504-a974-ed38d4f073ea" />
