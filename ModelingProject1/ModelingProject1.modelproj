@@ -29,20 +29,6 @@
       <SubType>Content</SubType>
       <DependentUpon>Lancement.sequencediagram</DependentUpon>
     </Content>
-    <Content Include="SequenceLancement.sequencediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="SequenceLancement.sequencediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>SequenceLancement.sequencediagram</DependentUpon>
-    </Content>
-    <Content Include="SequenceLancement2.sequencediagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="SequenceLancement2.sequencediagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>SequenceLancement2.sequencediagram</DependentUpon>
-    </Content>
     <Content Include="Tour.sequencediagram">
       <SubType>Content</SubType>
     </Content>
@@ -63,13 +49,6 @@
     <Content Include="Lancement.usecasediagram.layout">
       <SubType>Content</SubType>
       <DependentUpon>Lancement.usecasediagram</DependentUpon>
-    </Content>
-    <Content Include="UMLActivityDiagram1.activitydiagram">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="UMLActivityDiagram1.activitydiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>UMLActivityDiagram1.activitydiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\ModelingProject1.uml">
