@@ -12,22 +12,22 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
     
-        public TypePartie choixTypePartie()
-        {
-            throw new System.NotImplementedException();
-}
-
-        public CarteImpl creationCarte()
+        public override TypePartie choixTypePartie()
         {
             throw new System.NotImplementedException();
         }
 
-        public Joueur[] creationJoueurs()
+        public override CarteImpl creationCarte()
         {
             throw new System.NotImplementedException();
-}
+        }
 
-        public Joueur choixPremierJoueur()
+        public override Joueur[] creationJoueurs()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override Joueur choixPremierJoueur()
         {
             throw new System.NotImplementedException();
 }

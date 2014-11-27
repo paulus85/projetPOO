@@ -12,12 +12,24 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
 
-        public void combat(SmallWorld.Unite uniteAdverse);
+        public override void combat(SmallWorld.Unite uniteAdverse)
+        {
 
-        public void resetPointsDeplacement();
+        }
 
-        public void updatePointsDeplacement(SmallWorld.Case typeCase);
+        public override void resetPointsDeplacement()
+        {
 
-        public void updatePointsVie(int newPV);
+        }
+
+        public override void updatePointsDeplacement(SmallWorld.Case typeCase)
+        {
+
+        }
+
+        public override void updatePointsVie(int newPV)
+        {
+
+        }
     }
 }
