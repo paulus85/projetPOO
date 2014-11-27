@@ -22,8 +22,8 @@ namespace SmallWorld
 
         void updatePointsVie(int newPV);
 
-        public double calculAttaque();
+        double calculAttaque();
 
-        public double calculDefense();
+        double calculDefense();
     }
 }

@@ -12,7 +12,7 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
 
-        public override void combat(SmallWorld.Unite uniteAdverse)
+        public void combat(SmallWorld.Unite uniteAdverse)
         {
 
         }
