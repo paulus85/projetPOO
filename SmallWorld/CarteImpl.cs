@@ -31,7 +31,7 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
     
-        public List<Case> Case
+        public Case[,] Case
             //Liste ordonnée des cases
         {
             get

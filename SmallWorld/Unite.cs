@@ -7,6 +7,13 @@ namespace SmallWorld
 {
     public interface Unite
     {
+
+        int PointsDeVie { get; set; }
+
+        int X { get; set; }
+
+        int Y { get; set; }
+
         void resetPointsDeplacement();
 
         void updatePointsDeplacement(Case typeCase);
@@ -14,5 +21,9 @@ namespace SmallWorld
         void combat(Unite uniteAdverse);
 
         void updatePointsVie(int newPV);
+
+        public double calculAttaque();
+
+        public double calculDefense();
     }
 }

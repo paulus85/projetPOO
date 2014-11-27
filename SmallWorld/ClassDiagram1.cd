@@ -16,7 +16,7 @@
     <Position X="12.196" Y="1.092" Height="0.75" Width="1.7" />
   </Comment>
   <Comment CommentText="Représentation des cases dans Carte ?&#xD;&#xA;&#xD;&#xA;Singleton ?&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;">
-    <Position X="6.035" Y="4.125" Height="0.75" Width="1.7" />
+    <Position X="5.686" Y="4.458" Height="0.75" Width="1.7" />
   </Comment>
   <Comment CommentText="Attributs dans Monteur : joueurs, carte,...&#xD;&#xA;Singleton ?">
     <Position X="20.303" Y="2.437" Height="0.75" Width="1.7" />
@@ -67,7 +67,7 @@
   <Class Name="SmallWorld.UniteImpl">
     <Position X="8" Y="7.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAASCAAAEAAAAAABAAAAAAAAAAAAAAAABgAKAAAAA=</HashCode>
+      <HashCode>AAAAASCAAAEAAAAAABAAAAAAAAAAAAAACABwAKAAAAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -258,7 +258,7 @@
   <Interface Name="SmallWorld.Unite">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAQACAAAAA=</HashCode>
       <FileName>Unite.cs</FileName>
     </TypeIdentifier>
   </Interface>
