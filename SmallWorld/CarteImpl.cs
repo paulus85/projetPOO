@@ -7,6 +7,20 @@ namespace SmallWorld
 {
     public class CarteImpl : Carte
     {
+        public static CarteImpl instance;
+
+        public static CarteImpl Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new CarteImpl();
+                }
+                return instance;
+            }
+        }
+
         public CarteImpl()
         {
             throw new System.NotImplementedException();
