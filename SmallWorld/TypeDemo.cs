@@ -11,5 +11,17 @@ namespace SmallWorld
         {
             throw new System.NotImplementedException();
         }
+
+        /// <summary>
+        /// Permet de mettre à jour les variables du jeu 
+        /// </summary>
+        public void execute()
+        {
+            base.NbJoueurs = 2;
+            base.NbCases = 6;
+            base.NbTours = 5;
+            base.NbUnites = 4;
+
+        }
     }
 }

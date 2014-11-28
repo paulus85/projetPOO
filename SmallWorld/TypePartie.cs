@@ -7,9 +7,16 @@ namespace SmallWorld
 {
     public abstract class TypePartie
     {
-        private int nbJoueurs;
+        /*private int nbJoueurs;
         private int nbCases;
         private int nbTours;
-        private int nbUnites;
+        private int nbUnites;*/
+
+        public int NbJoueurs { get; set; }
+        public int NbCases { get; set; }
+        public int NbTours { get; set; }
+        public int NbUnites { get; set; }
+        
+        void execute();
     }
 }

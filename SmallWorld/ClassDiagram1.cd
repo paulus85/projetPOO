@@ -67,7 +67,7 @@
   <Class Name="SmallWorld.UniteImpl">
     <Position X="8" Y="7.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAASCAAAEAAAAAABAAAAAAAAAAAAAACABwAKAAAAA=</HashCode>
+      <HashCode>AAAAASCAAAEAAAAQCBAAAAAAAAAAAAAACABwAKAAYAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -96,7 +96,7 @@
   <Class Name="SmallWorld.CarteImpl">
     <Position X="6" Y="3" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>CarteImpl.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -142,28 +142,28 @@
   <Class Name="SmallWorld.TypePartie">
     <Position X="17.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIACAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAIAAAAAAAGAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>TypePartie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypeDemo">
     <Position X="15.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypeDemo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypePetite">
     <Position X="17.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypePetite.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypeNormale">
     <Position X="19.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypeNormale.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -221,7 +221,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAABAAAAAQAAAABAg=</HashCode>
+      <HashCode>AAAAAAAAAAIAAAAAAABAAAAAAAAAABAAAABQAAAABAg=</HashCode>
       <FileName>JeuManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -234,38 +234,38 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="SmallWorld.Peuple">
+  <Interface Name="SmallWorld.Peuple" Collapsed="true">
     <Position X="1" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>Peuples.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SmallWorld.Joueur">
+  <Interface Name="SmallWorld.Joueur" Collapsed="true">
     <Position X="3" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Joueur.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SmallWorld.Carte">
+  <Interface Name="SmallWorld.Carte" Collapsed="true">
     <Position X="7" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Carte.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="SmallWorld.Unite">
+  <Interface Name="SmallWorld.Unite" Collapsed="true">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAEAAAAAABAAAAAAAAAAAAAAAAAQACAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAEAAAAQCBAAAAAAAAAAAAAAAAAQACAAYAA=</HashCode>
       <FileName>Unite.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Jeu">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAg=</HashCode>
       <FileName>Jeu.cs</FileName>
     </TypeIdentifier>
   </Interface>

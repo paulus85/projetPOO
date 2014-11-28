@@ -7,14 +7,18 @@ namespace SmallWorld
 {
     public abstract class Monteur
     {
-        public Joueur preparerPartie()
+        public Jeu preparerPartie()
         {
-            throw new System.NotImplementedException();
+            Jeu j = new JeuManager();
+            j.CarteImpl = creationCarte();
+            j.Joueurs = creationJoueurs();
+            ///TODO 
+            return j;
         }
 
         public abstract Joueur choixPremierJoueur();
 
-        public abstract Joueur[] creationJoueurs();
+        public abstract JoueurImpl[] creationJoueurs();
 
         public abstract TypePartie choixTypePartie();
 

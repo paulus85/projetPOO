@@ -22,7 +22,7 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
 
-        public override Joueur[] creationJoueurs()
+        public override JoueurImpl[] creationJoueurs()
         {
             throw new System.NotImplementedException();
 }

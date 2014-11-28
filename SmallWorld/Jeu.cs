@@ -7,5 +7,16 @@ namespace SmallWorld
 {
     public interface Jeu
     {
+
+       
+        public Monteur Monteur { get; set; }
+
+       
+        public CarteImpl CarteImpl { get; set; }
+
+     
+        public TypePartie TypePartie { get; set; }
+
+        public JoueurImpl[] Joueurs { get; set; }
     }
 }

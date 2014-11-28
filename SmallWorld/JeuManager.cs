@@ -8,6 +8,9 @@ namespace SmallWorld
     public class JeuManager : Jeu
     {
 
+        #region Properties
+        
+        
         public Monteur Monteur
         {
             get
@@ -52,9 +55,28 @@ namespace SmallWorld
             }
         }
 
+        #endregion
+
         public void checkAllUnites()
         {
             throw new System.NotImplementedException();
+        }
+
+        /// <summary>
+        /// Defines the correct TypePartie for the game.
+        /// </summary>
+        /// <param name="tp">The correct TypePartie (choosen between Demo, Petite and Normale)</param>
+        public void definirTypePartie(TypePartie tp)
+        {
+
+        }
+
+        /// <summary>
+        /// Updates the variables of TypePartie
+        /// </summary>
+        public void updateVariables()
+        {
+
         }
     }
 }

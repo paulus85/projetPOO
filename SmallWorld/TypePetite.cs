@@ -11,5 +11,14 @@ namespace SmallWorld
         {
             throw new System.NotImplementedException();
         }
+
+        public void execute()
+        {
+            base.NbJoueurs = 2;
+            base.NbCases = 10;
+            base.NbTours = 20;
+            base.NbUnites = 6;
+
+        }
     }
 }
