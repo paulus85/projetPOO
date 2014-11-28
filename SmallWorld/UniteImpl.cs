@@ -7,19 +7,25 @@ namespace SmallWorld
 {
     public abstract class UniteImpl : Unite
     {
-        private int points;
-        private float pointsDeplacement;
-        private int x;
-        private int y;
-        private int pointsAttaque;
-        private int pointsDefense;
-        private int pointDeVie;
+        private int _points;
+        private float _pointsDeplacement;
+        private int _x;
+        private int _y;
+        private int _pointsAttaque;
+        private int _pointsDefense;
+        private int _pointDeVie;
 
-        public int PointsDeVie { get { return pointDeVie; } set { pointDeVie = value;} }
+        public float PointsDeplacement { get; set; }
 
         public int X { get; set; }
 
         public int Y { get; set; }
+
+        public int PointsAttaque { get; set; }
+
+        public int PointsDefense { get; set; }
+
+        public int PointsDeVie { get; set; }
 
         public void combat(SmallWorld.Unite uniteAdverse)
         {
@@ -54,6 +60,7 @@ namespace SmallWorld
                 //Tirage du nombre aléatoire
                 int N = new Random().Next(0, 100);
 
+                //Décision sur la victoire
                 if (N >= PctgAttaquant)
                 {
                     uniteAdverse.PointsDeVie--;
@@ -69,20 +76,22 @@ namespace SmallWorld
 
         public Double calculAttaque()
         {
-            return Math.Floor((Double)(pointsAttaque/(pointDeVie %= 5)) * 100);
+            return Math.Floor((Double)(PointsAttaque / (PointsDeVie %= 5)) * 100);
         }
 
         public Double calculDefense()
         {
-            return Math.Ceiling((Double)(pointsDefense / (pointDeVie %= 5)) * 100);
+            return Math.Ceiling((Double)(PointsDefense / (PointsDeVie %= 5)) * 100);
         }
 
-        public abstract void resetPointsDeplacement();
+        public void resetPointsDeplacement()
+        {
+            PointsDeplacement = 1;
+        }
 
         public abstract void updatePointsDeplacement(SmallWorld.Case typeCase);
 
-        public abstract void updatePointsVie(int newPV);
-
-        
+        public abstract void validationDplacement(int x, int y);
+                
     }
 }

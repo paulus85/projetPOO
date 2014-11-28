@@ -26,10 +26,5 @@ namespace SmallWorld
         {
 
         }
-
-        public override void updatePointsVie(int newPV)
-        {
-
-        }
     }
 }
