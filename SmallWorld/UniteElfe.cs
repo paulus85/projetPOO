@@ -12,6 +12,12 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
 
+        public UniteElfe(int xinit, int yinit)
+        {
+            X = xinit;
+            Y = yinit;
+        }
+
         public void combat(SmallWorld.Unite uniteAdverse)
         {
 

@@ -12,7 +12,7 @@ namespace SmallWorld
             Jeu j = new JeuManager();
             j.CarteImpl = creationCarte();
             j.Joueurs = creationJoueurs();
-            ///TODO 
+            // TODO: implémenter ici
             return j;
         }
 

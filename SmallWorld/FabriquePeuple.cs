@@ -7,24 +7,32 @@ namespace SmallWorld
 {
     public class FabriquePeuple
     {
+        /// <summary>
+        /// Thoses booleans says if we have already created a Peuple form the specie.
+        /// </summary>
+        private bool ElfeCreated;
+        private bool OrcCreated;
+        private bool NainCreated;
         public FabriquePeuple()
         {
-            throw new System.NotImplementedException();
+            ElfeCreated = false;
+            OrcCreated = false;
+            NainCreated = false;
         }
     
         public Peuple creerOrc()
         {
-            throw new System.NotImplementedException();
+            return new PeupleOrc();
         }
 
         public Peuple creerElfe()
         {
-            throw new System.NotImplementedException();
+            return new PeupleElfe();
         }
 
         public Peuple creerNain()
         {
-            throw new System.NotImplementedException();
+            return new PeupleNain();
         }
     }
 }

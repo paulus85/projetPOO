@@ -14,7 +14,13 @@ namespace SmallWorld
 
         public override void generationUnites(int nbrUnites, int xinit, int yinit)
         {
-            throw new System.NotImplementedException();
-}
+            for (int i = 0; i < nbrUnites; i++)
+            {
+                // Génération des unités propres
+                Unite unit = new UniteElfe(xinit, yinit);
+                base.ListUnite.Add(unit);
+                // TODO: a tester
+            }
+        }
     }
 }
