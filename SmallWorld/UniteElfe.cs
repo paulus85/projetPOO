@@ -18,11 +18,6 @@ namespace SmallWorld
             Y = yinit;
         }
 
-        public void combat(SmallWorld.Unite uniteAdverse)
-        {
-
-        }
-
         public override void resetPointsDeplacement()
         {
 
@@ -31,6 +26,11 @@ namespace SmallWorld
         public override void updatePointsDeplacement(SmallWorld.Case typeCase)
         {
 
+        }
+
+        public override void validationDplacement(int x, int y)
+        {
+            throw new NotImplementedException();
         }
     }
 }

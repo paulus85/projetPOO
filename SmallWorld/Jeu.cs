@@ -9,14 +9,14 @@ namespace SmallWorld
     {
 
        
-        public Monteur Monteur { get; set; }
+        Monteur Monteur { get; set; }
 
        
-        public CarteImpl CarteImpl { get; set; }
+        CarteImpl CarteImpl { get; set; }
 
      
-        public TypePartie TypePartie { get; set; }
+        TypePartie TypePartie { get; set; }
 
-        public JoueurImpl[] Joueurs { get; set; }
+        JoueurImpl[] Joueurs { get; set; }
     }
 }
