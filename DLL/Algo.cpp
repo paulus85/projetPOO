@@ -1,7 +1,7 @@
 #include "Algo.h"
+#include <stdlib.h>
+#include <time.h>
 
-int Algo::computeFoo() { return 1; }
 
-Algo* Algo_new() { return new Algo(); }
-void Algo_delete(Algo* algo) { delete algo; }
-int Algo_computeAlgo(Algo* algo) { return algo->computeFoo(); }
+
+Carte* Carte_Demo(int const nbCases) { 	srand(time(NULL));	int tab[6][6];	int controleTab[4,0];	int val;	//0:Plaine, 1:Désert, 2:Montagne, 3:Forêt	for (int i = 0; i < nbCases; i++){		for (int j = 0; j < nbCases; j++){			do			{				val = rand() % 4;				tab[i][j] = val;			} 			while (controleTab[val == 9])		}	}		return new Carte(); }

@@ -6,14 +6,14 @@
 #define EXTERNC
 #endif
 
-class DLL Algo {
+class DLL Carte {
+
+	int tab[6][6];
+
 public:
-	Algo() {}
-	~Algo() {}
-	int computeFoo();
+	Carte(int nbCases) {}
+	~Carte() {}
 };
 
 // A ne pas implémenter dans le .h !
-EXTERNC DLL Algo* Algo_new();
-EXTERNC DLL void Algo_delete(Algo* algo);
-EXTERNC DLL int Algo_computeAlgo(Algo* algo);
+EXTERNC DLL Carte* Carte_Demo(int nbCases);
