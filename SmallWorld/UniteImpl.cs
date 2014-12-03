@@ -84,10 +84,7 @@ namespace SmallWorld
             return Math.Ceiling((Double)(PointsDefense / (PointsDeVie %= 5)) * 100);
         }
 
-        public void resetPointsDeplacement()
-        {
-            PointsDeplacement = 1;
-        }
+        public abstract void resetPointsDeplacement();
 
         public abstract void updatePointsDeplacement(SmallWorld.Case typeCase);
 

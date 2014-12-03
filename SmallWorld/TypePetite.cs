@@ -12,7 +12,7 @@ namespace SmallWorld
             throw new System.NotImplementedException();
         }
 
-        public void execute()
+        public override void execute()
         {
             base.NbJoueurs = 2;
             base.NbCases = 10;

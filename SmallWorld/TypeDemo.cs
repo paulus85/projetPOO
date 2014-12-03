@@ -15,7 +15,7 @@ namespace SmallWorld
         /// <summary>
         /// Permet de mettre à jour les variables du jeu 
         /// </summary>
-        public void execute()
+        public override void execute()
         {
             base.NbJoueurs = 2;
             base.NbCases = 6;

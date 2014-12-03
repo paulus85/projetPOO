@@ -16,7 +16,7 @@ namespace SmallWorld
         public int NbCases { get; set; }
         public int NbTours { get; set; }
         public int NbUnites { get; set; }
-        
-        void execute();
+
+        public abstract void execute();
     }
 }

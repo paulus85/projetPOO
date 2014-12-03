@@ -20,8 +20,6 @@ namespace SmallWorld
 
         void combat(Unite uniteAdverse);
 
-        void updatePointsVie(int newPV);
-
         double calculAttaque();
 
         double calculDefense();
