@@ -24,5 +24,11 @@ namespace WpfApplication
         {
             InitializeComponent();
         }
+
+        public SmallWorld.Carte carte = SmallWorld.CarteImpl.Instance;
+
+
+
+
     }
 }
