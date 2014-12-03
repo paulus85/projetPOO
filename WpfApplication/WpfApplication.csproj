@@ -93,6 +93,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\desert.png" />
+    <Resource Include="Ressources\foret.png" />
+    <Resource Include="Ressources\ocean.png" />
+    <Resource Include="Ressources\plaine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmallWorld\SmallWorld.csproj">
+      <Project>{680fd38c-9c82-4c14-a6d7-57a518d9bdd1}</Project>
+      <Name>SmallWorld</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
