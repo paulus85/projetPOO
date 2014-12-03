@@ -7,73 +7,38 @@ namespace SmallWorld
 {
     public class FabriqueCase
     {
+
         public FabriqueCase()
         {
-            throw new System.NotImplementedException();
-        }
-    
-        public CasePlaine CasePlaine
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            
         }
 
-        public CaseDesert CaseDesert
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public CasePlaine casePlaine = new CasePlaine();
 
-        public CaseMontagne CaseMontagne
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public CaseDesert caseDesert = new CaseDesert();
 
-        public CaseForet CaseForet
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        public CaseMontagne caseMontagne = new CaseMontagne();
+
+        public CaseForet caseForet = new CaseForet();
 
         public CasePlaine creerPlaine()
         {
-            throw new System.NotImplementedException();
+            return casePlaine;
         }
 
         public CaseDesert creerDesert()
         {
-            throw new System.NotImplementedException();
+            return caseDesert;
         }
 
         public CaseMontagne creerMontagne()
         {
-            throw new System.NotImplementedException();
+            return caseMontagne;
         }
 
         public CaseForet creerForet()
         {
-            throw new System.NotImplementedException();
+            return caseForet;
         }
     }
 }

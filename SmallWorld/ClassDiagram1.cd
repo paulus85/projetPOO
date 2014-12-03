@@ -102,11 +102,11 @@
   <Class Name="SmallWorld.CarteImpl">
     <Position X="5.5" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AACAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQAAAAAAQAAAAEAABAABAAQAAAAAAAAAA=</HashCode>
       <FileName>CarteImpl.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="Case" />
+      <Property Name="Cases" />
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
@@ -194,22 +194,21 @@
   </Class>
   <Class Name="SmallWorld.FabriqueCase">
     <Position X="10.5" Y="7.25" Width="2.5" />
-    <AssociationLine Name="CasePlaine" Type="SmallWorld.CasePlaine" FixedFromPoint="true" FixedToPoint="true">
+    <AssociationLine Name="casePlaine" Type="SmallWorld.CasePlaine" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="10.5" Y="7.5" />
-        <Point X="9" Y="7.5" />
+        <Point X="10.5" Y="7.56" />
+        <Point X="9" Y="7.56" />
         <Point X="9" Y="6.247" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAEAAAAAAAAAAAAAAAAQCAAAAABABEAAAAAAIACA=</HashCode>
+      <HashCode>AAAAIEAAAAAAAAAAAAAAAAQAEAAAAgAAEAAAAQAIAAA=</HashCode>
       <FileName>FabriqueCase.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="CasePlaine" />
-      <Property Name="CaseDesert" />
-      <Property Name="CaseMontagne" />
-      <Property Name="CaseForet" />
+      <Field Name="casePlaine" />
+      <Field Name="caseDesert" />
+      <Field Name="caseForet" />
     </ShowAsAssociation>
   </Class>
   <Class Name="SmallWorld.MonteurNPartie">

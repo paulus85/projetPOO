@@ -7,9 +7,12 @@ namespace SmallWorld
 {
     public class CarteImpl : Carte
     {
-        public static CarteImpl instance;
 
-        public static CarteImpl Instance
+        private Case[,] cases;
+        private static CarteImpl instance = null;
+        public FabriqueCase fabrique = new FabriqueCase();
+
+       public static CarteImpl Instance
         {
             get
             {
@@ -23,15 +26,15 @@ namespace SmallWorld
 
         public CarteImpl()
         {
-            throw new System.NotImplementedException();
+            
         }
 
         public CarteImpl(int lon, int lar)
         {
-            throw new System.NotImplementedException();
+            instanciateCasesTab(lon, lar);
         }
     
-        public Case[,] Case
+        public Case[,] Cases
             //Liste ordonnée des cases
         {
             get
@@ -41,6 +44,11 @@ namespace SmallWorld
             set
             {
             }
+        }
+
+        public void instanciateCasesTab(int lon, int lar)
+        {
+            cases = new Case[lon, lar];
         }
     }
 }

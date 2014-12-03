@@ -16,7 +16,7 @@
 
 
 
-        <Canvas>
+        <Canvas x:Name="canvas">
             <Label Content="Carte du jeu" />
         </Canvas>
     </DockPanel>

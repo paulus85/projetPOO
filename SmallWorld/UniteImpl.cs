@@ -30,7 +30,7 @@ namespace SmallWorld
         public void combat(SmallWorld.Unite uniteAdverse)
         {
             int NbAttaques = new Random().Next(3, Math.Max(this.PointsDeVie, uniteAdverse.PointsDeVie));
-            Type terrain = CarteImpl.instance.Case[uniteAdverse.X, uniteAdverse.Y].GetType();
+            Type terrain = CarteImpl.Instance.Cases[uniteAdverse.X, uniteAdverse.Y].GetType();
 
             while (NbAttaques != 0 || this.PointsDeVie != 0 || uniteAdverse.PointsDeVie != 0)
             {

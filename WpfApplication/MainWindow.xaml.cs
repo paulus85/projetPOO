@@ -17,16 +17,32 @@ namespace WpfApplication
 {
     /// <summary>
     /// Logique d'interaction pour MainWindow.xaml
+    /// Ceci est le controller
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        SmallWorld.CarteImpl carte;
+        const int dimensionCase = 5;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        public SmallWorld.Carte carte = SmallWorld.CarteImpl.Instance;
+        public void creerCarte(){
+            SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
+            carte.instanciateCasesTab(2, 2);
+            carte.Cases[1,1] = carte.fabrique.creerDesert();
+            carte.Cases[0,0] = carte.fabrique.creerDesert();
+            Rectangle rec = new Rectangle();
+            //canvas.Children.Add(new Rectangle())
+        }
+       
 
+        
+
+        
 
 
 
