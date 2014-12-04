@@ -6,17 +6,17 @@
 #define EXTERNC
 #endif
 
-class DLL CarteDemo {
+class DLL Carte {
 
 	int** _carte;
 
 public:
-	CarteDemo() {}
-	~CarteDemo() {}
+	Carte(int nbCases);
+	~Carte();
 
-	int** carte();
+	int** getCarte();
 };
 
 // A ne pas implémenter dans le .h !
-EXTERNC DLL CarteDemo* Carte_Demo();
+//EXTERNC DLL Carte* Carte_Demo();
 
