@@ -6,17 +6,28 @@
     <DockPanel>
         <Grid DockPanel.Dock="Bottom">
             <StackPanel HorizontalAlignment="Left">
-
+                <Label Content="Infos Joueur 1" />
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
-                
+                <Label Content="Info Joueur 2" />
             </StackPanel>
             <Button HorizontalAlignment="Right" Content="Fin du tour"></Button>
         </Grid>
 
 
 
-        <Canvas x:Name="canvas">
+        <Canvas x:Name="canvas" Background="CadetBlue">
+            <Path Stroke="Blue"  
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                Margin="0" x:Name="polygon" 
+                Stretch="Fill" 
+                Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" 
+                RenderTransformOrigin="0.507,0.513" 
+                Canvas.Left="362.75" Canvas.Top="146.5">
+                <Path.Fill>
+                    <ImageBrush ImageSource="C:\Users\Paul\Documents\SmallWorld\WpfApplication\Ressources\desert.png" />
+                </Path.Fill>
+            </Path>
             <Label Content="Carte du jeu" />
         </Canvas>
     </DockPanel>
