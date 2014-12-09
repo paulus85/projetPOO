@@ -8,6 +8,24 @@
 	Title="NouveauJeu">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" BorderThickness="1" BorderBrush="Black">
+                
+            </Border>
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="Black">
+
+            </Border>
+        </Grid>
+        
+        <Label Grid.Row="1">Sélection de la taille de la carte</Label>
         
     </Grid>
 </Page>

@@ -96,6 +96,11 @@ namespace WpfApplication
             MessageBox.Show("Bientôt ! :)");
         }
 
+        private void NouvellePartie_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = new NouveauJeu();
+        }
+
         
 
         
