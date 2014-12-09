@@ -70,24 +70,35 @@ namespace WpfApplication
 
         }
 
-        public void creerCarte(){
-            SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
-            carte.instanciateCasesTab(2, 2);
-            carte.Cases[1,1] = carte.fabrique.creerDesert();
-            carte.Cases[0,0] = carte.fabrique.creerDesert();
-            Rectangle rec = new Rectangle();
-            //canvas.Children.Add(new Rectangle())
-            rec.Height = 10;
-            rec.Width = 20;
-            rec.Stroke = Brushes.Aqua;
-            canvas.Children.Add(rec);
+        private void Quitter_Click(object sender, RoutedEventArgs e)
+        {
+            // Configuration de la boite de dialogue
+            String messageBoxMessage = "Est-vous sûr de vouloir vraiment quitter cette superbe application ?";
+            String title = "Confirmation";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage image = MessageBoxImage.None;
+            MessageBoxResult res = MessageBox.Show(messageBoxMessage,title,buttons,image);
+            switch (res)
+            {
+                case MessageBoxResult.Yes :
+                    MessageBox.Show("Salaud !");
+                    Application.Current.Shutdown();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+            
         }
 
-        public void creerCase(SmallWorld.Case c, int x, int y) {
-
-            Polygon caseDraw = new Polygon();
-            caseDraw.Points = new PointCollection();
+        private void Charger_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO : faire les méthodes de désérialisation
+            MessageBox.Show("Bientôt ! :)");
         }
+
+        
+
+        
 
         //private void Path_MouseEnter(object sender, MouseEventArgs e)
         //{
