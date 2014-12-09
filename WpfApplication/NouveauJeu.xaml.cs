@@ -24,5 +24,12 @@ namespace WpfApplication
         {
             InitializeComponent();
         }
+
+        private void Commencer_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow parent = (Application.Current.MainWindow as MainWindow);
+            //Passage des paramètres via l'objet parent. --> appel aux méthodes de construction du jeu.
+
+        }
     }
 }

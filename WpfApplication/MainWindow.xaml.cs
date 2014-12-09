@@ -36,6 +36,7 @@ namespace WpfApplication
                 //PropertyChanged("Champ");
             }
         }
+        public int yolo { get; set; }
 
         public MainWindow()
         {
