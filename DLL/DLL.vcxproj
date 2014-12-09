@@ -65,9 +65,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Carte.h" />
+    <ClInclude Include="Enum.h" />
+    <ClInclude Include="Joueur.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Carte.cpp" />
+    <ClCompile Include="Joueur.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

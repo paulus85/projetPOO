@@ -6,17 +6,24 @@
 #define EXTERNC
 #endif
 
+#include "Enum.h"
+#include <stdlib.h>
+#include <time.h>
+
 class DLL Carte {
 
-	int** _carte;
+	Tuile** _carte;
 
 public:
 	Carte(int nbCases);
 	~Carte();
 
-	int** getCarte();
+	Tuile** getCarte();
 };
 
 // A ne pas implémenter dans le .h !
-//EXTERNC DLL Carte* Carte_Demo();
+EXTERNC DLL Carte* Carte_new(int nbCases);
+EXTERNC DLL void Carte_delete(Carte* carte);
+EXTERNC DLL Tuile** GetCarte(Carte* carte);
+
 
