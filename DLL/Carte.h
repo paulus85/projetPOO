@@ -7,6 +7,7 @@
 #endif
 
 #include "Enum.h"
+#include "Joueur.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -15,7 +16,7 @@ class DLL Carte {
 	Tuile** _carte;
 
 public:
-	Carte(int nbCases);
+	Carte(int nbCases, Joueur* j1, Joueur* j2);
 	~Carte();
 
 	Tuile** getCarte();
