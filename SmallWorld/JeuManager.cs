@@ -78,5 +78,12 @@ namespace SmallWorld
         {
 
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JeuManager"/> class.
+        /// </summary>
+        public JeuManager()
+        {
+            
+        }
     }
 }

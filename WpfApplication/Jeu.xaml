@@ -6,6 +6,31 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Jeu">
+	<Page.Resources>
+		<Style x:Key="ButtonPolygon" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+                        <Grid>
+                            <Path x:Name="polygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" Stroke="Blue" StrokeThickness="0" Fill="{TemplateBinding Background}">
+                                <Path.RenderTransform>
+									<ScaleTransform ScaleY="8" ScaleX="8"/>
+								</Path.RenderTransform>
+							</Path>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+							<Trigger Property="IsMouseOver" Value="True"/>
+                            <Trigger Property="IsPressed" Value="True" />
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Page.Resources>
 
     <DockPanel>
         <Grid DockPanel.Dock="Bottom">
@@ -18,24 +43,11 @@
             <Button HorizontalAlignment="Right" Content="Fin du tour"></Button>
         </Grid>
 
-
-
-        <Canvas x:Name="canvas" Background="CadetBlue">
-            <Path Stroke="Blue"  
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Margin="0" x:Name="polygon" 
-                Stretch="Fill" 
-                Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" 
-                RenderTransformOrigin="0.507,0.513" 
-                Canvas.Left="0" Canvas.Top="0">
-                <Path.RenderTransform>
-                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"></ScaleTransform>
-                </Path.RenderTransform>
-                <Path.Fill>
-                    <ImageBrush ImageSource="C:\Users\Paul\Documents\SmallWorld\WpfApplication\Ressources\desert.png" />
-                </Path.Fill>
-            </Path>
-            <Label Content="Carte du jeu" />
-        </Canvas>
+        <ScrollViewer Padding="10" Background="CadetBlue">
+            <Canvas x:Name="canvas">
+               
+            </Canvas>
+        </ScrollViewer>
+        
     </DockPanel>
 </Page>

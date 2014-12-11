@@ -24,24 +24,12 @@ namespace WpfApplication
 
         SmallWorld.CarteImpl carte;
         const int dimensionCase = 5;
-        private string champ;
-        public string Champ
-        {
-            get { return champ; }
-            set
-            {
-                if (champ == value)
-                    return;
-                champ = value;
-                //PropertyChanged("Champ");
-            }
-        }
-        public int yolo { get; set; }
+        
 
         public MainWindow()
         {
             InitializeComponent();
-            champ = "Default";
+            
             this.DataContext = this;
             /*
             ImageBrush brush = new ImageBrush();

@@ -7,6 +7,9 @@ namespace SmallWorld
 {
     public abstract class Monteur
     {
+        public string NomJoueur1 { get; set; }
+        public string NomJoueur2 { get; set; }
+
         public Jeu preparerPartie()
         {
             Jeu j = new JeuManager();

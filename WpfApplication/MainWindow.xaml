@@ -3,15 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Main" Height="800" Width="1000" >
     <Window.Resources>
-        <Style x:Key="BorderRadius" TargetType="Border">
-            <Setter Property="BorderBrush" Value="White" />
-            <Setter Property="BorderThickness" Value="0" />
-            <Setter Property="CornerRadius" Value="3" />
-            <Setter Property="Background" Value="Aquamarine" />
-        </Style>
-        <Style x:Key="Button1" TargetType="Button" >
-            <Setter Property="Height" Value="45" />
-        </Style>
     </Window.Resources>
 
     <Grid>
@@ -28,8 +19,8 @@
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" Height="198" VerticalAlignment="Top" Width="400" Margin="296,60,296,0">
                 <Button Margin="10" Height="45" Content="Nouvelle Partie" Click="NouvellePartie_Click"/>
                 <Button Margin="10" Height="45" Content="Charger une partie" Click="Charger_Click"/>
-                <Button Margin="10" Height="45" Content="Quitter" Click="Quitter_Click"/>
-            </StackPanel>
+            <Button Margin="10" Height="45" Content="Quitter" Click="Quitter_Click"/>
+        </StackPanel>
     </Grid>
 
 
