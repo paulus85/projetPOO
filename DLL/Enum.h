@@ -1,8 +1,8 @@
 #pragma once
 
-enum class Tuile {
-	Plaine = 0,
-	Désert = 1,
-	Montagne = 2,
-	Forêt = 3
+const enum Tuile {
+	PLAINE = 0,
+	DESERT = 1,
+	MONTAGNE = 2,
+	FORET = 3
 };
