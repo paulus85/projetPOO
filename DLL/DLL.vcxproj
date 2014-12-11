@@ -64,13 +64,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Carte.h" />
+    <ClInclude Include="GenerateurCarte.h" />
     <ClInclude Include="Enum.h" />
-    <ClInclude Include="Joueur.h" />
+    <ClInclude Include="Point.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Carte.cpp" />
-    <ClCompile Include="Joueur.cpp" />
+    <ClCompile Include="GenerateurCarte.cpp" />
+    <ClCompile Include="Point.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,4 +1,4 @@
-#ifndef __WRAPPER__
+/*#ifndef __WRAPPER__
 #define __WRAPPER__
 
 #include "../DLL/Algo.h" // A changer
@@ -18,3 +18,21 @@ namespace Wrapper {
 	};
 }
 #endif
+*/
+#pragma once
+
+#include "../DLL/GenerateurCarte.h"
+#include "../DLL/Point.h"
+#include "../DLL/Enum.h"
+
+using namespace System;
+
+namespace Wrapper {
+
+	public ref class Wrapper {
+
+	public:
+		static array<array<int>^>^ genererCarte(int size);
+		static array<array<int>^>^ placementJoueur(array<array<int>^>^ map, int size);
+	};
+}
