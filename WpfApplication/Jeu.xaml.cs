@@ -15,6 +15,10 @@ using System.Windows.Shapes;
 
 namespace WpfApplication
 {
+
+    //const int PADDINGLIGNEPAIR = 70;
+    //const int PADDINGLIGNEIMPAIR = 145;
+
     /// <summary>
     /// Logique d'interaction pour Jeu.xaml
     /// </summary>
@@ -63,11 +67,16 @@ namespace WpfApplication
                 b.Style = FindResource("ButtonPolygon") as Style;
             }
             b.Background = chooseBackground(type);
-            b.MouseEnter += polygon_MouseDown;
+            //b.Background = Brushes.Black ;
+            b.MouseEnter += polygon_MouseEnter;
+            b.MouseLeave += polygon_MouseLeave;
             Canvas.SetLeft(b, paddingLigne + j * 150);
             Canvas.SetTop(b, 70 + i * 130);
+            Canvas.SetZIndex(b, 1);
             canvas.Children.Add(b);
         }
+
+        
 
         /// <summary>
         /// Froms the canvas to coord.
@@ -103,10 +112,15 @@ namespace WpfApplication
             {
                 case "Montagne" :
                     return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/mer.png")));
+                    
                 case "Desert" :
                     return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/desert.png")));
                 case "Foret" :
-                    return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png")));
+                    //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png")));
+                    ImageBrush ib = new ImageBrush();
+                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png"));
+                    ib.Stretch = Stretch.UniformToFill;
+                    return ib;
             }
             return null;
         }
@@ -142,7 +156,7 @@ namespace WpfApplication
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="MouseEventArgs" /> instance containing the event data.</param>
-        void polygon_MouseDown(object sender, MouseEventArgs e)
+        void polygon_MouseEnter(object sender, MouseEventArgs e)
         {
             FrameworkElement ender = sender as FrameworkElement;
             double top = (double)ender.GetValue(Canvas.TopProperty);
@@ -150,9 +164,20 @@ namespace WpfApplication
             double left = (double)ender.GetValue(Canvas.LeftProperty);
             Console.WriteLine(" " + left);
             int[] coord = FromCanvasToCoord(left, top);      
-            Console.WriteLine("Ligne : " + coord[0] + " Colonne : " + coord[1]);
+            //Console.WriteLine("Ligne : " + coord[0] + " Colonne : " + coord[1]);
+            Canvas.SetTop(PolygonSelected, top);
+            Canvas.SetLeft(PolygonSelected, left);
+            PolygonSelected.Visibility = Visibility.Visible;
+            e.Handled = true;
+            Console.WriteLine("MouseEnter");
             
-            
+        }
+
+        private void polygon_MouseLeave(object sender, MouseEventArgs e)
+        {
+            //PolygonSelected.Visibility = Visibility.Hidden;
+           // e.Handled = true;
+            Console.WriteLine("MouseLeave");
         }
 
         

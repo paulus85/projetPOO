@@ -1,0 +1,29 @@
+/// Style pour les hexagones
+
+<Style x:Key="ButtonPolygon" TargetType="{x:Type Button}">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0,0" Stretch="Fill"  Fill="{TemplateBinding Background}">      	
+                                <Path.LayoutTransform>
+									<ScaleTransform ScaleY="8" ScaleX="8"/>
+								</Path.LayoutTransform>
+							</Path>
+							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+						</Grid>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsFocused" Value="True"/>
+							<Trigger Property="IsDefaulted" Value="True"/>
+                            <Trigger Property="IsMouseOver" Value="True" />
+							<Trigger Property="IsDefault" Value="False"/>
+							<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+                            <Trigger Property="IsPressed" Value="True" />
+                            <Trigger Property="IsEnabled" Value="False"/>
+                        </ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>

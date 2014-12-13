@@ -7,30 +7,111 @@
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Jeu">
 	<Page.Resources>
-		<Style x:Key="ButtonPolygon" TargetType="{x:Type Button}">
-			<Setter Property="Template">
-				<Setter.Value>
-					<ControlTemplate TargetType="{x:Type Button}">
+        <DrawingImage x:Key="HexagonImage">
+            <DrawingImage.Drawing>
+                <DrawingGroup>
+                    <GeometryDrawing 
+                           Geometry="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z">
+                        <GeometryDrawing.Pen>
+                            <Pen Brush="Black" Thickness="10" LineJoin="Round"/>
+                        </GeometryDrawing.Pen>
+                    </GeometryDrawing>
+                </DrawingGroup>
+            </DrawingImage.Drawing>
+        </DrawingImage>
+        <Style x:Key="HexagonButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Khaki"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
-                            <Path x:Name="polygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" Stroke="Blue" StrokeThickness="0" Fill="{TemplateBinding Background}">
+                            <Image x:Name="img" Source="{StaticResource HexagonImage}" RenderTransformOrigin="0.5,0.5">
+                            	<Image.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform ScaleX="0.1" ScaleY="0.1"/>
+                            			<SkewTransform/>
+                            			<RotateTransform Angle="-30"/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</Image.RenderTransform>
+                            </Image>
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Grid>
+                        <!--<ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="{StaticResource HexagonHoverImage}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="img" Property="Source" Value="{StaticResource HexagonPressedImage}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>-->
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonPolygon" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            	<Path.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform Angle="30"/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</Path.RenderTransform>
+                                <Path.LayoutTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</Path.LayoutTransform>
+                            </Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PolygonSelected" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="41">
                                 <Path.RenderTransform>
-									<ScaleTransform ScaleY="8" ScaleX="8"/>
-								</Path.RenderTransform>
-							</Path>
-							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
-						</Grid>
-						<ControlTemplate.Triggers>
-							<Trigger Property="IsFocused" Value="True"/>
-							<Trigger Property="IsDefaulted" Value="True"/>
-							<Trigger Property="IsMouseOver" Value="True"/>
-                            <Trigger Property="IsPressed" Value="True" />
-                            <Trigger Property="IsEnabled" Value="False"/>
-                        </ControlTemplate.Triggers>
-					</ControlTemplate>
-				</Setter.Value>
-			</Setter>
-		</Style>
-	</Page.Resources>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="29.999999999999996"/>
+                            			<TranslateTransform X="-1" Y="-1"/>
+                            		</TransformGroup>
+                            	</Path.RenderTransform>
+                                <Path.LayoutTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform/>
+                            		</TransformGroup>
+                            	</Path.LayoutTransform>
+                            </Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
 
     <DockPanel>
         <Grid DockPanel.Dock="Bottom">
@@ -45,7 +126,14 @@
 
         <ScrollViewer Padding="10" Background="CadetBlue">
             <Canvas x:Name="canvas">
-               
+            	<!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
+                <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
+                    <Path.LayoutTransform>
+                        <ScaleTransform ScaleY="8" ScaleX="8"/>
+                    </Path.LayoutTransform>
+                </Path>-->
+                <Button x:Name="PolygonSelected" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="5" Visibility="Hidden"/>
+
             </Canvas>
         </ScrollViewer>
         
