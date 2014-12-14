@@ -7,88 +7,90 @@ namespace SmallWorld
 {
     public abstract class UniteImpl : Unite
     {
-        private int _points;
-        private float _pointsDeplacement;
-        private int _x;
-        private int _y;
-        private int _pointsAttaque;
-        private int _pointsDefense;
-        private int _pointDeVie;
+        #region properties
 
-        public float PointsDeplacement { get; set; }
+        private int number;
+        private static int cpt = 0;
 
-        public int X { get; set; }
+        protected const int POINT_ATTAQUE = 2;
+        protected const int POINT_DEFENSE = 1;
+        protected const int PV_DEFAULT = 5;
+        protected const int COUT_DEPLACEMENT = 1;
+        protected const int POINTS_DEPLACEMENT_DEFAULT = 1;
 
-        public int Y { get; set; }
+        protected int pointsDeVie;
+        protected double pointsDeplacementRestant;
+        protected Joueur proprio;
 
-        public int PointsAttaque { get; set; }
+        public double PointsDeplacementRestant {
+            get { return this.pointsDeplacementRestant; }
+        }
 
-        public int PointsDefense { get; set; }
-
-        public int PointsDeVie { get; set; }
-
-        public void combat(SmallWorld.Unite uniteAdverse)
+        public int PointsAttaque 
         {
-            int NbAttaques = new Random().Next(3, Math.Max(this.PointsDeVie, uniteAdverse.PointsDeVie));
-            Type terrain = CarteImpl.Instance.Cases[uniteAdverse.X, uniteAdverse.Y].GetType();
+            get { return POINT_ATTAQUE; }
+        }
 
-            while (NbAttaques != 0 || this.PointsDeVie != 0 || uniteAdverse.PointsDeVie != 0)
+        public int PointsDefense { 
+            get { return POINT_DEFENSE; } 
+        }
+
+        public int PointsDeVie 
+        {
+            get { return this.pointsDeVie; } 
+        }
+
+        public int PvDefault 
+        {
+            get { return PV_DEFAULT; } 
+        }
+
+        public Joueur Proprio
+        {
+            get { return this.proprio; }
+        }
+
+        #endregion
+
+        public UniteImpl(Joueur proprio) {
+            this.proprio = proprio;
+            this.pointsDeVie = PV_DEFAULT;
+            this.pointsDeplacementRestant = POINTS_DEPLACEMENT_DEFAULT;
+            cpt++;
+            this.number = cpt;
+        }
+
+        public bool EnleverPV()
+        {
+            if (this.pointsDeVie < 1)
             {
-                //Calcul des points d'attaques et de défenses en fonction des PV de l'attaquant et du défenseur
-                double attaque = this.calculAttaque();
-                double defense = uniteAdverse.calculDefense();
-
-                //Calcul du pourcentage de chance de victoire pour l'attaquant
-                double PctgAttaquant;
-                if (attaque == defense)
-                {
-                    PctgAttaquant = 50;
-                }
-                else
-                {
-                    double rapportForce = Math.Min(attaque, defense) / Math.Max(attaque, defense);
-                    if (attaque > defense)
-                    {
-                        PctgAttaquant = 50 - rapportForce;
-                    }
-                    else
-                    {
-                        PctgAttaquant = 50 + rapportForce;
-                    }
-                }
-
-                //Tirage du nombre aléatoire
-                int N = new Random().Next(0, 100);
-
-                //Décision sur la victoire
-                if (N >= PctgAttaquant)
-                {
-                    uniteAdverse.PointsDeVie--;
-                }
-                else
-                {
-                    this.PointsDeVie--;
-                }
-
-                NbAttaques--;
+                return false;
             }
+            this.pointsDeVie--;
+            return true;
         }
-
-        public Double calculAttaque()
+        public bool EstEnVie()
         {
-            return Math.Floor((Double)(PointsAttaque / (PointsDeVie %= 5)) * 100);
+            return this.pointsDeVie > 0;
         }
 
-        public Double calculDefense()
+        public void ResetPointsDeplacement()
         {
-            return Math.Ceiling((Double)(PointsDefense / (PointsDeVie %= 5)) * 100);
+            this.pointsDeplacementRestant = POINTS_DEPLACEMENT_DEFAULT;
         }
 
-        public abstract void resetPointsDeplacement();
+        public abstract void UpdatePointsDeplacement(SmallWorld.Case typeCase);
 
-        public abstract void updatePointsDeplacement(SmallWorld.Case typeCase);
+        public virtual bool ValidationDeplacement(Case destination)
+        {
+            if (this.pointsDeplacementRestant < COUT_DEPLACEMENT)
+            {
+                return false;
+            }
+            this.pointsDeplacementRestant -= COUT_DEPLACEMENT;
+            return true;
+        }
 
-        public abstract void validationDplacement(int x, int y);
-                
+        public abstract int GetPoints(Case c);                
     }
 }

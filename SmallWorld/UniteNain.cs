@@ -7,30 +7,41 @@ namespace SmallWorld
 {
     public class UniteNain : UniteImpl
     {
-        public UniteNain()
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public UniteNain(int xinit, int yinit)
-        {
-            X = xinit;
-            Y = yinit;
-        }
-
-        public override void resetPointsDeplacement()
+        public UniteNain(Joueur j) : base(j)
         {
 
         }
 
-        public override void updatePointsDeplacement(SmallWorld.Case typeCase)
+        public override void UpdatePointsDeplacement(SmallWorld.Case typeCase)
         {
-
+            if (typeCase is CasePlaine)
+                this.pointsDeplacementRestant -= 0.5;
+            else
+                this.pointsDeplacementRestant --;
         }
 
-        public override void validationDplacement(int x, int y)
+        public override int GetPoints(Case typeCase)
         {
-            throw new NotImplementedException();
+            if (typeCase is CasePlaine)
+                return 0;
+            else
+                return 1;
+        }
+
+        public override bool ValidationDeplacement(Case destination)
+        {
+            if (destination is CasePlaine)
+            {
+                int cout_deplacement = COUT_DEPLACEMENT / 2;
+                if (this.pointsDeplacementRestant < cout_deplacement)
+                {
+                    return false;
+                }
+                this.pointsDeplacementRestant -= cout_deplacement;
+                return true;
+            }
+            return base.ValidationDeplacement(destination);
         }
     }
 }

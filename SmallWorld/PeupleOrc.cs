@@ -5,22 +5,16 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public class PeupleOrc : PeupleImpl
+    public class PeupleOrc : FabriquePeuple
     {
         public PeupleOrc()
         {
             throw new System.NotImplementedException();
         }
 
-        public override void generationUnites(int nbrUnites, int xinit, int yinit)
+        public override Unite GenerationUnite(Joueur j)
         {
-            for (int i = 0; i < nbrUnites; i++)
-            {
-                // Génération des unités propres
-                Unite unit = new UniteElfe(xinit, yinit);
-                base.ListUnite.Add(unit);
-                // TODO: a tester
-            }
+            return new UniteOrc(j);
         }
     }
 }

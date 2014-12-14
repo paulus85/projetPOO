@@ -7,5 +7,18 @@ namespace SmallWorld
 {
     public class CasePlaine : Case
     {
+        public override int number
+        {
+            get
+            {
+                return 0;
+            }
+        }
+
+        public CasePlaine()
+        {
+
+        }
+        
     }
 }

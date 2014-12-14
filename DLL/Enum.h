@@ -1,6 +1,6 @@
 #pragma once
 
-const enum Tuile {
+const enum Case {
 	PLAINE = 0,
 	DESERT = 1,
 	MONTAGNE = 2,

@@ -14,8 +14,8 @@
 class DLL GenerateurCarte {
 
 public:
-	EXTERNC DLL static Tuile** genererCarte(int nbCases);
-	EXTERNC DLL static Point* placerUnités(Tuile** map, int size);
+	EXTERNC DLL static Case** genererCarte(int nbCases);
+	EXTERNC DLL static Point* departUnites(int nbCases);
 };
 
 

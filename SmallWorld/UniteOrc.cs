@@ -7,30 +7,23 @@ namespace SmallWorld
 {
     public class UniteOrc : UniteImpl
     {
-        public UniteOrc()
+        public int pointBonus;
+
+        public UniteOrc(Joueur j) : base(j)
         {
-            throw new System.NotImplementedException();
+            pointBonus = 0;
         }
 
-        public UniteOrc(int xinit, int yinit)
+        public override void UpdatePointsDeplacement(SmallWorld.Case typeCase)
         {
-            X = xinit;
-            Y = yinit;
+            this.pointsDeplacementRestant--;
         }
 
-        public override void resetPointsDeplacement()
-        {
-
-        }
-
-        public override void updatePointsDeplacement(SmallWorld.Case typeCase)
-        {
-
-        }
-
-        public override void validationDplacement(int x, int y)
-        {
-            throw new NotImplementedException();
+        public override int GetPoints(Case typeCase){
+            if (typeCase is CaseForet)
+                return pointBonus;
+            else
+                return 1 + pointBonus;
         }
     }
 }

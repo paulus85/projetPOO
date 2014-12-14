@@ -29,6 +29,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,7 +64,7 @@
     <Compile Include="CaseForet.cs" />
     <Compile Include="CaseMontagne.cs" />
     <Compile Include="CasePlaine.cs" />
-    <Compile Include="Configuration.cs" />
+    <Compile Include="MonteurNPartieDemo.cs" />
     <Compile Include="CreateurPartie.cs" />
     <Compile Include="FabriqueCase.cs" />
     <Compile Include="FabriquePeuple.cs" />
@@ -56,17 +74,18 @@
     <Compile Include="JoueurImpl.cs" />
     <Compile Include="Monteur.cs" />
     <Compile Include="MonteurNPartie.cs" />
+    <Compile Include="MonteurNPartieNormal.cs" />
+    <Compile Include="MonteurNPartiePetite.cs" />
     <Compile Include="MonteurPartieSauv.cs" />
     <Compile Include="PeupleElfe.cs" />
     <Compile Include="PeupleImpl.cs" />
     <Compile Include="PeupleNain.cs" />
     <Compile Include="PeupleOrc.cs" />
     <Compile Include="Peuples.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="PointImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TypeDemo.cs" />
-    <Compile Include="TypeNormale.cs" />
-    <Compile Include="TypePartie.cs" />
-    <Compile Include="TypePetite.cs" />
+    <Compile Include="Tour.cs" />
     <Compile Include="Unite.cs" />
     <Compile Include="UniteElfe.cs" />
     <Compile Include="UniteImpl.cs" />
@@ -75,6 +94,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Wrapper\Wrapper.vcxproj">
+      <Project>{5447120a-e16f-4506-939f-d31c95a825e4}</Project>
+      <Name>Wrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

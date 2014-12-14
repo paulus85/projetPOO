@@ -7,5 +7,17 @@ namespace SmallWorld
 {
     public class CaseMontagne : Case
     {
+        public override int number
+        {
+            get
+            {
+                return 2;
+            }
+        }
+
+        public CaseMontagne()
+        {
+
+        }
     }
 }

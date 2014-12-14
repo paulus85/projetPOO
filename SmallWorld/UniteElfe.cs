@@ -7,30 +7,47 @@ namespace SmallWorld
 {
     public class UniteElfe : UniteImpl
     {
-        public UniteElfe()
+        public UniteElfe(Joueur j) : base(j)
         {
-            throw new System.NotImplementedException();
+            
         }
 
-        public UniteElfe(int xinit, int yinit)
+        public override void UpdatePointsDeplacement(SmallWorld.Case typeCase)
         {
-            X = xinit;
-            Y = yinit;
+            if (typeCase is CaseForet)
+                this.pointsDeplacementRestant -= 0.5;
+            else
+                this.pointsDeplacementRestant--;
         }
 
-        public override void resetPointsDeplacement()
+        public override int GetPoints(Case typeCase)
         {
-
+            return 1;
         }
 
-        public override void updatePointsDeplacement(SmallWorld.Case typeCase)
+        public override bool ValidationDeplacement(Case destination)
         {
-
-        }
-
-        public override void validationDplacement(int x, int y)
-        {
-            throw new NotImplementedException();
+            if(destination is CaseDesert)
+            {
+                int cout_deplacement = COUT_DEPLACEMENT * 2;
+                if (this.pointsDeplacementRestant < cout_deplacement)
+                {
+                    return false;
+                }
+                this.pointsDeplacementRestant -= cout_deplacement;
+                return true;
+            }
+            else if (destination is CaseForet)
+            {
+                double cout_deplacement = COUT_DEPLACEMENT / 2;
+                if (this.pointsDeplacementRestant < cout_deplacement)
+                {
+                    return false;
+                }
+                this.pointsDeplacementRestant -= cout_deplacement;
+                return true;
+            }
+            return base.ValidationDeplacement(destination);
         }
     }
 }

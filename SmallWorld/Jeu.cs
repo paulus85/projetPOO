@@ -7,16 +7,34 @@ namespace SmallWorld
 {
     public interface Jeu
     {
+        Joueur Joueur1
+        {
+            get;
+        }
 
-       
-        Monteur Monteur { get; set; }
+        Joueur Joueur2
+        {
+        get;
+        }
 
-       
-        CarteImpl CarteImpl { get; set; }
+        Joueur JoueurCourant
+        {
+            get;
+        }
 
-     
-        TypePartie TypePartie { get; set; }
+        Carte Carte
+        {
+            get;
+        }
 
-        JoueurImpl[] Joueurs { get; set; }
+        int NbTour
+        {
+            get;
+        }
+
+        int TourActuelle
+        {
+            get;
+        }
     }
 }

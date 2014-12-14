@@ -5,31 +5,36 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public class MonteurNPartie : Monteur
+    public abstract class MonteurNPartie : Monteur
     {
-        public MonteurNPartie()
+        public Jeu CreerJeu(string nom1, FabriquePeuple peuple1, string nom2, FabriquePeuple peuple2)
         {
-            throw new System.NotImplementedException();
-        }
-    
-        public override TypePartie choixTypePartie()
-        {
-            throw new System.NotImplementedException();
-        }
+            // Créer la map
+            Carte carte = CarteImpl.Instance.ConstruireCarte(this.nbCases);
+            Case[,] cases = carte.Cases;
 
-        public override CarteImpl creationCarte()
-        {
-            throw new System.NotImplementedException();
-        }
+            int[][] starts = Wrapper.Wrapper.placementJoueur(this.nbCases);
 
-        public override JoueurImpl[] creationJoueurs()
-        {
-            throw new System.NotImplementedException();
-        }
+            //Créer les joueurs et leurs points de départ
+            Joueur joueur1 = new JoueurImpl(nom1, peuple1);
+            PointImpl point1 = new PointImpl(starts[0][0], starts[0][1]);
+            
+            Joueur joueur2 = new JoueurImpl(nom2, peuple2);
+            PointImpl point2 = new PointImpl(starts[1][0], starts[1][1]);
 
-        public override Joueur choixPremierJoueur()
-        {
-            throw new System.NotImplementedException();
-}
+            //Créer les unités des joueurs puis les placer sur la carte
+            List<Unite> unites1 = joueur1.CreerUnites(this.nbUnites);
+            for (int i = 0; i < this.nbUnites; i++)
+            {
+                carte.PlacerUnite(unites1[i], point1);
+            }
+            List<Unite> unites2 = joueur2.CreerUnites(this.nbUnites);
+            for (int i = 0; i < this.nbUnites; i++)
+            {
+                carte.PlacerUnite(unites2[i], point2);
+            }
+
+            return new JeuManager(joueur1, joueur2, carte, this.nbTours);
+        }
     }
 }

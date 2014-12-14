@@ -7,49 +7,46 @@ namespace SmallWorld
 {
     public class JoueurImpl : Joueur
     {
+        private FabriquePeuple fabrique;
+
+        private int numero;
         private String nomJoueur;
+        private int points;
 
-        public JoueurImpl()
-        {
-            throw new System.NotImplementedException();
-        }
-    
-        public List<UniteImpl> UniteImpl
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
+        private static int cpt = 0;
 
-        public PeupleImpl PeupleImpl
+        public int Numero
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get { return this.numero; }
         }
 
         public String NomJoueur
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get { return this.nomJoueur;  }
         }
 
-        public void choisirPeuple(int xinit, int yinit)
+        public int Points
         {
-            throw new System.NotImplementedException();
+            get { return points;  }
+        }
+
+        public JoueurImpl(String nom, FabriquePeuple fab)
+        {
+            this.nomJoueur = nom;
+            this.fabrique = fab;
+            this.points = 0;
+            cpt++;
+            this.numero = cpt;
+        }
+
+        public List<Unite> CreerUnites(int nbUnites)
+        {
+            List<Unite> unites = new List<Unite>();
+            for (int i = 0; i < nbUnites; i++)
+            {
+                unites.Add(fabrique.GenerationUnite(this));
+            }
+            return unites;
         }
     }
 }

@@ -7,5 +7,10 @@ namespace SmallWorld
 {
     public interface Joueur
     {
+        int Numero { get; }
+        String NomJoueur { get; }
+        int Points { get;  }
+
+        List<Unite> CreerUnites(int nbUnites);
     }
 }

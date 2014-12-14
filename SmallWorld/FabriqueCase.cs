@@ -7,38 +7,41 @@ namespace SmallWorld
 {
     public class FabriqueCase
     {
+        private CasePlaine plaine;
+        private CaseDesert desert;
+        private CaseMontagne montagne;
+        private CaseForet foret;
+
+        private static FabriqueCase instance = new FabriqueCase();
+
+        public static FabriqueCase Instance
+        {
+            get { return instance;  }
+        }
 
         public FabriqueCase()
         {
-            
+            plaine = new CasePlaine();
+            desert = new CaseDesert();
+            montagne = new CaseMontagne();
+            foret = new CaseForet();
         }
 
-        public CasePlaine casePlaine = new CasePlaine();
-
-        public CaseDesert caseDesert = new CaseDesert();
-
-        public CaseMontagne caseMontagne = new CaseMontagne();
-
-        public CaseForet caseForet = new CaseForet();
-
-        public CasePlaine creerPlaine()
+        public Case GetCase(int type)
         {
-            return casePlaine;
-        }
-
-        public CaseDesert creerDesert()
-        {
-            return caseDesert;
-        }
-
-        public CaseMontagne creerMontagne()
-        {
-            return caseMontagne;
-        }
-
-        public CaseForet creerForet()
-        {
-            return caseForet;
+            switch (type)
+            {
+                case 0:
+                    return this.plaine;
+                case 1:
+                    return this.desert;
+                case 2:
+                    return this.montagne;
+                case 3:
+                    return this.foret;
+            }
+            throw new Exception();
+            //throw new IncorrectTileNumberException(type);
         }
     }
 }

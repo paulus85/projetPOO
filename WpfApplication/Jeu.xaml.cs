@@ -127,7 +127,7 @@ namespace WpfApplication
 
         public void creerCarte()
         {
-            SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
+            SmallWorld.Carte carte = SmallWorld.CarteImpl.Instance;
             carte.instanciateCasesTab(2, 2);
             carte.Cases[1, 1] = carte.fabrique.creerDesert();
             carte.Cases[0, 0] = carte.fabrique.creerDesert();

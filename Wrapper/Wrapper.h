@@ -33,6 +33,6 @@ namespace Wrapper {
 
 	public:
 		static array<array<int>^>^ genererCarte(int size);
-		static array<array<int>^>^ placementJoueur(array<array<int>^>^ map, int size);
+		static array<array<int>^>^ placementJoueur(int size);
 	};
 }
