@@ -42,6 +42,7 @@ namespace WpfApplication
             
         }
 
+
         /// <summary>
         /// Displays the case.
         /// </summary>
