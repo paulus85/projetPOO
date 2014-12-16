@@ -55,12 +55,12 @@ namespace WpfApplication
             if (i % 2 == 0)
             {
                 //Ligne paire
-                paddingLigne = 70;
+                paddingLigne = 30;
             }
             else
             {
                 //Ligne impaire
-                paddingLigne = 145;
+                paddingLigne = 77;
             }
             Button b = new Button();
             if (FindResource("ButtonPolygon") != null)
@@ -71,8 +71,8 @@ namespace WpfApplication
             //b.Background = Brushes.Black ;
             b.MouseEnter += polygon_MouseEnter;
             b.MouseLeave += polygon_MouseLeave;
-            Canvas.SetLeft(b, paddingLigne + j * 150);
-            Canvas.SetTop(b, 70 + i * 130);
+            Canvas.SetLeft(b, paddingLigne + j * 95);
+            Canvas.SetTop(b, 30 + i * 80);
             Canvas.SetZIndex(b, 1);
             canvas.Children.Add(b);
         }

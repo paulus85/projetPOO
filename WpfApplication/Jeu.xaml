@@ -110,31 +110,45 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
+        
+        
     </Page.Resources>
 
     <DockPanel>
-        <Grid DockPanel.Dock="Bottom">
-            <StackPanel HorizontalAlignment="Left">
-                <Label Content="Infos Joueur 1" />
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Center">
-                <Label Content="Info Joueur 2" />
-            </StackPanel>
-            <Button HorizontalAlignment="Right" Content="Fin du tour"></Button>
+        <Grid DockPanel.Dock="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0">
+                
+            </WrapPanel>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+            </Grid>
+            <StackPanel Grid.Row="2">
+                <Label>Tour : </Label>
+                <Button HorizontalAlignment="Right" Content="Fin du tour" />
+            </StackPanel>    
         </Grid>
 
-        <ScrollViewer Padding="10" Background="CadetBlue">
-            <Canvas x:Name="canvas">
-            	<!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
-                <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
-                    <Path.LayoutTransform>
+        <ScrollViewer Padding="10" Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto">
+            <Grid Background="#FF347BC1" Height="400" Width="400">
+                <Canvas x:Name="canvas" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
+                    <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
+                        <Path.LayoutTransform>
                         <ScaleTransform ScaleY="8" ScaleX="8"/>
-                    </Path.LayoutTransform>
-                </Path>-->
-                <Button x:Name="PolygonSelected" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="5" Visibility="Hidden"/>
-
-            </Canvas>
+                        </Path.LayoutTransform>
+                    </Path>-->
+                    <Button x:Name="PolygonSelected" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="5" Visibility="Hidden"/>
+                </Canvas>
+            </Grid>
         </ScrollViewer>
         
     </DockPanel>
