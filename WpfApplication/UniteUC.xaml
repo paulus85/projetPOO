@@ -7,8 +7,14 @@
 	x:Class="WpfApplication.UniteUC"
 	x:Name="UniteUserControl"
 	d:DesignWidth="640" d:DesignHeight="480">
+	<UserControl.Triggers>
+		
+	</UserControl.Triggers>
 
     <Grid x:Name="LayoutRoot">
+    	<VisualStateManager.VisualStateGroups>
+    		<VisualStateGroup x:Name="VisualStateGroup"/>
+    	</VisualStateManager.VisualStateGroups>
         <Grid HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />

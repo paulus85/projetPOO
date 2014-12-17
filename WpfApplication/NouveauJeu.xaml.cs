@@ -20,12 +20,15 @@ namespace WpfApplication
     /// </summary>
     public partial class NouveauJeu : Page
     {
+        private MainWindow parent;
+
         public string NomJoueur1 { get; set; }
         public string NomJoueur2 { get; set; }
         public string PeupleJoueur1 { get; set; }
         public string PeupleJoueur2 { get; set; }
         public string TailleCarte { get; set; }
-
+        
+        
         public NouveauJeu()
         {
             InitializeComponent();
@@ -36,11 +39,12 @@ namespace WpfApplication
             PeupleJoueur1 = "";
             PeupleJoueur2 = "";
             TailleCarte = "";
+            parent = (Application.Current.MainWindow as MainWindow);
+            //parent.Height = 700;
         }
 
         private void Commencer_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow parent = (Application.Current.MainWindow as MainWindow);
             if (!(String.IsNullOrWhiteSpace(PeupleJoueur1)) && !(String.IsNullOrWhiteSpace(PeupleJoueur2)) && !(String.IsNullOrWhiteSpace(NomJoueur1)) && !(String.IsNullOrWhiteSpace(NomJoueur2)) && !(String.IsNullOrWhiteSpace(TailleCarte)))
             {
                 //Passage des paramètres via l'objet parent. --> appel aux méthodes de construction du jeu
@@ -56,7 +60,8 @@ namespace WpfApplication
         private void ChoixPeupleJ1_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
-            PeupleJoueur1 = rd.Content.ToString();
+            PeupleJoueur1 = rd.Tag.ToString();
+            Console.WriteLine("Joueur1 : " + PeupleJoueur1);
             // Vérification si le peuple n'est pas choisi 2 fois
             if (PeupleJoueur1 == PeupleJoueur2)
             {
@@ -69,7 +74,9 @@ namespace WpfApplication
         private void ChoixPeupleJ2_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
-            PeupleJoueur2 = rd.Content.ToString();
+            PeupleJoueur2 = rd.Tag.ToString();
+            Console.WriteLine("Joueur2 : " + PeupleJoueur2);
+
             // Vérification si le peuple n'est pas choisi 2 fois
             if (PeupleJoueur1 == PeupleJoueur2)
             {

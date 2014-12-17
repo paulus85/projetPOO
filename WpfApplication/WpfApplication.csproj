@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MapPanel.cs" />
     <Compile Include="UniteUC.xaml.cs">
       <DependentUpon>UniteUC.xaml</DependentUpon>
     </Compile>
@@ -134,6 +135,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\smallworld_main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\button_Map_dim_base.png" />
+    <Resource Include="Ressources\elfe_choixPeuple.png" />
+    <Resource Include="Ressources\nain_choixPeuple.png" />
+    <Resource Include="Ressources\orc_choixPeuple.png" />
+    <Resource Include="Ressources\sprite_elfe.png" />
+    <Resource Include="Ressources\sprite_nain.png" />
+    <Resource Include="Ressources\sprite_orc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

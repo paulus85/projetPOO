@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CustomCanvas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Jeu">
@@ -138,8 +139,8 @@
         </Grid>
 
         <ScrollViewer Padding="10" Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto">
-            <Grid Background="#FF347BC1" Height="400" Width="400">
-                <Canvas x:Name="canvas" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Background="#FF347BC1" >
+                <Canvas x:Name="canvas" >
                     <!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
                     <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
                         <Path.LayoutTransform>
@@ -148,6 +149,7 @@
                     </Path>-->
                     <Button x:Name="PolygonSelected" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="5" Visibility="Hidden"/>
                 </Canvas>
+                <!--<local:MapPanel VerticalAlignment="Top" HorizontalAlignment="Left" ></local:MapPanel>-->
             </Grid>
         </ScrollViewer>
         

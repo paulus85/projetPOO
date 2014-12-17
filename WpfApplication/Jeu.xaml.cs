@@ -32,9 +32,9 @@ namespace WpfApplication
 
         private void refreshCarte()
         {
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 10; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < 10; j++)
                 {
                     afficherCase(i, j, "Foret");
                 }
@@ -73,6 +73,7 @@ namespace WpfApplication
             b.MouseLeave += polygon_MouseLeave;
             Canvas.SetLeft(b, paddingLigne + j * 95);
             Canvas.SetTop(b, 30 + i * 80);
+            //b.Margin = new Thickness(paddingLigne + j * 95, 30 + i * 80, 0, 0);
             Canvas.SetZIndex(b, 1);
             canvas.Children.Add(b);
         }
@@ -126,19 +127,19 @@ namespace WpfApplication
             return null;
         }
 
-        public void creerCarte()
-        {
-            SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
-            carte.instanciateCasesTab(2, 2);
-            carte.Cases[1, 1] = carte.fabrique.creerDesert();
-            carte.Cases[0, 0] = carte.fabrique.creerDesert();
-            Rectangle rec = new Rectangle();
-            //canvas.Children.Add(new Rectangle())
-            rec.Height = 10;
-            rec.Width = 20;
-            rec.Stroke = Brushes.Aqua;
-            canvas.Children.Add(rec);
-        }
+        //public void creerCarte()
+        //{
+        //    SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
+        //    carte.instanciateCasesTab(2, 2);
+        //    carte.Cases[1, 1] = carte.fabrique.creerDesert();
+        //    carte.Cases[0, 0] = carte.fabrique.creerDesert();
+        //    Rectangle rec = new Rectangle();
+        //    //canvas.Children.Add(new Rectangle())
+        //    rec.Height = 10;
+        //    rec.Width = 20;
+        //    rec.Stroke = Brushes.Aqua;
+        //    canvas.Children.Add(rec);
+        //}
 
         public void creerCase(SmallWorld.Case c, int x, int y)
         {
