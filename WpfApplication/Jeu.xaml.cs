@@ -32,13 +32,16 @@ namespace WpfApplication
 
         private void refreshCarte()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 6; i++)
             {
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 6; j++)
                 {
                     afficherCase(i, j, "Foret");
                 }
             }
+            canvas.Height = 900;
+            canvas.Width = 1000;
+            //TODO :  il reste à trouver la formule pour ajuster ces valeurs % nombres de cases.
             
         }
 
