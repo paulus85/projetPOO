@@ -58,7 +58,7 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FFA6EC42" StrokeThickness="13">
                             	<Path.RenderTransform>
                             		<TransformGroup>
                             			<ScaleTransform/>
@@ -89,7 +89,7 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="41">
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="30">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <RotateTransform Angle="29.999999999999996"/>
@@ -138,15 +138,15 @@
             </StackPanel>    
         </Grid>
 
-        <ScrollViewer Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto">
-            <Grid Background="#FF347BC1">
+        <ScrollViewer Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4">
+            <Grid Background="#FF347BC1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-            <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas">
+            <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas" Background="HotPink" MouseLeave="canvas_MouseLeave">
                     <!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
                     <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
                         <Path.LayoutTransform>

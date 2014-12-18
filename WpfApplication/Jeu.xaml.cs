@@ -16,38 +16,45 @@ using System.Windows.Shapes;
 namespace WpfApplication
 {
 
-    //const int PADDINGLIGNEPAIR = 70;
-    //const int PADDINGLIGNEIMPAIR = 145;
+
 
     /// <summary>
     /// Logique d'interaction pour Jeu.xaml
     /// </summary>
     public partial class Jeu : Page
     {
+
+        const int paddingLigneImpaire = 44;
+        const int paddingLignePaire = 0;
+
         public Jeu()
         {
             InitializeComponent();
-            refreshCarte();
+            refreshCarte(10,10);
         }
 
-        private void refreshCarte()
+
+        private void refreshCarte(int l, int h)
         {
-            for (int i = 0; i < 6; i++)
+
+            canvas.Height = 100 * (1 + 0.75 * (h - 1));
+            canvas.Width = l * 88 + paddingLigneImpaire;
+            // Les valeurs sont prises avec un peu de large...
+            for (int i = 0; i < l; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < h; j++)
                 {
                     afficherCase(i, j, "Foret");
                 }
             }
-            canvas.Height = 900;
-            canvas.Width = 1000;
+            
             //TODO :  il reste à trouver la formule pour ajuster ces valeurs % nombres de cases.
             
         }
 
 
         /// <summary>
-        /// Displays the case.
+        /// Displays the case. Contains all the values about Cases and their disposition.
         /// </summary>
         /// <param name="i">The line number.</param>
         /// <param name="j">The column number.</param>
@@ -58,12 +65,12 @@ namespace WpfApplication
             if (i % 2 == 0)
             {
                 //Ligne paire
-                paddingLigne = 30;
+                paddingLigne = paddingLignePaire;
             }
             else
             {
                 //Ligne impaire
-                paddingLigne = 77;
+                paddingLigne = paddingLigneImpaire;
             }
             Button b = new Button();
             if (FindResource("ButtonPolygon") != null)
@@ -74,9 +81,8 @@ namespace WpfApplication
             //b.Background = Brushes.Black ;
             b.MouseEnter += polygon_MouseEnter;
             b.MouseLeave += polygon_MouseLeave;
-            Canvas.SetLeft(b, paddingLigne + j * 95);
-            Canvas.SetTop(b, 30 + i * 80);
-            //b.Margin = new Thickness(paddingLigne + j * 95, 30 + i * 80, 0, 0);
+            Canvas.SetLeft(b, paddingLigne + j * 87);
+            Canvas.SetTop(b,6 + i * 75);
             Canvas.SetZIndex(b, 1);
             canvas.Children.Add(b);
         }
@@ -84,6 +90,7 @@ namespace WpfApplication
         
 
         /// <summary>
+        /// DEPRECATED
         /// Froms the canvas to coord.
         /// </summary>
         /// <param name="left">The left.</param>
@@ -151,10 +158,11 @@ namespace WpfApplication
             caseDraw.Points = new PointCollection();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Console.Write("ok");
-        }
+        
+
+        ////////////////////////////////////////////////// EVENEMENTS ////////////////////////////////////////////////
+        #region events
+       
 
         /// <summary>
         /// Handles the MouseDown event of the polygon control.
@@ -169,7 +177,6 @@ namespace WpfApplication
             double left = (double)ender.GetValue(Canvas.LeftProperty);
             Console.WriteLine(" " + left);
             int[] coord = FromCanvasToCoord(left, top);      
-            //Console.WriteLine("Ligne : " + coord[0] + " Colonne : " + coord[1]);
             Canvas.SetTop(PolygonSelected, top);
             Canvas.SetLeft(PolygonSelected, left);
             PolygonSelected.Visibility = Visibility.Visible;
@@ -178,13 +185,15 @@ namespace WpfApplication
             
         }
 
-        private void polygon_MouseLeave(object sender, MouseEventArgs e)
+        /// <summary>
+        /// Handles the MouseLeave event of the canvas control. Allows to mask the selection Polygon.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void canvas_MouseLeave(object sender, MouseEventArgs e)
         {
-            //PolygonSelected.Visibility = Visibility.Hidden;
-           // e.Handled = true;
-            Console.WriteLine("MouseLeave");
+            PolygonSelected.Visibility = Visibility.Hidden;
         }
-
-        
+        #endregion events
     }
 }
