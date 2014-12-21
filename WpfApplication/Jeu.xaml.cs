@@ -30,13 +30,29 @@ namespace WpfApplication
         public Jeu()
         {
             InitializeComponent();
-            refreshCarte(10,10);
+            refreshCarte(16,16);
+            refreshUI();
+        }
+
+        private void refreshUI()
+        {
+            //ListBox list = new ListBox();
+            List<UniteUC> listUniteUC = new List<UniteUC>();
+            SmallWorld.Unite u = new SmallWorld.UniteElfe();
+            UniteUC uniteuc = new UniteUC(u);
+            listUniteUC.Add(uniteuc);
+            SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
+            UniteUC uniteuc1 = new UniteUC(u1);
+            listUniteUC.Add(uniteuc1);
+            SmallWorld.Unite u2 = new SmallWorld.UniteElfe();
+            UniteUC uniteuc2 = new UniteUC(u2);
+            listUniteUC.Add(uniteuc2);
+            list.ItemsSource = listUniteUC;
         }
 
 
         private void refreshCarte(int l, int h)
         {
-
             canvas.Height = 100 * (1 + 0.75 * (h - 1));
             canvas.Width = l * 88 + paddingLigneImpaire;
             // Les valeurs sont prises avec un peu de large...
@@ -47,9 +63,6 @@ namespace WpfApplication
                     afficherCase(i, j, "Foret");
                 }
             }
-            
-            //TODO :  il reste à trouver la formule pour ajuster ces valeurs % nombres de cases.
-            
         }
 
 
@@ -80,7 +93,6 @@ namespace WpfApplication
             b.Background = chooseBackground(type);
             //b.Background = Brushes.Black ;
             b.MouseEnter += polygon_MouseEnter;
-            b.MouseLeave += polygon_MouseLeave;
             Canvas.SetLeft(b, paddingLigne + j * 87);
             Canvas.SetTop(b,6 + i * 75);
             Canvas.SetZIndex(b, 1);
@@ -130,8 +142,9 @@ namespace WpfApplication
                 case "Foret" :
                     //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png")));
                     ImageBrush ib = new ImageBrush();
-                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png"));
+                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/ocean.png"));
                     ib.Stretch = Stretch.UniformToFill;
+                    //ib.RelativeTransform = new RotateTransform(-30,0.5,0.5);
                     return ib;
             }
             return null;

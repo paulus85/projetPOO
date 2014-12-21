@@ -122,8 +122,14 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <WrapPanel Grid.Row="0" Width="200">
-                
+            <WrapPanel Grid.Row="0" Width="320" Orientation="Horizontal" x:Name="wrapUnite">
+                <ListBox x:Name="list" Width="auto" Height="auto">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
             </WrapPanel>
             <Grid Grid.Row="1">
                 <Grid.ColumnDefinitions>

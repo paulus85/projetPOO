@@ -29,10 +29,32 @@ namespace WpfApplication
 
             //Initialisation des différents champs
             //Gestion de l'image associée
+            image.Source = getSprite();
             //Point de vie
+            pvL.Content = "0";
             //Point de déplacement
+            pdL.Content = "2";
 
 		}
+
+        private BitmapImage getSprite()
+        {
+            //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/mer.png")));
+            BitmapImage bi = null;
+            if (unite is UniteElfe)
+            {
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
+            }
+            else if (unite is UniteNain)
+            {
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_nain.png"));
+            }
+            else if (unite is UniteOrc)
+            {
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
+            }
+            return bi;
+        }  
 
 
 	}

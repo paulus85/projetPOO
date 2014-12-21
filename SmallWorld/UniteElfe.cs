@@ -9,7 +9,7 @@ namespace SmallWorld
     {
         public UniteElfe()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public UniteElfe(int xinit, int yinit)
