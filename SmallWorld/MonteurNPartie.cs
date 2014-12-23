@@ -11,16 +11,16 @@ namespace SmallWorld
         {
             // Créer la map
             Carte carte = CarteImpl.Instance.ConstruireCarte(this.nbCases);
-            Case[,] cases = carte.Cases;
+            //Case[,] cases = carte.Cases;
 
             int[][] starts = Wrapper.Wrapper.placementJoueur(this.nbCases);
 
             //Créer les joueurs et leurs points de départ
             Joueur joueur1 = new JoueurImpl(nom1, peuple1);
-            PointImpl point1 = new PointImpl(starts[0][0], starts[0][1]);
+            Point point1 = new PointImpl(starts[0][0], starts[0][1]);
             
             Joueur joueur2 = new JoueurImpl(nom2, peuple2);
-            PointImpl point2 = new PointImpl(starts[1][0], starts[1][1]);
+            Point point2 = new PointImpl(starts[1][0], starts[1][1]);
 
             //Créer les unités des joueurs puis les placer sur la carte
             List<Unite> unites1 = joueur1.CreerUnites(this.nbUnites);

@@ -7,14 +7,10 @@ namespace SmallWorld
 {
     public abstract class Case
     {
-        public abstract int number
+        public abstract int Number
         {
             get;
         }
 
-        internal List<Unite> GetUnits(Point coord)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

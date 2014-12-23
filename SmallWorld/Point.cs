@@ -8,7 +8,18 @@ namespace SmallWorld
 {
     public interface Point
     {
+        int x
+        {
+            get;
+            set;
+        }
+        int y
+        {
+            get;
+            set;
+        }
+
         bool EstValide(int taille);
-        bool EstJoignable(PointImpl point);
+        bool EstJoignable(Point point);
     }
 }

@@ -7,7 +7,7 @@ namespace SmallWorld
 {
     public class CaseDesert : Case
     {
-        public override int number
+        public override int Number
         {
             get{
                 return 1;

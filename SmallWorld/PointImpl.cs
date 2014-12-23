@@ -8,8 +8,17 @@ namespace SmallWorld
 {
     public class PointImpl : Point
     {
-        public int x;
-        public int y;
+        public int x
+        {
+            get;
+            set;
+        }
+
+        public int y
+        {
+            get;
+            set;
+        }
 
         public PointImpl(int x, int y)
         {
@@ -30,7 +39,7 @@ namespace SmallWorld
             return true;
         }
 
-        public bool EstJoignable(PointImpl pt)
+        public bool EstJoignable(Point pt)
         {
             return Math.Abs(this.x - pt.x) + Math.Abs(this.y - pt.y) == 1;
         }

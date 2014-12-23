@@ -7,7 +7,7 @@ namespace SmallWorld
 {
     public abstract class UniteImpl : Unite
     {
-        #region properties
+        #region Properties
 
         private int number;
         private static int cpt = 0;
@@ -79,9 +79,13 @@ namespace SmallWorld
             this.pointsDeplacementRestant = POINTS_DEPLACEMENT_DEFAULT;
         }
 
-        public abstract void UpdatePointsDeplacement(SmallWorld.Case typeCase);
+        public virtual bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
+        {
+            return this.pointsDeplacementRestant >= COUT_DEPLACEMENT 
+                && destination.EstJoignable(pointCourant);
+        }
 
-        public virtual bool ValidationDeplacement(Case destination)
+        public virtual bool Deplacement(Case destination)
         {
             if (this.pointsDeplacementRestant < COUT_DEPLACEMENT)
             {

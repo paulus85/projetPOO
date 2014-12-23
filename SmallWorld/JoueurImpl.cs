@@ -7,6 +7,8 @@ namespace SmallWorld
 {
     public class JoueurImpl : Joueur
     {
+        #region Properties
+
         private FabriquePeuple fabrique;
 
         private int numero;
@@ -30,6 +32,8 @@ namespace SmallWorld
             get { return points;  }
         }
 
+        #endregion
+
         public JoueurImpl(String nom, FabriquePeuple fab)
         {
             this.nomJoueur = nom;
@@ -47,6 +51,31 @@ namespace SmallWorld
                 unites.Add(fabrique.GenerationUnite(this));
             }
             return unites;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Joueur))
+            {
+                return false;
+            }
+            Joueur j = (Joueur)obj;
+            return this.numero == j.Numero;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.numero.GetHashCode();
+        }
+
+        public void AjoutPoints(int n)
+        {
+            //TODO Exception
+            this.points += n;
         }
     }
 }

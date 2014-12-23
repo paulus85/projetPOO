@@ -14,7 +14,7 @@ namespace SmallWorld
 
         Joueur Joueur2
         {
-        get;
+            get;
         }
 
         Joueur JoueurCourant
@@ -36,5 +36,15 @@ namespace SmallWorld
         {
             get;
         }
+
+        bool FinDuJeu();
+
+        int GetNbUnites(Joueur j);
+
+        bool EstVaincu(Joueur j);
+
+        Joueur Vainqueur();
+
+        void FinTour();
     }
 }

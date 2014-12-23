@@ -12,5 +12,7 @@ namespace SmallWorld
         int Points { get;  }
 
         List<Unite> CreerUnites(int nbUnites);
+
+        void AjoutPoints(int n);
     }
 }

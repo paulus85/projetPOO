@@ -72,35 +72,62 @@ namespace SmallWorld
                    this.tourActuelle > this.nbTour;
         }
 
+        public int GetNbUnites(Joueur j)
+        {
+            return this.carte.GetUnites(j).Count;
+        }
+
         public bool EstVaincu(Joueur j)
         {
-            return this.GetNbUnits(j) == 0;
+            return this.GetNbUnites(j) == 0;
         }
 
-        public int GetNbUnits(Joueur j)
+        public Joueur Vainqueur()
         {
-            return carte.Unites.Length;
+            if (this.EstVaincu(this.joueur1))
+            {
+                return this.joueur2;
+            }
+            if (this.EstVaincu(this.joueur2))
+            {
+                return this.joueur1;
+            }
+            if (this.joueur1.Points < this.joueur2.Points)
+            {
+                return this.joueur2;
+            }
+            if (this.joueur1.Points > this.joueur2.Points)
+            {
+                return this.joueur1;
+            }
+            return null;
         }
 
-        public void checkAllUnites()
+        public void FinTour()
         {
-            throw new System.NotImplementedException();
-        }
+            //Comptage des points pour le joueur courant et 
+            //réinitilisation des points de deplacement des unites
+            Dictionary<Unite, Point> unites = carte.GetUnites(this.joueurCourant);
+            foreach (var unite in unites)
+            {
+                Case c = this.carte.GetCase(unite.Value);
+                this.joueurCourant.AjoutPoints(unite.Key.GetPoints(c));
+                unite.Key.ResetPointsDeplacement();
+            }
 
+            //On met à jour le joueurCourant
+            if (this.joueurCourant == this.joueur1)
+            {
+                this.joueurCourant = this.joueur2;
+            }
+            else
+            {
+                this.joueurCourant = joueur1;
+                this.nbTour++;
+            }
 
-        /// <summary>
-        /// Updates the variables of TypePartie
-        /// </summary>
-        public void updateVariables()
-        {
-
-        }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="JeuManager"/> class.
-        /// </summary>
-        public JeuManager()
-        {
-
+            //On change de tour
+            this.tour = new Tour(this, this.joueurCourant);
         }
     }
 }
