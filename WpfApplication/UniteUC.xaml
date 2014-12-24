@@ -6,18 +6,18 @@
 	mc:Ignorable="d"
 	x:Class="WpfApplication.UniteUC"
 	x:Name="UniteUserControl"
-	d:DesignWidth="150" d:DesignHeight="100">
+	d:DesignWidth="150" d:DesignHeight="100" Margin="2">
 	<UserControl.Triggers>
 		
 	</UserControl.Triggers>
 
-    <Grid x:Name="LayoutRoot">
+    <Grid x:Name="LayoutRoot" Height="90" Width="150">
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="VisualStateGroup"/>
     	</VisualStateManager.VisualStateGroups>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="60" />
                 <ColumnDefinition Width="auto" />
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
@@ -32,15 +32,21 @@
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Vie :" />
-                <Label Grid.Row="1" Grid.Column="0" Content="Déplacement :" />
-                <Label Grid.Row="0" Grid.Column="1" x:Name="pvL" />
-                <Label Grid.Row="1" Grid.Column="1" x:Name="pdL" />
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Vie :" />
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Déplacement :" />
+                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="pvL" Margin="3,0,0,0" />
+                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="pdL" Margin="3,0,0,0"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Attaque :" />
+                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="attL" Margin="3,0,0,0"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Text="Défense :" />
+                <TextBlock Grid.Row="3" Grid.Column="1" x:Name="defL" Margin="3,0,0,0"/>
             </Grid>
         </Grid>
     </Grid>

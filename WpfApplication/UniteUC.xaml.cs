@@ -31,9 +31,13 @@ namespace WpfApplication
             //Gestion de l'image associée
             image.Source = getSprite();
             //Point de vie
-            pvL.Content = "0";
+            pvL.Text = "0";
             //Point de déplacement
-            pdL.Content = "2";
+            pdL.Text = "2";
+            //Point d'attaque
+            attL.Text = "2";
+            //Point de défense 
+            defL.Text = "1";
 
 		}
 

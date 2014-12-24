@@ -55,11 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="JoueurUC.xaml.cs">
+      <DependentUpon>JoueurUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MapPanel.cs" />
     <Compile Include="UniteUC.xaml.cs">
       <DependentUpon>UniteUC.xaml</DependentUpon>
     </Compile>
     <Page Include="Jeu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JoueurUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

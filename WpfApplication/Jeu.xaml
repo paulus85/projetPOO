@@ -82,14 +82,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <Style x:Key="PolygonSelected" TargetType="{x:Type Button}">
+        <Style x:Key="PolygonSurvole" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="30">
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FFA6A6A6" StrokeThickness="30">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <RotateTransform Angle="29.999999999999996"/>
@@ -111,8 +111,65 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
-        
+        <Style x:Key="PolygonSelected" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="30">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="29.999999999999996"/>
+                                        <TranslateTransform X="-1" Y="-1"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                                <Path.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.LayoutTransform>
+                            </Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="PolygonSuggestion" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="GreenYellow" StrokeThickness="30">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="29.999999999999996"/>
+                                        <TranslateTransform X="-1" Y="-1"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                                <Path.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.LayoutTransform>
+                            </Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Page.Resources>
 
     <DockPanel>
@@ -122,22 +179,25 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <WrapPanel Grid.Row="0" Width="320" Orientation="Horizontal" x:Name="wrapUnite">
-                <ListBox x:Name="list" Width="auto" Height="auto">
+            <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
+                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <WrapPanel Orientation="Horizontal" />
+                            <WrapPanel IsItemsHost="True" />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                 </ListBox>
-            </WrapPanel>
-            <Grid Grid.Row="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                
             </Grid>
+            <Border  Grid.Row="1" BorderBrush="CadetBlue" BorderThickness="1">
+                <Grid x:Name="listJoueurs">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                </Grid>
+            </Border>
+            
             <StackPanel Grid.Row="2">
                 <Label>Tour : </Label>
                 <Button HorizontalAlignment="Right" Content="Fin du tour" Width="auto"/>
@@ -159,7 +219,8 @@
                         <ScaleTransform ScaleY="8" ScaleX="8"/>
                         </Path.LayoutTransform>
                     </Path>-->
-                    <Button x:Name="PolygonSelected" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="5" Visibility="Hidden"/>
+                    <Button x:Name="PolygonSurvole" Style="{DynamicResource PolygonSurvole}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="6" Visibility="Hidden"/>
+                    <Button x:Name="PolygonSelection" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="4" Visibility="Hidden"/>
                 </Canvas>
                 <!--<local:MapPanel VerticalAlignment="Top" HorizontalAlignment="Left" ></local:MapPanel>-->
             </Grid>

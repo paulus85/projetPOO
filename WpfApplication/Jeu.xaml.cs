@@ -27,27 +27,49 @@ namespace WpfApplication
         const int paddingLigneImpaire = 44;
         const int paddingLignePaire = 0;
 
+        List<UniteUC> listeUniteUC = new List<UniteUC>();
+        /// <summary>
+        /// Is like the interface between code behind data and view. Is binded to ItemsSource of Unite listBox.
+        /// </summary>
+        /// <value>
+        /// The liste unite uc.
+        /// </value>
+        public List<UniteUC> ListeUniteUC
+        {
+            get { return listeUniteUC; }
+            set { listeUniteUC = value; }
+        }
+
         public Jeu()
         {
             InitializeComponent();
-            refreshCarte(16,16);
+            DataContext = this;
+            refreshCarte(6,6);
             refreshUI();
         }
 
         private void refreshUI()
         {
-            //ListBox list = new ListBox();
-            List<UniteUC> listUniteUC = new List<UniteUC>();
+            //List<UniteUC> listUniteUC = new List<UniteUC>();
             SmallWorld.Unite u = new SmallWorld.UniteElfe();
             UniteUC uniteuc = new UniteUC(u);
-            listUniteUC.Add(uniteuc);
+            ListeUniteUC.Add(uniteuc);
             SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
             UniteUC uniteuc1 = new UniteUC(u1);
-            listUniteUC.Add(uniteuc1);
+            ListeUniteUC.Add(uniteuc1);
             SmallWorld.Unite u2 = new SmallWorld.UniteElfe();
             UniteUC uniteuc2 = new UniteUC(u2);
-            listUniteUC.Add(uniteuc2);
-            list.ItemsSource = listUniteUC;
+            ListeUniteUC.Add(uniteuc2);
+            //list.ItemsSource = ListeUniteUC;
+
+            SmallWorld.Joueur j1 = new SmallWorld.JoueurImpl();
+            SmallWorld.Joueur j2 = new SmallWorld.JoueurImpl();
+            JoueurUC uc1 = new JoueurUC(j1);
+            Grid.SetColumn(uc1, 0);
+            JoueurUC uc2 = new JoueurUC(j2);
+            Grid.SetColumn(uc2, 1);
+            listJoueurs.Children.Add(uc1); 
+            listJoueurs.Children.Add(uc2);
         }
 
 
@@ -92,12 +114,17 @@ namespace WpfApplication
             }
             b.Background = chooseBackground(type);
             //b.Background = Brushes.Black ;
+            b.Click += polygon_MouseClick;
             b.MouseEnter += polygon_MouseEnter;
             Canvas.SetLeft(b, paddingLigne + j * 87);
             Canvas.SetTop(b,6 + i * 75);
             Canvas.SetZIndex(b, 1);
             canvas.Children.Add(b);
         }
+
+        
+
+       
 
         
 
@@ -190,12 +217,32 @@ namespace WpfApplication
             double left = (double)ender.GetValue(Canvas.LeftProperty);
             Console.WriteLine(" " + left);
             int[] coord = FromCanvasToCoord(left, top);      
-            Canvas.SetTop(PolygonSelected, top);
-            Canvas.SetLeft(PolygonSelected, left);
-            PolygonSelected.Visibility = Visibility.Visible;
-            e.Handled = true;
+            Canvas.SetTop(PolygonSurvole, top);
+            Canvas.SetLeft(PolygonSurvole, left);
+            PolygonSurvole.Visibility = Visibility.Visible;
+            //e.Handled = true;
             Console.WriteLine("MouseEnter");
             
+        }
+
+        private void polygon_MouseClick(object sender, RoutedEventArgs e)
+        {
+            PolygonSurvole.Visibility = Visibility.Hidden;
+            FrameworkElement ender = sender as FrameworkElement;
+            double top = (double)ender.GetValue(Canvas.TopProperty);
+            double left = (double)ender.GetValue(Canvas.LeftProperty);
+            Canvas.SetTop(PolygonSelection, top);
+            Canvas.SetLeft(PolygonSelection, left);
+            PolygonSelection.Visibility = Visibility.Visible;
+            //e.Handled = true;
+            Console.WriteLine("Polygon_mouseClick");
+        }
+
+      
+
+        private void polygon_NoSelection(object sender, MouseButtonEventArgs e)
+        {
+            PolygonSelection.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -205,7 +252,7 @@ namespace WpfApplication
         /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
         private void canvas_MouseLeave(object sender, MouseEventArgs e)
         {
-            PolygonSelected.Visibility = Visibility.Hidden;
+            PolygonSurvole.Visibility = Visibility.Hidden;
         }
         #endregion events
     }

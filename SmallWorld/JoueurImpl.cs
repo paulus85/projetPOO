@@ -11,7 +11,7 @@ namespace SmallWorld
 
         public JoueurImpl()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
     
         public List<UniteImpl> UniteImpl
