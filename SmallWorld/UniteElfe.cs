@@ -17,6 +17,11 @@ namespace SmallWorld
             return 1;
         }
 
+        public void Repli()
+        {
+            this.pointsDeVie = 1;
+        }
+
         public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
         {
             if (caseDest.Number == (int)NumCase.DESERT)

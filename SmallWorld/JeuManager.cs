@@ -103,15 +103,30 @@ namespace SmallWorld
             return null;
         }
 
+        private int VerifPointBonus(Dictionary<Unite, Point> unites)
+        {
+            int n = 0;
+            foreach (Unite unite in unites.Keys)
+            {
+                if (((UniteOrc)unite).PointBonus > 0)
+                    n += ((UniteOrc)unite).PointBonus;
+            }
+            return n;
+        }
+
         public void FinTour()
         {
-            //Comptage des points pour le joueur courant et 
-            //réinitilisation des points de deplacement des unites
+            //Comptage des points pour le joueur courant (prise en compte des points bonus pour les orcs)
+            //et réinitilisation des points de deplacement des unites
             Dictionary<Unite, Point> unites = carte.GetUnites(this.joueurCourant);
+            int pointBonus = 0;
+            if (unites.Keys.First().GetType() == typeof(UniteOrc))
+                pointBonus = VerifPointBonus(unites);
+
             foreach (var unite in unites)
             {
                 Case c = this.carte.GetCase(unite.Value);
-                this.joueurCourant.AjoutPoints(unite.Key.GetPoints(c));
+                this.joueurCourant.AjoutPoints(unite.Key.GetPoints(c) + pointBonus);
                 unite.Key.ResetPointsDeplacement();
             }
 

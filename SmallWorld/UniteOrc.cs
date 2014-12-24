@@ -7,18 +7,28 @@ namespace SmallWorld
 {
     public class UniteOrc : UniteImpl
     {
-        public int pointBonus;
+        private int pointBonus;
+
+        public int PointBonus
+        {
+            get { return pointBonus; }
+        }
 
         public UniteOrc(Joueur j) : base(j)
         {
-            pointBonus = 0;
+            this.pointBonus = 0;
         }
 
         public override int GetPoints(Case typeCase){
-            if (typeCase is CaseForet)
-                return pointBonus;
+            if (typeCase.Number == (int)NumCase.FORET)
+                return this.pointBonus;
             else
-                return 1 + pointBonus;
+                return 1 + this.pointBonus;
+        }
+
+        public void AddPointBonus()
+        {
+            this.pointBonus += 1;
         }
 
         public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)

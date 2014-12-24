@@ -95,6 +95,6 @@ namespace SmallWorld
             return true;
         }
 
-        public abstract int GetPoints(Case c);                
+        public abstract int GetPoints(Case c);
     }
 }

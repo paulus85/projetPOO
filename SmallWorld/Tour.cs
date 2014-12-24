@@ -162,11 +162,40 @@ namespace SmallWorld
 
             if (!unite.EstEnVie())
             {
+                if (unite.GetType() == typeof(UniteElfe))
+                {
+                    int N = new Random().Next(0, 100);
+                    if (N >= 50)
+                    {
+                        ((UniteElfe)unite).Repli();
+                        return ResultatCombat.NUL;
+                    }
+                    else
+                    {
+                        this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
+                        return ResultatCombat.PERDU;
+                    }
+                }
                 this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                 return ResultatCombat.PERDU;
             }
             else if (!uniteAdverse.EstEnVie())
             {
+                if (uniteAdverse.GetType() == typeof(UniteElfe))
+                {
+                    int N = new Random().Next(0, 100);
+                    if (N >= 50)
+                    {
+                        ((UniteElfe)uniteAdverse).Repli();
+                        return ResultatCombat.NUL;
+                    }
+                    else
+                    {
+                        this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
+                        return ResultatCombat.GAGNE;
+                    }
+                        
+                }
                 this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                 return ResultatCombat.GAGNE;
             }
