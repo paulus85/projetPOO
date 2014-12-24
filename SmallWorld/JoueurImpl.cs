@@ -43,6 +43,11 @@ namespace SmallWorld
             this.numero = cpt;
         }
 
+        public JoueurImpl()
+        {
+            //Temporaire, histoire de faire des tests
+        }
+
         public List<Unite> CreerUnites(int nbUnites)
         {
             List<Unite> unites = new List<Unite>();

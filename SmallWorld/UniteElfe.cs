@@ -9,7 +9,11 @@ namespace SmallWorld
     {
         public UniteElfe(Joueur j) : base(j)
         {
-            
+        }
+
+        public UniteElfe()
+        {
+            //Temporaire, histoire de faire des tests
         }
 
         public override int GetPoints(Case typeCase)
@@ -45,7 +49,7 @@ namespace SmallWorld
                 if (this.pointsDeplacementRestant < cout_deplacement)
                 {
                     return false;
-                }
+        }
                 this.pointsDeplacementRestant -= cout_deplacement;
                 return true;
             }
@@ -53,7 +57,7 @@ namespace SmallWorld
             {
                 int cout_deplacement = COUT_DEPLACEMENT / 2;
                 if (this.pointsDeplacementRestant < cout_deplacement)
-                {
+        {
                     return false;
                 }
                 this.pointsDeplacementRestant -= cout_deplacement;

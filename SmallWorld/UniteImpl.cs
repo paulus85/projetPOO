@@ -60,6 +60,11 @@ namespace SmallWorld
             this.number = cpt;
         }
 
+        public UniteImpl()
+        {
+            //temporaire, histoire de faire des tests
+        }
+
         public bool EnleverPV()
         {
             if (this.pointsDeVie < 1)
