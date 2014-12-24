@@ -16,34 +16,80 @@ using System.Windows.Shapes;
 namespace WpfApplication
 {
 
-    //const int PADDINGLIGNEPAIR = 70;
-    //const int PADDINGLIGNEIMPAIR = 145;
+
 
     /// <summary>
     /// Logique d'interaction pour Jeu.xaml
     /// </summary>
     public partial class Jeu : Page
     {
+
+        const int paddingLigneImpaire = 44;
+        const int paddingLignePaire = 0;
+
+        List<UniteUC> listeUniteUC = new List<UniteUC>();
+        /// <summary>
+        /// Is like the interface between code behind data and view. Is binded to ItemsSource of Unite listBox.
+        /// </summary>
+        /// <value>
+        /// The liste unite uc.
+        /// </value>
+        public List<UniteUC> ListeUniteUC
+        {
+            get { return listeUniteUC; }
+            set { listeUniteUC = value; }
+        }
+
         public Jeu()
         {
             InitializeComponent();
-            refreshCarte();
+            DataContext = this;
+            refreshCarte(6,6);
+            refreshUI();
         }
 
-        private void refreshCarte()
+        private void refreshUI()
         {
-            for (int i = 0; i < 6; i++)
+            //List<UniteUC> listUniteUC = new List<UniteUC>();
+            SmallWorld.Unite u = new SmallWorld.UniteElfe();
+            UniteUC uniteuc = new UniteUC(u);
+            ListeUniteUC.Add(uniteuc);
+            SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
+            UniteUC uniteuc1 = new UniteUC(u1);
+            ListeUniteUC.Add(uniteuc1);
+            SmallWorld.Unite u2 = new SmallWorld.UniteElfe();
+            UniteUC uniteuc2 = new UniteUC(u2);
+            ListeUniteUC.Add(uniteuc2);
+            //list.ItemsSource = ListeUniteUC;
+
+            SmallWorld.Joueur j1 = new SmallWorld.JoueurImpl();
+            SmallWorld.Joueur j2 = new SmallWorld.JoueurImpl();
+            JoueurUC uc1 = new JoueurUC(j1);
+            Grid.SetColumn(uc1, 0);
+            JoueurUC uc2 = new JoueurUC(j2);
+            Grid.SetColumn(uc2, 1);
+            listJoueurs.Children.Add(uc1); 
+            listJoueurs.Children.Add(uc2);
+        }
+
+
+        private void refreshCarte(int l, int h)
+        {
+            canvas.Height = 100 * (1 + 0.75 * (h - 1));
+            canvas.Width = l * 88 + paddingLigneImpaire;
+            // Les valeurs sont prises avec un peu de large...
+            for (int i = 0; i < l; i++)
             {
-                for (int j = 0; j < 6; j++)
+                for (int j = 0; j < h; j++)
                 {
                     afficherCase(i, j, "Foret");
                 }
             }
-            
         }
 
+
         /// <summary>
-        /// Displays the case.
+        /// Displays the case. Contains all the values about Cases and their disposition.
         /// </summary>
         /// <param name="i">The line number.</param>
         /// <param name="j">The column number.</param>
@@ -54,12 +100,12 @@ namespace WpfApplication
             if (i % 2 == 0)
             {
                 //Ligne paire
-                paddingLigne = 70;
+                paddingLigne = paddingLignePaire;
             }
             else
             {
                 //Ligne impaire
-                paddingLigne = 145;
+                paddingLigne = paddingLigneImpaire;
             }
             Button b = new Button();
             if (FindResource("ButtonPolygon") != null)
@@ -68,17 +114,22 @@ namespace WpfApplication
             }
             b.Background = chooseBackground(type);
             //b.Background = Brushes.Black ;
+            b.Click += polygon_MouseClick;
             b.MouseEnter += polygon_MouseEnter;
-            b.MouseLeave += polygon_MouseLeave;
-            Canvas.SetLeft(b, paddingLigne + j * 150);
-            Canvas.SetTop(b, 70 + i * 130);
+            Canvas.SetLeft(b, paddingLigne + j * 87);
+            Canvas.SetTop(b,6 + i * 75);
             Canvas.SetZIndex(b, 1);
             canvas.Children.Add(b);
         }
 
         
 
+       
+
+        
+
         /// <summary>
+        /// DEPRECATED
         /// Froms the canvas to coord.
         /// </summary>
         /// <param name="left">The left.</param>
@@ -118,26 +169,27 @@ namespace WpfApplication
                 case "Foret" :
                     //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png")));
                     ImageBrush ib = new ImageBrush();
-                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png"));
+                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/ocean.png"));
                     ib.Stretch = Stretch.UniformToFill;
+                    //ib.RelativeTransform = new RotateTransform(-30,0.5,0.5);
                     return ib;
             }
             return null;
         }
 
-        public void creerCarte()
-        {
-            SmallWorld.Carte carte = SmallWorld.CarteImpl.Instance;
-            carte.instanciateCasesTab(2, 2);
-            carte.Cases[1, 1] = carte.fabrique.creerDesert();
-            carte.Cases[0, 0] = carte.fabrique.creerDesert();
-            Rectangle rec = new Rectangle();
-            //canvas.Children.Add(new Rectangle())
-            rec.Height = 10;
-            rec.Width = 20;
-            rec.Stroke = Brushes.Aqua;
-            canvas.Children.Add(rec);
-        }
+        //public void creerCarte()
+        //{
+        //    SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
+        //    carte.instanciateCasesTab(2, 2);
+        //    carte.Cases[1, 1] = carte.fabrique.creerDesert();
+        //    carte.Cases[0, 0] = carte.fabrique.creerDesert();
+        //    Rectangle rec = new Rectangle();
+        //    //canvas.Children.Add(new Rectangle())
+        //    rec.Height = 10;
+        //    rec.Width = 20;
+        //    rec.Stroke = Brushes.Aqua;
+        //    canvas.Children.Add(rec);
+        //}
 
         public void creerCase(SmallWorld.Case c, int x, int y)
         {
@@ -146,10 +198,11 @@ namespace WpfApplication
             caseDraw.Points = new PointCollection();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Console.Write("ok");
-        }
+        
+
+        ////////////////////////////////////////////////// EVENEMENTS ////////////////////////////////////////////////
+        #region events
+       
 
         /// <summary>
         /// Handles the MouseDown event of the polygon control.
@@ -164,22 +217,43 @@ namespace WpfApplication
             double left = (double)ender.GetValue(Canvas.LeftProperty);
             Console.WriteLine(" " + left);
             int[] coord = FromCanvasToCoord(left, top);      
-            //Console.WriteLine("Ligne : " + coord[0] + " Colonne : " + coord[1]);
-            Canvas.SetTop(PolygonSelected, top);
-            Canvas.SetLeft(PolygonSelected, left);
-            PolygonSelected.Visibility = Visibility.Visible;
-            e.Handled = true;
+            Canvas.SetTop(PolygonSurvole, top);
+            Canvas.SetLeft(PolygonSurvole, left);
+            PolygonSurvole.Visibility = Visibility.Visible;
+            //e.Handled = true;
             Console.WriteLine("MouseEnter");
             
         }
 
-        private void polygon_MouseLeave(object sender, MouseEventArgs e)
+        private void polygon_MouseClick(object sender, RoutedEventArgs e)
         {
-            //PolygonSelected.Visibility = Visibility.Hidden;
-           // e.Handled = true;
-            Console.WriteLine("MouseLeave");
+            PolygonSurvole.Visibility = Visibility.Hidden;
+            FrameworkElement ender = sender as FrameworkElement;
+            double top = (double)ender.GetValue(Canvas.TopProperty);
+            double left = (double)ender.GetValue(Canvas.LeftProperty);
+            Canvas.SetTop(PolygonSelection, top);
+            Canvas.SetLeft(PolygonSelection, left);
+            PolygonSelection.Visibility = Visibility.Visible;
+            //e.Handled = true;
+            Console.WriteLine("Polygon_mouseClick");
         }
 
-        
+      
+
+        private void polygon_NoSelection(object sender, MouseButtonEventArgs e)
+        {
+            PolygonSelection.Visibility = Visibility.Hidden;
+        }
+
+        /// <summary>
+        /// Handles the MouseLeave event of the canvas control. Allows to mask the selection Polygon.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        private void canvas_MouseLeave(object sender, MouseEventArgs e)
+        {
+            PolygonSurvole.Visibility = Visibility.Hidden;
+        }
+        #endregion events
     }
 }

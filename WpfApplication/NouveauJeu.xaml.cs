@@ -20,12 +20,15 @@ namespace WpfApplication
     /// </summary>
     public partial class NouveauJeu : Page
     {
+        private MainWindow parent;
+
         public string NomJoueur1 { get; set; }
         public string NomJoueur2 { get; set; }
         public string PeupleJoueur1 { get; set; }
         public string PeupleJoueur2 { get; set; }
         public string TailleCarte { get; set; }
-
+        
+        
         public NouveauJeu()
         {
             InitializeComponent();
@@ -36,11 +39,17 @@ namespace WpfApplication
             PeupleJoueur1 = "";
             PeupleJoueur2 = "";
             TailleCarte = "";
+            parent = (Application.Current.MainWindow as MainWindow);
+            //parent.Height = 700;
         }
 
+        /// <summary>
+        /// Handles the Click event of the Commencer button. Check if all is OK and call constructor of Jeu view with all parameters needed.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void Commencer_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow parent = (Application.Current.MainWindow as MainWindow);
             if (!(String.IsNullOrWhiteSpace(PeupleJoueur1)) && !(String.IsNullOrWhiteSpace(PeupleJoueur2)) && !(String.IsNullOrWhiteSpace(NomJoueur1)) && !(String.IsNullOrWhiteSpace(NomJoueur2)) && !(String.IsNullOrWhiteSpace(TailleCarte)))
             {
                 //Passage des paramètres via l'objet parent. --> appel aux méthodes de construction du jeu
@@ -53,10 +62,16 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Handles the Checked event of the ChoixPeupleJ1 control. Check if Joueur1's Peuple is different from Joueur2's one.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void ChoixPeupleJ1_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
-            PeupleJoueur1 = rd.Content.ToString();
+            PeupleJoueur1 = rd.Tag.ToString();
+            Console.WriteLine("Joueur1 : " + PeupleJoueur1);
             // Vérification si le peuple n'est pas choisi 2 fois
             if (PeupleJoueur1 == PeupleJoueur2)
             {
@@ -66,10 +81,17 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Handles the Checked event of the ChoixPeupleJ2 control. Check if Joueur2's Peuple is different from Joueur1's one.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void ChoixPeupleJ2_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
-            PeupleJoueur2 = rd.Content.ToString();
+            PeupleJoueur2 = rd.Tag.ToString();
+            Console.WriteLine("Joueur2 : " + PeupleJoueur2);
+
             // Vérification si le peuple n'est pas choisi 2 fois
             if (PeupleJoueur1 == PeupleJoueur2)
             {
@@ -79,6 +101,11 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Handles the Checked event of the TailleCarte control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
         private void TailleCarte_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);

@@ -95,7 +95,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="JoueurUC.xaml.cs">
+      <DependentUpon>JoueurUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MapPanel.cs" />
+    <Compile Include="UniteUC.xaml.cs">
+      <DependentUpon>UniteUC.xaml</DependentUpon>
+    </Compile>
     <Page Include="Jeu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JoueurUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,6 +128,10 @@
     <Page Include="NouveauJeu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UniteUC.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +165,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="elfe_base.png" />
     <Resource Include="Ressources\desert.png" />
     <Resource Include="Ressources\foret.png" />
     <Resource Include="Ressources\ocean.png" />
@@ -166,6 +182,18 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\smallworld_main.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\button_Map_dim_base.png" />
+    <Resource Include="Ressources\elfe_choixPeuple.png" />
+    <Resource Include="Ressources\nain_choixPeuple.png" />
+    <Resource Include="Ressources\orc_choixPeuple.png" />
+    <Resource Include="Ressources\sprite_elfe.png" />
+    <Resource Include="Ressources\sprite_nain.png" />
+    <Resource Include="Ressources\sprite_orc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\foret2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -4,13 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="500" d:DesignWidth="1000"
 	Title="NouveauJeu">
+    
+    <Page.Resources>
+        <Style x:Key="RadioButtonMenu" BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="RadioButton">
+            <!--Trop de répétitions dans les déclarations en bas, on pourrait en faire un contrôle spécifique avec sélection automatique selon Content-->
+            <Setter Property="Width" Value="145"></Setter>
+            <Setter Property="Margin" Value="5,5,5,0"/>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="#FF615E5E"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#FF997D7D"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Page.Resources>
 
     <Grid Margin="10,5">
         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
@@ -30,9 +46,56 @@
                     </Grid>
                     <StackPanel Orientation="Vertical">
                         <Label>Peuple : </Label>
-                        <RadioButton Checked="ChoixPeupleJ1_Checked">Elfe</RadioButton>
-                        <RadioButton Checked="ChoixPeupleJ1_Checked">Nain</RadioButton>
-                        <RadioButton Checked="ChoixPeupleJ1_Checked">Orc</RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton Checked="ChoixPeupleJ1_Checked" Style="{StaticResource RadioButtonMenu}" Tag="elfe">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/elfe_choixPeuple.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Elfe</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Forêt divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Désert multiplié par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">50% de chance de se replier lors d'un combat</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
+                            <RadioButton Checked="ChoixPeupleJ1_Checked" Style="{StaticResource RadioButtonMenu}" Tag="nain">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/nain_choixPeuple.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Nain</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Plaine divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Aucun point sur une case Plaine</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Déplacement possible entre cases Montagne</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
+                            <RadioButton Checked="ChoixPeupleJ1_Checked" Style="{StaticResource RadioButtonMenu}" Tag="orc">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/orc_choixPeuple.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Orc</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Plaine divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Aucun point sur une case Forêt</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">1 point bonus si une unité détruit une unité adverse</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
@@ -48,19 +111,96 @@
                     </Grid>
                     <StackPanel Orientation="Vertical">
                         <Label>Peuple :</Label>
-                        <RadioButton Checked="ChoixPeupleJ2_Checked">Elfe</RadioButton>
-                        <RadioButton Checked="ChoixPeupleJ2_Checked">Nain</RadioButton>
-                        <RadioButton Checked="ChoixPeupleJ2_Checked">Orc</RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton Checked="ChoixPeupleJ2_Checked" Style="{StaticResource RadioButtonMenu}" Tag="elfe">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/elfe_choixPeuple.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Elfe</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Forêt divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Désert multiplié par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">50% de chance de se replier lors d'un combat</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
+                            <RadioButton Checked="ChoixPeupleJ2_Checked" Style="{StaticResource RadioButtonMenu}" Tag="nain">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/nain_choixPeuple.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Nain</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Plaine divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Aucun point sur une case Plaine</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Déplacement possible entre cases Montagne</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
+                            <RadioButton Checked="ChoixPeupleJ2_Checked" Style="{StaticResource RadioButtonMenu}" Tag="orc">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/orc_choixPeuple.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Orc</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Plaine divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Aucun point sur une case Forêt</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">1 point bonus si une unité détruit une unité adverse</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
+                        </StackPanel>
                     </StackPanel>
                 </StackPanel>
             </GroupBox>
         </Grid>
         
-        <GroupBox Grid.Row="1" Header="Choix de la taille de la carte">
-            <StackPanel Orientation="Vertical">
-                <RadioButton Checked="TailleCarte_Checked" x:Name="demo">Taille Démo</RadioButton>
-                <RadioButton Checked="TailleCarte_Checked" x:Name="petite">Taille Petite</RadioButton>
-                <RadioButton Checked="TailleCarte_Checked" x:Name="normale">Taille Normale</RadioButton>
+        <GroupBox Grid.Row="1" Header="Choix de la taille de la carte" Padding="0,2,2,4">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="demo" Width="200">
+					<Grid>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="150" />
+							<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="pack://application:,,,/Ressources/button_Map_dim_base.png" Stretch="Uniform" Margin="0,2,0,0"/>
+                        <Label Grid.Row="0" Content="6x6" Foreground="White" FontSize="16"/>
+                        <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2">Taille Démo</TextBlock>
+                    </Grid>
+				</RadioButton>
+                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="petite" Width="200">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="pack://application:,,,/Ressources/button_Map_dim_base.png" Stretch="Uniform" Margin="0,2,0,0"/>
+                        <Label Grid.Row="0" Content="10x10" Foreground="White" FontSize="16"/>
+                        <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2">Taille Démo</TextBlock>
+                    </Grid>
+                </RadioButton>
+                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="normale" Width="200">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="150" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="pack://application:,,,/Ressources/button_Map_dim_base.png" Stretch="Uniform" Margin="0,2,0,0"/>
+                        <Label Grid.Row="0" Content="14x14" Foreground="White" FontSize="16"/>
+                        <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2">Taille Démo</TextBlock>
+                    </Grid>
+                </RadioButton>
             </StackPanel>
         </GroupBox>
         
