@@ -95,9 +95,7 @@ namespace WpfApplication
                         fb2 = new SmallWorld.PeupleOrc();
                         break;
                 }
-
-                engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);   
-                parent.Content = new Jeu(engine);
+                parent.Content = new Jeu(monteur,NomJoueur1,fb1,NomJoueur2,fb2);
             }
             else
             {

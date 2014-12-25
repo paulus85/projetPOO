@@ -9,7 +9,7 @@ namespace SmallWorld
     {
         public PeupleOrc()
         {
-            throw new System.NotImplementedException();
+            //throw new System.NotImplementedException();
         }
 
         public override Unite GenerationUnite(Joueur j)

@@ -22,7 +22,6 @@ namespace WpfApplication
     public partial class MainWindow : Window
     {
 
-        SmallWorld.CarteImpl carte;
         const int dimensionCase = 5;
         
 

@@ -43,11 +43,13 @@ namespace WpfApplication
             set { listeUniteUC = value; }
         }
 
-        public Jeu(SmallWorld.Jeu jeu)
+        public Jeu(SmallWorld.MonteurNPartie monteur, string NomJoueur1, FabriquePeuple fb1, string NomJoueur2, FabriquePeuple fb2)
         {
+            Console.WriteLine("Début Jeu");
             InitializeComponent();
             DataContext = this;
-            engine = jeu;
+            //engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
+            //Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
             refreshCarte(6,6);
             refreshUI();
         }
@@ -81,8 +83,6 @@ namespace WpfApplication
 
         private void refreshCarte(int l, int h)
         {
-            canvas.Height = 100 * (1 + 0.75 * (h - 1));
-            canvas.Width = l * 88 + paddingLigneImpaire;
             // Les valeurs sont prises avec un peu de large...
             for (int i = 0; i < l; i++)
             {
@@ -91,6 +91,9 @@ namespace WpfApplication
                     afficherCase(i, j, "Foret");
                 }
             }
+            canvas.Height = 100 * (1 + 0.75 * (h - 1));
+            canvas.Width = l * 88 + paddingLigneImpaire;
+
         }
 
 
