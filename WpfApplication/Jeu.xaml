@@ -82,6 +82,37 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="PolygonUnite" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#00000000" StrokeThickness="13">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="30"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                                <Path.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.LayoutTransform>
+                            </Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="PolygonSurvole" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -219,8 +250,8 @@
                         <ScaleTransform ScaleY="8" ScaleX="8"/>
                         </Path.LayoutTransform>
                     </Path>-->
-                    <Button x:Name="PolygonSurvole" Style="{DynamicResource PolygonSurvole}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="6" Visibility="Hidden"/>
-                    <Button x:Name="PolygonSelection" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="4" Visibility="Hidden"/>
+                    <Button x:Name="PolygonSurvole" Style="{DynamicResource PolygonSurvole}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="6" Visibility="Hidden" IsHitTestVisible="False"/>
+                    <Button x:Name="PolygonSelection" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="4" Visibility="Hidden" IsHitTestVisible="False"/>
                 </Canvas>
                 <!--<local:MapPanel VerticalAlignment="Top" HorizontalAlignment="Left" ></local:MapPanel>-->
             </Grid>

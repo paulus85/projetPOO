@@ -27,6 +27,9 @@ namespace WpfApplication
         public string PeupleJoueur1 { get; set; }
         public string PeupleJoueur2 { get; set; }
         public string TailleCarte { get; set; }
+
+        private SmallWorld.MonteurNPartie monteur;
+        private SmallWorld.Jeu engine;
         
         
         public NouveauJeu()
@@ -54,7 +57,47 @@ namespace WpfApplication
             {
                 //Passage des paramètres via l'objet parent. --> appel aux méthodes de construction du jeu
                 Console.WriteLine("All is OK");
-                parent.Content = new Jeu();
+                //Récupération des bons éléments en fonction des choix du joueur
+                switch(TailleCarte)
+                {
+                    case "demo":
+                        monteur = new SmallWorld.MonteurNPartieDemo();
+                        break;
+                    case "petite":
+                        monteur = new SmallWorld.MonteurNPartiePetite();
+                        break;
+                    case "normale":
+                        monteur = new SmallWorld.MonteurNPartieNormale();
+                        break;
+                }
+                SmallWorld.FabriquePeuple fb1 = null, fb2 = null;
+                switch(PeupleJoueur1)
+                {
+                    case "elfe":
+                        fb1 = new SmallWorld.PeupleElfe();
+                        break;
+                    case "nain":
+                        fb1 = new SmallWorld.PeupleNain();
+                        break;
+                    case "orc":
+                        fb1 = new SmallWorld.PeupleOrc();
+                        break;
+                }
+                switch(PeupleJoueur2)
+                {
+                    case "elfe":
+                        fb2 = new SmallWorld.PeupleElfe();
+                        break;
+                    case "nain":
+                        fb2 = new SmallWorld.PeupleNain();
+                        break;
+                    case "orc":
+                        fb2 = new SmallWorld.PeupleOrc();
+                        break;
+                }
+
+                engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);   
+                parent.Content = new Jeu(engine);
             }
             else
             {

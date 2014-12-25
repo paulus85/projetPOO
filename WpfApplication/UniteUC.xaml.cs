@@ -55,7 +55,7 @@ namespace WpfApplication
             }
             else if (unite is UniteOrc)
             {
-                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_orc.png"));
             }
             return bi;
         }  

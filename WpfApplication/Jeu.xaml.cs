@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SmallWorld;
 
 namespace WpfApplication
 {
@@ -27,6 +28,8 @@ namespace WpfApplication
         const int paddingLigneImpaire = 44;
         const int paddingLignePaire = 0;
 
+        private SmallWorld.Jeu engine; 
+
         List<UniteUC> listeUniteUC = new List<UniteUC>();
         /// <summary>
         /// Is like the interface between code behind data and view. Is binded to ItemsSource of Unite listBox.
@@ -40,10 +43,11 @@ namespace WpfApplication
             set { listeUniteUC = value; }
         }
 
-        public Jeu()
+        public Jeu(SmallWorld.Jeu jeu)
         {
             InitializeComponent();
             DataContext = this;
+            engine = jeu;
             refreshCarte(6,6);
             refreshUI();
         }
@@ -51,7 +55,7 @@ namespace WpfApplication
         private void refreshUI()
         {
             //List<UniteUC> listUniteUC = new List<UniteUC>();
-            SmallWorld.Unite u = new SmallWorld.UniteElfe();
+            SmallWorld.Unite u = new SmallWorld.UniteOrc(null);
             UniteUC uniteuc = new UniteUC(u);
             ListeUniteUC.Add(uniteuc);
             SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
@@ -70,6 +74,8 @@ namespace WpfApplication
             Grid.SetColumn(uc2, 1);
             listJoueurs.Children.Add(uc1); 
             listJoueurs.Children.Add(uc2);
+
+            afficherUnite(0, 0, u);
         }
 
 
@@ -96,6 +102,50 @@ namespace WpfApplication
         /// <param name="type">The type of case.</param>
         public void afficherCase(int i, int j, string type)
         {
+            
+            Button b = new Button();
+            if (FindResource("ButtonPolygon") != null)
+            {
+                b.Style = FindResource("ButtonPolygon") as Style;
+            }
+            b.Background = chooseBackground(type);
+            b.Click += polygon_MouseClick;
+            b.MouseEnter += polygon_MouseEnter;
+            int[] coordCanvas = FromCoordToCanvas(i, j);
+            Canvas.SetLeft(b, coordCanvas[0]);
+            Canvas.SetTop(b, coordCanvas[1]);
+            Canvas.SetZIndex(b, 1);
+            //b.Content = "" + i + ";" + j;
+            canvas.Children.Add(b);
+        }
+
+        public void afficherUnite(int i, int j, Unite u)
+        {
+            Button b = new Button();
+            b.IsHitTestVisible = false;
+            if (FindResource("PolygonUnite") != null)
+            {
+                b.Style = FindResource("PolygonUnite") as Style;
+            }
+            b.Background = chooseBackgroundUnite(u);
+            int[] coordCanvas = FromCoordToCanvas(i, j);
+            Canvas.SetLeft(b, coordCanvas[0]);
+            Canvas.SetTop(b, coordCanvas[1]);
+            Canvas.SetZIndex(b, 3);
+            canvas.Children.Add(b);
+        }
+
+
+        #region Translation
+        /// <summary>
+        /// Translates line and column number to TOP and LEFT value for the canvas.
+        /// </summary>
+        /// <param name="i">The i.</param>
+        /// <param name="j">The j.</param>
+        /// <returns>The table with correct values. res[0] = left ; res[1] = top</returns>
+        private int[] FromCoordToCanvas(int i, int j)
+        {
+            int[] res = new int[2];
             int paddingLigne;
             if (i % 2 == 0)
             {
@@ -107,26 +157,11 @@ namespace WpfApplication
                 //Ligne impaire
                 paddingLigne = paddingLigneImpaire;
             }
-            Button b = new Button();
-            if (FindResource("ButtonPolygon") != null)
-            {
-                b.Style = FindResource("ButtonPolygon") as Style;
-            }
-            b.Background = chooseBackground(type);
-            //b.Background = Brushes.Black ;
-            b.Click += polygon_MouseClick;
-            b.MouseEnter += polygon_MouseEnter;
-            Canvas.SetLeft(b, paddingLigne + j * 87);
-            Canvas.SetTop(b,6 + i * 75);
-            Canvas.SetZIndex(b, 1);
-            canvas.Children.Add(b);
+            res[0] = paddingLigne + j * 87;
+            res[1] = 6 + i * 75;
+            return res;
         }
-
-        
-
-       
-
-        
+      
 
         /// <summary>
         /// DEPRECATED
@@ -151,6 +186,7 @@ namespace WpfApplication
             }
             return res;
         }
+        #endregion
 
         /// <summary>
         /// Chooses the background for a type of case 
@@ -177,6 +213,34 @@ namespace WpfApplication
             return null;
         }
 
+        /// <summary>
+        /// Chooses the sprite for a Unite
+        /// </summary>
+        /// <returns>The appropriate ImageBrush</returns>
+        private ImageBrush chooseBackgroundUnite(Unite u)
+        {
+            if (u is UniteElfe)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
+                ib.Stretch = Stretch.Uniform;
+                return ib;
+            } else
+                if (u is UniteNain)
+                {
+                    ImageBrush ib = new ImageBrush();
+                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_nain.png"));
+                    ib.Stretch = Stretch.Uniform;
+                    return ib;
+                } else
+                    {
+                        ImageBrush ib = new ImageBrush();
+                        ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_orc.png"));
+                        ib.Stretch = Stretch.Uniform;
+                        return ib;
+                    }
+        }
+
         //public void creerCarte()
         //{
         //    SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
@@ -191,14 +255,7 @@ namespace WpfApplication
         //    canvas.Children.Add(rec);
         //}
 
-        public void creerCase(SmallWorld.Case c, int x, int y)
-        {
 
-            Polygon caseDraw = new Polygon();
-            caseDraw.Points = new PointCollection();
-        }
-
-        
 
         ////////////////////////////////////////////////// EVENEMENTS ////////////////////////////////////////////////
         #region events
@@ -220,7 +277,7 @@ namespace WpfApplication
             Canvas.SetTop(PolygonSurvole, top);
             Canvas.SetLeft(PolygonSurvole, left);
             PolygonSurvole.Visibility = Visibility.Visible;
-            //e.Handled = true;
+            e.Handled = false;
             Console.WriteLine("MouseEnter");
             
         }
@@ -234,7 +291,7 @@ namespace WpfApplication
             Canvas.SetTop(PolygonSelection, top);
             Canvas.SetLeft(PolygonSelection, left);
             PolygonSelection.Visibility = Visibility.Visible;
-            //e.Handled = true;
+            e.Handled = false;
             Console.WriteLine("Polygon_mouseClick");
         }
 
