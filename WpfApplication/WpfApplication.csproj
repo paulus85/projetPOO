@@ -170,7 +170,6 @@
     <Resource Include="Ressources\foret.png" />
     <Resource Include="Ressources\ocean.png" />
     <Resource Include="Ressources\plaine.png" />
-    <Resource Include="sprite_elfe.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmallWorld\SmallWorld.csproj">

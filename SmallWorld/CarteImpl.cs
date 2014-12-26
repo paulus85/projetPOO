@@ -32,6 +32,11 @@ namespace SmallWorld
            get { return this.cases; }
        }
 
+       public int Taille
+       {
+           get { return taille; }
+       }
+
         #endregion
 
        private CarteImpl()

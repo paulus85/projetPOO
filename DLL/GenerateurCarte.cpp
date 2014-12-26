@@ -6,7 +6,7 @@
 Point* GenerateurCarte::departUnites(int nbCases) {
 	Point* result = new Point[2];
 	result[0] = Point(0, 0);
-	result[1] = Point(nbCases * nbCases - 1, nbCases * nbCases - 1);
+	result[1] = Point(nbCases - 1, nbCases - 1);
 
 	return result;
 }
@@ -26,12 +26,12 @@ Case** GenerateurCarte::genererCarte(int nbCases) {
 	for (int i = 0; i<nbCases; i++) {
 		for (int j = 0; j<nbCases; j++) {
 			//Vérifie qu'on a à peu près le même nombre de case de chaque type
-			while (controleTab[val] == (int)(nbCases / 4) + 1)
-			{
+			//while (controleTab[val] == (int)(nbCases / 4) + 1)
+			//{
 				val = rand() % 4;
 				carte[i][j] = (Case)val;
-			}
-			controleTab[val]++;
+			//}
+			//controleTab[val]++;
 		}
 	}
 
