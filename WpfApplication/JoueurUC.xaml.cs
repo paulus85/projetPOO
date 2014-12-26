@@ -27,7 +27,7 @@ namespace WpfApplication
         public JoueurUC(Joueur j)
         {
             InitializeComponent();
-            Joueur = j;
+            joueur = j;
             //Mise en place de valeurs bidon
             NomJoueur.Text = "Paul";
             Peuple.Text = "Elfe";

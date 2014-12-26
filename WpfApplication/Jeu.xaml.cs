@@ -48,7 +48,7 @@ namespace WpfApplication
             Console.WriteLine("Début Jeu");
             InitializeComponent();
             DataContext = this;
-            //engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
+            engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
             //Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
             refreshCarte(6,6);
             refreshUI();

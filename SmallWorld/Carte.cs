@@ -9,6 +9,8 @@ namespace SmallWorld
     {
         Case[,] Cases { get; }
         List<Unite>[,] Unites { get;  }
+        int Taille { get; }
+
 
         Carte ConstruireCarte(int size);
         void PlacerUnite(Unite unite, Point position);
