@@ -211,7 +211,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
-                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}">
+                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" />

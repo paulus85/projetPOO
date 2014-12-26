@@ -314,6 +314,32 @@ namespace WpfApplication
         {
             PolygonSurvole.Visibility = Visibility.Hidden;
         }
+
+        /// <summary>
+        /// Handles the PreviewMouseDown event of the list control. Allows to deselect an item from the UniteUC listBox with one click only.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        private void list_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DependencyObject dep = (DependencyObject)e.OriginalSource;
+            while ((dep != null) && !(dep is ListBoxItem))
+            {
+                dep = VisualTreeHelper.GetParent(dep);
+            }
+            if (dep == null)
+                return;
+            ListBoxItem item = (ListBoxItem)dep;
+            if (item.IsSelected)
+            {
+                item.IsSelected = !item.IsSelected;
+                e.Handled = true;
+            }
+        }
+        
+
         #endregion events
+
+        
     }
 }
