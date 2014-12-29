@@ -94,7 +94,7 @@
                                     <TransformGroup>
                                         <ScaleTransform/>
                                         <SkewTransform/>
-                                        <RotateTransform Angle="30"/>
+                                        <!--<RotateTransform Angle="30"/>-->
                                         <TranslateTransform/>
                                     </TransformGroup>
                                 </Path.RenderTransform>
@@ -211,7 +211,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
-                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple">
+                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" />
@@ -231,19 +231,19 @@
             
             <StackPanel Grid.Row="2">
                 <Label>Tour : </Label>
-                <Button HorizontalAlignment="Right" Content="Fin du tour" Width="auto"/>
+                <Button HorizontalAlignment="Right" Content="Fin du tour" Width="auto" Click="FindeTour_Click"/>
             </StackPanel>    
         </Grid>
 
-        <ScrollViewer Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4">
-            <Grid Background="#FF347BC1" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ScrollViewer Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4" >
+            <Grid Background="#FF347BC1" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="polygon_NoSelection">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-            <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas" Background="HotPink" MouseLeave="canvas_MouseLeave">
+                <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas" Background="HotPink" MouseLeave="canvas_MouseLeave" >
                     <!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
                     <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
                         <Path.LayoutTransform>

@@ -19,25 +19,26 @@ namespace WpfApplication
 	/// </summary>
 	public partial class UniteUC : UserControl
 	{
-        private Unite unite;
         public Unite Unite { get; set; }
 
 		public UniteUC(Unite u)
 		{
 			this.InitializeComponent();
-            unite = u;
+            Unite = u;
 
             //Initialisation des différents champs
             //Gestion de l'image associée
             image.Source = getSprite();
             //Point de vie
-            pvL.Text = "0";
+            pvL.Text = ""+Unite.PointsDeVie;
             //Point de déplacement
-            pdL.Text = "2";
+            pdL.Text = ""+Unite.PointsDeplacementRestant;
             //Point d'attaque
-            attL.Text = "2";
+            attL.Text = ""+Unite.PointsAttaque;
             //Point de défense 
-            defL.Text = "1";
+            defL.Text = "" + Unite.PointsDefense;
+            //Nom du joueur 
+            nomJoueur.Content = "" + Unite.Proprio.NomJoueur;
 
 		}
 
@@ -45,15 +46,15 @@ namespace WpfApplication
         {
             //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/mer.png")));
             BitmapImage bi = null;
-            if (unite is UniteElfe)
+            if (Unite is UniteElfe)
             {
                 bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
             }
-            else if (unite is UniteNain)
+            else if (Unite is UniteNain)
             {
                 bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_nain.png"));
             }
-            else if (unite is UniteOrc)
+            else if (Unite is UniteOrc)
             {
                 bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_orc.png"));
             }

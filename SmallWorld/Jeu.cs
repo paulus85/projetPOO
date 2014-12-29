@@ -21,6 +21,11 @@ namespace SmallWorld
 
         TourImpl Tour { get; }
 
+        Tour Tour
+        {
+            get;
+        }
+
         bool FinDuJeu();
 
         int GetNbUnites(Joueur j);
