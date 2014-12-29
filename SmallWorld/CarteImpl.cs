@@ -135,7 +135,8 @@ namespace SmallWorld
            }
            else
            {
-               return !this.unites[position.x, position.y][0].Proprio.Equals(unite.Proprio);
+               bool x = !this.unites[position.x, position.y][0].Proprio.Equals(unite.Proprio);
+               return x;
            }
        }
 

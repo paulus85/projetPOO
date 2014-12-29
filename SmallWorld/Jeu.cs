@@ -7,35 +7,19 @@ namespace SmallWorld
 {
     public interface Jeu
     {
-        Joueur Joueur1
-        {
-            get;
-        }
+        Joueur Joueur1 { get; }
 
-        Joueur Joueur2
-        {
-            get;
-        }
+        Joueur Joueur2 { get; }
 
-        Joueur JoueurCourant
-        {
-            get;
-        }
+        Joueur JoueurCourant { get; }
 
-        Carte Carte
-        {
-            get;
-        }
+        Carte Carte { get; }
 
-        int NbTour
-        {
-            get;
-        }
+        int NbTour { get; }
 
-        int TourActuelle
-        {
-            get;
-        }
+        int TourActuelle { get; }
+
+        TourImpl Tour { get; }
 
         bool FinDuJeu();
 

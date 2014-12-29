@@ -10,6 +10,5 @@ namespace SmallWorld
         protected int nbTours;
         protected int nbCases;
         protected int nbUnites;
-
     }
 }

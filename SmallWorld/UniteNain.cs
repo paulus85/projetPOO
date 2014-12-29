@@ -15,7 +15,7 @@ namespace SmallWorld
 
         public override int GetPoints(Case typeCase)
         {
-            if (typeCase is CasePlaine)
+            if (typeCase.Number == (int)NumCase.PLAINE)
                 return 0;
             else
                 return 1;
@@ -40,7 +40,7 @@ namespace SmallWorld
         {
             if (destination.Number == (int)NumCase.PLAINE)
             {
-                int cout_deplacement = COUT_DEPLACEMENT / 2;
+                double cout_deplacement = COUT_DEPLACEMENT / 2.0;
                 if (this.pointsDeplacementRestant < cout_deplacement)
                 {
                     return false;

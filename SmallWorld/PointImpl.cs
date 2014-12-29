@@ -43,5 +43,27 @@ namespace SmallWorld
         {
             return Math.Abs(this.x - pt.x) + Math.Abs(this.y - pt.y) == 1;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Point))
+            {
+                return false;
+            }
+            Point pt = (Point)obj;
+            return this.x == pt.x && this.y == pt.y;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 42;
+            hash = hash * 20 + this.x.GetHashCode();
+            hash = hash * 20 + this.y.GetHashCode();
+            return hash;
+        }
     }
 }
