@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using SmallWorld;
+using System.Collections.ObjectModel;
 
 namespace WpfApplication
 {
@@ -28,16 +29,20 @@ namespace WpfApplication
         const int paddingLigneImpaire = 44;
         const int paddingLignePaire = 0;
 
-        private SmallWorld.Jeu engine; 
+        private SmallWorld.Jeu engine;
 
-        List<UniteUC> listeUniteUC = new List<UniteUC>();
+        private bool selectionCaseFaite = false;
+        private bool selectionUniteFaite = false;
+        private SmallWorld.Point pointSelection = null;
+
+        ObservableCollection<UniteUC> listeUniteUC;
         /// <summary>
         /// Is like the interface between code behind data and view. Is binded to ItemsSource of Unite listBox.
         /// </summary>
         /// <value>
         /// The liste unite uc.
         /// </value>
-        public List<UniteUC> ListeUniteUC
+        public ObservableCollection<UniteUC> ListeUniteUC
         {
             get { return listeUniteUC; }
             set { listeUniteUC = value; }
@@ -45,50 +50,89 @@ namespace WpfApplication
 
         public Jeu(SmallWorld.MonteurNPartie monteur, string NomJoueur1, FabriquePeuple fb1, string NomJoueur2, FabriquePeuple fb2)
         {
+            listeUniteUC = new ObservableCollection<UniteUC>();
             Console.WriteLine("Début Jeu");
             InitializeComponent();
             DataContext = this;
             engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
-            //Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
-            refreshCarte(6,6);
+            Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
+            refreshCarte();
+            createUI();
             refreshUI();
+        }
+
+        private void createUI()
+        {
+            //Joueurs 
+            //Joueur 1
+            JoueurUC juc1 = new JoueurUC(engine.Joueur1, engine.GetNbUnites(engine.Joueur1));
+            Grid.SetColumn(juc1, 0);
+            listJoueurs.Children.Add(juc1);
+            //Joueur 2
+            JoueurUC juc2 = new JoueurUC(engine.Joueur2, engine.GetNbUnites(engine.Joueur2));
+            Grid.SetColumn(juc2, 1);
+            listJoueurs.Children.Add(juc2);
         }
 
         private void refreshUI()
         {
             //List<UniteUC> listUniteUC = new List<UniteUC>();
-            SmallWorld.Unite u = new SmallWorld.UniteOrc(null);
-            UniteUC uniteuc = new UniteUC(u);
-            ListeUniteUC.Add(uniteuc);
-            SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
-            UniteUC uniteuc1 = new UniteUC(u1);
-            ListeUniteUC.Add(uniteuc1);
-            SmallWorld.Unite u2 = new SmallWorld.UniteElfe();
-            UniteUC uniteuc2 = new UniteUC(u2);
-            ListeUniteUC.Add(uniteuc2);
+            
+            //SmallWorld.Unite u = new SmallWorld.UniteOrc(null);
+            //UniteUC uniteuc = new UniteUC(u);
+            //ListeUniteUC.Add(uniteuc);
+            //SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
+            //UniteUC uniteuc1 = new UniteUC(u1);
+            //ListeUniteUC.Add(uniteuc1);
+            //SmallWorld.Unite u2 = new SmallWorld.UniteElfe();
+            //UniteUC uniteuc2 = new UniteUC(u2);
+            //ListeUniteUC.Add(uniteuc2);
+            
             //list.ItemsSource = ListeUniteUC;
 
-            SmallWorld.Joueur j1 = new SmallWorld.JoueurImpl();
-            SmallWorld.Joueur j2 = new SmallWorld.JoueurImpl();
-            JoueurUC uc1 = new JoueurUC(j1);
-            Grid.SetColumn(uc1, 0);
-            JoueurUC uc2 = new JoueurUC(j2);
-            Grid.SetColumn(uc2, 1);
-            listJoueurs.Children.Add(uc1); 
-            listJoueurs.Children.Add(uc2);
+            //SmallWorld.Joueur j1 = new SmallWorld.JoueurImpl();
+            //SmallWorld.Joueur j2 = new SmallWorld.JoueurImpl();
+            //JoueurUC uc1 = new JoueurUC(j1,engine.GetNbUnites(j1));
+            //Grid.SetColumn(uc1, 0);
+            //JoueurUC uc2 = new JoueurUC(j2, engine.GetNbUnites(j2));
+            //Grid.SetColumn(uc2, 1);
+            //listJoueurs.Children.Add(uc1); 
+            //listJoueurs.Children.Add(uc2);
 
-            afficherUnite(0, 0, u);
+            //Joueurs
+            foreach (JoueurUC juc in listJoueurs.Children)
+            {
+                juc.refresh(engine.GetNbUnites(juc.Joueur));
+            }
+
+            //Unités sur la carte
+            Dictionary<Unite,SmallWorld.Point> dj1 =  engine.Carte.GetUnites(engine.Joueur1);
+            Dictionary<Unite, SmallWorld.Point> dj2 = engine.Carte.GetUnites(engine.Joueur2);
+            foreach (KeyValuePair<Unite, SmallWorld.Point> entry in dj1)
+            {
+                afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
+            }
+            foreach (KeyValuePair<Unite, SmallWorld.Point> entry in dj2)
+            {
+                afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
+            }
+
+
+            //afficherUnite(0, 0, u);
         }
 
 
-        private void refreshCarte(int l, int h)
+        private void refreshCarte()
         {
+            Case[,] TabCases = engine.Carte.Cases;
+            int l = engine.Carte.Taille;
+            int h = engine.Carte.Taille;
             // Les valeurs sont prises avec un peu de large...
             for (int i = 0; i < l; i++)
             {
                 for (int j = 0; j < h; j++)
                 {
-                    afficherCase(i, j, "Foret");
+                    afficherCase(i, j, TabCases[i,j]);
                 }
             }
             canvas.Height = 100 * (1 + 0.75 * (h - 1));
@@ -103,7 +147,7 @@ namespace WpfApplication
         /// <param name="i">The line number.</param>
         /// <param name="j">The column number.</param>
         /// <param name="type">The type of case.</param>
-        public void afficherCase(int i, int j, string type)
+        public void afficherCase(int i, int j, SmallWorld.Case c)
         {
             
             Button b = new Button();
@@ -111,7 +155,8 @@ namespace WpfApplication
             {
                 b.Style = FindResource("ButtonPolygon") as Style;
             }
-            b.Background = chooseBackground(type);
+            b.Background = chooseBackground(c);
+            b.Tag = new SmallWorld.PointImpl(i, j);
             b.Click += polygon_MouseClick;
             b.MouseEnter += polygon_MouseEnter;
             int[] coordCanvas = FromCoordToCanvas(i, j);
@@ -167,7 +212,6 @@ namespace WpfApplication
       
 
         /// <summary>
-        /// DEPRECATED
         /// Froms the canvas to coord.
         /// </summary>
         /// <param name="left">The left.</param>
@@ -177,18 +221,20 @@ namespace WpfApplication
         {
             int[] res = new int[2];
             //Line number
-            res[0] =  (int)(top -70) / 130;
+            res[0] =  (int)(top -6) / 75;
             if (res[0] % 2 == 0)
             {
                 //Even line number
-                res[1] = (int)(left -70) / 150;
+                res[1] = (int)(left - paddingLignePaire) / 87;
             }
             else
             {
-                res[1] = (int)(left -145) / 150;
+                res[1] = (int)(left - paddingLigneImpaire) / 87;
             }
             return res;
         }
+
+
         #endregion
 
         /// <summary>
@@ -196,23 +242,36 @@ namespace WpfApplication
         /// </summary>
         /// <param name="s">The type of case.</param>
         /// <returns>The appropriate background</returns>
-        private ImageBrush chooseBackground(String s)
+        private ImageBrush chooseBackground(SmallWorld.Case c)
         {
-            switch (s)
+            if (c is CaseDesert)
             {
-                case "Montagne" :
-                    return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/mer.png")));
-                    
-                case "Desert" :
-                    return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/desert.png")));
-                case "Foret" :
-                    //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png")));
-                    ImageBrush ib = new ImageBrush();
-                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/ocean.png"));
-                    ib.Stretch = Stretch.UniformToFill;
-                    //ib.RelativeTransform = new RotateTransform(-30,0.5,0.5);
-                    return ib;
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/desert.png"));
+                ib.Stretch = Stretch.UniformToFill;
+                return ib;
             }
+            else if (c is CaseForet)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png"));
+                ib.Stretch = Stretch.UniformToFill;
+                return ib;
+            }
+            else if (c is CaseMontagne)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/generation_montagne.jpg"));
+                ib.Stretch = Stretch.UniformToFill;
+                return ib;
+            }
+            else if (c is CasePlaine)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/plaine.png"));
+                ib.Stretch = Stretch.UniformToFill;
+                return ib;
+            }       
             return null;
         }
 
@@ -273,29 +332,68 @@ namespace WpfApplication
         {
             FrameworkElement ender = sender as FrameworkElement;
             double top = (double)ender.GetValue(Canvas.TopProperty);
-            Console.Write(top);
+            //Console.Write(top);
             double left = (double)ender.GetValue(Canvas.LeftProperty);
-            Console.WriteLine(" " + left);
-            int[] coord = FromCanvasToCoord(left, top);      
+            //Console.WriteLine(" " + left);
+            int[] coord = FromCanvasToCoord(left, top);
+            Console.Write("coordLineColumn : ");
+            Console.Write("" + coord[0]);
+            Console.WriteLine(" ; " + coord[1]);
             Canvas.SetTop(PolygonSurvole, top);
             Canvas.SetLeft(PolygonSurvole, left);
             PolygonSurvole.Visibility = Visibility.Visible;
-            e.Handled = false;
+            e.Handled = true;
             Console.WriteLine("MouseEnter");
-            
         }
 
         private void polygon_MouseClick(object sender, RoutedEventArgs e)
         {
-            PolygonSurvole.Visibility = Visibility.Hidden;
-            FrameworkElement ender = sender as FrameworkElement;
-            double top = (double)ender.GetValue(Canvas.TopProperty);
-            double left = (double)ender.GetValue(Canvas.LeftProperty);
-            Canvas.SetTop(PolygonSelection, top);
-            Canvas.SetLeft(PolygonSelection, left);
-            PolygonSelection.Visibility = Visibility.Visible;
-            e.Handled = false;
-            Console.WriteLine("Polygon_mouseClick");
+            SmallWorld.Point point = (sender as Button).Tag as SmallWorld.Point;
+            if (selectionUniteFaite)
+            {
+                bool val = engine.Tour.SetDestination(point);
+                if (val) {
+                    engine.Tour.ExecuterDeplacement();
+                    refreshUI();
+                    polygon_NoSelection(sender, null);
+                }
+                else
+                {
+                    Console.WriteLine("Déplacement impossible");
+                    polygon_NoSelection(sender, null);
+                }
+
+            }
+            else
+            {
+                if (selectionCaseFaite && this.pointSelection.Equals(point))
+                {
+                    //Déselection
+                    polygon_NoSelection(sender, null);
+                }
+                else
+                {
+                    PolygonSurvole.Visibility = Visibility.Hidden;
+                    FrameworkElement ender = sender as FrameworkElement;
+                    double top = (double)ender.GetValue(Canvas.TopProperty);
+                    double left = (double)ender.GetValue(Canvas.LeftProperty);
+                    Canvas.SetTop(PolygonSelection, top);
+                    Canvas.SetLeft(PolygonSelection, left);
+                    PolygonSelection.Visibility = Visibility.Visible;
+                    this.pointSelection = point;
+                    selectionCaseFaite = true;
+                    e.Handled = true;
+                    Console.WriteLine("Polygon_mouseClick");
+                    //Mise à jour de la liste d'unités
+                    List<Unite> listUnites = engine.Carte.GetUnites(point);
+                    ListeUniteUC.Clear();
+                    foreach (Unite u in listUnites)
+                    {
+                        UniteUC uuc = new UniteUC(u);
+                        ListeUniteUC.Add(uuc);
+                    }
+                }
+            }
         }
 
       
@@ -303,6 +401,11 @@ namespace WpfApplication
         private void polygon_NoSelection(object sender, MouseButtonEventArgs e)
         {
             PolygonSelection.Visibility = Visibility.Hidden;
+            this.pointSelection = null;
+            selectionCaseFaite = false;
+            selectionUniteFaite = false;
+            ListeUniteUC.Clear();
+            Console.WriteLine("NoSelection");
         }
 
         /// <summary>
@@ -336,10 +439,51 @@ namespace WpfApplication
                 e.Handled = true;
             }
         }
-        
+
+
+
+        /// <summary>
+        /// Handles the SelectionChanged event of the list control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
+        private void list_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            engine.Tour.UnselectUnites();
+            ListBox lb = sender as ListBox;
+            List<UniteUC> listUC = lb.SelectedItems.Cast<UniteUC>().ToList<UniteUC>();
+            List<Unite> listUnitesSelectionnees = new List<Unite>();
+            if (listUC.Count == 0) 
+            {
+                selectionUniteFaite = false;
+            }
+            else
+            {
+                selectionUniteFaite = true;
+            }
+            foreach (UniteUC uuc in listUC)
+            {
+                listUnitesSelectionnees.Add(uuc.Unite);
+            }
+            engine.Tour.SelectUnites(listUnitesSelectionnees,pointSelection);
+        }
+
+        private void FindeTour_Click(object sender, RoutedEventArgs e)
+        {
+            if (engine.FinDuJeu())
+            {
+                Joueur winner = engine.Vainqueur();
+                MessageBox.Show("Bravo ! " + Environment.NewLine + "Le gagnant est : " + winner.NomJoueur + " avec " + winner.Points + " points.");
+            }
+            else
+            {
+                engine.FinTour();
+            }
+        }
 
         #endregion events
 
         
+
     }
 }

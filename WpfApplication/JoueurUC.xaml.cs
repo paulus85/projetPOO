@@ -21,19 +21,40 @@ namespace WpfApplication
     /// </summary>
     public partial class JoueurUC : UserControl
     {
-        private Joueur joueur;
         public Joueur Joueur { get; set; }
 
-        public JoueurUC(Joueur j)
+        public JoueurUC(Joueur j,int nbUnites)
         {
             InitializeComponent();
-            joueur = j;
-            //Mise en place de valeurs bidon
-            NomJoueur.Text = "Paul";
-            Peuple.Text = "Elfe";
-            points.Text = "" + 4;
-            nbrUnite.Text = "" + 14; 
-
+            Joueur = j;
+            NomJoueur.Text = "" + Joueur.NomJoueur;
+            Peuple.Text = GetPeupleStringFromFabrique(j.Fabrique);
+            refresh(nbUnites);
         }
+
+        public void refresh(int nbUnites)
+        {
+            points.Text = "" + Joueur.Points;
+            nbrUnite.Text = "" + nbUnites; 
+        }
+
+        private string GetPeupleStringFromFabrique(SmallWorld.FabriquePeuple fp)
+        {
+            string res = "";
+            if (fp is PeupleElfe)
+            {
+                res = "Elfe";
+            }
+            else if (fp is PeupleNain)
+            {
+                res = "Nain";
+            }
+            else if (fp is PeupleOrc)
+            {
+                res = "Orc";
+            }
+            return res;
+        }
+
     }
 }

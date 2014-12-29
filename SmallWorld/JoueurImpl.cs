@@ -32,6 +32,11 @@ namespace SmallWorld
             get { return points;  }
         }
 
+        public FabriquePeuple Fabrique
+        {
+            get { return fabrique; }
+        }
+
         #endregion
 
         public JoueurImpl(String nom, FabriquePeuple fab)
