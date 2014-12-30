@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:CustomCanvas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="Jeu">
+	Title="Jeu" Loaded="Page_Loaded">
 	<Page.Resources>
         <DrawingImage x:Key="HexagonImage">
             <DrawingImage.Drawing>
@@ -183,7 +183,6 @@
                             			<TranslateTransform X="-2" Y="-2"/>
                             		</TransformGroup>
                             	</Path.RenderTransform>
-                                
                                 <Path.LayoutTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
@@ -239,6 +238,7 @@
                 <RowDefinition />
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
                 <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged">
@@ -259,9 +259,19 @@
                 </Grid>
             </Border>
             
-            <StackPanel Grid.Row="2">
-                <Label>Tour : </Label>
-                <Button HorizontalAlignment="Right" Content="Fin du tour" Width="auto" Click="FindeTour_Click"/>
+            <TextBlock Grid.Row="2" x:Name="console" TextAlignment="Center" ></TextBlock>
+            
+            <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right">Tour :</Label>
+                    <Label Grid.Row="0" Grid.Column="1" x:Name="numeroTour"></Label>
+                </Grid>
+                <TextBlock x:Name="texteJoueurActif" HorizontalAlignment="Center" />
+                <Button HorizontalAlignment="Center" Content="Fin du tour" Width="300" Click="FindeTour_Click" Margin="0,5"/>
             </StackPanel>    
         </Grid>
 

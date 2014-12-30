@@ -58,6 +58,7 @@ namespace WpfApplication
             Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
             createUI();
             refreshUI();
+            NouveauTour();
         }
 
         private void createUI()
@@ -323,6 +324,26 @@ namespace WpfApplication
         //    canvas.Children.Add(rec);
         //}
 
+        /// <summary>
+        /// Method to refresh correctly the UI for each new Tour
+        /// </summary>
+        private void NouveauTour()
+        {
+            refreshUI();
+            texteJoueurActif.Text = "C'est au tour de " + engine.JoueurCourant.NomJoueur + " de jouer !";
+            numeroTour.Content = "" + engine.TourActuelle + "/" + engine.NbTour;
+        }
+
+        /// <summary>
+        /// Allows to write a text in the console displayed in game.
+        /// </summary>
+        /// <param name="p">The p.</param>
+        /// <exception cref="System.NotImplementedException"></exception>
+        private void ecritureConsole(string p)
+        {
+            console.Text = p;
+        }
+
 
 
         ////////////////////////////////////////////////// EVENEMENTS ////////////////////////////////////////////////
@@ -365,7 +386,7 @@ namespace WpfApplication
                 }
                 else
                 {
-                    Console.WriteLine("Déplacement impossible");
+                    ecritureConsole("Déplacement impossible");
                     polygon_NoSelection(sender, null);
                 }
 
@@ -401,6 +422,8 @@ namespace WpfApplication
                 }
             }
         }
+
+        
 
       
 
@@ -484,11 +507,27 @@ namespace WpfApplication
             else
             {
                 engine.FinTour();
-                refreshUI();
+                NouveauTour();
             }
         }
 
+
         #endregion events
+
+        private void Page_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                FindeTour_Click(this, null);
+            }
+        }
+            
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.Focus();
+            this.KeyDown += Page_KeyDown;
+        }
 
         
 

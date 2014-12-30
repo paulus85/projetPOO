@@ -44,6 +44,7 @@ namespace WpfApplication
             TailleCarte = "";
             parent = (Application.Current.MainWindow as MainWindow);
             //parent.Height = 700;
+            
         }
 
         /// <summary>

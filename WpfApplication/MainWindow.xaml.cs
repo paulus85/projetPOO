@@ -58,6 +58,8 @@ namespace WpfApplication
 
         }
 
+       
+
         private void Quitter_Click(object sender, RoutedEventArgs e)
         {
             // Configuration de la boite de dialogue
