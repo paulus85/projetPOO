@@ -56,7 +56,6 @@ namespace WpfApplication
             DataContext = this;
             engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
             Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
-            refreshCarte();
             createUI();
             refreshUI();
         }
@@ -98,6 +97,9 @@ namespace WpfApplication
             //Grid.SetColumn(uc2, 1);
             //listJoueurs.Children.Add(uc1); 
             //listJoueurs.Children.Add(uc2);
+            canvas.Children.Clear();
+            refreshCarte();
+
 
             //Joueurs
             foreach (JoueurUC juc in listJoueurs.Children)
@@ -117,8 +119,6 @@ namespace WpfApplication
                 afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
             }
 
-
-            //afficherUnite(0, 0, u);
         }
 
 
@@ -137,6 +137,8 @@ namespace WpfApplication
             }
             canvas.Height = 100 * (1 + 0.75 * (h - 1));
             canvas.Width = l * 88 + paddingLigneImpaire;
+            canvas2.Height = canvas.Height;
+            canvas2.Width = canvas.Width;
 
         }
 
@@ -354,8 +356,8 @@ namespace WpfApplication
                 bool val = engine.Tour.SetDestination(point);
                 if (val) {
                     engine.Tour.ExecuterDeplacement();
-                    refreshUI();
                     polygon_NoSelection(sender, null);
+                    refreshUI();
                 }
                 else
                 {
@@ -430,7 +432,7 @@ namespace WpfApplication
             {
                 dep = VisualTreeHelper.GetParent(dep);
             }
-            if (dep == null)
+            if (dep == null) 
                 return;
             ListBoxItem item = (ListBoxItem)dep;
             if (item.IsSelected)
@@ -478,6 +480,7 @@ namespace WpfApplication
             else
             {
                 engine.FinTour();
+                refreshUI();
             }
         }
 
