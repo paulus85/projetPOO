@@ -21,9 +21,9 @@ namespace SmallWorld
 
         public override int GetPoints(Case typeCase){
             if (typeCase.Number == (int)NumCase.FORET)
-                return this.pointBonus;
+                return 0;
             else
-                return 1 + this.pointBonus;
+                return 1;
         }
 
         public void AddPointBonus()
@@ -45,7 +45,7 @@ namespace SmallWorld
         {
             if (destination.Number == (int)NumCase.PLAINE)
             {
-                int cout_deplacement = COUT_DEPLACEMENT / 2;
+                double cout_deplacement = COUT_DEPLACEMENT / 2.0;
                 if (this.pointsDeplacementRestant < cout_deplacement)
                 {
                     return false;

@@ -64,6 +64,7 @@
     <Compile Include="CaseForet.cs" />
     <Compile Include="CaseMontagne.cs" />
     <Compile Include="CasePlaine.cs" />
+    <Compile Include="Tour.cs" />
     <Compile Include="MonteurNPartieDemo.cs" />
     <Compile Include="FabriqueCase.cs" />
     <Compile Include="FabriquePeuple.cs" />
@@ -86,7 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NumCase.cs" />
     <Compile Include="ResultatCombat.cs" />
-    <Compile Include="Tour.cs" />
+    <Compile Include="TourImpl.cs" />
     <Compile Include="Unite.cs" />
     <Compile Include="UniteElfe.cs" />
     <Compile Include="UniteImpl.cs" />

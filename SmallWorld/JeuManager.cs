@@ -13,7 +13,7 @@ namespace SmallWorld
         private Joueur joueur2;
         private Joueur joueurCourant;
         private Carte carte;
-        private Tour tour;
+        private TourImpl tour;
         private int nbTour;
         private int tourActuelle;
 
@@ -37,7 +37,7 @@ namespace SmallWorld
             get { return this.carte; }
         }
 
-        public Tour Tour
+        public TourImpl Tour
         {
             get { return this.tour; }
         }
@@ -62,7 +62,7 @@ namespace SmallWorld
             this.carte = c;
             this.nbTour = n;
             this.tourActuelle = 1;
-            this.tour = new Tour(this, joueurCourant);
+            this.tour = new TourImpl(this, joueurCourant);
         }
 
         public bool FinDuJeu()
@@ -138,11 +138,11 @@ namespace SmallWorld
             else
             {
                 this.joueurCourant = joueur1;
-                this.nbTour++;
+                this.tourActuelle++;
             }
 
             //On change de tour
-            this.tour = new Tour(this, this.joueurCourant);
+            this.tour = new TourImpl(this, this.joueurCourant);
         }
     }
 }

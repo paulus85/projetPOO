@@ -1,0 +1,66 @@
+﻿using System;
+using SmallWorld;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
+
+namespace UnitTestProject1
+{
+    [TestClass]
+    public class TestJoueur
+    {
+        private static Joueur elf = new JoueurImpl("Elf", new PeupleElfe());
+        private static Joueur nain = new JoueurImpl("Nain", new PeupleNain());
+        private static Joueur orc = new JoueurImpl("Orc", new PeupleOrc());
+
+         [TestMethod]
+        public void TestPoints()
+        {
+            this.TestPoints(elf);
+            this.TestPoints(nain);
+            this.TestPoints(orc);
+        }
+       
+        public void TestPoints(Joueur j)
+        {
+            Assert.AreEqual(0, j.Points);
+            j.AjoutPoints(5);
+            Assert.AreEqual(5, j.Points);
+        }
+
+        [TestMethod]
+        public void TestCreatioUnites()
+        {
+            this.TestCreatioUnites(elf, typeof(UniteElfe));
+            this.TestCreatioUnites(nain, typeof(UniteNain));
+            this.TestCreatioUnites(orc, typeof(UniteOrc));
+        }
+
+        private void TestCreatioUnites(Joueur player, Type uniteType)
+        {
+            List<Unite> unites = player.CreerUnites(2);
+            Assert.AreEqual(2, unites.Count);
+            foreach (Unite unit in unites)
+            {
+                Assert.IsInstanceOfType(unit, uniteType);
+            }
+        }
+
+        [TestMethod]
+        public void TestEquals()
+        {
+            Assert.IsFalse(elf.Equals(nain));
+            Assert.IsFalse(nain.Equals(elf));
+            Assert.IsTrue(elf.Equals(elf));
+            Assert.IsFalse(elf.Equals(null));
+            Assert.IsFalse(elf.Equals(new CasePlaine()));
+        }
+
+        [TestMethod]
+        public void TestNumero()
+        {
+            Assert.AreNotEqual(elf.Numero, nain.Numero);
+            Assert.AreNotEqual(nain.Numero, orc.Numero);
+            Assert.AreNotEqual(orc.Numero, elf.Numero);
+        }
+    }
+}

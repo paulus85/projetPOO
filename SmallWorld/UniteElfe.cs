@@ -49,15 +49,15 @@ namespace SmallWorld
                 if (this.pointsDeplacementRestant < cout_deplacement)
                 {
                     return false;
-        }
+                }
                 this.pointsDeplacementRestant -= cout_deplacement;
                 return true;
             }
             else if (destination.Number == (int)NumCase.FORET)
             {
-                int cout_deplacement = COUT_DEPLACEMENT / 2;
+                double cout_deplacement = COUT_DEPLACEMENT / 2.0;
                 if (this.pointsDeplacementRestant < cout_deplacement)
-        {
+                {
                     return false;
                 }
                 this.pointsDeplacementRestant -= cout_deplacement;
