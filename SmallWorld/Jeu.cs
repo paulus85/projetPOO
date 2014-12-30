@@ -21,10 +21,10 @@ namespace SmallWorld
 
         TourImpl Tour { get; }
 
-        Tour Tour
-        {
-            get;
-        }
+        //Tour Tour
+        //{
+        //    get;
+        //}
 
         bool FinDuJeu();
 

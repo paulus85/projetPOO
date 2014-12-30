@@ -82,6 +82,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="PolygonDemo" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <ControlTemplate.Resources>
+                        </ControlTemplate.Resources>
+                        <Grid>
+                            <Path x:Name="polygon"  Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FFA6EC42" StrokeThickness="13">
+                                <Path.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.LayoutTransform>
+                            </Path>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
         <Style x:Key="PolygonUnite" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -89,7 +112,7 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#00000000" StrokeThickness="13">
+                            <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#00000000" StrokeThickness="13">
                                 <Path.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform/>
@@ -100,7 +123,7 @@
                                 </Path.RenderTransform>
                                 <Path.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
                                         <SkewTransform/>
                                         <RotateTransform/>
                                         <TranslateTransform/>
@@ -120,16 +143,18 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FFA6A6A6" StrokeThickness="30">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <RotateTransform Angle="29.999999999999996"/>
-                            			<TranslateTransform X="-1" Y="-1"/>
+                            <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FFA6A6A6" StrokeThickness="70">
+                            	<Path.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform X="-2" Y="-2"/>
                             		</TransformGroup>
                             	</Path.RenderTransform>
                                 <Path.LayoutTransform>
                             		<TransformGroup>
-                            			<ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                            			<ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
                             			<SkewTransform/>
                             			<RotateTransform/>
                             			<TranslateTransform/>
@@ -149,16 +174,19 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="30">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <RotateTransform Angle="29.999999999999996"/>
-                                        <TranslateTransform X="-1" Y="-1"/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
+                            <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="70">
+                            	<Path.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform X="-2" Y="-2"/>
+                            		</TransformGroup>
+                            	</Path.RenderTransform>
+                                
                                 <Path.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
                                         <SkewTransform/>
                                         <RotateTransform/>
                                         <TranslateTransform/>
@@ -178,16 +206,18 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="GreenYellow" StrokeThickness="30">
+                            <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="GreenYellow" StrokeThickness="70">
                                 <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <RotateTransform Angle="29.999999999999996"/>
-                                        <TranslateTransform X="-1" Y="-1"/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
+                            		<TransformGroup>
+                            			<ScaleTransform/>
+                            			<SkewTransform/>
+                            			<RotateTransform/>
+                            			<TranslateTransform X="-2" Y="-2"/>
+                            		</TransformGroup>
+                            	</Path.RenderTransform>
                                 <Path.LayoutTransform>
                                     <TransformGroup>
-                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
                                         <SkewTransform/>
                                         <RotateTransform/>
                                         <TranslateTransform/>

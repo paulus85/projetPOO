@@ -153,9 +153,13 @@ namespace WpfApplication
         {
             
             Button b = new Button();
-            if (FindResource("ButtonPolygon") != null)
+            //if (FindResource("ButtonPolygon") != null)
+            //{
+            //    b.Style = FindResource("ButtonPolygon") as Style;
+            //}
+            if (FindResource("PolygonDemo") != null)
             {
-                b.Style = FindResource("ButtonPolygon") as Style;
+                b.Style = FindResource("PolygonDemo") as Style;
             }
             b.Background = chooseBackground(c);
             b.Tag = new SmallWorld.PointImpl(i, j);
