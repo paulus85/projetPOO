@@ -9,6 +9,11 @@ namespace SmallWorld
     [Serializable()]
     public class PeupleElfe : FabriquePeuple
     {
+        public int Numero
+        {
+            get { return 0; }
+        }
+
         public PeupleElfe()
         {
 

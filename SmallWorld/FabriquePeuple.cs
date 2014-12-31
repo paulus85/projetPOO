@@ -7,6 +7,8 @@ namespace SmallWorld
 {
     public interface FabriquePeuple
     {
+        int Numero { get; }  
+
         Unite GenerationUnite(Joueur j);
 
     }

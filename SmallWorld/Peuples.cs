@@ -7,6 +7,6 @@ namespace SmallWorld
 {
     public interface Peuple
     {
-        
+
     }
 }

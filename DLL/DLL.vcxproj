@@ -122,10 +122,12 @@
     <ClInclude Include="GenerateurCarte.h" />
     <ClInclude Include="Enum.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="SuggestionCase.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GenerateurCarte.cpp" />
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="SuggestionCase.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

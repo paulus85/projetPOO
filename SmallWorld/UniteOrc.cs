@@ -22,7 +22,7 @@ namespace SmallWorld
         }
 
         public override int GetPoints(Case typeCase){
-            if (typeCase.Number == (int)NumCase.FORET)
+            if (typeCase.Numero == (int)NumCase.FORET)
                 return 0;
             else
                 return 1;
@@ -35,7 +35,7 @@ namespace SmallWorld
 
         public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
         {
-            if (caseDest.Number == (int)NumCase.PLAINE)
+            if (caseDest.Numero == (int)NumCase.PLAINE)
             {
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT / 2
                     && destination.EstJoignable(pointCourant);
@@ -45,7 +45,7 @@ namespace SmallWorld
 
         public override bool Deplacement(Case destination)
         {
-            if (destination.Number == (int)NumCase.PLAINE)
+            if (destination.Numero == (int)NumCase.PLAINE)
             {
                 double cout_deplacement = COUT_DEPLACEMENT / 2.0;
                 if (this.pointsDeplacementRestant < cout_deplacement)

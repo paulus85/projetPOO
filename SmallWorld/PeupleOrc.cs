@@ -9,6 +9,10 @@ namespace SmallWorld
     [Serializable()]
     public class PeupleOrc : FabriquePeuple
     {
+        public int Numero { 
+            get { return 2; } 
+        }
+
         public PeupleOrc()
         {
             //throw new System.NotImplementedException();

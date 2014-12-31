@@ -8,7 +8,7 @@ namespace UnitTestWrapper
     public class SuggestionCaseTest
     {
         [TestMethod]
-        public void TestValeurs()
+        unsafe public void TestValeurs()
         {
             for (int size = 5; size < 20; size += 5)
             {
@@ -31,7 +31,7 @@ namespace UnitTestWrapper
             unites[0][1] = 1;
             unites[1][1] = 1;
 
-            /*int[][] suggestions = Wrapper.Wrapper.getSuggestion(carte, taille, peupleJoueur1, peupleJoueur2, 0, 0, unites, 1);
+            int[][] suggestions = Wrapper.Wrapper.getSuggestion(carte, taille, peupleJoueur1, peupleJoueur2, 0, 0, unites, 1);
 
             Assert.IsTrue(suggestions[0][0] <= 1);
             Assert.IsTrue(suggestions[0][1] <= 1);
@@ -39,7 +39,7 @@ namespace UnitTestWrapper
             {
                 Assert.IsTrue(suggestions[i][0] <= 1);
                 Assert.IsTrue(suggestions[i][1] <= 1);
-            }*/
+            }
         }
     }
 }

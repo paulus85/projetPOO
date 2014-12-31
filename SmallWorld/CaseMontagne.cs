@@ -9,7 +9,7 @@ namespace SmallWorld
     [Serializable()]
     public class CaseMontagne : Case
     {
-        public int Number
+        public int Numero
         {
             get
             {

@@ -8,6 +8,7 @@ namespace SmallWorld
     public interface Joueur
     {
         int Numero { get; }
+        int NumeroPeuple { get; }
         String NomJoueur { get; }
         int Points { get;  }
         FabriquePeuple Fabrique { get; }

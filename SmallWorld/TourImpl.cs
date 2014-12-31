@@ -244,5 +244,41 @@ namespace SmallWorld
             Double x = ((Double)unite.PointsDeVie / (Double)unite.PvDefault);
             return Math.Ceiling(((Double)unite.PointsDefense * x) * 100);
         }
+
+        unsafe public List<Point> GetAdvisedDestinations(Unite unit, Point pos)
+        {
+            Carte carte = this.jeu.Carte;
+            Case[,] cases = carte.Cases;
+            int[][] carteBis = new int[carte.Taille][];
+            int[][] unites = new int[carte.Taille][];
+            for (int i = 0; i < carte.Taille; i++)
+            {
+                carteBis[i] = new int[carte.Taille];
+                unites[i] = new int[carte.Taille];
+                for (int j = 0; j < carte.Taille; j++)
+                {
+                    carteBis[i][j] = cases[i, j].Numero;
+                    List<Unite> unitsAtPos = carte.GetUnites(new PointImpl(i, j));
+                    if (unitsAtPos.Count > 0)
+                    {
+                        unites[i][j] = unitsAtPos[0].Proprio.Numero;
+                    }
+                }
+            }
+
+
+            int peupleJoueur1 = this.jeu.Joueur1.NumeroPeuple;
+            int peupleJoueur2 = this.jeu.Joueur2.NumeroPeuple;
+            int[][] result = Wrapper.Wrapper.getSuggestion(carteBis, carte.Taille, peupleJoueur1, peupleJoueur2, pos.x, pos.y, unites, this.joueurCourant.Numero);
+            List<Point> suggestions = new List<Point>();
+            for (int i = 0; i < 3; i++)
+            {
+                if (result[i][0] != -1 && result[i][1] != -1)
+                {
+                    suggestions.Add(new PointImpl(result[i][0], result[i][1]));
+                }
+            }
+            return suggestions;
+        }
     }
 }

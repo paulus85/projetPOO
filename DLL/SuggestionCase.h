@@ -22,7 +22,7 @@ private:
 	Peuple* peuples;
 
 	int getScoreMouvement(Point pos, Peuple peuple) const;
-	int getScoreCapture(Point pos, Joueur occupant, Joueur joueur, Peuple peuple) const;
+	int getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const;
 
 public:
 	DLL SuggestionCase(Case** carte, int taille, Peuple PeupleJoueur1, Peuple PeupleJoueur2);

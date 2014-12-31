@@ -6,7 +6,7 @@ using System.Text;
 namespace SmallWorld
 {
     public abstract class PeupleImpl : Peuple
-    {    
+    {
         public abstract Unite GenerationUnite(Joueur j);
     }
 }

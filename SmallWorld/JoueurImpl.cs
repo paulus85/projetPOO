@@ -24,6 +24,14 @@ namespace SmallWorld
             get { return this.numero; }
         }
 
+        public int NumeroPeuple
+        {
+            get
+            {
+                return this.fabrique.Numero;
+            }
+        }
+
         public String NomJoueur
         {
             get { return this.nomJoueur;  }

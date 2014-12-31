@@ -1,4 +1,5 @@
 #include "SuggestionCase.h"
+#include "Point.h"
 
 
 SuggestionCase::SuggestionCase(Case** carte, int taille, Peuple peuplej1, Peuple peuplej2) {
@@ -12,18 +13,18 @@ SuggestionCase::SuggestionCase(Case** carte, int taille, Peuple peuplej1, Peuple
 
 Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) const {
 	Peuple peuple = peuples[j - 1];
-	std::map<Point, int> scores;
+	map<Point, int> scores;
 	Point pos = Point(x, y);
 
 	int xOffset[6] = { -1, -1, 0, 0, 1, 1 };
 	int yOffset[6] = { 0, 1, -1, 1, 0, 1 };
-	/*
-	switch (peuple){
+	
+	/*switch (peuple){
 	case NAIN:
 		for (int i = 0; i < 6; i++) {
 			Point voisin = Point(xOffset[i] + x, yOffset[i] + y);
 			int score = this->getScoreMouvement(voisin, peuple);
-			score += this->getScoreCapture(voisin, unites[voisin.x][voisin.y], j, peuple);
+			score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
 			scores.insert(make_pair(voisin, score));
 		}
 
@@ -32,32 +33,35 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) co
 			for (int x = 0; x < this->taille; x++){
 				for (int y = 0; y < this->taille; y++){
 					Point voisin = Point(x, y);
-					int score = this->getScoreMouvement(voisin, peuple);
-					score += this->getScoreCapture(voisin, unites[voisin.x][voisin.y], j, peuple);
-					scores.insert(make_pair(voisin, score));
+					if (voisin.estMontagne(this->carte)){
+						int score = this->getScoreMouvement(voisin, peuple);
+						score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
+						scores.insert(make_pair(voisin, score));
+					}
 				}
 			}
 		}
 
-	default:
+	default:*/
 		for (int i = 0; i < 6; i++) {
 			Point voisin = Point(xOffset[i] + pos.x, yOffset[i] + pos.y);
 			int score = this->getScoreMouvement(voisin, peuple);
-			score += this->getScoreCapture(voisin, unites[voisin.x][voisin.y], j, peuple);
+			score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
 			scores.insert(make_pair(voisin, score));
 		}
-	}
-	*/
+	//}
+	
 	Point* res = new Point[3];
-	/*int nbResults = 0;
+	int nbResults = 0;
 	for (int score = 3; nbResults < 3 && score > 0; score--) {
-		for (std::map<Point, int>::iterator it = scores.begin(); nbResults<3 && it != scores.end(); ++it) {
+		for (map<Point, int>::iterator it = scores.begin(); nbResults<3 && it != scores.end(); ++it) {
 			if (it->second == score) {
 				res[nbResults] = it->first;
 				nbResults++;
 			}
 		}
-	}*/
+	}
+
 	return res;
 }
 
@@ -84,7 +88,7 @@ int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 }
 
 
-int SuggestionCase::getScoreCapture(Point dest, Joueur occupant, Joueur joueur, Peuple peuple) const {
+int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
 	if (occupant == joueur) {
 		return INT_MIN;
 	}

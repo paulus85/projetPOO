@@ -7,7 +7,7 @@ namespace SmallWorld
 {
     public interface Case
     {
-        int Number
+        int Numero
         {
             get;
         }

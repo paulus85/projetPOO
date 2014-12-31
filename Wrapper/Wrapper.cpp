@@ -27,7 +27,7 @@ array<array<int>^>^ Wrapper::Wrapper::placementJoueur(int taille) {
 	return pos;
 }
 
-/*
+
 array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, int taille, int peupleJoueur1, int peupleJoueur2, int x, int y, array<array<int>^>^ unites, int joueur) {
 	Case** carteBis = new Case*[taille];
 	for (int i = 0; i<taille; i++) {
@@ -55,4 +55,4 @@ array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, i
 		result[i][1] = advice[i].y;
 	}
 	return result;
-}*/
+}
