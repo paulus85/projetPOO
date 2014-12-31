@@ -5,8 +5,9 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public abstract class FabriquePeuple
+    public interface FabriquePeuple
     {
-        public abstract Unite GenerationUnite(Joueur j);
+        Unite GenerationUnite(Joueur j);
+
     }
 }

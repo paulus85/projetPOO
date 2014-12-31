@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class JoueurImpl : Joueur
     {
         #region Properties
@@ -50,7 +52,7 @@ namespace SmallWorld
 
         public JoueurImpl()
         {
-            //Temporaire, histoire de faire des tests
+            
         }
 
         public List<Unite> CreerUnites(int nbUnites)
@@ -65,7 +67,7 @@ namespace SmallWorld
 
         public override bool Equals(Object obj)
         {
-            if (obj == null)
+            if (obj == null || GetType() != obj.GetType())
             {
                 return false;
             }
@@ -86,6 +88,42 @@ namespace SmallWorld
         {
             //TODO Exception
             this.points += n;
+        }
+
+        //Deserialization
+        public JoueurImpl(SerializationInfo info, StreamingContext context) {
+            this.nomJoueur = (string)info.GetValue("NomJoueur", typeof(string));
+            this.points = (int)info.GetValue("Points", typeof(int));
+
+            FabriquePeuple peupleElf = new PeupleElfe();
+            FabriquePeuple peupleNain = new PeupleNain();
+            FabriquePeuple peupleOrc = new PeupleOrc();
+            FabriquePeuple fab = (FabriquePeuple)info.GetValue("Fabrique", typeof(FabriquePeuple));
+            if(fab.GetType() == typeof(UniteElfe)) 
+            {
+                this.fabrique = peupleElf;
+            }
+            else if (fab.GetType() == typeof(UniteNain))
+            {
+                this.fabrique = peupleNain;
+            }
+            else if (fab.GetType() == typeof(UniteElfe))
+            {
+                this.fabrique = peupleOrc;
+            } else 
+            {
+                throw new Exception();
+            }
+            this.numero = (int)info.GetValue("Numero", typeof(int));
+            cpt++;
+        }
+
+        //Serialization
+        public void GetObjectData(SerializationInfo info, StreamingContext context) {
+            info.AddValue("NomJoueur", this.nomJoueur);
+            info.AddValue("Points", this.points);
+            info.AddValue("Numero", this.numero);
+            info.AddValue("Fabrique", this.fabrique);
         }
     }
 }

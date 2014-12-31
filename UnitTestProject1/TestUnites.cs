@@ -1,6 +1,8 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SmallWorld;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UnitTestProject1
 {
@@ -35,6 +37,8 @@ namespace UnitTestProject1
             {
                 Assert.IsTrue(unite.Deplacement(new CaseForet()));
                 Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
+                Assert.IsTrue(unite.Deplacement(new CaseForet()));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
@@ -53,6 +57,8 @@ namespace UnitTestProject1
             {
                 Assert.IsTrue(unite.Deplacement(new CasePlaine()));
                 Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
+                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
@@ -74,6 +80,8 @@ namespace UnitTestProject1
             {
                 Assert.IsTrue(unite.Deplacement(new CasePlaine()));
                 Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
+                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
@@ -116,6 +124,33 @@ namespace UnitTestProject1
                 Assert.IsTrue(unit.EnleverPV());
             }
             Assert.IsFalse(unit.EstEnVie());
+        }
+
+        [TestMethod]
+        public void TestSerializationUnite()
+        {
+            this.TestSerializationUnite(elf);
+            this.TestSerializationUnite(nain);
+            this.TestSerializationUnite(orc);
+        }
+
+        private void TestSerializationUnite(Unite unite)
+        {
+            // Serialization
+            Stream stream = File.Open("Unite.sav", FileMode.OpenOrCreate);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, unite);
+            stream.Close();
+
+            // Deserialization
+            stream = File.Open("Unite.sav", FileMode.Open);
+            formatter = new BinaryFormatter();
+            Unite savedUnit = (Unite)formatter.Deserialize(stream);
+            stream.Close();
+            Assert.IsTrue(unite.Equals(savedUnit));
+            Assert.AreEqual(unite.PointsDeVie, savedUnit.PointsDeVie);
+            Assert.AreEqual(unite.PointsDeplacementRestant, savedUnit.PointsDeplacementRestant);
+            Assert.IsTrue(unite.Proprio.Equals(savedUnit.Proprio));
         }
     }
 }

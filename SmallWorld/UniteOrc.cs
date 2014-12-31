@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class UniteOrc : UniteImpl
     {
         private int pointBonus;
@@ -54,6 +56,10 @@ namespace SmallWorld
                 return true;
             }
             return base.Deplacement(destination);
+        }
+
+        public UniteOrc(SerializationInfo info, StreamingContext context): base(info, context) {
+
         }
     }
 }

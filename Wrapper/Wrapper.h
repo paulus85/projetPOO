@@ -1,27 +1,10 @@
-/*#ifndef __WRAPPER__
+#ifndef __WRAPPER__
 #define __WRAPPER__
 
-#include "../DLL/Algo.h" // A changer
-// Le bon chemin pour être "../Debug/nomProjetLib.lib"
-#pragma comment(lib, "../Debug/DLL.lib") // A changer
-
-using namespace System;
-
-namespace Wrapper {
-	public ref class WrapperAlgo {
-	private:
-		Algo* algo;
-		public:
-		WrapperAlgo(){ algo = Algo_new(); }
-		~WrapperAlgo(){ Algo_delete(algo); }
-		int computeFoo() { return algo->computeFoo(); }
-	};
-}
-#endif
-*/
 #pragma once
 
 #include "../DLL/GenerateurCarte.h"
+//#include "../DLL/SuggestionCase.h"
 #include "../DLL/Point.h"
 #include "../DLL/Enum.h"
 
@@ -34,5 +17,8 @@ namespace Wrapper {
 	public:
 		static array<array<int>^>^ genererCarte(int size);
 		static array<array<int>^>^ placementJoueur(int size);
+		//static array<array<int>^>^ getSuggestion(array<array<int>^>^ carte, int taille, int peupleJoueur1, int peupleJoueur2, int x, int y, array<array<int>^>^ unites, int joueur);
 	};
 }
+
+#endif

@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public abstract class UniteImpl : Unite
     {
         #region Properties
 
-        private int number;
+        private int numero;
         private static int cpt = 0;
 
         protected const int POINT_ATTAQUE = 2;
@@ -50,6 +52,11 @@ namespace SmallWorld
             get { return this.proprio; }
         }
 
+        public int Numero
+        {
+            get { return this.numero; }
+        }
+
         #endregion
 
         public UniteImpl(Joueur proprio) {
@@ -57,12 +64,7 @@ namespace SmallWorld
             this.pointsDeVie = PV_DEFAULT;
             this.pointsDeplacementRestant = POINTS_DEPLACEMENT_DEFAULT;
             cpt++;
-            this.number = cpt;
-        }
-
-        public UniteImpl()
-        {
-            //temporaire, histoire de faire des tests
+            this.numero = cpt;
         }
 
         public bool EnleverPV()
@@ -100,6 +102,37 @@ namespace SmallWorld
             return true;
         }
 
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            Unite unit = (Unite)obj;
+            return this.numero == unit.Numero;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.numero.GetHashCode();
+        }
+
         public abstract int GetPoints(Case c);
+
+        //Deserialization
+        public UniteImpl(SerializationInfo info, StreamingContext context) {
+            this.pointsDeVie = (int)info.GetValue("PointsDeVie", typeof(int));
+            this.pointsDeplacementRestant = (int)info.GetValue("PointsDeplacementRestant", typeof(int));
+            this.numero = (int)info.GetValue("Numero", typeof(int));
+            this.proprio = (Joueur)info.GetValue("Proprio", typeof(Joueur));
+        }
+
+        //Serialization
+        public void GetObjectData(SerializationInfo info, StreamingContext context) {
+            info.AddValue("PointsDeVie", this.pointsDeVie);
+            info.AddValue("PointsDeplacementRestant", this.pointsDeplacementRestant);
+            info.AddValue("Proprio", this.proprio);
+            info.AddValue("Numero", this.numero);
+        }
     }
 }

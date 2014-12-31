@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class TourImpl : Tour
     {
         private Jeu jeu;

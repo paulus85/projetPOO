@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class PointImpl : Point
     {
         public int x
@@ -46,11 +48,7 @@ namespace SmallWorld
 
         public override bool Equals(object obj)
         {
-            if (obj == null)
-            {
-                return false;
-            }
-            if (!(obj is Point))
+            if (obj == null || GetType() != obj.GetType())
             {
                 return false;
             }
@@ -64,6 +62,18 @@ namespace SmallWorld
             hash = hash * 20 + this.x.GetHashCode();
             hash = hash * 20 + this.y.GetHashCode();
             return hash;
+        }
+
+        //Deserialization
+        public PointImpl(SerializationInfo info, StreamingContext context) {
+            this.x = (int)info.GetValue("x", typeof(int));
+            this.y = (int)info.GetValue("y", typeof(int));
+        }
+
+        //Serialization
+        public void GetObjectData(SerializationInfo info, StreamingContext context) {
+            info.AddValue("x", this.x);
+            info.AddValue("y", this.y);
         }
     }
 }

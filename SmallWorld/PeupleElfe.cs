@@ -1,19 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class PeupleElfe : FabriquePeuple
     {
         public PeupleElfe()
         {
 
         }
-        public override Unite GenerationUnite(Joueur j)
+        public Unite GenerationUnite(Joueur j)
         {
             return new UniteElfe(j);
+        }
+
+        public PeupleElfe(SerializationInfo info, StreamingContext context)
+        {
+
+        }
+
+        //Serialization
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+
         }
     }
 }

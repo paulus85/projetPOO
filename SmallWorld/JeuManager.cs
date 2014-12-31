@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class JeuManager : Jeu
     {
         #region Properties
@@ -13,7 +17,7 @@ namespace SmallWorld
         private Joueur joueur2;
         private Joueur joueurCourant;
         private Carte carte;
-        private TourImpl tour;
+        private Tour tour;
         private int nbTour;
         private int tourActuelle;
 
@@ -37,7 +41,7 @@ namespace SmallWorld
             get { return this.carte; }
         }
 
-        public TourImpl Tour
+        public Tour Tour
         {
             get { return this.tour; }
         }
@@ -143,6 +147,48 @@ namespace SmallWorld
 
             //On change de tour
             this.tour = new TourImpl(this, this.joueurCourant);
+        }
+
+        //fichier doit indiquer le repertoire et nom du fichier utliser pour la sauvegarde (ex : c:\Smallworld\jeu.sav)
+        public void SauvegarderJeu(string fichier)
+        {
+            if (!File.Exists(fichier))
+            {
+                using (FileStream stream = File.Create(fichier))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, this);
+                }
+            }
+            else
+            {
+                File.Delete(fichier);
+                using (FileStream stream = File.Create(fichier))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, this);
+                }
+            }
+        }
+
+        //Serialization
+        public JeuManager(SerializationInfo info, StreamingContext context) {
+            this.joueur1 = (Joueur)info.GetValue("Joueur1", typeof(Joueur));
+            this.joueur2 = (Joueur)info.GetValue("Joueur2", typeof(Joueur));
+            this.carte = (Carte)info.GetValue("Carte", typeof(Carte));
+            this.nbTour = (int)info.GetValue("NbTour", typeof(int));
+            this.tourActuelle = (int)info.GetValue("TourActuelle", typeof(int));
+            this.joueurCourant = (Joueur)info.GetValue("JoueurCourant", typeof(Joueur));
+            this.tour = new TourImpl(this, joueurCourant);
+        }
+
+        public void GetObjectData(SerializationInfo info, StreamingContext context) {
+            info.AddValue("Joueur1", this.joueur1);
+            info.AddValue("Joueur2", this.joueur2);
+            info.AddValue("Carte", this.carte);
+            info.AddValue("NbTour", this.nbTour);
+            info.AddValue("TourActuelle", this.tourActuelle);
+            info.AddValue("JoueurCourant", this.joueurCourant);
         }
     }
 }

@@ -29,6 +29,6 @@ bool Point::estValide(int size) const {
 	return true;
 }
 
-bool Point::estPlaine(Case** map) const {
-	return map[this->x][this->y] == PLAINE;
+bool Point::estMontagne(Case** map) const {
+	return map[this->x][this->y] == MONTAGNE;
 }

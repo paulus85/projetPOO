@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class UniteElfe : UniteImpl
     {
         public UniteElfe(Joueur j) : base(j)
         {
-        }
 
-        public UniteElfe()
-        {
-            //Temporaire, histoire de faire des tests
         }
 
         public override int GetPoints(Case typeCase)
@@ -64,6 +62,10 @@ namespace SmallWorld
                 return true;
             }
             return base.Deplacement(destination);
+        }
+
+        public UniteElfe(SerializationInfo info, StreamingContext context): base(info, context) {
+
         }
     }
 }

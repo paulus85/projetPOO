@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class UniteNain : UniteImpl
     {
 
@@ -28,10 +30,9 @@ namespace SmallWorld
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT / 2
                     && destination.EstJoignable(pointCourant);
             }
-            else if (caseDest.Number == (int)NumCase.MONTAGNE)
+            else if (caseDest.Number == (int)NumCase.MONTAGNE && caseCour.Number == (int)NumCase.MONTAGNE)
             {
-                return this.pointsDeplacementRestant >= COUT_DEPLACEMENT
-                    && (caseCour.Number == (int)NumCase.MONTAGNE);
+                return this.pointsDeplacementRestant >= COUT_DEPLACEMENT;
             }
             return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest);
         }
@@ -49,6 +50,10 @@ namespace SmallWorld
                 return true;
             }
             return base.Deplacement(destination);
+        }
+
+        public UniteNain(SerializationInfo info, StreamingContext context): base(info, context) {
+
         }
     }
 }

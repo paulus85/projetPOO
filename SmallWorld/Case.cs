@@ -5,9 +5,9 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public abstract class Case
+    public interface Case
     {
-        public abstract int Number
+        int Number
         {
             get;
         }

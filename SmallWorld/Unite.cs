@@ -13,6 +13,7 @@ namespace SmallWorld
         int PvDefault { get; }
         Joueur Proprio { get; }
         int PointsDeVie { get; }
+        int Numero { get; }
 
         void ResetPointsDeplacement();
         bool EnleverPV();

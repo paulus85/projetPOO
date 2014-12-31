@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SmallWorld;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UnitTestSmallWorld
 {
@@ -94,6 +96,51 @@ namespace UnitTestSmallWorld
                 Assert.IsTrue(jeu.Joueur1.Equals(jeu.JoueurCourant));
             }
             Assert.IsTrue(jeu.FinDuJeu());
+        }
+
+        [TestMethod]
+        public void TestSerializationJeu()
+        {
+            // Serialization
+            Stream stream = File.Open("Jeu.sav", FileMode.OpenOrCreate);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, normale);
+            stream.Close();
+
+            // Deserialization
+            stream = File.Open("Jeu.sav", FileMode.Open);
+            formatter = new BinaryFormatter();
+            Jeu savedJeu = (Jeu)formatter.Deserialize(stream);
+            stream.Close();
+            Assert.IsTrue(normale.Joueur1.Equals(savedJeu.Joueur1));
+            Assert.IsTrue(normale.Joueur2.Equals(savedJeu.Joueur2));
+            Assert.IsTrue(normale.JoueurCourant.Equals(savedJeu.JoueurCourant));
+            Assert.AreEqual(normale.NbTour, savedJeu.NbTour);
+            Assert.AreEqual(normale.TourActuelle, savedJeu.TourActuelle);
+            
+            Carte carte = normale.Carte;
+            Carte savedCarte = savedJeu.Carte;
+            Assert.AreEqual(carte.Taille, savedCarte.Taille);
+            for (int i = 0; i < carte.Taille; i++)
+            {
+                for (int j = 0; j < carte.Taille; j++)
+                {
+                    Assert.IsInstanceOfType(savedCarte.GetCase(new PointImpl(i, j)), carte.GetCase(new PointImpl(i, j)).GetType());
+                }
+            }
+            for (int i = 0; i < carte.Taille; i++)
+            {
+                for (int j = 0; j < carte.Taille; j++)
+                {
+                    List<Unite> units = carte.GetUnites(new PointImpl(i, j));
+                    List<Unite> savedUnites = savedCarte.GetUnites(new PointImpl(i, j));
+                    Assert.AreEqual(units.Count, savedUnites.Count);
+                    for (int k = 0; k < savedUnites.Count; k++)
+                    {
+                        Assert.IsTrue(units.Contains(savedUnites[k]));
+                    }
+                }
+            }
         }
     }
 }

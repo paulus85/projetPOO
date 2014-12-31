@@ -19,12 +19,7 @@ namespace SmallWorld
 
         int TourActuelle { get; }
 
-        TourImpl Tour { get; }
-
-        //Tour Tour
-        //{
-        //    get;
-        //}
+        Tour Tour { get; }
 
         bool FinDuJeu();
 

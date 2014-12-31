@@ -12,5 +12,5 @@ public:
 	bool operator==(const Point& pt) const;
 	bool operator<(const Point& pt) const;
 	bool estValide(int size) const;
-	bool estPlaine(Case** map) const;
+	bool estMontagne(Case** map) const;
 };

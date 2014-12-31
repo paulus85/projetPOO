@@ -2,6 +2,8 @@
 using SmallWorld;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UnitTestProject1
 {
@@ -58,6 +60,45 @@ namespace UnitTestProject1
 
             Assert.IsFalse(carte.EstPositionEnnemie(new PointImpl(9, 9), nainA));
             Assert.IsTrue(carte.EstPositionEnnemie(new PointImpl(0, 0), nainB));
+        }
+
+        [TestMethod]
+        public void TestSerializationCarte()
+        {
+            // Serialization
+            Stream stream = File.Open("Carte.sav", FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, carte);
+            stream.Close();
+
+            // Deserialization
+            stream = File.Open("Carte.sav", FileMode.Open);
+            formatter = new BinaryFormatter();
+            Carte savedMap = (Carte)formatter.Deserialize(stream);
+            stream.Close();
+            Assert.AreEqual(carte.Taille, savedMap.Taille);
+            // Checks the map composition:
+            for (int i = 0; i < carte.Taille; i++)
+            {
+                for (int j = 0; j < carte.Taille; j++)
+                {
+                    Assert.IsInstanceOfType(savedMap.GetCase(new PointImpl(i, j)), carte.GetCase(new PointImpl(i, j)).GetType());
+                }
+            }
+            // Checks the units on the map:
+            for (int i = 0; i < carte.Taille; i++)
+            {
+                for (int j = 0; j < carte.Taille; j++)
+                {
+                    List<Unite> units = carte.GetUnites(new PointImpl(i, j));
+                    List<Unite> savedUnits = savedMap.GetUnites(new PointImpl(i, j));
+                    Assert.AreEqual(units.Count, savedUnits.Count);
+                    for (int k = 0; k < savedUnits.Count; k++)
+                    {
+                        Assert.IsTrue(units.Contains(savedUnits[k]));
+                    }
+                }
+            }
         }
     }
 }

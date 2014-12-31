@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class CaseMontagne : Case
     {
-        public override int Number
+        public int Number
         {
             get
             {
@@ -18,6 +20,15 @@ namespace SmallWorld
         public CaseMontagne()
         {
 
+        }
+
+        public CaseMontagne(SerializationInfo info, StreamingContext context)
+        {
+
+        }
+        
+        public void GetObjectData(SerializationInfo info, StreamingContext context) {
+            info.AddValue("Number", 3);
         }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using Wrapper;
 
 namespace SmallWorld
 {
+    [Serializable()]
     public class CarteImpl : Carte
     {
         #region Proprietes
@@ -139,6 +141,20 @@ namespace SmallWorld
                return x;
            }
        }
+
+        //Deserialization
+        public CarteImpl(SerializationInfo info, StreamingContext context) {
+            this.taille = (int)info.GetValue("Taille", typeof(int));
+            this.unites = (List<Unite>[,])info.GetValue("Unites", typeof(List<Unite>[,]));
+            this.cases = (Case[,])info.GetValue("Cases", typeof(Case[,]));
+        }
+
+        //Serialization
+        public void GetObjectData(SerializationInfo info, StreamingContext context) {
+            info.AddValue("Taille", this.taille);
+            info.AddValue("Unites", this.unites);
+            info.AddValue("Cases", this.cases);
+        }
 
     }
 

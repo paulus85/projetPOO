@@ -2,6 +2,8 @@
 using SmallWorld;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace UnitTestProject1
 {
@@ -61,6 +63,33 @@ namespace UnitTestProject1
             Assert.AreNotEqual(elf.Numero, nain.Numero);
             Assert.AreNotEqual(nain.Numero, orc.Numero);
             Assert.AreNotEqual(orc.Numero, elf.Numero);
+        }
+
+        [TestMethod]
+        public void TestSerializationJoueur()
+        {
+            this.TestSerializationJoueur(elf);
+            this.TestSerializationJoueur(nain);
+            this.TestSerializationJoueur(orc);
+        }
+
+        private void TestSerializationJoueur(Joueur joueur)
+        {
+            // Serializes:
+            Stream stream = File.Open("Joueur.sav", FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+            formatter.Serialize(stream, joueur);
+            stream.Close();
+
+            // Deserializes and checks the values:
+            stream = File.Open("Joueur.sav", FileMode.Open);
+            formatter = new BinaryFormatter();
+            Joueur savedPlayer = (Joueur)formatter.Deserialize(stream);
+            stream.Close();
+            Assert.IsTrue(joueur.Equals(savedPlayer));
+            Assert.AreEqual(joueur.Points, savedPlayer.Points);
+            Assert.AreEqual(joueur.NomJoueur, savedPlayer.NomJoueur);
+            Assert.ReferenceEquals(joueur.Fabrique, savedPlayer.Fabrique);
         }
     }
 }
