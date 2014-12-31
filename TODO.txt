@@ -1,0 +1,19 @@
+////////////////////////////////
+		URGENT
+///////////////////////////////
+
+- Régler problème SuggestionCase
+
+- Bug jeu : des fois l'unité ne veut pas se déplacer sur une case voisine sans aucune raison
+
+- Partie sauvegarde/chargement coté code fait. Implémenter côté graphique.
+
+
+
+
+////////////////////////////////
+		MOINS URGENT
+///////////////////////////////
+- Revoir le graphisme général de l'application
+
+- Avoir un résumé des combats effectués (quelle unité perd des vies, des combats)
