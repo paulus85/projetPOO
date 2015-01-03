@@ -19,6 +19,8 @@
 - Avoir un résumé des combats effectués (quelle unité perd des points de vies vies, des combats)
 		--> suffit de fournir une string bien formattée.
 
+- Afficher pour chaque case le nombre d'unités présentes sur cette case.
+
 ////////////////////////////////
 		EN BONUS
 ///////////////////////////////

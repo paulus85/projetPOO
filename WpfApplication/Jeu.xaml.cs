@@ -187,12 +187,15 @@ namespace WpfApplication
                 b.Style = FindResource("PolygonUnite") as Style;
             }
             b.Background = chooseBackgroundUnite(u);
+            b.Content = null;
             int[] coordCanvas = FromCoordToCanvas(i, j);
             Canvas.SetLeft(b, coordCanvas[0]);
             Canvas.SetTop(b, coordCanvas[1]);
             Canvas.SetZIndex(b, 2);
             canvas.Children.Add(b);
         }
+
+
         public void afficherSuggestions(Unite u, SmallWorld.Point p)
         {
             masquerSuggestions();
@@ -416,6 +419,7 @@ namespace WpfApplication
                 else
                 {
                     ecritureConsole("Déplacement impossible");
+                    Console.WriteLine("Déplacement impossible");
                     polygon_NoSelection(sender, null);
                 }
 
@@ -446,6 +450,7 @@ namespace WpfApplication
                     foreach (Unite u in listUnites)
                     {
                         UniteUC uuc = new UniteUC(u);
+                        uuc.IsSelectable = (u.PointsDeplacementRestant > 0);    //A REVOIR
                         ListeUniteUC.Add(uuc);
                     }
                 }
@@ -511,6 +516,7 @@ namespace WpfApplication
             engine.Tour.UnselectUnites();
             ListBox lb = sender as ListBox;
             List<UniteUC> listUC = lb.SelectedItems.Cast<UniteUC>().ToList<UniteUC>();
+            List<UniteUC> listUCvalide = new List<UniteUC>();          
             List<Unite> listUnitesSelectionnees = new List<Unite>();
             if (listUC.Count == 0) 
             {
@@ -520,6 +526,13 @@ namespace WpfApplication
             {
                 selectionUniteFaite = true;
             }
+            //foreach (UniteUC uuc in listUC)
+            //{
+            //    if (uuc.Unite.PointsDeplacementRestant > 0)
+            //    {
+            //        listUCvalide.Add(uuc);
+            //    }
+            //}
             foreach (UniteUC uuc in listUC)
             {
                 listUnitesSelectionnees.Add(uuc.Unite);

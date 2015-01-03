@@ -20,6 +20,7 @@ namespace WpfApplication
 	public partial class UniteUC : UserControl
 	{
         public Unite Unite { get; set; }
+        public bool IsSelectable { get; set; }
 
 		public UniteUC(Unite u)
 		{

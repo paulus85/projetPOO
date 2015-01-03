@@ -130,7 +130,10 @@
                                     </TransformGroup>
                                 </Path.LayoutTransform>
                             </Path>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content=""/>
+                            <!--<ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                                <Label Content="{TemplateBinding Content}" Foreground="White" Background="Black"></Label>
+                            </ContentControl>-->
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -241,12 +244,17 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
-                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged">
+                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged" ItemContainerStyle="{DynamicResource styleLBUnite}">
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" />
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
+                    <ListBox.Resources>
+                        <Style x:Key="styleLBUnite" TargetType="{x:Type ListBoxItem}">
+                            <Setter Property="IsHitTestVisible" Value="{Binding IsSelectable}" />
+                        </Style>
+                    </ListBox.Resources>
                 </ListBox>
             </Grid>
             <Border  Grid.Row="1" BorderBrush="CadetBlue" BorderThickness="1">
