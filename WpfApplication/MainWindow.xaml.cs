@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace WpfApplication
 {
@@ -30,31 +31,6 @@ namespace WpfApplication
             InitializeComponent();
             
             this.DataContext = this;
-            /*
-            ImageBrush brush = new ImageBrush();
-            brush.ImageSource = new BitmapImage (new Uri("C:/Users/Paul/Documents/SmallWorld/WpfApplication/Ressources/desert.png", UriKind.Absolute));
-            ImageBrush brush2 = new ImageBrush();
-            brush2.ImageSource = new BitmapImage(new Uri("C:/Users/Paul/Documents/SmallWorld/WpfApplication/Ressources/foret.png", UriKind.Absolute));
-            Rectangle rec = new Rectangle();
-            //canvas.Children.Add(new Rectangle())
-            rec.Height = 79;
-            rec.Width = 69;
-            rec.Fill = brush;
-            rec.StrokeThickness = 4;
-            rec.Stroke = Brushes.Black;
-            canvas.Children.Add(rec);
-            Canvas.SetZIndex(rec, 2);
-
-
-            Rectangle rec2 = new Rectangle();
-            rec2.Height = 79;
-            rec2.Width = 69;
-            rec2.Fill = brush2;
-            rec2.Margin = new Thickness(69,0,0,0);
-            canvas.Children.Add(rec2);
-            Canvas.SetZIndex(rec2, 2);
-            */
-
 
         }
 
@@ -82,8 +58,14 @@ namespace WpfApplication
 
         private void Charger_Click(object sender, RoutedEventArgs e)
         {
-            //TODO : faire les méthodes de désérialisation
-            MessageBox.Show("Bientôt ! :)");
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Multiselect = false;
+            ofd.Filter = "Fichier de sauvegarde (*.yolo)|*.yolo";
+            if (ofd.ShowDialog() == true)
+            {
+                Console.WriteLine(ofd.FileName);
+                //Appeler MonteurJeuSauv
+            }
         }
 
         private void NouvellePartie_Click(object sender, RoutedEventArgs e)

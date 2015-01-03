@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using SmallWorld;
 using System.Collections.ObjectModel;
 
@@ -121,7 +122,7 @@ namespace WpfApplication
             }
 
             //Console interne
-            ecritureConsole("");
+            clearConsole();
 
         }
 
@@ -374,6 +375,15 @@ namespace WpfApplication
         private void ecritureConsole(string p)
         {
             console.Text = p;
+            DispatcherTimer messageTimer = new DispatcherTimer();
+            messageTimer.Tick += new EventHandler(messageTimer_Tick);
+            messageTimer.Interval = new TimeSpan(0, 0, 3);
+            messageTimer.Start();
+        }
+
+        private void clearConsole()
+        {
+            console.Text = "";
         }
 
 
@@ -450,7 +460,7 @@ namespace WpfApplication
                     foreach (Unite u in listUnites)
                     {
                         UniteUC uuc = new UniteUC(u);
-                        uuc.IsSelectable = (u.PointsDeplacementRestant > 0);    //A REVOIR
+                        uuc.IsSelectable = (u.PointsDeplacementRestant > 0);
                         ListeUniteUC.Add(uuc);
                     }
                 }
@@ -560,6 +570,11 @@ namespace WpfApplication
                 engine.FinTour();
                 NouveauTour();
             }
+        }
+
+        private void messageTimer_Tick(object sender, EventArgs e)
+        {
+            clearConsole();
         }
 
 
