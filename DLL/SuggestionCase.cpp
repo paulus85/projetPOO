@@ -20,47 +20,52 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) co
 	int yOffset[6] = { 0, 1, -1, 1, 0, 1 };
 	
 	switch (peuple){
-	case NAIN:
-		for (int i = 0; i < 6; i++) {
-			Point voisin = Point(xOffset[i] + x, yOffset[i] + y);
-			if(voisin.estValide(taille))
-			{
-				int score = this->getScoreMouvement(voisin, peuple);
-				score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
-				scores.insert(make_pair(voisin, score));
+		case NAIN:
+			for (int i = 0; i < 6; i++) {
+				Point voisin = Point(xOffset[i] + x, yOffset[i] + y);
+				if(voisin.estValide(taille))
+				{
+					int score = this->getScoreMouvement(voisin, peuple);
+					score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
+					score += this->getScoreDeplacement(voisin, peuple);
+					scores.insert(make_pair(voisin, score));
+				}
 			}
-		}
 
-		if (pos.estMontagne(this->carte)){
-			//On prend toutes les cases montagnes et on les inclus dans le calcul
-			for (int x = 0; x < this->taille; x++){
-				for (int y = 0; y < this->taille; y++){
-					Point voisin = Point(x, y);
-					if (voisin.estValide(taille) && voisin.estMontagne(this->carte)){
-						int score = this->getScoreMouvement(voisin, peuple);
-						score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
-						scores.insert(make_pair(voisin, score));
+			if (pos.estMontagne(this->carte)){
+				//On prend toutes les cases montagnes et on les inclus dans le calcul
+				for (int x = 0; x < this->taille; x++){
+					for (int y = 0; y < this->taille; y++){
+						Point voisin = Point(x, y);
+						if (voisin.estValide(taille) && voisin.estMontagne(this->carte)){
+							int score = this->getScoreMouvement(voisin, peuple);
+							score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
+							score += this->getScoreDeplacement(voisin, peuple);
+							scores.insert(make_pair(voisin, score));
+						}
 					}
 				}
 			}
-		}
+			break;
 
-	default:
-		for (int i = 0; i < 6; i++) {
-			Point voisin = Point(xOffset[i] + pos.x, yOffset[i] + pos.y);
-			if (voisin.estValide(taille))
-			{
-				int score = this->getScoreMouvement(voisin, peuple);
-				score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
-				scores.insert(make_pair(voisin, score));
+		default:
+			for (int i = 0; i < 6; i++) {
+				Point voisin = Point(xOffset[i] + pos.x, yOffset[i] + pos.y);
+				if (voisin.estValide(taille))
+				{
+					int score = this->getScoreMouvement(voisin, peuple);
+					score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
+					score += this->getScoreDeplacement(voisin, peuple);
+					scores.insert(make_pair(voisin, score));
+				}
 			}
-		}
+			break;
 	}
 	
 	Point* res = new Point[3];
 	int nbResults = 0;
 	for (int score = 3; nbResults < 3 && score > 0; score--) {
-		for (map<Point, int>::iterator it = scores.begin(); nbResults<3 && it != scores.end(); ++it) {
+		for (map<Point, int>::iterator it = scores.begin(); nbResults<3 && it != scores.end(); it++) {
 			if (it->second == score) {
 				res[nbResults] = it->first;
 				nbResults++;
@@ -71,7 +76,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) co
 	return res;
 }
 
-
+//score par rapport au point que rapporte une case
 int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 	Case square = this->carte[dest.x][dest.y];
 	int scoreElf[4] = { 1, 0, 1, 1 };
@@ -79,34 +84,48 @@ int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 	int scoresOrc[4] = { 1, 1, 1, 0 };
 	int score = 0;
 	switch (peuple){
-	case ELF:
-		score = scoreElf[square - 1];
-	case NAIN:
-		score = scoreNain[square - 1];
-		if (dest.estMontagne(this->carte)) {
-			// Le nain aura un avantage en pouvant se teleporter
-			score++;
-		}
-	case ORC:
-		score = scoresOrc[square - 1];
+		case ELF:
+			score = scoreElf[square]; break;
+		case NAIN:
+			score = scoreNain[square]; break;
+		case ORC:
+			score = scoresOrc[square]; break;
 	}
 	return score;
 }
 
+//score par rapport à la pertinence des déplacement
+int SuggestionCase::getScoreDeplacement(Point dest, Peuple peuple) const {
+	Case square = this->carte[dest.x][dest.y];
+	int scoreElf[4] = { 0, -1, 0, 1 };
+	int scoreNain[4] = { 1, 0, 0, 1 };
+	int scoresOrc[4] = { 1, 0, 0, 0 };
+	int score = 0;
+	switch (peuple){
+	case ELF:
+		score = scoreElf[square]; break;
+	case NAIN:
+		score = scoreNain[square]; break;
+	case ORC:
+		score = scoresOrc[square]; break;
+	}
+	return score;
+}
 
+//score par rapport à l'unité se trouvant sur la case destination
 int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
 	if (occupant == joueur) {
 		return INT_MIN;
 	}
 
 	switch (peuple){
-	case ORC:
-		//Avec le point bonus l'orc devrait attaquer
-		if (occupant != NONE)
-			return 1;
-		return 0;
+		case ORC:
+			//Avec le point bonus l'orc devrait attaquer
+			if (occupant != NONE)
+				return 1;
+			return 0; break;
 
-	default:
-		return 0;
+		default:
+			return 0; break;
 	}
 }
