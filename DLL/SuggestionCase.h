@@ -23,6 +23,7 @@ private:
 
 	int getScoreMouvement(Point pos, Peuple peuple) const;
 	int getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const;
+	int getScoreDeplacement(Point dest, Peuple peuple) const;
 
 public:
 	

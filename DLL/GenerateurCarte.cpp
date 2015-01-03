@@ -26,11 +26,11 @@ Case** GenerateurCarte::genererCarte(int nbCases) {
 	for (int i = 0; i<nbCases; i++) {
 		for (int j = 0; j<nbCases; j++) {
 			//Vérifie qu'on a à peu près le même nombre de case de chaque type
-			//while (controleTab[val] == (int)(nbCases / 4) + 1)
+			//do
 			//{
 				val = rand() % 4;
 				carte[i][j] = (Case)val;
-			//}
+			//} while (controleTab[val] == (int)(nbCases / 4) + 1);
 			//controleTab[val]++;
 		}
 	}

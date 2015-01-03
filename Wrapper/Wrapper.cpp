@@ -50,7 +50,7 @@ array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, i
 
 	array<array<int>^>^ result = gcnew array<array<int>^>(3);
 	for (int i = 0; i < 3; i++) {
-		result[i] = gcnew array<int>(3);
+		result[i] = gcnew array<int>(2);
 		result[i][0] = advice[i].x;
 		result[i][1] = advice[i].y;
 	}
