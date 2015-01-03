@@ -25,7 +25,8 @@ private:
 	int getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const;
 
 public:
-	DLL SuggestionCase(Case** carte, int taille, Peuple PeupleJoueur1, Peuple PeupleJoueur2);
-	DLL Point* getSuggestion(int x, int y, Joueur** unites, Joueur joueur) const;
+	
+	EXTERNC DLL SuggestionCase(Case** carte, int taille, Peuple PeupleJoueur1, Peuple PeupleJoueur2);
+	EXTERNC DLL Point* getSuggestion(int x, int y, Joueur** unites, Joueur joueur) const;
 };
 

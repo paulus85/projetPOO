@@ -19,13 +19,16 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) co
 	int xOffset[6] = { -1, -1, 0, 0, 1, 1 };
 	int yOffset[6] = { 0, 1, -1, 1, 0, 1 };
 	
-	/*switch (peuple){
+	switch (peuple){
 	case NAIN:
 		for (int i = 0; i < 6; i++) {
 			Point voisin = Point(xOffset[i] + x, yOffset[i] + y);
-			int score = this->getScoreMouvement(voisin, peuple);
-			score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
-			scores.insert(make_pair(voisin, score));
+			if(voisin.estValide(taille))
+			{
+				int score = this->getScoreMouvement(voisin, peuple);
+				score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
+				scores.insert(make_pair(voisin, score));
+			}
 		}
 
 		if (pos.estMontagne(this->carte)){
@@ -33,7 +36,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) co
 			for (int x = 0; x < this->taille; x++){
 				for (int y = 0; y < this->taille; y++){
 					Point voisin = Point(x, y);
-					if (voisin.estMontagne(this->carte)){
+					if (voisin.estValide(taille) && voisin.estMontagne(this->carte)){
 						int score = this->getScoreMouvement(voisin, peuple);
 						score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
 						scores.insert(make_pair(voisin, score));
@@ -42,14 +45,17 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, Joueur j) co
 			}
 		}
 
-	default:*/
+	default:
 		for (int i = 0; i < 6; i++) {
 			Point voisin = Point(xOffset[i] + pos.x, yOffset[i] + pos.y);
-			int score = this->getScoreMouvement(voisin, peuple);
-			score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
-			scores.insert(make_pair(voisin, score));
+			if (voisin.estValide(taille))
+			{
+				int score = this->getScoreMouvement(voisin, peuple);
+				score += this->getScoreCapture(unites[voisin.x][voisin.y], j, peuple);
+				scores.insert(make_pair(voisin, score));
+			}
 		}
-	//}
+	}
 	
 	Point* res = new Point[3];
 	int nbResults = 0;

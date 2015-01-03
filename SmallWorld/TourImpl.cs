@@ -304,7 +304,7 @@ namespace SmallWorld
         /// <param name="unite">Une unité sélectionnée</param>
         /// <param name="pos">Le point où se trouve l'unité</param>
         /// <returns>Max 3 proposition de déplacement</returns>
-        unsafe public List<Point> GetSuggestionsCase(Unite unite, Point pos)
+        unsafe public List<Point> SuggestionsCase(Unite unite, Point pos)
         {
             Carte carte = this.jeu.Carte;
             Case[,] cases = carte.Cases;
