@@ -15,6 +15,7 @@ namespace SmallWorld
         private Point positionSelectionne;
         private Point destination;
         private ResultatCombat resDernierCombat;
+
         public ResultatCombat ResDernierCombat
         {
             get
@@ -23,6 +24,11 @@ namespace SmallWorld
             }
         }
 
+        /// <summary>
+        /// Constructeur d'un tour
+        /// </summary>
+        /// <param name="jeu">Le jeu auquel appartient le tour</param>
+        /// <param name="joueurCourant">Le joueur pour ce tour</param>
         public TourImpl(Jeu jeu, Joueur joueurCourant)
         {
             this.jeu = jeu;
@@ -30,28 +36,49 @@ namespace SmallWorld
             unitesSelectionnes = new List<Unite>();
         }
 
+        /// <summary>
+        /// Définir les unités sélectionnées
+        /// </summary>
+        /// <param name="unites">La liste des unités sélectionnées</param>
         public void SelectUnites(List<Unite> unites)
         {
             this.unitesSelectionnes = unites;
         }
 
+        /// <summary>
+        /// Définir les unités sélectionnées à partir du point sélectionné
+        /// </summary>
+        /// <param name="unites">La liste des unités sélectionnées</param>
+        /// <param name="position">Le point d'où on sélectionne les unités</param>
         public void SelectUnites(List<Unite> unites, Point position)
         {
             this.unitesSelectionnes = unites;
             this.positionSelectionne = position;
         }
 
+        /// <summary>
+        /// Déselectionner les unités
+        /// </summary>
         public void UnselectUnites()
         {
             this.unitesSelectionnes.Clear();
         }
 
+        /// <summary>
+        /// Récupérer les unités d'un points
+        /// </summary>
+        /// <param name="position">Le point d'où l'on veut récupérer les unités</param>
+        /// <returns>La liste des unités du point spécifié</returns>
         public List<Unite> GetUnites(Point position)
         {
             return this.jeu.Carte.GetUnites(position);
         }
 
-        //Savoir si la position est sous controle du joueurCourant
+        /// <summary>
+        /// Savoir si le point spécifié est sous controle du joueurCourant
+        /// </summary>
+        /// <param name="position">Le point d'où l'on veut vérifier</param>
+        /// <returns>Vrai si le point est sous le controle du joueur</returns>
         public bool JoueurSurPosition(Point position)
         {
             List<Unite> unites = this.jeu.Carte.GetUnites(position);
@@ -59,6 +86,11 @@ namespace SmallWorld
                 && unites[0].Proprio.Equals(this.joueurCourant);
         }
 
+        /// <summary>
+        /// Définir le point de destination pour les unités sélectionnées
+        /// </summary>
+        /// <param name="destination">Le point de destination</param>
+        /// <returns>Vrai si TOUTES les unités sélectionnés peuvent se déplacer sur la destination</returns>
         public bool SetDestination(Point destination)
         {
             if (this.unitesSelectionnes.Count == 0)
@@ -86,6 +118,9 @@ namespace SmallWorld
             return res;
         }
 
+        /// <summary>
+        /// Exécuter le deplacement des unités selectionnés et mener des combats si il y a des unités ennemies sur la destination
+        /// </summary>
         public void ExecuterDeplacement()
         {
             for (int i = 0; i < this.unitesSelectionnes.Count; i++)
@@ -121,6 +156,11 @@ namespace SmallWorld
             UnselectUnites();
         }
 
+        /// <summary>
+        /// Algo de combat entre 2 unités adverses
+        /// </summary>
+        /// <param name="unite">L'unite du joueur courant</param>
+        /// <returns>Le résultat du combat</returns>
         public ResultatCombat Combat(Unite unite)
         {
             Unite uniteAdverse = MeilleureUniteDefensive(this.destination);
@@ -167,7 +207,6 @@ namespace SmallWorld
                 NbAttaques--;
             }
 
-
             if (!unite.EstEnVie())
             {
                 if (unite.GetType() == typeof(UniteElfe))
@@ -205,7 +244,6 @@ namespace SmallWorld
                         this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                         this.resDernierCombat = ResultatCombat.GAGNE;
                     }
-                        
                 }
                 else
                 {
@@ -221,6 +259,11 @@ namespace SmallWorld
             
         }
 
+        /// <summary>
+        /// Trouver la meilleure unité défensive adverse à un point donné
+        /// </summary>
+        /// <param name="destination">Le point donné</param>
+        /// <returns>L'unité adverse ayant la meilleure défense</returns>
         public Unite MeilleureUniteDefensive(Point destination)
         {
             List<Unite> unites = this.jeu.Carte.GetUnites(destination);
@@ -233,19 +276,35 @@ namespace SmallWorld
             return res;
         }
 
+        /// <summary>
+        /// Calculer l'attaque d'une unité
+        /// </summary>
+        /// <param name="unite">L'unité visée</param>
+        /// <returns>L'attaque de l'unité</returns>
         public Double CalculAttaque(Unite unite)
         {
             Double x = ((Double)unite.PointsDeVie / (Double)unite.PvDefault);
             return Math.Floor(((Double)unite.PointsAttaque * x) * 100);
         }
 
+        /// <summary>
+        /// Calculer la défense d'une unité
+        /// </summary>
+        /// <param name="unite">L'unité visée</param>
+        /// <returns>La défense de l'unité</returns>
         public Double CalculDefense(Unite unite)
         {
             Double x = ((Double)unite.PointsDeVie / (Double)unite.PvDefault);
             return Math.Ceiling(((Double)unite.PointsDefense * x) * 100);
         }
 
-        unsafe public List<Point> GetAdvisedDestinations(Unite unit, Point pos)
+        /// <summary>
+        /// Avoir des suggestions de cases pour les déplacement des unité sélectionnées à un point donné
+        /// </summary>
+        /// <param name="unite">Une unité sélectionnée</param>
+        /// <param name="pos">Le point où se trouve l'unité</param>
+        /// <returns>Max 3 proposition de déplacement</returns>
+        unsafe public List<Point> GetSuggestionsCase(Unite unite, Point pos)
         {
             Carte carte = this.jeu.Carte;
             Case[,] cases = carte.Cases;

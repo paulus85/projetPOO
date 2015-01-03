@@ -11,7 +11,6 @@ namespace SmallWorld
         List<Unite>[,] Unites { get;  }
         int Taille { get; }
 
-
         Carte ConstruireCarte(int size);
         void PlacerUnite(Unite unite, Point position);
 
@@ -26,6 +25,5 @@ namespace SmallWorld
         bool EstPositionEnnemie(Point position, Unite unite);
 
         void DeplacerUnite(Unite unite, Point pointCourant, Point destination);
-
     }
 }

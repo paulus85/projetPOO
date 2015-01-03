@@ -49,6 +49,11 @@ namespace SmallWorld
 
         #endregion
 
+        /// <summary>
+        /// Constructeur du joueur
+        /// </summary>
+        /// <param name="nom">Nom du joueur</param>
+        /// <param name="fab">Fabrique du peuple du joueur</param>
         public JoueurImpl(String nom, FabriquePeuple fab)
         {
             this.nomJoueur = nom;
@@ -58,11 +63,19 @@ namespace SmallWorld
             this.numero = cpt;
         }
 
+        /// <summary>
+        /// Constructeur vide
+        /// </summary>
         public JoueurImpl()
         {
             
         }
 
+        /// <summary>
+        /// Créer les unités du joueur
+        /// </summary>
+        /// <param name="nbUnites">Nombre d'unités à créer</param>
+        /// <returns>List des unités créées</returns>
         public List<Unite> CreerUnites(int nbUnites)
         {
             List<Unite> unites = new List<Unite>();
@@ -73,6 +86,11 @@ namespace SmallWorld
             return unites;
         }
 
+        /// <summary>
+        /// Redéfinition de la méthode Equals
+        /// </summary>
+        /// <param name="obj">Objet comparé</param>
+        /// <returns>Vrai si les joueurs sont égaux</returns>
         public override bool Equals(Object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -87,18 +105,31 @@ namespace SmallWorld
             return this.numero == j.Numero;
         }
 
+        /// <summary>
+        /// Redéfintion de la méthode GetHashCode
+        /// (Nécessaire pour laa redéfinition de la méthode Equals)
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return this.numero.GetHashCode();
         }
 
+        /// <summary>
+        /// Ajouter des points à un joueur
+        /// </summary>
+        /// <param name="n">Le nombre de points à ajouter</param>
         public void AjoutPoints(int n)
         {
             //TODO Exception
             this.points += n;
         }
 
-        //Deserialization
+        /// <summary>
+        /// Méthode pour la deserialization du joueur
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public JoueurImpl(SerializationInfo info, StreamingContext context) {
             this.nomJoueur = (string)info.GetValue("NomJoueur", typeof(string));
             this.points = (int)info.GetValue("Points", typeof(int));
@@ -126,7 +157,11 @@ namespace SmallWorld
             cpt++;
         }
 
-        //Serialization
+        /// <summary>
+        /// Méthode pour la serialization du joueur
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
             info.AddValue("NomJoueur", this.nomJoueur);
             info.AddValue("Points", this.points);

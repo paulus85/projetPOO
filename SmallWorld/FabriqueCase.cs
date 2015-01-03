@@ -19,6 +19,9 @@ namespace SmallWorld
             get { return instance;  }
         }
 
+        /// <summary>
+        /// Constructeur de la fabrique des cases
+        /// </summary>
         public FabriqueCase()
         {
             plaine = new CasePlaine();
@@ -27,6 +30,11 @@ namespace SmallWorld
             foret = new CaseForet();
         }
 
+        /// <summary>
+        /// Récupérer le type de case en fonction de leurs numéros
+        /// </summary>
+        /// <param name="type">Numéro du type de la case</param>
+        /// <returns>La case demandée</returns>
         public Case GetCase(int type)
         {
             switch (type)

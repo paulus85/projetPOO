@@ -7,6 +7,14 @@ namespace SmallWorld
 {
     public abstract class MonteurNPartie : Monteur
     {
+        /// <summary>
+        /// Créer une partie avec un monteur
+        /// </summary>
+        /// <param name="nom1">Nom deu joueur 1</param>
+        /// <param name="peuple1">Peuple du joueur 1</param>
+        /// <param name="nom2">Nom du joueur 2</param>
+        /// <param name="peuple2">Peuple du joueur 2</param>
+        /// <returns>Le nouveau jeu créé</returns>
         public Jeu CreerJeu(string nom1, FabriquePeuple peuple1, string nom2, FabriquePeuple peuple2)
         {
             // Créer la map

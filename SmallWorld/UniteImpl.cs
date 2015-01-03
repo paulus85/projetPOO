@@ -59,6 +59,10 @@ namespace SmallWorld
 
         #endregion
 
+        /// <summary>
+        /// Constructeur d'une unité
+        /// </summary>
+        /// <param name="proprio">Joueur possédant l'unité</param>
         public UniteImpl(Joueur proprio) {
             this.proprio = proprio;
             this.pointsDeVie = PV_DEFAULT;
@@ -67,6 +71,10 @@ namespace SmallWorld
             this.numero = cpt;
         }
 
+        /// <summary>
+        /// Enlever un PV à l'unité
+        /// </summary>
+        /// <returns>Vrai si tout s'est bien passé</returns>
         public bool EnleverPV()
         {
             if (this.pointsDeVie < 1)
@@ -76,22 +84,43 @@ namespace SmallWorld
             this.pointsDeVie--;
             return true;
         }
+
+        /// <summary>
+        /// Vérifier si une unité est en vie
+        /// </summary>
+        /// <returns>Vrai si l'unité est en vie</returns>
         public bool EstEnVie()
         {
             return this.pointsDeVie > 0;
         }
 
+        /// <summary>
+        /// Recharger les points de déplacement
+        /// </summary>
         public void ResetPointsDeplacement()
         {
             this.pointsDeplacementRestant = POINTS_DEPLACEMENT_DEFAULT;
         }
 
+        /// <summary>
+        /// Valider le déplacement d'une unité 
+        /// </summary>
+        /// <param name="pointCourant">Le point de départ</param>
+        /// <param name="caseCour">La case de départ</param>
+        /// <param name="destination">Le point de destination</param>
+        /// <param name="caseDest">La case de destination</param>
+        /// <returns>Vrai si l'unité peut se déplacer</returns>
         public virtual bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
         {
             return this.pointsDeplacementRestant >= COUT_DEPLACEMENT 
                 && destination.EstJoignable(pointCourant);
         }
 
+        /// <summary>
+        /// Effectuer le déplacement de l'unité
+        /// </summary>
+        /// <param name="destination">La case de destination du déplacement</param>
+        /// <returns>Vrai si tous s'est bien déroulé</returns>
         public virtual bool Deplacement(Case destination)
         {
             if (this.pointsDeplacementRestant < COUT_DEPLACEMENT)
@@ -102,6 +131,11 @@ namespace SmallWorld
             return true;
         }
 
+        /// <summary>
+        /// Redéfinition de la méthode Equals d'une unité
+        /// </summary>
+        /// <param name="obj">L'unité comparé</param>
+        /// <returns>Vrai si les 2 unités sont égales</returns>
         public override bool Equals(Object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -112,14 +146,28 @@ namespace SmallWorld
             return this.numero == unit.Numero;
         }
 
+        /// <summary>
+        /// Redéfinition de la méthode GetHashCode
+        /// (Nécessaire pour redéfinir la méthode Equals)
+        /// </summary>
+        /// <returns></returns>
         public override int GetHashCode()
         {
             return this.numero.GetHashCode();
         }
 
+        /// <summary>
+        /// Récupérer les points de l'unité en fonction de la case
+        /// </summary>
+        /// <param name="typeCase">La case où se trouve l'unité</param>
+        /// <returns>Le nombre de point</returns>
         public abstract int GetPoints(Case c);
 
-        //Deserialization
+        /// <summary>
+        /// Méthode pour la deserialization de l'unité
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public UniteImpl(SerializationInfo info, StreamingContext context) {
             this.pointsDeVie = (int)info.GetValue("PointsDeVie", typeof(int));
             this.pointsDeplacementRestant = (int)info.GetValue("PointsDeplacementRestant", typeof(int));
@@ -127,7 +175,11 @@ namespace SmallWorld
             this.proprio = (Joueur)info.GetValue("Proprio", typeof(Joueur));
         }
 
-        //Serialization
+        /// <summary>
+        /// Méthode pour la serialization de l'unité
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
             info.AddValue("PointsDeVie", this.pointsDeVie);
             info.AddValue("PointsDeplacementRestant", this.pointsDeplacementRestant);

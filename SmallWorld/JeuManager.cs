@@ -58,6 +58,13 @@ namespace SmallWorld
 
         #endregion
 
+        /// <summary>
+        /// Constructeur d'une partie
+        /// </summary>
+        /// <param name="j1">Le joueur 1</param>
+        /// <param name="j2">Le joueur 2</param>
+        /// <param name="c">La carte des cases et unités</param>
+        /// <param name="n">Le nombre de tour pour la partie</param>
         public JeuManager(Joueur j1, Joueur j2, Carte c, int n)
         {
             this.joueur1 = j1;
@@ -69,6 +76,10 @@ namespace SmallWorld
             this.tour = new TourImpl(this, joueurCourant);
         }
 
+        /// <summary>
+        /// Vérifie si le jeu est terminé ou non
+        /// </summary>
+        /// <returns>Vrai si le neu est finit</returns>
         public bool FinDuJeu()
         {
             return EstVaincu(joueur1) ||
@@ -76,16 +87,30 @@ namespace SmallWorld
                    this.tourActuelle > this.nbTour;
         }
 
+        /// <summary>
+        /// Avoir le nombre d'unités d'un joueur
+        /// </summary>
+        /// <param name="j">Le joueur concerné</param>
+        /// <returns>Le nombre d'unité du joueur</returns>
         public int GetNbUnites(Joueur j)
         {
             return this.carte.GetUnites(j).Count;
         }
 
+        /// <summary>
+        /// Savoir si un joueur esr vaincu ou non
+        /// </summary>
+        /// <param name="j">Le joueur concerné</param>
+        /// <returns>Vrai si le joueur est vaincu</returns>
         public bool EstVaincu(Joueur j)
         {
             return this.GetNbUnites(j) == 0;
         }
 
+        /// <summary>
+        /// Savoir quel joueur est vainqueur de la partie
+        /// </summary>
+        /// <returns>Le joueur victorieux</returns>
         public Joueur Vainqueur()
         {
             if (this.EstVaincu(this.joueur1))
@@ -107,6 +132,11 @@ namespace SmallWorld
             return null;
         }
 
+        /// <summary>
+        /// Vérifie les point bonus concernant les unités de type Orc
+        /// </summary>
+        /// <param name="unites">Le ditionnaire des Unité/Point</param>
+        /// <returns>La valeur des points bonus à prendre en compte</returns>
         private int VerifPointBonus(Dictionary<Unite, Point> unites)
         {
             int n = 0;
@@ -118,6 +148,9 @@ namespace SmallWorld
             return n;
         }
 
+        /// <summary>
+        /// Met fin au tour courant, compte les points du joueur, change les joueurs en instanciant un nouveau tour pour la partie en cours
+        /// </summary>
         public void FinTour()
         {
             //Comptage des points pour le joueur courant (prise en compte des points bonus pour les orcs)
@@ -149,7 +182,10 @@ namespace SmallWorld
             this.tour = new TourImpl(this, this.joueurCourant);
         }
 
-        //fichier doit indiquer le repertoire et nom du fichier utliser pour la sauvegarde (ex : c:\Smallworld\jeu.sav)
+        /// <summary>
+        /// Sauvegarder la partie en cours
+        /// </summary>
+        /// <param name="fichier">Repertoire et nom du fichier utliser pour la sauvegarde (ex : c:\Smallworld\jeu.sav)</param>
         public void SauvegarderJeu(string fichier)
         {
             if (!File.Exists(fichier))
@@ -171,7 +207,11 @@ namespace SmallWorld
             }
         }
 
-        //Serialization
+        /// <summary>
+        /// Méthode pour la deserialization du jeu
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public JeuManager(SerializationInfo info, StreamingContext context) {
             this.joueur1 = (Joueur)info.GetValue("Joueur1", typeof(Joueur));
             this.joueur2 = (Joueur)info.GetValue("Joueur2", typeof(Joueur));
@@ -182,6 +222,11 @@ namespace SmallWorld
             this.tour = new TourImpl(this, joueurCourant);
         }
 
+        /// <summary>
+        /// Méthode pour la serialization du jeu
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
             info.AddValue("Joueur1", this.joueur1);
             info.AddValue("Joueur2", this.joueur2);

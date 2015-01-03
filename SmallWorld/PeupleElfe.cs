@@ -14,21 +14,39 @@ namespace SmallWorld
             get { return 0; }
         }
 
+        /// <summary>
+        /// Constructeur vide
+        /// </summary>
         public PeupleElfe()
         {
 
         }
+
+        /// <summary>
+        /// Génération de l'unité correspondant au peuple du joueur
+        /// </summary>
+        /// <param name="j">Joueur ayant l'unité</param>
+        /// <returns>La nouvelle unité du joueur j</returns>
         public Unite GenerationUnite(Joueur j)
         {
             return new UniteElfe(j);
         }
 
+        /// <summary>
+        /// Méthode pour la deserialization du peuple
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public PeupleElfe(SerializationInfo info, StreamingContext context)
         {
 
         }
 
-        //Serialization
+        /// <summary>
+        /// Méthode pour la serialization du peuple
+        /// </summary>
+        /// <param name="info">Données</param>
+        /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
 
