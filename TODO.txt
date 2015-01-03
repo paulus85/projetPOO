@@ -17,3 +17,9 @@
 - Revoir le graphisme général de l'application
 
 - Avoir un résumé des combats effectués (quelle unité perd des points de vies vies, des combats)
+		--> suffit de fournir une string bien formattée.
+
+////////////////////////////////
+		EN BONUS
+///////////////////////////////
+- Mettre un timer pour le temps d'affichage d'une info dans la console interne

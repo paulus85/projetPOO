@@ -29,7 +29,7 @@ namespace WpfApplication
         public string TailleCarte { get; set; }
 
         private SmallWorld.MonteurNPartie monteur;
-        private SmallWorld.Jeu engine;
+        //private SmallWorld.Jeu engine;
         
         
         public NouveauJeu()

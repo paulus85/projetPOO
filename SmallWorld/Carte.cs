@@ -25,5 +25,6 @@ namespace SmallWorld
         bool EstPositionEnnemie(Point position, Unite unite);
 
         void DeplacerUnite(Unite unite, Point pointCourant, Point destination);
+
     }
 }

@@ -120,6 +120,9 @@ namespace WpfApplication
                 afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
             }
 
+            //Console interne
+            ecritureConsole("");
+
         }
 
 
@@ -140,7 +143,8 @@ namespace WpfApplication
             canvas.Width = l * 88 + paddingLigneImpaire;
             canvas2.Height = canvas.Height;
             canvas2.Width = canvas.Width;
-
+            canvas1.Height = canvas.Height;
+            canvas1.Width = canvas.Width;
         }
 
 
@@ -186,8 +190,33 @@ namespace WpfApplication
             int[] coordCanvas = FromCoordToCanvas(i, j);
             Canvas.SetLeft(b, coordCanvas[0]);
             Canvas.SetTop(b, coordCanvas[1]);
-            Canvas.SetZIndex(b, 3);
+            Canvas.SetZIndex(b, 2);
             canvas.Children.Add(b);
+        }
+        public void afficherSuggestions(Unite u, SmallWorld.Point p)
+        {
+            masquerSuggestions();
+            List<SmallWorld.Point> listPoints = engine.Tour.SuggestionsCase(u, p);
+            foreach (SmallWorld.Point pt in listPoints)
+            {
+                Button b = new Button();
+                b.IsHitTestVisible = false;
+                if (FindResource("PolygonSuggestion") != null)
+                {
+                    b.Style = FindResource("PolygonSuggestion") as Style;
+                    Console.WriteLine("ok ressource");
+                }
+                int[] coordCanvas = FromCoordToCanvas(pt.x, pt.y);
+                Canvas.SetLeft(b, coordCanvas[0]);
+                Canvas.SetTop(b, coordCanvas[1]);
+                Canvas.SetZIndex(b, 3);
+                canvas1.Children.Add(b);
+            }
+        }
+
+        public void masquerSuggestions()
+        {
+            canvas1.Children.Clear();
         }
 
 
@@ -351,7 +380,7 @@ namespace WpfApplication
        
 
         /// <summary>
-        /// Handles the MouseDown event of the polygon control.
+        /// Handles the MouseEnter event of the polygon control.
         /// </summary>
         /// <param name="sender">The source of the event.</param>
         /// <param name="e">The <see cref="MouseEventArgs" /> instance containing the event data.</param>
@@ -435,6 +464,7 @@ namespace WpfApplication
             selectionUniteFaite = false;
             ListeUniteUC.Clear();
             Console.WriteLine("NoSelection");
+            masquerSuggestions();
         }
 
         /// <summary>
@@ -495,6 +525,14 @@ namespace WpfApplication
                 listUnitesSelectionnees.Add(uuc.Unite);
             }
             engine.Tour.SelectUnites(listUnitesSelectionnees,pointSelection);
+            if (listUnitesSelectionnees.Count != 0)
+            {
+                afficherSuggestions(listUnitesSelectionnees[0], pointSelection);
+            }
+            else
+            {
+                masquerSuggestions();
+            }
         }
 
         private void FindeTour_Click(object sender, RoutedEventArgs e)
