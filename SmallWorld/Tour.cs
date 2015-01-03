@@ -30,5 +30,7 @@ namespace SmallWorld
         Double CalculAttaque(Unite unite);
 
         Double CalculDefense(Unite unite);
+
+        List<Point> SuggestionsCase(Unite unite, Point pos);
     }
 }
