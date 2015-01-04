@@ -1,10 +1,6 @@
 ////////////////////////////////
 		URGENT
 ///////////////////////////////
-- Bug jeu : des fois l'unité ne veut pas se déplacer sur une case voisine sans aucune raison (affichage du message NoSelection)
-
-- Revoir la suggestion des cases côté graphique en prenant en compte le fait que l'algo renvoi des points à ne pas prendre en compte des fois (points ayant pour coordonnée -1 -1)
-
 - Partie sauvegarde/chargement coté code fait. Implémenter côté graphique.
 
 - Revoir le diagramme de classe pour qu'il concorde au code
