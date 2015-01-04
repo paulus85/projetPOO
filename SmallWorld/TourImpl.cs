@@ -310,10 +310,12 @@ namespace SmallWorld
             Case[,] cases = carte.Cases;
             int[][] carteBis = new int[carte.Taille][];
             int[][] unites = new int[carte.Taille][];
+            double[][] ptsdeplacement = new double[carte.Taille][];
             for (int i = 0; i < carte.Taille; i++)
             {
                 carteBis[i] = new int[carte.Taille];
                 unites[i] = new int[carte.Taille];
+                ptsdeplacement[i] = new double[carte.Taille];
                 for (int j = 0; j < carte.Taille; j++)
                 {
                     carteBis[i][j] = cases[i, j].Numero;
@@ -322,13 +324,14 @@ namespace SmallWorld
                     {
                         unites[i][j] = unitsAtPos[0].Proprio.Numero;
                     }
+                    ptsdeplacement[i][j] = unitesSelectionnes[0].PointsDeplacementRestant;
                 }
             }
 
 
             int peupleJoueur1 = this.jeu.Joueur1.NumeroPeuple;
             int peupleJoueur2 = this.jeu.Joueur2.NumeroPeuple;
-            int[][] result = Wrapper.Wrapper.getSuggestion(carteBis, carte.Taille, peupleJoueur1, peupleJoueur2, pos.x, pos.y, unites, this.joueurCourant.Numero);
+            int[][] result = Wrapper.Wrapper.getSuggestion(carteBis, carte.Taille, peupleJoueur1, peupleJoueur2, pos.x, pos.y, unites, ptsdeplacement, this.joueurCourant.Numero);
             List<Point> suggestions = new List<Point>();
             for (int i = 0; i < 3; i++)
             {

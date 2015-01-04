@@ -28,7 +28,7 @@ array<array<int>^>^ Wrapper::Wrapper::placementJoueur(int taille) {
 }
 
 
-array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, int taille, int peupleJoueur1, int peupleJoueur2, int x, int y, array<array<int>^>^ unites, int joueur) {
+array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, int taille, int peupleJoueur1, int peupleJoueur2, int x, int y, array<array<int>^>^ unites, array<array<double>^>^ ptsDeplacement, int joueur) {
 	Case** carteBis = new Case*[taille];
 	for (int i = 0; i<taille; i++) {
 		carteBis[i] = new Case[taille];
@@ -46,7 +46,15 @@ array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, i
 		}
 	}
 
-	Point* advice = generator.getSuggestion(x, y, unitesBis, (Joueur)joueur);
+	double** ptsDeplacementBis = new double*[taille];
+	for (int i = 0; i<taille; i++) {
+		ptsDeplacementBis[i] = new double[taille];
+		for (int j = 0; j<taille; j++) {
+			ptsDeplacementBis[i][j] = ptsDeplacement[i][j];
+		}
+	}
+
+	Point* advice = generator.getSuggestion(x, y, unitesBis, ptsDeplacementBis, (Joueur)joueur);
 
 	array<array<int>^>^ result = gcnew array<array<int>^>(3);
 	for (int i = 0; i < 3; i++) {

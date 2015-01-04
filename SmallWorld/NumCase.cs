@@ -10,7 +10,7 @@ namespace SmallWorld
     {
         PLAINE = 0,
         DESERT = 1,
-        FORET = 2,
-        MONTAGNE = 3
+        MONTAGNE = 2,
+        FORET = 3
     }
 }

@@ -13,7 +13,7 @@ namespace SmallWorld
         {
             get
             {
-                return 3;
+                return (int)NumCase.MONTAGNE;
             }
         }
 

@@ -21,13 +21,14 @@ private:
 	int taille;
 	Peuple* peuples;
 
+	void getVoisin(int x, int *xOffset[6], int *yOffset[6]) const;
 	int getScoreMouvement(Point pos, Peuple peuple) const;
 	int getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const;
-	int getScoreDeplacement(Point dest, Peuple peuple) const;
+	int getScoreDeplacement(Point dest, double ptsDeplacement, Peuple peuple) const;
 
 public:
 	
 	EXTERNC DLL SuggestionCase(Case** carte, int taille, Peuple PeupleJoueur1, Peuple PeupleJoueur2);
-	EXTERNC DLL Point* getSuggestion(int x, int y, Joueur** unites, Joueur joueur) const;
+	EXTERNC DLL Point* getSuggestion(int x, int y, Joueur** unites, double** ptsDeplacement, Joueur joueur) const;
 };
 

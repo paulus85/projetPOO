@@ -26,7 +26,7 @@ namespace UnitTestProject1
             Assert.IsTrue(new PointImpl(0, 1).EstJoignable(new PointImpl(0, 0)));
             Assert.IsFalse(new PointImpl(1, 1).EstJoignable(new PointImpl(0, 0)));
             Assert.IsTrue(new PointImpl(14, 14).EstJoignable(new PointImpl(14, 13)));
-            Assert.IsFalse(new PointImpl(14, 14).EstJoignable(new PointImpl(13, 13)));
+            Assert.IsFalse(new PointImpl(15, 15).EstJoignable(new PointImpl(14, 14)));
         }
 
         [TestMethod]

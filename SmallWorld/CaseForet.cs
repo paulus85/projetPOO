@@ -13,7 +13,7 @@ namespace SmallWorld
         {
             get
             {
-                return 2;
+                return (int)NumCase.FORET;
             }
         }
 

@@ -58,7 +58,25 @@ namespace SmallWorld
         /// <returns>Vrai si le point est atteignable</returns>
         public bool EstJoignable(Point pt)
         {
-            return Math.Abs(this.x - pt.x) + Math.Abs(this.y - pt.y) == 1;
+            if (this.x % 2 == 0){
+		        int[] tabX = { -1, -1, 0, 0, 1, 1 };
+		        int[] tabY = { -1, 0, -1, 1, -1, 0 };
+
+		        for (int i = 0; i < 6; i++){
+			        if((this.x + tabX[i]) == pt.x && (this.y + tabY[i]) == pt.y)
+                        return true;
+		        }
+                return false;
+	        }
+	        else{
+		        int[] tabX = { -1, -1, 0, 0, 1, 1 };
+		        int[] tabY = { 0, 1, -1, 1, 0, 1 };
+		        for (int i = 0; i < 6; i++){
+			        if((this.x + tabX[i]) == pt.x && (this.y + tabY[i]) == pt.y)
+                        return true;
+		        }
+                return false;
+	        }
         }
 
         /// <summary>

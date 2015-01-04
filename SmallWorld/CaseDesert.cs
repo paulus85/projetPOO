@@ -12,7 +12,7 @@ namespace SmallWorld
         public int Numero
         {
             get{
-                return 1;
+                return (int)NumCase.DESERT;
             }
         }
 
