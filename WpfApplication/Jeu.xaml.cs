@@ -38,10 +38,10 @@ namespace WpfApplication
 
         ObservableCollection<UniteUC> listeUniteUC;
         /// <summary>
-        /// Is like the interface between code behind data and view. Is binded to ItemsSource of Unite listBox.
+        /// Interface entre la donnée code behind et la vue. Est bindé à ItemsSource de la listBox Unite.
         /// </summary>
         /// <value>
-        /// The liste unite uc.
+        /// La liste d'UniteUC
         /// </value>
         public ObservableCollection<UniteUC> ListeUniteUC
         {
@@ -49,6 +49,14 @@ namespace WpfApplication
             set { listeUniteUC = value; }
         }
 
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="Jeu"/>.
+        /// </summary>
+        /// <param name="monteur">Le monteur.</param>
+        /// <param name="NomJoueur1">Le nom du Joueur 1.</param>
+        /// <param name="fb1">La fabrique du Joueur 1</param>
+        /// <param name="NomJoueur2">Le nom du Joueur 2</param>
+        /// <param name="fb2">La fabrique du Joueur 2</param>
         public Jeu(SmallWorld.MonteurNPartie monteur, string NomJoueur1, FabriquePeuple fb1, string NomJoueur2, FabriquePeuple fb2)
         {
             listeUniteUC = new ObservableCollection<UniteUC>();
@@ -62,6 +70,9 @@ namespace WpfApplication
             NouveauTour();
         }
 
+        /// <summary>
+        /// Crée l'UI la première fois.
+        /// </summary>
         private void createUI()
         {
             //Joueurs 
@@ -75,6 +86,9 @@ namespace WpfApplication
             listJoueurs.Children.Add(juc2);
         }
 
+        /// <summary>
+        /// Rafraichit l'UI : met à jour la carte et ses différents éléments, et la console interne.
+        /// </summary>
         private void refreshUI()
         {
             //List<UniteUC> listUniteUC = new List<UniteUC>();
@@ -127,6 +141,9 @@ namespace WpfApplication
         }
 
 
+        /// <summary>
+        /// Rafraichit la carte
+        /// </summary>
         private void refreshCarte()
         {
             Case[,] TabCases = engine.Carte.Cases;
@@ -151,10 +168,11 @@ namespace WpfApplication
 
         /// <summary>
         /// Displays the case. Contains all the values about Cases and their disposition.
+        /// Affiche une case. Contient toutes les valeurs à propos des Cases et de leur disposition.
         /// </summary>
-        /// <param name="i">The line number.</param>
-        /// <param name="j">The column number.</param>
-        /// <param name="type">The type of case.</param>
+        /// <param name="i">Le numéro de ligne</param>
+        /// <param name="j">Le numéro de colonne</param>
+        /// <param name="c">La case à afficher</param>
         public void afficherCase(int i, int j, SmallWorld.Case c)
         {
             
@@ -179,6 +197,12 @@ namespace WpfApplication
             canvas.Children.Add(b);
         }
 
+        /// <summary>
+        /// Affiche une unité.
+        /// </summary>
+        /// <param name="i">Le numéro de ligne</param>
+        /// <param name="j">Le numéro de colonne</param>
+        /// <param name="u">L'unité à afficher</param>
         public void afficherUnite(int i, int j, Unite u)
         {
             Button b = new Button();
@@ -246,7 +270,7 @@ namespace WpfApplication
                 paddingLigne = paddingLigneImpaire;
             }
             res[0] = paddingLigne + j * 87;
-            res[1] = 6 + i * 75;
+            res[1] = 0 + i * 75;
             return res;
         }
       
@@ -261,7 +285,7 @@ namespace WpfApplication
         {
             int[] res = new int[2];
             //Line number
-            res[0] =  (int)(top -6) / 75;
+            res[0] =  (int)(top - 0) / 75;
             if (res[0] % 2 == 0)
             {
                 //Even line number
@@ -287,28 +311,28 @@ namespace WpfApplication
             if (c is CaseDesert)
             {
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/desert.png"));
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/desert_ok.png"));
                 ib.Stretch = Stretch.UniformToFill;
                 return ib;
             }
             else if (c is CaseForet)
             {
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret.png"));
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/foret_ok.png"));
                 ib.Stretch = Stretch.UniformToFill;
                 return ib;
             }
             else if (c is CaseMontagne)
             {
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/generation_montagne.jpg"));
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/montagne_ok.png"));
                 ib.Stretch = Stretch.UniformToFill;
                 return ib;
             }
             else if (c is CasePlaine)
             {
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/plaine.png"));
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/plaine_ok.png"));
                 ib.Stretch = Stretch.UniformToFill;
                 return ib;
             }       

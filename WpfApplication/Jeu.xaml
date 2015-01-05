@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Jeu" Loaded="Page_Loaded">
-	<Page.Resources>
+    <Page.Resources>
         <DrawingImage x:Key="HexagonImage">
             <DrawingImage.Drawing>
                 <DrawingGroup>
@@ -27,14 +27,14 @@
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Grid>
                             <Image x:Name="img" Source="{StaticResource HexagonImage}" RenderTransformOrigin="0.5,0.5">
-                            	<Image.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform ScaleX="0.1" ScaleY="0.1"/>
-                            			<SkewTransform/>
-                            			<RotateTransform Angle="-30"/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</Image.RenderTransform>
+                                <Image.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0.1" ScaleY="0.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="-30"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Image.RenderTransform>
                             </Image>
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Grid>
@@ -59,22 +59,22 @@
                         </ControlTemplate.Resources>
                         <Grid>
                             <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FFA6EC42" StrokeThickness="13">
-                            	<Path.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform Angle="30"/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</Path.RenderTransform>
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="30"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
                                 <Path.LayoutTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</Path.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.LayoutTransform>
                             </Path>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
                         </Grid>
@@ -89,7 +89,7 @@
                         <ControlTemplate.Resources>
                         </ControlTemplate.Resources>
                         <Grid>
-                            <Path x:Name="polygon"  Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FFA6EC42" StrokeThickness="13">
+                            <Path x:Name="polygon"  Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Gray" StrokeThickness="13">
                                 <Path.LayoutTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
@@ -147,22 +147,22 @@
                         </ControlTemplate.Resources>
                         <Grid>
                             <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FFA6A6A6" StrokeThickness="70">
-                            	<Path.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform X="-2" Y="-2"/>
-                            		</TransformGroup>
-                            	</Path.RenderTransform>
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="-2" Y="-2"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
                                 <Path.LayoutTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform/>
-                            		</TransformGroup>
-                            	</Path.LayoutTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.LayoutTransform>
                             </Path>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
                         </Grid>
@@ -178,14 +178,14 @@
                         </ControlTemplate.Resources>
                         <Grid>
                             <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="#FF919090" StrokeThickness="70">
-                            	<Path.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform X="-2" Y="-2"/>
-                            		</TransformGroup>
-                            	</Path.RenderTransform>
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="-2" Y="-2"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
                                 <Path.LayoutTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
@@ -210,13 +210,13 @@
                         <Grid>
                             <Path x:Name="polygon" Data="M 866,500 L 0,1000 L -866,500 L -866,-500 L 0,-1000 L 866,-500 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Fill="Transparent" Stroke="GreenYellow" StrokeThickness="80">
                                 <Path.RenderTransform>
-                            		<TransformGroup>
-                            			<ScaleTransform/>
-                            			<SkewTransform/>
-                            			<RotateTransform/>
-                            			<TranslateTransform X="-2" Y="-2"/>
-                            		</TransformGroup>
-                            	</Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform X="-2" Y="-2"/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
                                 <Path.LayoutTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleY="0.05" ScaleX="0.05"/>
@@ -266,9 +266,9 @@
 
                 </Grid>
             </Border>
-            
+
             <TextBlock Grid.Row="2" x:Name="console" TextAlignment="Center" ></TextBlock>
-            
+
             <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" >
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -280,18 +280,21 @@
                 </Grid>
                 <TextBlock x:Name="texteJoueurActif" HorizontalAlignment="Center" />
                 <Button HorizontalAlignment="Center" Content="Fin du tour" Width="300" Click="FindeTour_Click" Margin="0,5"/>
-            </StackPanel>    
+            </StackPanel>
         </Grid>
 
-        <ScrollViewer Background="CadetBlue" CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4" >
-            <Grid Background="#FF347BC1" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="polygon_NoSelection">
+        <ScrollViewer CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4" >
+            <ScrollViewer.Background>
+                <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
+            </ScrollViewer.Background>
+            <Grid Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="polygon_NoSelection">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas" Background="HotPink" MouseLeave="canvas_MouseLeave" >
+                <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas" Background="Transparent" MouseLeave="canvas_MouseLeave" >
                     <!--<Button Content="" Canvas.Left="37" Canvas.Top="52" Style="{DynamicResource ButtonPolygon}" />-->
                     <!--<Path x:Name="selectionPolygon" Data="M8.660254,0 L17.320508,5 17.320508,15 8.660254,20 0,15 0,5 8.660254,0 z" RenderTransformOrigin="0.507,0.513" Stretch="Fill" StrokeThickness="1" Stroke="WhiteSmoke" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="1000">
                         <Path.LayoutTransform>
@@ -308,6 +311,6 @@
                 <!--<local:MapPanel VerticalAlignment="Top" HorizontalAlignment="Left" ></local:MapPanel>-->
             </Grid>
         </ScrollViewer>
-        
+
     </DockPanel>
 </Page>

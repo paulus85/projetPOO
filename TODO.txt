@@ -7,6 +7,8 @@
 
 - Bloquer les unités du joueur adverse (on peut les bouger alors que c'est pas leur tour..)
 
+- Empecher de sélectionner des unitésUC dont les unités n'appartiennent pas au joueur courant
+
 
 ////////////////////////////////
 		MOINS URGENT
@@ -17,6 +19,8 @@
 		--> suffit de fournir une string bien formattée.
 
 - Afficher pour chaque case le nombre d'unités présentes sur cette case.
+
+- Finir de traduire les commentaires pour la partie graphique
 
 
 ////////////////////////////////
