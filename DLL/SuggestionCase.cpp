@@ -66,7 +66,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 	
 	Point* res = new Point[3];
 	int nbResults = 0;
-	for (int score = 3; nbResults < 3 && score > 0; score--) {
+	for (int score = 4; nbResults < 3 && score > 0; score--) {
 		for (map<Point, int>::iterator it = scores.begin(); nbResults<3 && it != scores.end(); it++) {
 			if (it->second >= 0 && it->second == score) {
 				res[nbResults] = it->first;
@@ -93,6 +93,7 @@ void SuggestionCase::getVoisin(int x, int *xOffset[6], int *yOffset[6]) const{
 	else if (x % 2 == 1){
 		int tabX[6] = { -1, -1, 0, 0, 1, 1 };
 		int tabY[6] = { 0, 1, -1, 1, 0, 1 };
+
 		for (int i = 0; i < 6; i++){
 			xOffset[i] = new int;
 			*xOffset[i] = tabX[i];
@@ -150,14 +151,15 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 //score par rapport à l'unité se trouvant sur la case destination
 int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
 	if (occupant == joueur) {
-		return INT_MIN;
+		return -4;
 	}
 
 	switch (peuple){
 		case ORC:
 			//Avec le point bonus l'orc devrait attaquer
-			if (occupant != NONE)
-				return 1; break;
+			if (occupant != NONE){
+				return 2; break;
+			}
 			return 0; break;
 
 		default:

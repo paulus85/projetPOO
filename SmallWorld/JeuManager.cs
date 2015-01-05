@@ -154,16 +154,22 @@ namespace SmallWorld
         public void FinTour()
         {
             //Comptage des points pour le joueur courant (prise en compte des points bonus pour les orcs)
-            //et réinitilisation des points de deplacement des unites
             Dictionary<Unite, Point> unites = carte.GetUnites(this.joueurCourant);
+            Case[,] cases = carte.Cases;
+
             int pointBonus = 0;
             if (unites.Keys.First().GetType() == typeof(UniteOrc))
                 pointBonus = VerifPointBonus(unites);
 
+            foreach(var point in unites.Values.Distinct())
+            {
+                Case c = this.carte.GetCase(point);
+                this.joueurCourant.AjoutPoints(carte.GetUnites(point)[0].GetPoints(c) + pointBonus); 
+            }
+            
+            //Réinitilisation des points de deplacement des unites
             foreach (var unite in unites)
             {
-                Case c = this.carte.GetCase(unite.Value);
-                this.joueurCourant.AjoutPoints(unite.Key.GetPoints(c) + pointBonus);
                 unite.Key.ResetPointsDeplacement();
             }
 

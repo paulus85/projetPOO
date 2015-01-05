@@ -27,7 +27,7 @@ namespace UnitTestSmallWorld
         //Juste tester sur la demo
         //vérifie la prise en compte des pts bonus pour les orcs
         [TestMethod]
-        private void TestPointBonusDemo()
+        public void TestPointBonusDemo()
         {
             Dictionary<Unite, Point> dico = new Dictionary<Unite, Point>();
             dico = demo.Carte.GetUnites(demo.Joueur1);
