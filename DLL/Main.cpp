@@ -6,22 +6,24 @@ int main()
 	int taille = 6;
 
 	Case** carte = GenerateurCarte::genererCarte(taille);
-	carte[1][0] = PLAINE;
+	carte[0][0] = FORET;
+	carte[0][1] = PLAINE;
+	carte[1][0] = DESERT;
 	carte[1][1] = FORET;
-	carte[2][1] = FORET;
-	carte[2][0] = MONTAGNE;
-	carte[2][2] = PLAINE;
-	carte[3][0] = FORET;
-	carte[3][1] = FORET;
-	SuggestionCase generator = SuggestionCase(carte, taille, ELF, NAIN);
+	carte[2][0] = DESERT;
+	carte[2][1] = PLAINE;
+	SuggestionCase generator = SuggestionCase(carte, taille, NAIN, ORC);
 
 
 	Joueur** unites = new Joueur*[taille];
 	for (int i = 0; i < taille; i++)
 	{
 		unites[i] = new Joueur[taille];
+		for (int j = 0; j < taille; j++)
+			unites[i][j] = NONE;
 	}
-	unites[0][0] = JOUEUR1;
+	unites[0][1] = JOUEUR1;
+	unites[1][0] = JOUEUR1;
 	//unites[taille - 1][taille - 1] = JOUEUR2;
 	//unites[0][1] = JOUEUR1;
 	//unites[1][1] = JOUEUR1;
@@ -31,12 +33,13 @@ int main()
 	{
 		ptsDeplacement[i] = new double[taille];
 	}
-	ptsDeplacement[2][1] = 0.5;
+	ptsDeplacement[0][0] = 1;
+	ptsDeplacement[0][1] = 0.5;
 	//ptsDeplacement[taille - 1][taille - 1] = 1;
 	//ptsDeplacement[0][1] = 1;
 	//ptsDeplacement[1][1] = 1;
 
-	Point* advice = generator.getSuggestion(2, 1, unites, ptsDeplacement, JOUEUR1);
+	Point* advice = generator.getSuggestion(0, 1, unites, ptsDeplacement, JOUEUR1);
 
 	int** result = new int*[3];
 	for (int i = 0; i < 3; i++) {

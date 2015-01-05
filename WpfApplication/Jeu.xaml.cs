@@ -124,13 +124,13 @@ namespace WpfApplication
             }
 
             //Unités sur la carte
-            Dictionary<Unite,SmallWorld.Point> dj1 =  engine.Carte.GetUnites(engine.Joueur1);
+            Dictionary<Unite, SmallWorld.Point> dj1 =  engine.Carte.GetUnites(engine.Joueur1);
             Dictionary<Unite, SmallWorld.Point> dj2 = engine.Carte.GetUnites(engine.Joueur2);
-            foreach (KeyValuePair<Unite, SmallWorld.Point> entry in dj1)
+            foreach (var entry in dj1)
             {
                 afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
             }
-            foreach (KeyValuePair<Unite, SmallWorld.Point> entry in dj2)
+            foreach (var entry in dj2)
             {
                 afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
             }
