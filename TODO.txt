@@ -22,6 +22,8 @@
 
 - Finir de traduire les commentaires pour la partie graphique
 
+- Rogner le visuel "vieux papier" pour virer le haut (watermark)
+
 
 ////////////////////////////////
 		EN BONUS
