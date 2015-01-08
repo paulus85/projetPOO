@@ -13,4 +13,11 @@ namespace SmallWorld
         MONTAGNE = 2,
         FORET = 3
     }
+
+    public enum NumUnite
+    {
+        ELF = 0,
+        NAIN = 1,
+        ORC = 2
+    }
 }

@@ -1,3 +1,13 @@
+/**
+* \file      Wrapper.ccp
+* \author    Poilane Pierre
+* \version   1.0
+* \date      08/01/2015
+* \brief     Wrapper pemettant l'utilisation de code C++ dans le code C#
+*
+* \details   Suggère au maximum 3 cases, ainsi les cases suggérées ne sont pas toutes les cases où le joueur peut se déplacer
+*/
+
 #include "Wrapper.h"
 
 array<array<int>^>^ Wrapper::Wrapper::genererCarte(int taille) {

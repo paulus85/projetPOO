@@ -10,7 +10,7 @@ namespace SmallWorld
     public class PeupleOrc : FabriquePeuple
     {
         public int Numero { 
-            get { return 2; } 
+            get { return (int)NumUnite.ORC; } 
         }
 
         /// <summary>

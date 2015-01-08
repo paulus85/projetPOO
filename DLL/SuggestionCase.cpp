@@ -1,7 +1,24 @@
+/**
+* \file      SuggestionCase.ccp
+* \author    Poilane Pierre
+* \version   1.0
+* \date      08/01/2015
+* \brief     Suggère des cases où le joueur peut se déplacer
+*
+* \details   Suggère au maximum 3 cases, ainsi les cases suggérées ne sont pas toutes les cases où le joueur peut se déplacer
+*/
+
 #include "SuggestionCase.h"
 #include "Point.h"
 
-
+/**
+* \brief       Constructeur de la classe
+* \details	   initialise la carte des cases du jeu, sa taille et le peuple des 2 joueurs
+* \param       carte			La carte des cases du jeu en cours
+* \param       taille			La taille de la carte
+* \param       PeupleJoueur1    Le peuple du joueur 1
+* \param       PeupleJoueur2    Le peuple du joueur 2
+*/
 SuggestionCase::SuggestionCase(Case** carte, int taille, Peuple peuplej1, Peuple peuplej2) {
 	this->carte = carte;
 	this->taille = taille;
@@ -10,7 +27,13 @@ SuggestionCase::SuggestionCase(Case** carte, int taille, Peuple peuplej1, Peuple
 	this->peuples[1] = peuplej2;
 }
 
-
+/**
+* \brief       Retourne les cases suggérées
+* \details	   Les cases suggérées tiennent compte des points que rapportent la case visée, à l'unité se trouvant sur la case visée
+*				ainsi que la petinence de déplacement et des points de déplacement de l'unité sélectionnée
+* \param       nbCases         le nombre de cases en hauteur/largeur
+* \return      Les points de placement pour les 2 unités
+*/
 Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** ptsDeplacement, Joueur joueur) const {
 	Peuple peuple = peuples[joueur - 1];
 	map<Point, int> scores;
@@ -78,6 +101,12 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 	return res;
 }
 
+/**
+* \brief       Donne les coodonnées des cases correspondant aux cases voisines de la case courante
+* \param       x           la coordonées x permettant de savoir quelle coordonnées il faut renvoyées
+* \param       *xOffset    le pointeur pou les coodonnées x voisines
+* \param       *yOffset    le pointeur pou les coodonnées y voisines
+*/
 void SuggestionCase::getVoisin(int x, int *xOffset[6], int *yOffset[6]) const{
 	if (x % 2 == 0){
 		int tabX[6] = { -1, -1, 0, 0, 1, 1 };
@@ -103,7 +132,11 @@ void SuggestionCase::getVoisin(int x, int *xOffset[6], int *yOffset[6]) const{
 	}
 }
 
-//score par rapport au point que rapporte une case
+/**
+* \brief       Retourne le score par rapport au point que rapporte une case en fonction du peuple du joueur courant
+* \param       pos       Le point destination visé
+* \param       peuple    Le peuple du joueur courant
+*/
 int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 	Case square = this->carte[dest.x][dest.y];
 	int scoreElf[4] = { 1, 0, 1, 1 };
@@ -121,7 +154,36 @@ int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 	return score;
 }
 
-//score par rapport à la pertinence des déplacement et aux points de déplacement
+/**
+* \brief       Retourne le score par rapport à l'unité se trouvant sur la case destination
+* \param       occupant     Le joueur se trouvant sur la case destination
+* \param       joueur       Le joueur courant
+* \param       peuple       Le peuple du joueur courant
+*/
+int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
+	if (occupant == joueur) {
+		return -4;
+	}
+
+	switch (peuple){
+	case ORC:
+		//Avec le point bonus l'orc devrait attaquer
+		if (occupant != NONE){
+			return 2; break;
+		}
+		return 0; break;
+
+	default:
+		return 0; break;
+	}
+}
+
+/**
+* \brief       Retourne le score par rapport à la pertinence du déplacement et aux points de déplacement de l'unité
+* \param       dest				Le point de destination
+* \param       ptsDeplacement   Les points de déplacement de l'unité sélectionnée
+* \param       peuple           Le peuple du joueur courant
+*/
 int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peuple peuple) const {
 	Case square = this->carte[dest.x][dest.y];
 	int scoreElf[4] = { 0, -1, 0, 1 }; double deplElf[4] = { 1, 2, 1, 0.5 };
@@ -135,7 +197,7 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 			score = INT_MIN;
 		break;
 	case NAIN:
-		score = scoreNain[square]; 
+		score = scoreNain[square];
 		if (ptsDeplacement < deplNain[square])
 			score = INT_MIN;
 		break;
@@ -146,23 +208,4 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 		break;
 	}
 	return score;
-}
-
-//score par rapport à l'unité se trouvant sur la case destination
-int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
-	if (occupant == joueur) {
-		return -4;
-	}
-
-	switch (peuple){
-		case ORC:
-			//Avec le point bonus l'orc devrait attaquer
-			if (occupant != NONE){
-				return 2; break;
-			}
-			return 0; break;
-
-		default:
-			return 0; break;
-	}
 }
