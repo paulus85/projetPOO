@@ -155,8 +155,6 @@ namespace SmallWorld
         {
             //Comptage des points pour le joueur courant (prise en compte des points bonus pour les orcs)
             Dictionary<Unite, Point> unites = carte.GetUnites(this.joueurCourant);
-            Case[,] cases = carte.Cases;
-
             int pointBonus = 0;
             if (unites.Keys.First().GetType() == typeof(UniteOrc))
                 pointBonus = VerifPointBonus(unites);

@@ -11,7 +11,7 @@ namespace SmallWorld
     {
         public int Numero
         {
-            get { return 0; }
+            get { return (int)NumUnite.ELF; }
         }
 
         /// <summary>

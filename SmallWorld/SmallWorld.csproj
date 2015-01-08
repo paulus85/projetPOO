@@ -104,7 +104,7 @@
     <Compile Include="Point.cs" />
     <Compile Include="PointImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NumCase.cs" />
+    <Compile Include="Enum.cs" />
     <Compile Include="ResultatCombat.cs" />
     <Compile Include="TourImpl.cs" />
     <Compile Include="Unite.cs" />

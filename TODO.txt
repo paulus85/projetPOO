@@ -1,13 +1,10 @@
 ////////////////////////////////
 		URGENT
 ///////////////////////////////
-- Partie sauvegarde/chargement coté code fait. Implémenter côté graphique.
 
 - Revoir le diagramme de classe pour qu'il concorde au code
 
-- Bloquer les unités du joueur adverse (on peut les bouger alors que c'est pas leur tour..)
-
-- Empecher de sélectionner des unitésUC dont les unités n'appartiennent pas au joueur courant
+- Gérer les exceptions côté code
 
 
 ////////////////////////////////
@@ -22,7 +19,9 @@
 
 - Finir de traduire les commentaires pour la partie graphique
 
-- Rogner le visuel "vieux papier" pour virer le haut (watermark)
+- Fonction clavier
+
+- Mettre message type "c'est à machin de jouer" ou "déplacmen impossible" en bas de la carte de manière temporaire
 
 
 ////////////////////////////////
