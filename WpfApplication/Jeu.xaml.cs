@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using SmallWorld;
 using System.Collections.ObjectModel;
+using Microsoft.Win32;
 
 namespace WpfApplication
 {
@@ -31,6 +32,7 @@ namespace WpfApplication
         const int paddingLignePaire = 0;
 
         private SmallWorld.Jeu engine;
+        private MainWindow parent;
 
         private bool selectionCaseFaite = false;
         private bool selectionUniteFaite = false;
@@ -63,8 +65,26 @@ namespace WpfApplication
             Console.WriteLine("Début Jeu");
             InitializeComponent();
             DataContext = this;
+            parent = (Application.Current.MainWindow as MainWindow);
             engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
             Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
+            createUI();
+            refreshUI();
+            NouveauTour();
+        }
+
+        /// <summary>
+        /// Initialise une nouvelle instance de la classe <see cref="Jeu"/>.
+        /// </summary>
+        /// <param name="monteur">Le monteur.</param>
+        /// <param name="path">Le chemin d'accès au fichier.</param>
+        public Jeu(SmallWorld.MonteurPartieSauv monteur, string path)
+        {
+            listeUniteUC = new ObservableCollection<UniteUC>();
+            InitializeComponent();
+            DataContext = this;
+            parent = (Application.Current.MainWindow as MainWindow);
+            engine = monteur.CreerJeu(path);
             createUI();
             refreshUI();
             NouveauTour();
@@ -484,7 +504,7 @@ namespace WpfApplication
                     foreach (Unite u in listUnites)
                     {
                         UniteUC uuc = new UniteUC(u);
-                        uuc.IsSelectable = (u.PointsDeplacementRestant > 0);
+                        uuc.IsSelectable = (u.PointsDeplacementRestant > 0) && (u.Proprio.Equals(engine.JoueurCourant));
                         ListeUniteUC.Add(uuc);
                     }
                 }
@@ -602,7 +622,7 @@ namespace WpfApplication
         }
 
 
-        #endregion events
+
 
         private void Page_KeyDown(object sender, KeyEventArgs e)
         {
@@ -619,7 +639,35 @@ namespace WpfApplication
             this.KeyDown += Page_KeyDown;
         }
 
-        
+        private void Sauvegarde_Click(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Fichier de sauvegarde (*.yolo)|*.yolo";
+            if (sfd.ShowDialog() == true)
+            {
+                Console.WriteLine(sfd.FileName);
+                engine.SauvegarderJeu(sfd.FileName);
+            }
+        }
+
+        private void Menu_Click(object sender, RoutedEventArgs e)
+        {
+            String messageBoxMessage = "Êtes-vous sûr de vouloir revenir au menu principal ? \nLes changements non sauvegardés ne seront pas conservés.";
+            String title = "Confirmation";
+            MessageBoxButton buttons = MessageBoxButton.YesNo;
+            MessageBoxImage image = MessageBoxImage.None;
+            MessageBoxResult res = MessageBox.Show(messageBoxMessage, title, buttons, image);
+            switch (res)
+            {
+                case MessageBoxResult.Yes:
+                    parent.Content = new MenuDebut();
+                    break;
+                case MessageBoxResult.No:
+                    break;
+            }
+        }
+
+        #endregion events
 
     }
 }

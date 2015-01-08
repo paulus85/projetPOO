@@ -5,31 +5,5 @@
     <Window.Resources>
     </Window.Resources>
 
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="Ressources/smallworld_main.jpg"></ImageBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Border>
-            <Label Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="title" FontSize="80" Foreground="#FFF7B8B8" Width="700.708" HorizontalContentAlignment="Center" FontFamily="SketchFlow Print" Content="SmallWorld" Background="#9BBD7070" Height="81.504" Margin="147.208,156.706,144.084,146.29"/>
-        </Border>
-            <StackPanel Grid.Row="1" HorizontalAlignment="Center" Height="198" VerticalAlignment="Top" Width="400" Margin="296,60,296,0">
-                <Button Margin="10" Height="45" Content="Nouvelle Partie" Click="NouvellePartie_Click"/>
-                <Button Margin="10" Height="45" Content="Charger une partie" Click="Charger_Click"/>
-            <Button Margin="10" Height="45" Content="Quitter" Click="Quitter_Click"/>
-        </StackPanel>
-    </Grid>
-
-
-
-
-
-
-
-
-
-
+   
 </Window>

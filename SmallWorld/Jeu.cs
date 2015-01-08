@@ -30,5 +30,7 @@ namespace SmallWorld
         Joueur Vainqueur();
 
         void FinTour();
+
+        void SauvegarderJeu(string fichier);
     }
 }

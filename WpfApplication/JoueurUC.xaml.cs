@@ -21,6 +21,12 @@ namespace WpfApplication
     /// </summary>
     public partial class JoueurUC : UserControl
     {
+        /// <summary>
+        /// Get ou set le joueur à qui appartient l'unitéUC
+        /// </summary>
+        /// <value>
+        /// Le joueur à qui appartient l'unitéUC.
+        /// </value>
         public Joueur Joueur { get; set; }
 
         public JoueurUC(Joueur j,int nbUnites)
@@ -32,12 +38,21 @@ namespace WpfApplication
             refresh(nbUnites);
         }
 
+        /// <summary>
+        /// Rafraichit les données de l'unitéUC
+        /// </summary>
+        /// <param name="nbUnites">Le nombre d'unités</param>
         public void refresh(int nbUnites)
         {
             points.Text = "" + Joueur.Points;
             nbrUnite.Text = "" + nbUnites; 
         }
 
+        /// <summary>
+        /// Traduit la fabrique en chaine de caractère à afficher.
+        /// </summary>
+        /// <param name="fp">La fabrique de peuple</param>
+        /// <returns>La chaine de caractère selon le type de la fabrique.</returns>
         private string GetPeupleStringFromFabrique(SmallWorld.FabriquePeuple fp)
         {
             string res = "";

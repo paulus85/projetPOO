@@ -280,6 +280,8 @@
                 </Grid>
                 <TextBlock x:Name="texteJoueurActif" HorizontalAlignment="Center" />
                 <Button HorizontalAlignment="Center" Content="Fin du tour" Width="300" Click="FindeTour_Click" Margin="0,5"/>
+                <Button HorizontalAlignment="Center" Content="Sauvegarder" Width="300" Click="Sauvegarde_Click" Margin="0,5,0,2" />
+                <Button HorizontalAlignment="Center" Content="Menu" Width="300" Click="Menu_Click" Margin="0,2,0,5" />
             </StackPanel>
         </Grid>
 

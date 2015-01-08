@@ -99,6 +99,9 @@
       <DependentUpon>JoueurUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="MapPanel.cs" />
+    <Compile Include="MenuDebut.xaml.cs">
+      <DependentUpon>MenuDebut.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UniteUC.xaml.cs">
       <DependentUpon>UniteUC.xaml</DependentUpon>
     </Compile>
@@ -125,6 +128,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MenuDebut.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="NouveauJeu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
