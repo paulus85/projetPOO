@@ -98,6 +98,16 @@ namespace SmallWorld
         }
 
         /// <summary>
+        /// Avoir le nombre d'unités à un point spécifié
+        /// </summary>
+        /// <param name="p">Le point spécifié</param>
+        /// <returns>Le nombre d'unité du point</returns>
+        public int GetNbUnites(Point p)
+        {
+            return this.carte.GetUnites(p).Count;
+        }
+
+        /// <summary>
         /// Savoir si un joueur esr vaincu ou non
         /// </summary>
         /// <param name="j">Le joueur concerné</param>
