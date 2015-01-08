@@ -28,11 +28,15 @@ SuggestionCase::SuggestionCase(Case** carte, int taille, Peuple peuplej1, Peuple
 }
 
 /**
-* \brief       Retourne les cases suggérées
+* \brief       Retourne des cases suggérées
 * \details	   Les cases suggérées tiennent compte des points que rapportent la case visée, à l'unité se trouvant sur la case visée
 *				ainsi que la petinence de déplacement et des points de déplacement de l'unité sélectionnée
-* \param       nbCases         le nombre de cases en hauteur/largeur
-* \return      Les points de placement pour les 2 unités
+* \param       x				L'abscisse de la case courante
+* \param       y				L'ordonnée de la case courante
+* \param       unites			La matrice des unités présentes sur la carte
+* \param       ptsDeplacement   Les points de déplacement de l'unité sélectionnée
+* \param       joueur			Le joueur courant
+* \return      Les points suggérés
 */
 Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** ptsDeplacement, Joueur joueur) const {
 	Peuple peuple = peuples[joueur - 1];

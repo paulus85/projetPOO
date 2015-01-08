@@ -33,12 +33,12 @@ namespace UnitTestSmallWorld
             dico = demo.Carte.GetUnites(demo.Joueur1);
             ((UniteOrc)demo.Carte.Unites[0, 0][0]).AddPointBonus();
             demo.FinTour();
-            Assert.AreEqual(demo.Joueur1.Points, 8);//pt bonus donc plus de point
+            Assert.AreEqual(demo.Joueur1.Points, 2);//pt bonus donc plus de point
             demo.FinTour();
-            Assert.AreEqual(demo.Joueur2.Points, 4);
+            Assert.AreEqual(demo.Joueur2.Points, 1);
             demo.Carte.SupprimerUnite(dico.Keys.First(), dico.Values.First());
             demo.FinTour();
-            Assert.AreEqual(demo.Joueur1.Points, 11);//mort de l'unité avec pts bonus donc moins de pts gagnés
+            Assert.AreEqual(demo.Joueur1.Points, 3);//mort de l'unité avec pts bonus donc moins de pts gagnés
         }
 
         [TestMethod]

@@ -44,8 +44,16 @@ namespace Wrapper {
 		* \brief       Retourne des cases suggérées
 		* \details	   Les cases suggérées tiennent compte des points que rapportent la case visée, à l'unité se trouvant sur la case visée
 		*				ainsi que la petinence de déplacement et des points de déplacement de l'unité sélectionnée
-		* \param       nbCases         le nombre de cases en hauteur/largeur
-		* \return      Les points de placement pour les 2 unités
+		* \param	   carte			La carte des cases de la partie en cours
+		* \param	   taille			La taille de la carte
+		* \param	   peupleJoueur1	Peuple du joueur 1
+		* \param	   peupleJoueur2	Peuple du joueur 2
+		* \param       x				L'abscisse de la case courante
+		* \param       y				L'ordonnée de la case courante
+		* \param       unites			La matrice des unités présentes sur la carte
+		* \param       ptsDeplacement   Les points de déplacement de l'unité sélectionnée
+		* \param       joueur			Le joueur courant
+		* \return      Les points suggérés
 		*/
 		static array<array<int>^>^ getSuggestion(array<array<int>^>^ carte, int taille, int peupleJoueur1, int peupleJoueur2, int x, int y, array<array<int>^>^ unites, array<array<double>^>^ ptsDeplacement, int joueur);
 	};

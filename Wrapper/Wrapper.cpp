@@ -5,11 +5,18 @@
 * \date      08/01/2015
 * \brief     Wrapper pemettant l'utilisation de code C++ dans le code C#
 *
-* \details   Suggère au maximum 3 cases, ainsi les cases suggérées ne sont pas toutes les cases où le joueur peut se déplacer
+* \details   Suggère au maximum 3 cases, ainsi les cases suggérées ne sont qu'une partie 
+				des cases où le joueur peut se déplacer.
 */
 
 #include "Wrapper.h"
 
+/**
+* \brief       Génère la carte pour la nouvelle partie lancées
+* \details	   Version basique où on a à peu près des cases de chaque type
+* \param       taille         la taille de la carte
+* \return      Une matrice d'entier correspondant aux cases
+*/
 array<array<int>^>^ Wrapper::Wrapper::genererCarte(int taille) {
 	Case** result = GenerateurCarte::genererCarte(taille);
 
@@ -24,7 +31,13 @@ array<array<int>^>^ Wrapper::Wrapper::genererCarte(int taille) {
 	return carte;
 }
 
-
+/**
+* \brief       Place les unités en début de partie
+* \details	   Version basique où les unités son placées de par et dautres de la carte
+*				soit en [0,0] et [nbCases-1,nbCases-1]
+* \param       taille         la taille de la carte
+* \return      Une matrice d'entier correspondant aux placement des unités
+*/
 array<array<int>^>^ Wrapper::Wrapper::placementJoueur(int taille) {
 	Point* starts = GenerateurCarte::departUnites(taille);
 
@@ -37,7 +50,21 @@ array<array<int>^>^ Wrapper::Wrapper::placementJoueur(int taille) {
 	return pos;
 }
 
-
+/**
+* \brief       Retourne des cases suggérées
+* \details	   Les cases suggérées tiennent compte des points que rapportent la case visée, à l'unité se trouvant sur la case visée
+*				ainsi que la petinence de déplacement et des points de déplacement de l'unité sélectionnée
+* \param	   carte			La carte des cases de la partie en cours
+* \param	   taille			La taille de la carte
+* \param	   peupleJoueur1	Peuple du joueur 1
+* \param	   peupleJoueur2	Peuple du joueur 2
+* \param       x				L'abscisse de la case courante
+* \param       y				L'ordonnée de la case courante
+* \param       unites			La matrice des unités présentes sur la carte
+* \param       ptsDeplacement   Les points de déplacement de l'unité sélectionnée
+* \param       joueur			Le joueur courant
+* \return      Les points suggérés
+*/
 array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, int taille, int peupleJoueur1, int peupleJoueur2, int x, int y, array<array<int>^>^ unites, array<array<double>^>^ ptsDeplacement, int joueur) {
 	Case** carteBis = new Case*[taille];
 	for (int i = 0; i<taille; i++) {
