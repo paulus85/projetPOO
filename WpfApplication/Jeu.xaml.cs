@@ -59,7 +59,7 @@ namespace WpfApplication
         /// <param name="fb1">La fabrique du Joueur 1</param>
         /// <param name="NomJoueur2">Le nom du Joueur 2</param>
         /// <param name="fb2">La fabrique du Joueur 2</param>
-        public Jeu(SmallWorld.MonteurNPartie monteur, string NomJoueur1, FabriquePeuple fb1, string NomJoueur2, FabriquePeuple fb2)
+        public Jeu(SmallWorld.MonteurNPartie monteur, string NomJoueur1, int fb1, string NomJoueur2, int fb2)
         {
             listeUniteUC = new ObservableCollection<UniteUC>();
             Console.WriteLine("Début Jeu");
@@ -662,7 +662,7 @@ namespace WpfApplication
                 case MessageBoxResult.Yes:
                     parent.Content = new MenuDebut();
                     break;
-                case MessageBoxResult.No:
+                default:
                     break;
             }
         }

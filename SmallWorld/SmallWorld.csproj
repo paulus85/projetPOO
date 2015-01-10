@@ -83,6 +83,7 @@
     <Compile Include="CaseForet.cs" />
     <Compile Include="CaseMontagne.cs" />
     <Compile Include="CasePlaine.cs" />
+    <Compile Include="Peuple.cs" />
     <Compile Include="Tour.cs" />
     <Compile Include="MonteurNPartieDemo.cs" />
     <Compile Include="FabriqueCase.cs" />
@@ -100,7 +101,6 @@
     <Compile Include="PeupleImpl.cs" />
     <Compile Include="PeupleNain.cs" />
     <Compile Include="PeupleOrc.cs" />
-    <Compile Include="Peuples.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="PointImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

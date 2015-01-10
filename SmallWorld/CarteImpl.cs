@@ -43,6 +43,7 @@ namespace SmallWorld
 
         /// <summary>
         /// Constructeur vide
+        /// Patron de conception Singleton
         /// </summary>
        private CarteImpl()
        {

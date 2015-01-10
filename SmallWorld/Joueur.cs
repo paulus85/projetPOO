@@ -11,7 +11,7 @@ namespace SmallWorld
         int NumeroPeuple { get; }
         String NomJoueur { get; }
         int Points { get;  }
-        FabriquePeuple Fabrique { get; }
+        Peuple Peuple { get; }
 
         List<Unite> CreerUnites(int nbUnites);
 

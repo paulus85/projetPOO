@@ -53,7 +53,7 @@ namespace WpfApplication
                 case MessageBoxResult.Yes:
                     Application.Current.Shutdown();
                     break;
-                case MessageBoxResult.No:
+                default:
                     break;
             }
 

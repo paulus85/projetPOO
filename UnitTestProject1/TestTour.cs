@@ -21,7 +21,7 @@ namespace UnitTestProject1
         
         private void TestMouvement()
         {
-            Jeu jeu = new MonteurNPartieNormale().CreerJeu("test1", new PeupleOrc(), "test2", new PeupleElfe());
+            Jeu jeu = new MonteurNPartieNormale().CreerJeu("test1", (int)NumUnite.ORC, "test2", (int)NumUnite.ELF);
             int taille = jeu.Carte.Taille;
             Tour tour = jeu.Tour;
 
@@ -71,7 +71,7 @@ namespace UnitTestProject1
 
         public void TestAttaqueMouvement()
         {
-            Jeu jeu = new MonteurNPartiePetite().CreerJeu("test1", new PeupleOrc(), "test2", new PeupleElfe());
+            Jeu jeu = new MonteurNPartiePetite().CreerJeu("test1", (int)NumUnite.ORC, "test2", (int)NumUnite.ELF);
             int size = jeu.Carte.Taille;
             Tour tour = jeu.Tour;
 

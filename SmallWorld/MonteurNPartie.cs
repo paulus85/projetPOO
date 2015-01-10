@@ -15,11 +15,10 @@ namespace SmallWorld
         /// <param name="nom2">Nom du joueur 2</param>
         /// <param name="peuple2">Peuple du joueur 2</param>
         /// <returns>Le nouveau jeu créé</returns>
-        public Jeu CreerJeu(string nom1, FabriquePeuple peuple1, string nom2, FabriquePeuple peuple2)
+        public Jeu CreerJeu(string nom1, int peuple1, string nom2, int peuple2)
         {
             // Créer la map
             Carte carte = CarteImpl.Instance.ConstruireCarte(this.nbCases);
-            //Case[,] cases = carte.Cases;
 
             int[][] starts = Wrapper.Wrapper.placementJoueur(this.nbCases);
 

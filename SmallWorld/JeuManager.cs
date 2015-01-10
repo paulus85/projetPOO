@@ -69,11 +69,18 @@ namespace SmallWorld
         {
             this.joueur1 = j1;
             this.joueur2 = j2;
-            this.joueurCourant = j1;
             this.carte = c;
             this.nbTour = n;
             this.tourActuelle = 1;
+            this.joueurCourant = j1;
             this.tour = new TourImpl(this, joueurCourant);
+            /*
+            Random rnd = new Random();
+            int deb = rnd.Next(2);
+            if (deb == 0)
+                this.joueurCourant = j1;
+            if (deb == 1)
+                this.joueurCourant = j2;*/
         }
 
         /// <summary>

@@ -39,16 +39,19 @@ namespace SmallWorld
         {
             switch (type)
             {
-                case 0:
+                case (int)NumCase.PLAINE:
                     return this.plaine;
-                case 1:
+                case (int)NumCase.DESERT:
                     return this.desert;
-                case 2:
+                case (int)NumCase.MONTAGNE:
                     return this.montagne;
-                case 3:
+                case (int)NumCase.FORET:
                     return this.foret;
+                default:
+                    return null;
             }
             throw new Exception();
+            //TODO
             //throw new IncorrectTileNumberException(type);
         }
     }

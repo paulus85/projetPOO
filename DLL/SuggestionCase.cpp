@@ -154,6 +154,8 @@ int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 			score = scoreNain[square]; break;
 		case ORC:
 			score = scoresOrc[square]; break;
+		default:
+			break;
 	}
 	return score;
 }
@@ -209,6 +211,8 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 		score = scoresOrc[square];
 		if (ptsDeplacement < deplOrc[square])
 			score = INT_MIN;
+		break;
+	default:
 		break;
 	}
 	return score;
