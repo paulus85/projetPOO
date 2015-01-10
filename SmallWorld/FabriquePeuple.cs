@@ -7,14 +7,6 @@ namespace SmallWorld
 {
     public class FabriquePeuple
     {
-        private static FabriquePeuple instance = new FabriquePeuple();
-
-        public static FabriquePeuple Instance
-        {
-            get { return instance; }
-        }
-
-
         /// <summary>
         /// Constructeur vide
         /// </summary>

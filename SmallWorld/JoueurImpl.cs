@@ -57,7 +57,8 @@ namespace SmallWorld
         public JoueurImpl(String nom, int peuple)
         {
             this.nomJoueur = nom;
-            this.peuple = FabriquePeuple.Instance.GetPeuple(peuple);
+            FabriquePeuple fabrique = new FabriquePeuple();
+            this.peuple = fabrique.GetPeuple(peuple);
             this.points = 0;
             cpt++;
             this.numero = cpt;
@@ -135,7 +136,8 @@ namespace SmallWorld
             this.points = (int)info.GetValue("Points", typeof(int));
 
             Peuple fab = (Peuple)info.GetValue("Peuple", typeof(FabriquePeuple));
-            this.peuple = FabriquePeuple.Instance.GetPeuple(fab.Numero);
+            FabriquePeuple fabrique = new FabriquePeuple();
+            this.peuple = fabrique.GetPeuple(fab.Numero);
 
             /*
             if(fab.GetType() == typeof(UniteElfe)) 
