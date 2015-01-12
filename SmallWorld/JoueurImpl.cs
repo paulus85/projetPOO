@@ -11,7 +11,7 @@ namespace SmallWorld
     {
         #region Properties
 
-        private FabriquePeuple fabrique;
+        private Peuple peuple;
 
         private int numero;
         private String nomJoueur;
@@ -28,7 +28,7 @@ namespace SmallWorld
         {
             get
             {
-                return this.fabrique.Numero;
+                return this.peuple.Numero;
             }
         }
 
@@ -42,9 +42,9 @@ namespace SmallWorld
             get { return points;  }
         }
 
-        public FabriquePeuple Fabrique
+        public Peuple Peuple
         {
-            get { return fabrique; }
+            get { return peuple; }
         }
 
         #endregion
@@ -54,10 +54,11 @@ namespace SmallWorld
         /// </summary>
         /// <param name="nom">Nom du joueur</param>
         /// <param name="fab">Fabrique du peuple du joueur</param>
-        public JoueurImpl(String nom, FabriquePeuple fab)
+        public JoueurImpl(String nom, int peuple)
         {
             this.nomJoueur = nom;
-            this.fabrique = fab;
+            FabriquePeuple fabrique = new FabriquePeuple();
+            this.peuple = fabrique.GetPeuple(peuple);
             this.points = 0;
             cpt++;
             this.numero = cpt;
@@ -81,7 +82,7 @@ namespace SmallWorld
             List<Unite> unites = new List<Unite>();
             for (int i = 0; i < nbUnites; i++)
             {
-                unites.Add(fabrique.GenerationUnite(this));
+                unites.Add(peuple.GenerationUnite(this));
             }
             return unites;
         }
@@ -134,25 +135,26 @@ namespace SmallWorld
             this.nomJoueur = (string)info.GetValue("NomJoueur", typeof(string));
             this.points = (int)info.GetValue("Points", typeof(int));
 
-            FabriquePeuple peupleElf = new PeupleElfe();
-            FabriquePeuple peupleNain = new PeupleNain();
-            FabriquePeuple peupleOrc = new PeupleOrc();
-            FabriquePeuple fab = (FabriquePeuple)info.GetValue("Fabrique", typeof(FabriquePeuple));
+            Peuple fab = (Peuple)info.GetValue("Peuple", typeof(FabriquePeuple));
+            FabriquePeuple fabrique = new FabriquePeuple();
+            this.peuple = fabrique.GetPeuple(fab.Numero);
+
+            /*
             if(fab.GetType() == typeof(UniteElfe)) 
             {
-                this.fabrique = peupleElf;
+                this.peuple = FabriquePeuple.Instance.GetPeuple(fab.Numero);
             }
             else if (fab.GetType() == typeof(UniteNain))
             {
-                this.fabrique = peupleNain;
+                this.peuple = FabriquePeuple.Instance.GetPeuple(1);
             }
             else if (fab.GetType() == typeof(UniteElfe))
             {
-                this.fabrique = peupleOrc;
+                this.peuple = FabriquePeuple.Instance.GetPeuple(2);
             } else 
             {
                 throw new Exception();
-            }
+            }*/
             this.numero = (int)info.GetValue("Numero", typeof(int));
             cpt++;
         }
@@ -166,7 +168,7 @@ namespace SmallWorld
             info.AddValue("NomJoueur", this.nomJoueur);
             info.AddValue("Points", this.points);
             info.AddValue("Numero", this.numero);
-            info.AddValue("Fabrique", this.fabrique);
+            info.AddValue("Peuple", this.peuple);
         }
     }
 }

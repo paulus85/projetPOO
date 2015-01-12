@@ -7,9 +7,10 @@ using System.Text;
 namespace SmallWorld
 {
     [Serializable()]
-    public class PeupleOrc : FabriquePeuple
+    public class PeupleOrc : PeupleImpl
     {
-        public int Numero { 
+        public override int Numero 
+        { 
             get { return (int)NumUnite.ORC; } 
         }
 
@@ -26,7 +27,7 @@ namespace SmallWorld
         /// </summary>
         /// <param name="j">Joueur ayant l'unité</param>
         /// <returns>La nouvelle unité du joueur j</returns>
-        public Unite GenerationUnite(Joueur j)
+        public override Unite GenerationUnite(Joueur j)
         {
             return new UniteOrc(j);
         }

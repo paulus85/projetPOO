@@ -5,11 +5,37 @@ using System.Text;
 
 namespace SmallWorld
 {
-    public interface FabriquePeuple
+    public class FabriquePeuple
     {
-        int Numero { get; }  
+        /// <summary>
+        /// Constructeur vide
+        /// </summary>
+        public FabriquePeuple()
+        {
 
-        Unite GenerationUnite(Joueur j);
+        }
 
+        /// <summary>
+        /// Fabriquer le peuple désiré
+        /// </summary>
+        /// <param name="type">Numéro correspondant au peuple</param>
+        /// <returns>Le peuple demandé</returns>
+        public Peuple GetPeuple(int type)
+        {
+            switch (type)
+            {
+                case (int)NumUnite.ELF:
+                    return new PeupleElfe();
+                case (int)NumUnite.NAIN:
+                    return new PeupleNain();
+                case (int)NumUnite.ORC:
+                    return new PeupleOrc();
+                default:
+                    return null;
+            }
+            throw new Exception();
+            //TODO
+            //throw new IncorrectTileNumberException(type);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace SmallWorld
         }
 
         /// <summary>
-        /// AJouter 1 points aux points bonus
+        /// Ajouter 1 points aux points bonus
         /// </summary>
         public void AddPointBonus()
         {

@@ -9,9 +9,9 @@ namespace UnitTestProject1
     [TestClass]
     public class TestUnites
     {
-        private static Unite elf = new UniteElfe(new JoueurImpl("test", new PeupleElfe()));
-        private static Unite nain = new UniteNain(new JoueurImpl("test", new PeupleNain()));
-        private static Unite orc = new UniteOrc(new JoueurImpl("test", new PeupleOrc()));
+        private static Unite elf = new UniteElfe(new JoueurImpl("test", (int)NumUnite.ELF));
+        private static Unite nain = new UniteNain(new JoueurImpl("test", (int)NumUnite.NAIN));
+        private static Unite orc = new UniteOrc(new JoueurImpl("test", (int)NumUnite.ORC));
 
         [TestMethod]
         public void TestEquals()

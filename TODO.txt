@@ -6,6 +6,9 @@
 
 - Gérer les exceptions côté code
 
+- Gérer la cas où il n'y a pas de gagnant pour la partie
+
+- Fonction clavier
 
 ////////////////////////////////
 		MOINS URGENT
@@ -19,16 +22,11 @@
 
 - Finir de traduire les commentaires pour la partie graphique
 
-- Fonction clavier
-
-- Mettre message type "c'est à machin de jouer" ou "déplacmen impossible" en bas de la carte de manière temporaire
-
 
 ////////////////////////////////
 		EN BONUS
 ///////////////////////////////
-- Mettre un timer pour le temps d'affichage d'une info dans la console interne
 
-- Ajouter un type d'unité et de case en plus
+- Ajouter un type d'unité et de case en plus (zombie et marais)
 
 - Ajouter des bonus d'attaque et de défense en fonction du terrain

@@ -7,8 +7,8 @@ namespace UnitTestProject1
     [TestClass]
     public class TestOrc
     {
-        private static Joueur joueurNain = new JoueurImpl("test", new PeupleOrc());
-        private static Unite nain = new UniteOrc(new JoueurImpl("test", new PeupleOrc()));
+        private static Joueur joueurOrc = new JoueurImpl("test", (int)NumUnite.ORC);
+        private static Unite nain = new UniteOrc(new JoueurImpl("test", (int)NumUnite.ORC));
 
         [TestMethod]
         public void TestCanMove()

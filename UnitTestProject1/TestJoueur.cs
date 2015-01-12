@@ -10,9 +10,9 @@ namespace UnitTestProject1
     [TestClass]
     public class TestJoueur
     {
-        private static Joueur elf = new JoueurImpl("Elf", new PeupleElfe());
-        private static Joueur nain = new JoueurImpl("Nain", new PeupleNain());
-        private static Joueur orc = new JoueurImpl("Orc", new PeupleOrc());
+        private static Joueur elf = new JoueurImpl("Elf", (int)NumUnite.ELF);
+        private static Joueur nain = new JoueurImpl("Nain", (int)NumUnite.NAIN);
+        private static Joueur orc = new JoueurImpl("Orc", (int)NumUnite.ORC);
 
          [TestMethod]
         public void TestPoints()
@@ -89,7 +89,7 @@ namespace UnitTestProject1
             Assert.IsTrue(joueur.Equals(savedPlayer));
             Assert.AreEqual(joueur.Points, savedPlayer.Points);
             Assert.AreEqual(joueur.NomJoueur, savedPlayer.NomJoueur);
-            Assert.ReferenceEquals(joueur.Fabrique, savedPlayer.Fabrique);
+            Assert.ReferenceEquals(joueur.Peuple, savedPlayer.Peuple);
         }
     }
 }

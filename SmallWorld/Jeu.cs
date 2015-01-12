@@ -25,6 +25,8 @@ namespace SmallWorld
 
         int GetNbUnites(Joueur j);
 
+        int GetNbUnites(Point p);
+
         bool EstVaincu(Joueur j);
 
         Joueur Vainqueur();

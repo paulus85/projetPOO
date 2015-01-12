@@ -34,7 +34,7 @@ namespace WpfApplication
             InitializeComponent();
             Joueur = j;
             NomJoueur.Text = "" + Joueur.NomJoueur;
-            Peuple.Text = GetPeupleStringFromFabrique(j.Fabrique);
+            Peuple.Text = GetPeupleStringFromFabrique(j.Peuple);
             refresh(nbUnites);
         }
 
@@ -53,7 +53,7 @@ namespace WpfApplication
         /// </summary>
         /// <param name="fp">La fabrique de peuple</param>
         /// <returns>La chaine de caractère selon le type de la fabrique.</returns>
-        private string GetPeupleStringFromFabrique(SmallWorld.FabriquePeuple fp)
+        private string GetPeupleStringFromFabrique(SmallWorld.Peuple fp)
         {
             string res = "";
             if (fp is PeupleElfe)

@@ -105,7 +105,6 @@ namespace SmallWorld
                 if (!unite.ValidationDeplacement(this.positionSelectionne, jeu.Carte.GetCase(this.positionSelectionne), destination, jeu.Carte.GetCase(destination)))
                 {
                     res = false;
-                    //TODO exception
                     break;
                 }
             }

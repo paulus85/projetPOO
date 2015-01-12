@@ -69,11 +69,18 @@ namespace SmallWorld
         {
             this.joueur1 = j1;
             this.joueur2 = j2;
-            this.joueurCourant = j1;
             this.carte = c;
             this.nbTour = n;
             this.tourActuelle = 1;
+            this.joueurCourant = j1;
             this.tour = new TourImpl(this, joueurCourant);
+            /*
+            Random rnd = new Random();
+            int deb = rnd.Next(2);
+            if (deb == 0)
+                this.joueurCourant = j1;
+            if (deb == 1)
+                this.joueurCourant = j2;*/
         }
 
         /// <summary>
@@ -95,6 +102,16 @@ namespace SmallWorld
         public int GetNbUnites(Joueur j)
         {
             return this.carte.GetUnites(j).Count;
+        }
+
+        /// <summary>
+        /// Avoir le nombre d'unités à un point spécifié
+        /// </summary>
+        /// <param name="p">Le point spécifié</param>
+        /// <returns>Le nombre d'unité du point</returns>
+        public int GetNbUnites(Point p)
+        {
+            return this.carte.GetUnites(p).Count;
         }
 
         /// <summary>

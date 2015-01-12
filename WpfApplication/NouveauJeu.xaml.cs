@@ -62,41 +62,41 @@ namespace WpfApplication
                 switch(TailleCarte)
                 {
                     case "demo":
-                        monteur = new SmallWorld.MonteurNPartieDemo();
+                        this.monteur = new SmallWorld.MonteurNPartieDemo();
                         break;
                     case "petite":
-                        monteur = new SmallWorld.MonteurNPartiePetite();
+                        this.monteur = new SmallWorld.MonteurNPartiePetite();
                         break;
                     case "normale":
-                        monteur = new SmallWorld.MonteurNPartieNormale();
+                        this.monteur = new SmallWorld.MonteurNPartieNormale();
                         break;
                 }
-                SmallWorld.FabriquePeuple fb1 = null, fb2 = null;
+                int fb1 = -1, fb2 = -1;
                 switch(PeupleJoueur1)
                 {
                     case "elfe":
-                        fb1 = new SmallWorld.PeupleElfe();
+                        fb1 = (int)SmallWorld.NumUnite.ELF;
                         break;
                     case "nain":
-                        fb1 = new SmallWorld.PeupleNain();
+                        fb1 = (int)SmallWorld.NumUnite.NAIN;
                         break;
                     case "orc":
-                        fb1 = new SmallWorld.PeupleOrc();
+                        fb1 = (int)SmallWorld.NumUnite.ORC;
                         break;
                 }
                 switch(PeupleJoueur2)
                 {
                     case "elfe":
-                        fb2 = new SmallWorld.PeupleElfe();
+                        fb2 = (int)SmallWorld.NumUnite.ELF;
                         break;
                     case "nain":
-                        fb2 = new SmallWorld.PeupleNain();
+                        fb2 = (int)SmallWorld.NumUnite.NAIN;
                         break;
                     case "orc":
-                        fb2 = new SmallWorld.PeupleOrc();
+                        fb2 = (int)SmallWorld.NumUnite.ORC;
                         break;
                 }
-                parent.Content = new Jeu(monteur,NomJoueur1,fb1,NomJoueur2,fb2);
+                this.parent.Content = new Jeu(monteur,NomJoueur1,fb1,NomJoueur2,fb2);
             }
             else
             {

@@ -7,8 +7,8 @@ namespace UnitTestProject1
     [TestClass]
     public class TestElf
     {
-        private static Joueur joueurElf = new JoueurImpl("test", new PeupleElfe());
-        private static Unite elf = new UniteElfe(new JoueurImpl("test", new PeupleElfe()));
+        private static Joueur joueurElf = new JoueurImpl("test", (int)NumUnite.ELF);
+        private static Unite elf = new UniteElfe(new JoueurImpl("test", (int)NumUnite.ELF));
 
         [TestMethod]
         public void TestCanMove()

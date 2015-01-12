@@ -21,7 +21,7 @@ namespace UnitTestProject1
             {
                 for (int j = 0; j < 10; j++)
                 {
-                    // On utilise AreSame car on s'appui sur le design pattern poids mouche
+                    // On utilise AreSame car on s'appuit sur le design pattern poids mouche
                     Assert.AreSame(tiles[i, j], carte.GetCase(new PointImpl(i, j)));
                 }
             }
@@ -30,8 +30,8 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestUnitesPositions()
         {
-            Joueur Joueur1 = new JoueurImpl("test1", new PeupleElfe());
-            Joueur Joueur2 = new JoueurImpl("test2", new PeupleNain());
+            Joueur Joueur1 = new JoueurImpl("test1", (int)NumUnite.ELF);
+            Joueur Joueur2 = new JoueurImpl("test2", (int)NumUnite.NAIN);
             Unite elfA = new UniteElfe(Joueur1);
             Unite elfB = new UniteElfe(Joueur1);
             Unite nainA = new UniteNain(Joueur2);
