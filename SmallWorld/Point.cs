@@ -21,5 +21,6 @@ namespace SmallWorld
 
         bool EstValide(int taille);
         bool EstJoignable(Point point);
+        string ToString();
     }
 }

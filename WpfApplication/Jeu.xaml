@@ -6,7 +6,12 @@
       xmlns:local="clr-namespace:CustomCanvas"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-	Title="Jeu" Loaded="Page_Loaded">
+	Title="Jeu" Loaded="Page_Loaded" 
+      PreviewKeyDown="Page_PreviewKeyDown">
+    
+    
+    
+    
     <Page.Resources>
         <DrawingImage x:Key="HexagonImage">
             <DrawingImage.Drawing>
@@ -234,9 +239,15 @@
         </Style>
 
     </Page.Resources>
+    <Page.Background>
+        <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
+    </Page.Background>
 
-    <DockPanel>
+    <DockPanel Focusable="False">
         <Grid DockPanel.Dock="Left">
+            <Grid.Background>
+                <SolidColorBrush Color="Azure" Opacity=".5"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition />
                 <RowDefinition Height="Auto"/>
@@ -245,6 +256,9 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
                 <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged" ItemContainerStyle="{DynamicResource styleLBUnite}">
+                    <ListBox.Background>
+                        <SolidColorBrush Color="Transparent"  />
+                    </ListBox.Background>
                     <ListBox.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel IsItemsHost="True" />
@@ -286,10 +300,7 @@
         </Grid>
 
         <ScrollViewer CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4" >
-            <ScrollViewer.Background>
-                <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
-            </ScrollViewer.Background>
-            <Grid Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="polygon_NoSelection">
+            <Grid Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="polygon_NoSelection" Focusable="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
@@ -307,8 +318,8 @@
                 <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas1" Background="Transparent" IsHitTestVisible="False">
                 </Canvas>
                 <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas2" Background="Transparent" IsHitTestVisible="False">
-                    <Button x:Name="PolygonSurvole" Style="{DynamicResource PolygonSurvole}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="6" Visibility="Hidden" IsHitTestVisible="False"/>
-                    <Button x:Name="PolygonSelection" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="4" Visibility="Hidden" IsHitTestVisible="False"/>
+                    <Button x:Name="PolygonSurvole" Style="{DynamicResource PolygonSurvole}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="6" Visibility="Hidden" IsHitTestVisible="False" Focusable="False"/>
+                    <Button x:Name="PolygonSelection" Style="{DynamicResource PolygonSelected}" Canvas.Top="70" Canvas.Left="70" Panel.ZIndex="4" Visibility="Hidden" IsHitTestVisible="False" Focusable="False"/>
                 </Canvas>
                 <!--<local:MapPanel VerticalAlignment="Top" HorizontalAlignment="Left" ></local:MapPanel>-->
             </Grid>
