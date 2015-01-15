@@ -168,7 +168,7 @@
         
         <GroupBox Grid.Row="1" Header="Choix de la taille de la carte" Padding="0,2,2,4">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
-                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="demo" Width="200">
+                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="demo" Width="200" >
 					<Grid>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="150" />

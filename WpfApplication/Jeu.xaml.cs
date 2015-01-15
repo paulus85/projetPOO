@@ -238,7 +238,6 @@ namespace WpfApplication
                 if (FindResource("PolygonSuggestion") != null)
                 {
                     b.Style = FindResource("PolygonSuggestion") as Style;
-                    Console.WriteLine("ok ressource");
                 }
                 int[] coordCanvas = FromCoordToCanvas(pt.x, pt.y);
                 Canvas.SetLeft(b, coordCanvas[0]);
@@ -447,7 +446,6 @@ namespace WpfApplication
             Canvas.SetTop(PolygonSurvole, top);
             Canvas.SetLeft(PolygonSurvole, left);
             PolygonSurvole.Visibility = Visibility.Visible;
-            Console.WriteLine(point.ToString());
         }
 
         /// <summary>
@@ -458,38 +456,47 @@ namespace WpfApplication
         private void polygon_MouseClick(object sender, RoutedEventArgs e)
         {
             SmallWorld.Point point = (sender as Button).Tag as SmallWorld.Point;
+            selectionChange(point);
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Méthode de changement de sélection de cases.
+        /// </summary>
+        /// <param name="pt">Le point sous-jacent à la case sélectionné.</param>
+        private void selectionChange(SmallWorld.Point pt)
+        {
             if (selectionUniteFaite)
             {
-                bool val = engine.Tour.SetDestination(point);
-                if (val) {
+                bool val = engine.Tour.SetDestination(pt);
+                if (val)
+                {
                     engine.Tour.ExecuterDeplacement();
-                    polygon_NoSelection(sender, null);
+                    undisplaySelection();
                     refreshUI();
                 }
                 else
                 {
                     ecritureConsole("Déplacement impossible");
-                    Console.WriteLine("Déplacement impossible");
-                    polygon_NoSelection(sender, null);
+                    undisplaySelection();
                 }
 
             }
             else
             {
-                if (selectionCaseFaite && this.pointSelection.Equals(point))
+                if (selectionCaseFaite && this.pointSelection.Equals(pt))
                 {
                     //Déselection
-                    polygon_NoSelection(sender, null);
+                    undisplaySelection();
                 }
                 else
                 {
-                    this.pointSelection = point;
-                    displayPolygonSelection(point);
+                    this.pointSelection = pt;
+                    displayPolygonSelection(pt);
                     selectionCaseFaite = true;
-                    e.Handled = true;
                     Console.WriteLine("Polygon_mouseClick");
                     //Mise à jour de la liste d'unités
-                    List<Unite> listUnites = engine.Carte.GetUnites(point);
+                    List<Unite> listUnites = engine.Carte.GetUnites(pt);
                     ListeUniteUC.Clear();
                     foreach (Unite u in listUnites)
                     {
@@ -501,6 +508,10 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Affiche le polygone de sélection.
+        /// </summary>
+        /// <param name="point">Le point sous-jacent à la case sélectionné.</param>
         private void displayPolygonSelection(SmallWorld.Point point)
         {
             PolygonSurvole.Visibility = Visibility.Hidden;
@@ -523,6 +534,15 @@ namespace WpfApplication
         /// <param name="sender">La source de l'événement</param>
         /// <param name="e">L'instance de <see cref="MouseButtonEventArgs" /> qui contient les données de l'événement</param>
         private void polygon_NoSelection(object sender, MouseButtonEventArgs e)
+        {
+            undisplaySelection();
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Efface le polygone de sélection de case.
+        /// </summary>
+        private void undisplaySelection()
         {
             PolygonSelection.Visibility = Visibility.Hidden;
             this.pointSelection = null;
@@ -642,23 +662,50 @@ namespace WpfApplication
         /// <param name="e">L'instance de <see cref="KeyEventArgs" /> qui contient les données de l'événement</param>
         private void Page_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Enter | e.Key == Key.Space)
+            if (e.Key == Key.Enter)
             {
                 FindeTour_Click(this, null);
-                Console.WriteLine("Appui enter");
             }
             else if (e.Key == Key.Right)
             {
-                if (pointSurvol == null)
-                {
-                    pointSurvol = new SmallWorld.PointImpl(0, 0);
-                }
+                //Déplacement du survol vers la droite
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else pointSurvol.y = (pointSurvol.y + 1) % engine.Carte.Taille;
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.Left)
+            {
+                //Déplacement du survol vers la gauche
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
                 else
                 {
-                    //pointSurvol = new PointImpl(pointSurvol.x, (pointSurvol.y + 1) % engine.Carte.Taille);
-                    pointSurvol.y = (pointSurvol.y + 1) % engine.Carte.Taille;
+                    if (pointSurvol.y == 0) pointSurvol.y = engine.Carte.Taille - 1;
+                    else pointSurvol.y--;
                 }
                 displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.Down)
+            {
+                //Déplacement du survol vers le haut
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else pointSurvol.x = (pointSurvol.x + 1) % engine.Carte.Taille;
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.Up)
+            {
+                //Déplacement du survol vers le haut
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else
+                {
+                    if (pointSurvol.x == 0) pointSurvol.x = engine.Carte.Taille - 1;
+                    else pointSurvol.x--;
+                }
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.LeftCtrl | e.Key == Key.RightCtrl)
+            {
+                //Gestion de la sélection 
+                if(pointSurvol != null) selectionChange(pointSurvol);
             }
         }
 
@@ -672,7 +719,6 @@ namespace WpfApplication
         {
             this.Focusable = true;
             Keyboard.Focus(this);
-            Console.WriteLine(Keyboard.FocusedElement);
         }
 
         /// <summary>

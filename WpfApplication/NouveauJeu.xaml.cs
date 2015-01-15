@@ -37,8 +37,8 @@ namespace WpfApplication
             InitializeComponent();
             // TODO: redimensionner la fenetre pour que ça soit plus joli
             DataContext = this;
-            NomJoueur1 = "";
-            NomJoueur2 = "";
+            NomJoueur1 = "Paul";
+            NomJoueur2 = "Stone";
             PeupleJoueur1 = "";
             PeupleJoueur2 = "";
             TailleCarte = "";
@@ -153,6 +153,11 @@ namespace WpfApplication
             RadioButton rd = (sender as RadioButton);
             TailleCarte = rd.Name;
             
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -244,7 +244,7 @@
     </Page.Background>
 
     <DockPanel Focusable="False">
-        <Grid DockPanel.Dock="Left">
+        <Grid DockPanel.Dock="Left" Focusable="False">
             <Grid.Background>
                 <SolidColorBrush Color="Azure" Opacity=".5"/>
             </Grid.Background>
@@ -255,7 +255,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
-                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged" ItemContainerStyle="{DynamicResource styleLBUnite}">
+                <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged" ItemContainerStyle="{DynamicResource styleLBUnite}" KeyboardNavigation.TabNavigation="Cycle">
                     <ListBox.Background>
                         <SolidColorBrush Color="Transparent"  />
                     </ListBox.Background>
@@ -293,13 +293,13 @@
                     <Label Grid.Row="0" Grid.Column="1" x:Name="numeroTour"></Label>
                 </Grid>
                 <TextBlock x:Name="texteJoueurActif" HorizontalAlignment="Center" />
-                <Button HorizontalAlignment="Center" Content="Fin du tour" Width="300" Click="FindeTour_Click" Margin="0,5"/>
-                <Button HorizontalAlignment="Center" Content="Sauvegarder" Width="300" Click="Sauvegarde_Click" Margin="0,5,0,2" />
-                <Button HorizontalAlignment="Center" Content="Menu" Width="300" Click="Menu_Click" Margin="0,2,0,5" />
+                <Button HorizontalAlignment="Center" Content="Fin du tour" Width="300" Click="FindeTour_Click" Margin="0,5" Focusable="False"/>
+                <Button HorizontalAlignment="Center" Content="Sauvegarder" Width="300" Click="Sauvegarde_Click" Margin="0,5,0,2" Focusable="False"/>
+                <Button HorizontalAlignment="Center" Content="Menu" Width="300" Click="Menu_Click" Margin="0,2,0,5" Focusable="False"/>
             </StackPanel>
         </Grid>
 
-        <ScrollViewer CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4" >
+        <ScrollViewer CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="Auto" Width="Auto" Padding="4" Focusable="False">
             <Grid Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" MouseDown="polygon_NoSelection" Focusable="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto" />
