@@ -272,7 +272,6 @@
     <Resource Include="Ressources\PeupleZombie.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\peupleElf.png" />
     <Resource Include="Ressources\peupleNain.png" />
     <Resource Include="Ressources\peupleOrc.png" />
   </ItemGroup>
@@ -280,13 +279,15 @@
     <Resource Include="Ressources\sw2logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\uniteElf.png" />
     <Resource Include="Ressources\uniteNain.png" />
     <Resource Include="Ressources\uniteOrc.png" />
     <Resource Include="Ressources\uniteZombie.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\elf.png" />
+    <Resource Include="Ressources\uniteElfe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\peupleElf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

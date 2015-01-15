@@ -365,7 +365,7 @@ namespace WpfApplication
             if (u is UniteElfe)
             {
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteElf.png"));
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteElfe.png"));
                 ib.Stretch = Stretch.Uniform;
                 return ib;
             } 

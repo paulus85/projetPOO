@@ -53,7 +53,7 @@ namespace WpfApplication
             BitmapImage bi = null;
             if (Unite is UniteElfe)
             {
-                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteElf.png"));
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteElfe.png"));
             }
             else if (Unite is UniteNain)
             {
@@ -63,7 +63,7 @@ namespace WpfApplication
             {
                 bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteOrc.png"));
             }
-            else if (Unite is UniteNain)
+            else if (Unite is UniteZombie)
             {
                 bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteZombie.png"));
             }
