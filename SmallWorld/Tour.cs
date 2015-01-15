@@ -8,7 +8,8 @@ namespace SmallWorld
     public interface Tour
     {
         ResultatCombat ResDernierCombat { get; }
-        String ResumeCombat { get; }
+
+        List<String> ResumeCombat { get; }
 
         void SelectUnites(List<Unite> unites);
 

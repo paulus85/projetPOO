@@ -10,19 +10,12 @@
 
 - Mettre nombre unité case en bas des cases
 
-- Menu à la fin du jeu quand quelqu'un gagne
-
-- Fenetre de sauvegarde quand on veut quitter le jeu par la croix rouge de la fenetre windows
+- Régler problème résumé combat (partie GRAPHIQUE -> PAUL !!!!!!!!!!)
 
 ////////////////////////////////
 		MOINS URGENT
 ///////////////////////////////
 - Revoir le graphisme général de l'application
-
-- Avoir un résumé des combats effectués (quelle unité perd des points de vies vies, des combats)
-		--> suffit de fournir une string bien formattée.
-
-- Afficher pour chaque case le nombre d'unités présentes sur cette case.
 
 - Finir de traduire les commentaires pour la partie graphique
 

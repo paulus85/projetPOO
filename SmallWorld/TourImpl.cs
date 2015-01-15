@@ -15,7 +15,7 @@ namespace SmallWorld
         private Point positionSelectionne;
         private Point destination;
         private ResultatCombat resDernierCombat;
-        private String resumeCombat;
+        private List<String> resumeCombat;
 
         public ResultatCombat ResDernierCombat
         {
@@ -25,7 +25,7 @@ namespace SmallWorld
             }
         }
         
-        public String ResumeCombat
+        public List<String> ResumeCombat
         {
             get
             {
@@ -131,7 +131,7 @@ namespace SmallWorld
         /// </summary>
         public void ExecuterDeplacement()
         {
-            this.resumeCombat = "";
+            this.resumeCombat.Clear();
             for (int i = 0; i < this.unitesSelectionnes.Count; i++)
             {
                 Unite unite = this.unitesSelectionnes[i];
@@ -209,12 +209,12 @@ namespace SmallWorld
                 if (N >= PctgAttaquant)
                 {
                     uniteAdverse.EnleverPV();
-                    resumeCombat+= "Round " + round + " : " + uniteAdverse.GetType() + "gagne\n";
+                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.GetType() + "gagne");
                 }
                 else
                 {
                     unite.EnleverPV();
-                    resumeCombat += "Round " + round + " : " + uniteAdverse.GetType() + "perd\n";
+                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.GetType() + "perd");
                 }
 
                 NbAttaques--;
@@ -230,20 +230,20 @@ namespace SmallWorld
                     {
                         ((UniteElfe)unite).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
-                        resumeCombat += unite.GetType() + " a perdu le combat mais se replie\n";
+                        resumeCombat.Add(unite.GetType() + " a perdu le combat mais se replie");
                     }
                     else
                     {
                         this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                         this.resDernierCombat = ResultatCombat.PERDU;
-                        resumeCombat += unite.GetType() + " meurt\n";
+                        resumeCombat.Add(unite.GetType() + " meurt");
                     }
                 }
                 else
                 {
                     this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                     this.resDernierCombat = ResultatCombat.PERDU;
-                    resumeCombat += unite.GetType() + " meurt\n";
+                    resumeCombat.Add(unite.GetType() + " meurt");
                 }
             }
             else if (!uniteAdverse.EstEnVie())
@@ -255,26 +255,26 @@ namespace SmallWorld
                     {
                         ((UniteElfe)uniteAdverse).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
-                        resumeCombat += uniteAdverse.GetType() + " a perdu le combat mais se replie\n";
+                        resumeCombat.Add(uniteAdverse.GetType() + " a perdu le combat mais se replie");
                     }
                     else
                     {
                         this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                         this.resDernierCombat = ResultatCombat.GAGNE;
-                        resumeCombat += uniteAdverse.GetType() + " meurt\n";
+                        resumeCombat.Add(uniteAdverse.GetType() + " meurt");
                     }
                 }
                 else
                 {
                     this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                     this.resDernierCombat = ResultatCombat.GAGNE;
-                    resumeCombat += uniteAdverse.GetType() + " meurt\n";
+                    resumeCombat.Add(uniteAdverse.GetType() + " meurt");
                 }
             }
             else
             {
                 this.resDernierCombat = ResultatCombat.NUL;
-                resumeCombat += "Match nul\n";
+                resumeCombat.Add("Match nul");
             }
             return this.resDernierCombat;
             
