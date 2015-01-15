@@ -210,7 +210,7 @@
             </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition />
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -231,7 +231,8 @@
                     </ListBox.Resources>
                 </ListBox>
             </Grid>
-            <Border  Grid.Row="1" BorderBrush="CadetBlue" BorderThickness="1">
+            <TextBlock Grid.Row="1" x:Name="consoleInterne" TextAlignment="Center" ScrollViewer.CanContentScroll="True" Background="Azure" TextWrapping="Wrap"></TextBlock>
+            <Border  Grid.Row="2" BorderBrush="CadetBlue" BorderThickness="1">
                 <Grid x:Name="listJoueurs">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
@@ -240,8 +241,6 @@
 
                 </Grid>
             </Border>
-
-            <TextBlock Grid.Row="2" x:Name="console" TextAlignment="Center" ></TextBlock>
 
             <StackPanel Grid.Row="3" Orientation="Vertical" HorizontalAlignment="Center" >
                 <Grid>

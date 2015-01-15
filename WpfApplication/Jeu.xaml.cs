@@ -396,10 +396,12 @@ namespace WpfApplication
         /// <remarks>Le texte reste à l'écran seulement 3 secondes.</remarks>
         private void ecritureConsole(string p)
         {
-            console.Text = p;
+            //consoleInterne.Text = p;
+            consoleInterne.Text = "YOLO \n Yolo";
+            Console.WriteLine(p);
             DispatcherTimer messageTimer = new DispatcherTimer();
             messageTimer.Tick += new EventHandler(messageTimer_Tick);
-            messageTimer.Interval = new TimeSpan(0, 0, 3);
+            messageTimer.Interval = new TimeSpan(0, 0, 5);
             messageTimer.Start();
         }
 
@@ -408,7 +410,7 @@ namespace WpfApplication
         /// </summary>
         private void clearConsole()
         {
-            console.Text = "";
+            consoleInterne.Text = "";
         }
 
 
@@ -475,6 +477,8 @@ namespace WpfApplication
                 if (val)
                 {
                     engine.Tour.ExecuterDeplacement();
+                    Console.WriteLine(engine.Tour.ResumeCombat);
+                    ecritureConsole(engine.Tour.ResumeCombat);
                     undisplaySelection();
                     refreshUI();
                 }
@@ -633,14 +637,15 @@ namespace WpfApplication
         /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void FindeTour_Click(object sender, RoutedEventArgs e)
         {
+            engine.FinTour();
             if (engine.FinDuJeu())
             {
                 Joueur winner = engine.Vainqueur();
-                MessageBox.Show("Bravo ! " + Environment.NewLine + "Le gagnant est : " + winner.NomJoueur + " avec " + winner.Points + " points.");
+                if (winner == null) MessageBox.Show("Match nul! ");
+                else MessageBox.Show("Bravo ! " + Environment.NewLine + "Le gagnant est : " + winner.NomJoueur + " avec " + winner.Points + " points.");
             }
             else
-            {
-                engine.FinTour();
+            {  
                 NouveauTour();
             }
         }
