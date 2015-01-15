@@ -31,18 +31,10 @@ namespace SmallWorld
         /// <param name="typeCase">La case où se trouve l'unité</param>
         /// <returns>Le nombre de point</returns>
         public override int GetPoints(Case typeCase){
-            if (typeCase.Numero == (int)NumCase.FORET)
+            if (typeCase.Numero == (int)NumCase.DESERT)
                 return 0;
             else
                 return 1;
-        }
-
-        /// <summary>
-        /// Ajouter 1 points aux points bonus
-        /// </summary>
-        public void AddPointBonus()
-        {
-            this.pointBonus += 1;
         }
 
         /// <summary>
@@ -53,14 +45,14 @@ namespace SmallWorld
         /// <param name="destination">Le point de destination</param>
         /// <param name="caseDest">La case de destination</param>
         /// <returns>Vrai si l'unité peut se déplacer</returns>
-        public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
+        public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest, bool occupe)
         {
-            if (caseDest.Numero == (int)NumCase.PLAINE)
+            if (occupe || caseDest.Numero == (int)NumCase.MARAIS)
             {
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT / 2
                     && destination.EstJoignable(pointCourant);
             }
-            return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest);
+            return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest, occupe);
         }
 
         /// <summary>
@@ -68,9 +60,9 @@ namespace SmallWorld
         /// </summary>
         /// <param name="destination">La case de destination du déplacement</param>
         /// <returns>Vrai si tous s'est bien déroulé</returns>
-        public override bool Deplacement(Case destination)
+        public override bool Deplacement(Case destination, bool occupe)
         {
-            if (destination.Numero == (int)NumCase.PLAINE)
+            if (occupe || destination.Numero == (int)NumCase.MARAIS)
             {
                 double cout_deplacement = COUT_DEPLACEMENT / 2.0;
                 if (this.pointsDeplacementRestant < cout_deplacement)
@@ -80,7 +72,7 @@ namespace SmallWorld
                 this.pointsDeplacementRestant -= cout_deplacement;
                 return true;
             }
-            return base.Deplacement(destination);
+            return base.Deplacement(destination, occupe);
         }
     }
 }

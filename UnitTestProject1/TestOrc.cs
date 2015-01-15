@@ -11,9 +11,9 @@ namespace UnitTestProject1
         private static Unite nain = new UniteOrc(new JoueurImpl("test", (int)NumUnite.ORC));
 
         [TestMethod]
-        public void TestCanMove()
+        public void TestCanMoveOrc()
         {
-            Assert.IsTrue(nain.ValidationDeplacement(new PointImpl(0, 0), new CasePlaine(), new PointImpl(0, 1), new CaseForet()));
+            Assert.IsTrue(nain.ValidationDeplacement(new PointImpl(0, 0), new CasePlaine(), new PointImpl(0, 1), new CaseForet(), false));
         }
 
         [TestMethod]

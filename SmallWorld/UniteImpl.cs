@@ -110,7 +110,7 @@ namespace SmallWorld
         /// <param name="destination">Le point de destination</param>
         /// <param name="caseDest">La case de destination</param>
         /// <returns>Vrai si l'unité peut se déplacer</returns>
-        public virtual bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
+        public virtual bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest, bool occupe)
         {
             return this.pointsDeplacementRestant >= COUT_DEPLACEMENT 
                 && destination.EstJoignable(pointCourant);
@@ -121,7 +121,7 @@ namespace SmallWorld
         /// </summary>
         /// <param name="destination">La case de destination du déplacement</param>
         /// <returns>Vrai si tous s'est bien déroulé</returns>
-        public virtual bool Deplacement(Case destination)
+        public virtual bool Deplacement(Case destination, bool occupe)
         {
             if (this.pointsDeplacementRestant < COUT_DEPLACEMENT)
             {

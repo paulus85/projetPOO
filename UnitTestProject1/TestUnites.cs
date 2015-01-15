@@ -35,68 +35,115 @@ namespace UnitTestProject1
 
             if(unite.GetType() == typeof(UniteElfe))
             {
-                Assert.IsTrue(unite.Deplacement(new CaseForet()));
+                Assert.IsTrue(unite.Deplacement(new CaseForet(), false));
                 Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
-                Assert.IsTrue(unite.Deplacement(new CaseForet()));
+                Assert.IsTrue(unite.Deplacement(new CaseForet(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsFalse(unite.Deplacement(new CaseDesert()));
+                Assert.IsFalse(unite.Deplacement(new CaseDesert(), false));
 
-                Assert.IsTrue(unite.Deplacement(new CaseMontagne()));
+                Assert.IsTrue(unite.Deplacement(new CaseMontagne(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.IsTrue(unite.Deplacement(new CaseMarais(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CasePlaine(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
             }
 
             if(unite.GetType() == typeof(UniteNain))
             {
-                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.IsTrue(unite.Deplacement(new CasePlaine(), false));
                 Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
-                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.IsTrue(unite.Deplacement(new CasePlaine(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CaseForet()));
+                Assert.IsTrue(unite.Deplacement(new CaseForet(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CaseMontagne()));
+                Assert.IsTrue(unite.Deplacement(new CaseMontagne(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CaseDesert()));
+                Assert.IsTrue(unite.Deplacement(new CaseMarais(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CaseDesert(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
             }
 
             if (unite.GetType() == typeof(UniteOrc))
             {
-                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.IsTrue(unite.Deplacement(new CasePlaine(), false));
                 Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
-                Assert.IsTrue(unite.Deplacement(new CasePlaine()));
+                Assert.IsTrue(unite.Deplacement(new CasePlaine(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CaseForet()));
+                Assert.IsTrue(unite.Deplacement(new CaseForet(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CaseMontagne()));
+                Assert.IsTrue(unite.Deplacement(new CaseMontagne(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
                 unite.ResetPointsDeplacement();
                 Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
 
-                Assert.IsTrue(unite.Deplacement(new CaseDesert()));
+                Assert.IsTrue(unite.Deplacement(new CaseMarais(), false));
                 Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CaseDesert(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+            }
+
+            if (unite.GetType() == typeof(UniteZombie))
+            {
+                Assert.IsTrue(unite.Deplacement(new CasePlaine(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CaseForet(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CaseMontagne(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CaseDesert(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+
+                Assert.IsTrue(unite.Deplacement(new CaseMarais(), true));
+                Assert.AreEqual(PointMouvementDefaut - 0.5, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
+                Assert.IsTrue(unite.Deplacement(new CaseMarais(), false));
+                Assert.AreEqual(PointMouvementDefaut - 1, unite.PointsDeplacementRestant);
+                unite.ResetPointsDeplacement();
+                Assert.AreEqual(PointMouvementDefaut, unite.PointsDeplacementRestant);
             }
 
             unite.ResetPointsDeplacement();
