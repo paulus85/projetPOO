@@ -136,7 +136,7 @@
     <Page.Background>
         <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
     </Page.Background>
-
+    <Viewbox>
     <Grid Margin="10,5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -248,4 +248,5 @@
         
         
     </Grid>
+    </Viewbox>
 </Page>

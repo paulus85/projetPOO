@@ -9,20 +9,13 @@ namespace SmallWorld
     [Serializable()]
     public class UniteZombie : UniteImpl
     {
-        private int pointBonus;
-
-        public int PointBonus
-        {
-            get { return pointBonus; }
-        }
-
         /// <summary>
         /// Constructeur de l'unité
         /// </summary>
         /// <param name="j">Le joueur auxquel appartient l'unité</param>
         public UniteZombie(Joueur j) : base(j)
         {
-            this.pointBonus = 0;
+
         }
 
         /// <summary>
