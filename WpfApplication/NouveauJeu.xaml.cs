@@ -98,7 +98,7 @@ namespace WpfApplication
                         fb2 = (int)SmallWorld.NumUnite.ORC;
                         break;
                     case "zombie":
-                        fb1 = (int)SmallWorld.NumUnite.ZOMBIE;
+                        fb2 = (int)SmallWorld.NumUnite.ZOMBIE;
                         break;
                 }
                 this.parent.Content = new Jeu(monteur,NomJoueur1,fb1,NomJoueur2,fb2);

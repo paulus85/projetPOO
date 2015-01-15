@@ -41,7 +41,8 @@ namespace WpfApplication
         /// <summary>
         /// Le timer pour la console interne.
         /// </summary>
-        private DispatcherTimer messageTimer; 
+        /// <remarks>Pas utilisé pour le moment, prêt à être implémenté.</remarks>
+        private DispatcherTimer messageTimer;
 
 
         ObservableCollection<UniteUC> listeUniteUC;
@@ -403,7 +404,7 @@ namespace WpfApplication
         {
             consoleInterne.Text = p + Environment.NewLine;
             Console.WriteLine(p);
-            messageTimer.Start();
+            //messageTimer.Start();
         }
 
         private void ecritureConsole(List<string> list)
@@ -413,7 +414,7 @@ namespace WpfApplication
                 consoleInterne.Text = consoleInterne.Text + s + Environment.NewLine;
                 Console.WriteLine(s);
             }
-            messageTimer.Start();
+            //messageTimer.Start();
         }
 
         /// <summary>
@@ -651,6 +652,7 @@ namespace WpfApplication
         private void FindeTour_Click(object sender, RoutedEventArgs e)
         {
             engine.FinTour();
+            undisplaySelection();
             if (engine.FinDuJeu())
             {
                 Joueur winner = engine.Vainqueur();
@@ -741,9 +743,9 @@ namespace WpfApplication
         {
             this.Focusable = true;
             Keyboard.Focus(this);
-            messageTimer = new DispatcherTimer();
-            messageTimer.Tick += new EventHandler(messageTimer_Tick);
-            messageTimer.Interval = new TimeSpan(0, 0, 5);
+            //messageTimer = new DispatcherTimer();
+            //messageTimer.Tick += new EventHandler(messageTimer_Tick);
+            //messageTimer.Interval = new TimeSpan(0, 0, 5);
 
         }
 
@@ -785,7 +787,19 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Gère l'événement de rotation de la molette de la souris sur la page. Permet de changer le facteur de zoom sur la carte.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="MouseWheelEventArgs" /> qui contient les données de l'événement</param>
+        private void Page_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            zoomSlider.Value += (e.Delta > 0) ? 0.1 : -0.1;
+
+        }
         #endregion events
+
+       
 
     }
 }
