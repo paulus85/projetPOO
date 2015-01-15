@@ -83,6 +83,9 @@ namespace WpfApplication
                     case "orc":
                         fb1 = (int)SmallWorld.NumUnite.ORC;
                         break;
+                    case "zombie":
+                        fb1 = (int)SmallWorld.NumUnite.ZOMBIE;
+                        break;
                 }
                 switch(PeupleJoueur2)
                 {
@@ -94,6 +97,9 @@ namespace WpfApplication
                         break;
                     case "orc":
                         fb2 = (int)SmallWorld.NumUnite.ORC;
+                        break;
+                    case "zombie":
+                        fb1 = (int)SmallWorld.NumUnite.ZOMBIE;
                         break;
                 }
                 this.parent.Content = new Jeu(monteur,NomJoueur1,fb1,NomJoueur2,fb2);
