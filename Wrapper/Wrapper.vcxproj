@@ -200,9 +200,6 @@
   <ItemGroup>
     <ResourceCompile Include="Wrapper.rc" />
   </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\WpfApplication\Ressources\marais_ok.png" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

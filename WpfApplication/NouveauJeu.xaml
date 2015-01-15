@@ -99,6 +99,22 @@
                                     </StackPanel>
                                 </Grid>
                             </RadioButton>
+                            <RadioButton Checked="ChoixPeupleJ1_Checked" Style="{StaticResource RadioButtonMenu}" Tag="zombie">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="100" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Image Grid.Row="0" Source="pack://application:,,,/Ressources/PeupleZombie.png" Stretch="Uniform"/>
+                                    <TextBlock Grid.Row="1" FontSize="18" HorizontalAlignment="Center" Margin="0,4,0,2">Zombie</TextBlock>
+                                    <StackPanel Orientation="Vertical" Grid.Row="2" HorizontalAlignment="Center">
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Coût de déplacement sur case Plaine divisé par 2</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">Aucun point sur une case Forêt</TextBlock>
+                                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center" Margin="0,2">1 point bonus si une unité détruit une unité adverse</TextBlock>
+                                    </StackPanel>
+                                </Grid>
+                            </RadioButton>
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
