@@ -8,7 +8,7 @@
 
 - Gérer la cas où il n'y a pas de gagnant pour la partie
 
-- Fonction clavier
+
 
 ////////////////////////////////
 		MOINS URGENT
