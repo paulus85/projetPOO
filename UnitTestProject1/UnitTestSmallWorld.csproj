@@ -88,6 +88,7 @@
   <ItemGroup>
     <Compile Include="TestJeu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestZombie.cs" />
     <Compile Include="TestTour.cs" />
     <Compile Include="TestJoueur.cs" />
     <Compile Include="TestCarte.cs" />

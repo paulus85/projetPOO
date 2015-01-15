@@ -15,12 +15,21 @@ namespace SmallWorld
         private Point positionSelectionne;
         private Point destination;
         private ResultatCombat resDernierCombat;
+        private String resumeCombat;
 
         public ResultatCombat ResDernierCombat
         {
             get
             {
                 return this.resDernierCombat;
+            }
+        }
+        
+        public String ResumeCombat
+        {
+            get
+            {
+                return this.resumeCombat;
             }
         }
 
@@ -122,6 +131,7 @@ namespace SmallWorld
         /// </summary>
         public void ExecuterDeplacement()
         {
+            this.resumeCombat = "";
             for (int i = 0; i < this.unitesSelectionnes.Count; i++)
             {
                 Unite unite = this.unitesSelectionnes[i];
@@ -163,6 +173,7 @@ namespace SmallWorld
         /// <returns>Le résultat du combat</returns>
         public ResultatCombat Combat(Unite unite)
         {
+            int round = 0;
             Unite uniteAdverse = MeilleureUniteDefensive(this.destination);
             int NbAttaques = new Random().Next(3, Math.Max(unite.PointsDeVie, uniteAdverse.PointsDeVie)+2);
 
@@ -198,10 +209,12 @@ namespace SmallWorld
                 if (N >= PctgAttaquant)
                 {
                     uniteAdverse.EnleverPV();
+                    resumeCombat+= "Round " + round + " : " + uniteAdverse.GetType() + "gagne\n";
                 }
                 else
                 {
                     unite.EnleverPV();
+                    resumeCombat += "Round " + round + " : " + uniteAdverse.GetType() + "perd\n";
                 }
 
                 NbAttaques--;
@@ -216,17 +229,20 @@ namespace SmallWorld
                     {
                         ((UniteElfe)unite).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
+                        resumeCombat += unite.GetType() + " a perdu le combat mais se replie\n";
                     }
                     else
                     {
                         this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                         this.resDernierCombat = ResultatCombat.PERDU;
+                        resumeCombat += unite.GetType() + " meurt\n";
                     }
                 }
                 else
                 {
                     this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                     this.resDernierCombat = ResultatCombat.PERDU;
+                    resumeCombat += unite.GetType() + " meurt\n";
                 }
             }
             else if (!uniteAdverse.EstEnVie())
@@ -238,22 +254,26 @@ namespace SmallWorld
                     {
                         ((UniteElfe)uniteAdverse).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
+                        resumeCombat += uniteAdverse.GetType() + " a perdu le combat mais se replie\n";
                     }
                     else
                     {
                         this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                         this.resDernierCombat = ResultatCombat.GAGNE;
+                        resumeCombat += uniteAdverse.GetType() + " meurt\n";
                     }
                 }
                 else
                 {
                     this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                     this.resDernierCombat = ResultatCombat.GAGNE;
+                    resumeCombat += uniteAdverse.GetType() + " meurt\n";
                 }
             }
             else
             {
                 this.resDernierCombat = ResultatCombat.NUL;
+                resumeCombat += "Match nul\n";
             }
             return this.resDernierCombat;
             

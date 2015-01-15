@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class TestOrc
     {
         private static Joueur joueurOrc = new JoueurImpl("test", (int)NumUnite.ORC);
-        private static Unite nain = new UniteOrc(new JoueurImpl("test", (int)NumUnite.ORC));
+        private static Unite nain = new UniteOrc(joueurOrc);
 
         [TestMethod]
         public void TestCanMoveOrc()
@@ -23,6 +23,7 @@ namespace UnitTestProject1
             Assert.AreEqual(1, nain.GetPoints(new CaseDesert()));
             Assert.AreEqual(1, nain.GetPoints(new CaseMontagne()));
             Assert.AreEqual(1, nain.GetPoints(new CasePlaine()));
+            Assert.AreEqual(1, nain.GetPoints(new CaseMarais()));
         }
     }
 }

@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class TestElf
     {
         private static Joueur joueurElf = new JoueurImpl("test", (int)NumUnite.ELF);
-        private static Unite elf = new UniteElfe(new JoueurImpl("test", (int)NumUnite.ELF));
+        private static Unite elf = new UniteElfe(joueurElf);
 
         [TestMethod]
         public void TestCanMoveElf()
@@ -23,6 +23,7 @@ namespace UnitTestProject1
             Assert.AreEqual(1, elf.GetPoints(new CaseDesert()));
             Assert.AreEqual(1, elf.GetPoints(new CaseMontagne()));
             Assert.AreEqual(1, elf.GetPoints(new CasePlaine()));
+            Assert.AreEqual(1, elf.GetPoints(new CaseMarais()));
         }
     }
 }

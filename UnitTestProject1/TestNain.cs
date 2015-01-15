@@ -8,7 +8,7 @@ namespace UnitTestProject1
     public class TestNain
     {
         private static Joueur joueurNain = new JoueurImpl("test", (int)NumUnite.NAIN);
-        private static Unite nain = new UniteNain(new JoueurImpl("test", (int)NumUnite.NAIN));
+        private static Unite nain = new UniteNain(joueurNain);
 
         [TestMethod]
         public void TestCanMoveNain()
@@ -23,6 +23,7 @@ namespace UnitTestProject1
             Assert.AreEqual(1, nain.GetPoints(new CaseDesert()));
             Assert.AreEqual(1, nain.GetPoints(new CaseMontagne()));
             Assert.AreEqual(0, nain.GetPoints(new CasePlaine()));
+            Assert.AreEqual(1, nain.GetPoints(new CaseMarais()));
         }
     }
 }
