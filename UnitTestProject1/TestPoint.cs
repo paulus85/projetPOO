@@ -30,7 +30,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestEquals()
+        public void TestEqualsPoint()
         {
             Assert.IsTrue(new PointImpl(1, 5).Equals(new PointImpl(1, 5)));
             Assert.IsFalse(new PointImpl(1, 5).Equals(new PointImpl(5, 1)));

@@ -58,10 +58,10 @@ namespace SmallWorld
         public override int GetDefenseTerrain(Case typeCase)
         {
             if (typeCase.Numero == (int)NumCase.MARAIS)
-                return POINT_ATTAQUE - 1;
+                return POINT_DEFENSE - 1;
             if (typeCase.Numero == (int)NumCase.FORET)
-                return POINT_ATTAQUE + 1;
-            return base.GetAttaqueTerrain(typeCase);
+                return POINT_DEFENSE + 1;
+            return base.GetDefenseTerrain(typeCase);
         }
 
         /// <summary>

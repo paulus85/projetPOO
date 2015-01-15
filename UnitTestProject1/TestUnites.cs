@@ -14,7 +14,7 @@ namespace UnitTestProject1
         private static Unite orc = new UniteOrc(new JoueurImpl("test", (int)NumUnite.ORC));
 
         [TestMethod]
-        public void TestEquals()
+        public void TestEqualsUnites()
         {
             Assert.IsTrue(elf.Equals(elf));
             Assert.IsFalse(nain.Equals(elf));

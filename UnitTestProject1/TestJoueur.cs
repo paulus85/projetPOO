@@ -32,12 +32,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void TestCreatioUnites()
         {
-            this.TestCreatioUnites(elf, typeof(UniteElfe));
-            this.TestCreatioUnites(nain, typeof(UniteNain));
-            this.TestCreatioUnites(orc, typeof(UniteOrc));
+            this.TestCreationUnites(elf, typeof(UniteElfe));
+            this.TestCreationUnites(nain, typeof(UniteNain));
+            this.TestCreationUnites(orc, typeof(UniteOrc));
         }
 
-        private void TestCreatioUnites(Joueur player, Type uniteType)
+        private void TestCreationUnites(Joueur player, Type uniteType)
         {
             List<Unite> unites = player.CreerUnites(2);
             Assert.AreEqual(2, unites.Count);
@@ -48,7 +48,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestEquals()
+        public void TestEqualsJoueur()
         {
             Assert.IsFalse(elf.Equals(nain));
             Assert.IsFalse(nain.Equals(elf));
@@ -58,7 +58,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestNumero()
+        public void TestNumeroJoueur()
         {
             Assert.AreNotEqual(elf.Numero, nain.Numero);
             Assert.AreNotEqual(nain.Numero, orc.Numero);
