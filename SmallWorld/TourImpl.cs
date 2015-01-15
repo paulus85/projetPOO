@@ -210,12 +210,12 @@ namespace SmallWorld
                 if (N >= PctgAttaquant)
                 {
                     uniteAdverse.EnleverPV();
-                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.GetType() + "gagne");
+                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.ToString() + " gagne");
                 }
                 else
                 {
                     unite.EnleverPV();
-                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.GetType() + "perd");
+                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.ToString() + " perd");
                 }
 
                 NbAttaques--;
@@ -231,20 +231,20 @@ namespace SmallWorld
                     {
                         ((UniteElfe)unite).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
-                        resumeCombat.Add(unite.GetType() + " a perdu le combat mais se replie");
+                        resumeCombat.Add(unite.ToString() + " a perdu le combat mais se replie");
                     }
                     else
                     {
                         this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                         this.resDernierCombat = ResultatCombat.PERDU;
-                        resumeCombat.Add(unite.GetType() + " meurt");
+                        resumeCombat.Add(unite.ToString() + " meurt");
                     }
                 }
                 else
                 {
                     this.jeu.Carte.SupprimerUnite(unite, this.positionSelectionne);
                     this.resDernierCombat = ResultatCombat.PERDU;
-                    resumeCombat.Add(unite.GetType() + " meurt");
+                    resumeCombat.Add(unite.ToString() + " meurt");
                 }
             }
             else if (!uniteAdverse.EstEnVie())
@@ -256,20 +256,20 @@ namespace SmallWorld
                     {
                         ((UniteElfe)uniteAdverse).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
-                        resumeCombat.Add(uniteAdverse.GetType() + " a perdu le combat mais se replie");
+                        resumeCombat.Add(uniteAdverse.ToString() + " a perdu le combat mais se replie");
                     }
                     else
                     {
                         this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                         this.resDernierCombat = ResultatCombat.GAGNE;
-                        resumeCombat.Add(uniteAdverse.GetType() + " meurt");
+                        resumeCombat.Add(uniteAdverse.ToString() + " meurt");
                     }
                 }
                 else
                 {
                     this.jeu.Carte.SupprimerUnite(uniteAdverse, this.destination);
                     this.resDernierCombat = ResultatCombat.GAGNE;
-                    resumeCombat.Add(uniteAdverse.GetType() + " meurt");
+                    resumeCombat.Add(uniteAdverse.ToString() + " meurt");
                 }
             }
             else

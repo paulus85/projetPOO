@@ -14,8 +14,8 @@ namespace SmallWorld
         private int numero;
         private static int cpt = 0;
 
-        protected const int POINT_ATTAQUE = 2;
-        protected const int POINT_DEFENSE = 1;
+        protected const double POINT_ATTAQUE = 2;
+        protected const double POINT_DEFENSE = 1;
         protected const int PV_DEFAULT = 5;
         protected const int COUT_DEPLACEMENT = 1;
         protected const int POINTS_DEPLACEMENT_DEFAULT = 1;
@@ -28,12 +28,12 @@ namespace SmallWorld
             get { return this.pointsDeplacementRestant; }
         }
 
-        public int PointsAttaque 
+        public double PointsAttaque 
         {
             get { return POINT_ATTAQUE; }
         }
 
-        public int PointsDefense { 
+        public double PointsDefense { 
             get { return POINT_DEFENSE; } 
         }
 
@@ -154,6 +154,16 @@ namespace SmallWorld
         public override int GetHashCode()
         {
             return this.numero.GetHashCode();
+        }
+
+        /// Redéfinition de la méthode ToString
+        /// </summary>
+        /// <returns></returns>
+        public override String ToString()
+        {
+            String chaine = Convert.ToString(this.GetType());
+            int indice = chaine.IndexOf("SmallWorld.Unite");
+            return chaine.Substring(indice, chaine.Length);
         }
 
         /// <summary>
