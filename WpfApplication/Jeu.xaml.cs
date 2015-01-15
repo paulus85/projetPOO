@@ -123,17 +123,7 @@ namespace WpfApplication
                 juc.refresh(engine.GetNbUnites(juc.Joueur));
             }
 
-            //Unités sur la carte
-            Dictionary<Unite, SmallWorld.Point> dj1 =  engine.Carte.GetUnites(engine.Joueur1);
-            Dictionary<Unite, SmallWorld.Point> dj2 = engine.Carte.GetUnites(engine.Joueur2);
-            foreach (var entry in dj1)
-            {
-                afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
-            }
-            foreach (var entry in dj2)
-            {
-                afficherUnite(entry.Value.x, entry.Value.y, entry.Key);
-            }
+            
 
             //Console interne
             clearConsole();
@@ -155,6 +145,13 @@ namespace WpfApplication
                 for (int j = 0; j < h; j++)
                 {
                     afficherCase(i, j, TabCases[i,j]);
+                    //Affichage de l'unité
+                    SmallWorld.Point pt = new SmallWorld.PointImpl(i, j);
+                    List<Unite> listeUniteCase = engine.Carte.GetUnites(pt);
+                    if (listeUniteCase.Count > 0)
+                    {
+                        afficherUnite(pt, listeUniteCase[0]);
+                    }
                 }
             }
             canvas.Height = 100 * (1 + 0.75 * (h - 1));
@@ -199,12 +196,11 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Affiche une unité.
+        /// Affiche une unité sur une case.
         /// </summary>
-        /// <param name="i">Le numéro de ligne</param>
-        /// <param name="j">Le numéro de colonne</param>
+        /// <param name="p">Le point représentant la case où afficher.</param>
         /// <param name="u">L'unité à afficher</param>
-        public void afficherUnite(int i, int j, Unite u)
+        public void afficherUnite(SmallWorld.Point p, Unite u)
         {
             Button b = new Button();
             b.IsHitTestVisible = false;
@@ -214,8 +210,8 @@ namespace WpfApplication
             }
             b.Background = chooseBackgroundUnite(u);
             b.Focusable = false;
-            b.Content = null;
-            int[] coordCanvas = FromCoordToCanvas(i, j);
+            b.Content = engine.GetNbUnites(p);
+            int[] coordCanvas = FromCoordToCanvas(p.x, p.y);
             Canvas.SetLeft(b, coordCanvas[0]);
             Canvas.SetTop(b, coordCanvas[1]);
             Canvas.SetZIndex(b, 2);
@@ -343,7 +339,14 @@ namespace WpfApplication
                 ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/plaine_ok.png"));
                 ib.Stretch = Stretch.UniformToFill;
                 return ib;
-            }       
+            }
+            else if (c is CaseMarais)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/marais_ok.png"));
+                ib.Stretch = Stretch.UniformToFill;
+                return ib;
+            }
             return null;
         }
 

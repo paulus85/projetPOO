@@ -23,6 +23,10 @@
         </Style>
     </Page.Resources>
 
+    <Page.Background>
+        <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
+    </Page.Background>
+
     <Grid Margin="10,5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
