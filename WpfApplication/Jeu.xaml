@@ -11,37 +11,6 @@
     
    
     <Page.Resources>
-        <Style x:Key="ButtonPolygon" TargetType="{x:Type Button}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type Button}">
-                        <ControlTemplate.Resources>
-                        </ControlTemplate.Resources>
-                        <Grid>
-                            <Path x:Name="polygon" Data="M 250,0 L 750,0 L 1000,433 L 750,866 L 250,866 L 0,433 Z" RenderTransformOrigin="0.05,0.05" Stretch="Fill"  Fill="{TemplateBinding Background}" HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="#FFA6EC42" StrokeThickness="13">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                        <SkewTransform/>
-                                        <RotateTransform Angle="30"/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                                <Path.LayoutTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform ScaleY="0.1" ScaleX="0.1"/>
-                                        <SkewTransform/>
-                                        <RotateTransform/>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </Path.LayoutTransform>
-                            </Path>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Content="{TemplateBinding Content}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
         <Style x:Key="PolygonDemo" TargetType="{x:Type Button}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -192,13 +161,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
-
     </Page.Resources>
+    
     <Page.Background>
         <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
     </Page.Background>
 
-    <DockPanel Focusable="False">
+    <Grid Focusable="False">
+    <DockPanel Focusable="False" x:Name="InterfaceJeu">
         <Grid DockPanel.Dock="Left" Focusable="False">
             <Grid.Background>
                 <SolidColorBrush Color="Azure" Opacity=".5"/>
@@ -209,7 +179,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Width="340" x:Name="wrapUnite">
+            <Grid Grid.Row="0" Width="350" x:Name="wrapUnite">
                 <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged" ItemContainerStyle="{DynamicResource styleLBUnite}" KeyboardNavigation.TabNavigation="Cycle">
                     <ListBox.Background>
                         <SolidColorBrush Color="Transparent"  />
@@ -284,4 +254,10 @@
         </ScrollViewer>
 
     </DockPanel>
+        <StackPanel Orientation="Vertical" x:Name="EcranFin" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="500" Background="Azure">
+            <TextBlock Text="Message" FontSize="20" x:Name="MessageEcranFin" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+            <Button Height="80" Width="220" Click="RecommencerPartie_Click" Style="{StaticResource ButtonWood}" Foreground="White" FontFamily="pack://application:,,,/Ressources/#Hobo Std" FontSize="16" VerticalAlignment="Bottom">Recommencer la partie</Button>
+            <Button Height="80" Width="220" Click="RetourMenu_Click" Style="{StaticResource ButtonWood2}" Foreground="White" FontFamily="pack://application:,,,/Ressources/#Hobo Std" FontSize="16" VerticalAlignment="Bottom">Retour au menu</Button>
+        </StackPanel>
+    </Grid>
 </Page>

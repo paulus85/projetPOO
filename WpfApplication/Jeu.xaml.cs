@@ -16,6 +16,7 @@ using System.Windows.Threading;
 using SmallWorld;
 using System.Collections.ObjectModel;
 using Microsoft.Win32;
+using System.Windows.Media.Effects;
 
 namespace WpfApplication
 {
@@ -485,6 +486,7 @@ namespace WpfApplication
         /// <param name="pt">Le point sous-jacent à la case sélectionné.</param>
         private void selectionChange(SmallWorld.Point pt)
         {
+            Console.WriteLine(pt.ToString());
             if (selectionUniteFaite)
             {
                 bool val = engine.Tour.SetDestination(pt);
@@ -657,9 +659,14 @@ namespace WpfApplication
             undisplaySelection();
             if (engine.FinDuJeu())
             {
+                refreshUI();
+                string message;
                 Joueur winner = engine.Vainqueur();
-                if (winner == null) MessageBox.Show("Match nul! ");
-                else MessageBox.Show("Bravo ! " + Environment.NewLine + "Le gagnant est : " + winner.NomJoueur + " avec " + winner.Points + " points.");
+                if (winner == null) message = "Match nul! ";
+                else message = "Bravo ! " + Environment.NewLine + "Le gagnant est " + winner.NomJoueur + " avec " + winner.Points + " points.";
+                MessageEcranFin.Text = message;
+                InterfaceJeu.Effect = new BlurEffect();
+                EcranFin.Visibility = Visibility.Visible;
             }
             else
             {  
@@ -692,14 +699,14 @@ namespace WpfApplication
             {
                 FindeTour_Click(this, null);
             }
-            else if (e.Key == Key.Right)
+            else if (e.Key == Key.D)
             {
                 //Déplacement du survol vers la droite
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
                 else pointSurvol.y = (pointSurvol.y + 1) % engine.Carte.Taille;
                 displayPolygonSurvole(pointSurvol);
             }
-            else if (e.Key == Key.Left)
+            else if (e.Key == Key.Q)
             {
                 //Déplacement du survol vers la gauche
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
@@ -710,14 +717,14 @@ namespace WpfApplication
                 }
                 displayPolygonSurvole(pointSurvol);
             }
-            else if (e.Key == Key.Down)
+            else if (e.Key == Key.S)
             {
-                //Déplacement du survol vers le haut
+                //Déplacement du survol vers le bas
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
                 else pointSurvol.x = (pointSurvol.x + 1) % engine.Carte.Taille;
                 displayPolygonSurvole(pointSurvol);
             }
-            else if (e.Key == Key.Up)
+            else if (e.Key == Key.Z)
             {
                 //Déplacement du survol vers le haut
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
@@ -730,9 +737,11 @@ namespace WpfApplication
             }
             else if (e.Key == Key.LeftCtrl | e.Key == Key.RightCtrl)
             {
+                Console.WriteLine(pointSurvol.ToString());
                 //Gestion de la sélection 
                 if(pointSurvol != null) selectionChange(pointSurvol);
             }
+
         }
 
 
@@ -799,7 +808,35 @@ namespace WpfApplication
             zoomSlider.Value += (e.Delta > 0) ? 0.1 : -0.1;
 
         }
+
+        /// <summary>
+        /// Gère l'événement de clic sur le bouton Recommencer la partie lors de la fin de la partie.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
+        private void RecommencerPartie_Click(object sender, RoutedEventArgs e)
+        {
+            parent.Content = new NouveauJeu();
+        }
+        /// <summary>
+        /// Gère l'événement de clic sur le bouton Retour au menu lors de la fin de la partie.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
+        private void RetourMenu_Click(object sender, RoutedEventArgs e)
+        {
+            parent.Content = new MenuDebut();
+        }
+
         #endregion events
+
+        //private void Page_PreviewGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        //{
+        //    Console.WriteLine(Keyboard.FocusedElement);
+        //}
+
+
+
 
        
 
