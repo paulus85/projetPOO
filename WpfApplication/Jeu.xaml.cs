@@ -38,6 +38,11 @@ namespace WpfApplication
         private bool selectionUniteFaite = false;
         private SmallWorld.Point pointSelection = null;
         private SmallWorld.Point pointSurvol = null;
+        /// <summary>
+        /// Le timer pour la console interne.
+        /// </summary>
+        private DispatcherTimer messageTimer; 
+
 
         ObservableCollection<UniteUC> listeUniteUC;
         /// <summary>
@@ -126,7 +131,7 @@ namespace WpfApplication
             
 
             //Console interne
-            clearConsole();
+            //clearConsole();
 
         }
 
@@ -396,12 +401,18 @@ namespace WpfApplication
         /// <remarks>Le texte reste à l'écran seulement 3 secondes.</remarks>
         private void ecritureConsole(string p)
         {
-            //consoleInterne.Text = p;
-            consoleInterne.Text = "YOLO \n Yolo";
+            consoleInterne.Text = p + Environment.NewLine;
             Console.WriteLine(p);
-            DispatcherTimer messageTimer = new DispatcherTimer();
-            messageTimer.Tick += new EventHandler(messageTimer_Tick);
-            messageTimer.Interval = new TimeSpan(0, 0, 5);
+            messageTimer.Start();
+        }
+
+        private void ecritureConsole(List<string> list)
+        {
+            foreach (string s in list)
+            {
+                consoleInterne.Text = consoleInterne.Text + s + Environment.NewLine;
+                Console.WriteLine(s);
+            }
             messageTimer.Start();
         }
 
@@ -410,7 +421,7 @@ namespace WpfApplication
         /// </summary>
         private void clearConsole()
         {
-            consoleInterne.Text = "";
+            consoleInterne.Text = null;
         }
 
 
@@ -514,6 +525,8 @@ namespace WpfApplication
                 }
             }
         }
+
+        
 
         /// <summary>
         /// Affiche le polygone de sélection.
@@ -658,6 +671,7 @@ namespace WpfApplication
         private void messageTimer_Tick(object sender, EventArgs e)
         {
             clearConsole();
+            //messageTimer.Stop();
         }
 
 
@@ -727,6 +741,10 @@ namespace WpfApplication
         {
             this.Focusable = true;
             Keyboard.Focus(this);
+            messageTimer = new DispatcherTimer();
+            messageTimer.Tick += new EventHandler(messageTimer_Tick);
+            messageTimer.Interval = new TimeSpan(0, 0, 5);
+
         }
 
         /// <summary>

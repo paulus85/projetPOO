@@ -231,7 +231,7 @@
                     </ListBox.Resources>
                 </ListBox>
             </Grid>
-            <TextBlock Grid.Row="1" x:Name="consoleInterne" TextAlignment="Center" ScrollViewer.CanContentScroll="True" Background="Azure" TextWrapping="Wrap"></TextBlock>
+            <TextBlock Grid.Row="1" x:Name="consoleInterne" TextAlignment="Center" ScrollViewer.CanContentScroll="True" Background="Azure" TextWrapping="Wrap" ></TextBlock>
             <Border  Grid.Row="2" BorderBrush="CadetBlue" BorderThickness="1">
                 <Grid x:Name="listJoueurs">
                     <Grid.ColumnDefinitions>

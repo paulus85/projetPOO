@@ -43,6 +43,7 @@ namespace SmallWorld
             this.jeu = jeu;
             this.joueurCourant = joueurCourant;
             unitesSelectionnes = new List<Unite>();
+            resumeCombat = new List<string>();
         }
 
         /// <summary>
