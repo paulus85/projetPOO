@@ -210,8 +210,8 @@ namespace SmallWorld
             {
                 if (unite.GetType() == typeof(UniteElfe))
                 {
-                    int N = new Random().Next(0, 100);
-                    if (N >= 50)
+                    int N = new Random().Next(2);
+                    if (N == 1)
                     {
                         ((UniteElfe)unite).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;
@@ -232,8 +232,8 @@ namespace SmallWorld
             {
                 if (uniteAdverse.GetType() == typeof(UniteElfe))
                 {
-                    int N = new Random().Next(0, 100);
-                    if (N >= 50)
+                    int N = new Random().Next(2);
+                    if (N == 1)
                     {
                         ((UniteElfe)uniteAdverse).Repli();
                         this.resDernierCombat = ResultatCombat.NUL;

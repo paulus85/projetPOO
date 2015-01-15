@@ -11,6 +11,7 @@ namespace SmallWorld
         private CaseDesert desert;
         private CaseMontagne montagne;
         private CaseForet foret;
+        private CaseMarais marais;
 
         private static FabriqueCase instance = new FabriqueCase();
 
@@ -28,6 +29,7 @@ namespace SmallWorld
             desert = new CaseDesert();
             montagne = new CaseMontagne();
             foret = new CaseForet();
+            marais = new CaseMarais();
         }
 
         /// <summary>
@@ -47,6 +49,8 @@ namespace SmallWorld
                     return this.montagne;
                 case (int)NumCase.FORET:
                     return this.foret;
+                case (int)NumCase.MARAIS:
+                    return this.marais;
                 default:
                     return null;
             }

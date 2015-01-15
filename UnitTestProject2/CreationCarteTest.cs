@@ -22,7 +22,7 @@ namespace UnitTestWrapper
             {
                 for (int j = 0; j < size; j++)
                 {
-                    Assert.IsTrue(map[i][j] <= 3);
+                    Assert.IsTrue(map[i][j] <= 4);
                     Assert.IsTrue(map[i][j] >= 0);
                 }
             }

@@ -29,7 +29,7 @@ namespace SmallWorld
         }
 
         /// <summary>
-        /// Capacité de l'unité elf à pouvoir se replier si elle meurt au combat
+        /// Capacité de l'unité elfe à pouvoir se replier si elle meurt au combat
         /// </summary>
         public void Repli()
         {

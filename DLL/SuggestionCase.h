@@ -45,7 +45,7 @@ private:
 	* \param       *xOffset    le pointeur pou les coodonnées x voisines
 	* \param       *yOffset    le pointeur pou les coodonnées y voisines
 	*/
-	void getVoisin(int x, int *xOffset[6], int *yOffset[6]) const;
+	void getVoisin(int x, int xOffset[6], int yOffset[6]) const;
 
 	/**
 	* \brief       Retourne le score par rapport au point que rapporte une case en fonction du peuple du joueur courant

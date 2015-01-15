@@ -39,7 +39,7 @@ namespace SmallWorld
         /// <param name="info">Données</param>
         /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
-            info.AddValue("Number", 1);
+            info.AddValue("Number", (int)NumCase.DESERT);
         }
     }
 }

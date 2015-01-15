@@ -21,9 +21,16 @@
 * \return      Les points de placement pour les 2 unités
 */
 Point* GenerateurCarte::departUnites(int nbCases) {
+	srand((unsigned int)time(NULL));
 	Point* result = new Point[2];
-	result[0] = Point(0, 0);
-	result[1] = Point(nbCases - 1, nbCases - 1);
+	if (rand() % 2 == 0){
+		result[0] = Point(0, 0);
+		result[1] = Point(nbCases - 1, nbCases - 1);
+	}
+	else {
+		result[0] = Point(0, nbCases - 1);
+		result[1] = Point(nbCases - 1, 0);
+	}
 
 	return result;
 }
@@ -37,7 +44,7 @@ Point* GenerateurCarte::departUnites(int nbCases) {
 Case** GenerateurCarte::genererCarte(int nbCases) {
 	// Initialisation:
 	int val = 0;
-	int controleTab[4] = { 0, 0, 0, 0 };
+	int controleTab[5] = { 0, 0, 0, 0 , 0};
 	Case** carte = new Case*[nbCases];
 	for (int i = 0; i<nbCases; i++) {
 		carte[i] = new Case[nbCases];
@@ -51,9 +58,9 @@ Case** GenerateurCarte::genererCarte(int nbCases) {
 			//Vérifie qu'on a à peu près le même nombre de case de chaque type
 			do
 			{
-				val = rand() % 4;
+				val = rand() % 5;
 				carte[i][j] = (Case)val;
-			} while (controleTab[val] == (int)((nbCases*nbCases) / 4) + 1);
+			} while (controleTab[val] == (int)((nbCases*nbCases) / 5) + 1);
 			controleTab[val]++;
 		}
 	}

@@ -43,15 +43,15 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 	map<Point, int> scores;
 	Point pos = Point(x, y);
 
-	int	*xOffset[6];  
-	int *yOffset[6]; 
+	int xOffset[6];
+	int yOffset[6];
 
 	this->getVoisin(x, xOffset, yOffset);
 
 	switch (peuple){
 		case NAIN:
 			for (int i = 0; i < 6; i++) {
-				Point voisin = Point(*xOffset[i] + x, *yOffset[i] + y);
+				Point voisin = Point(xOffset[i] + x, yOffset[i] + y);
 				if(voisin.estValide(taille))
 				{
 					int score = this->getScoreMouvement(voisin, peuple);
@@ -66,7 +66,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 				for (int i = 0; i < this->taille; i++){
 					for (int j = 0; j < this->taille; j++){
 						Point voisin = Point(i, j);
-						if (voisin.estValide(taille) && voisin.estMontagne(this->carte)){
+						if (voisin.estValide(taille) && voisin.estMontagne(this->carte) && voisin.x != x && voisin.y != y){
 							int score = this->getScoreMouvement(voisin, peuple);
 							score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 							score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
@@ -79,7 +79,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 
 		default:
 			for (int i = 0; i < 6; i++) {
-				Point voisin = Point(*xOffset[i] + pos.x, *yOffset[i] + pos.y);
+				Point voisin = Point(xOffset[i] + pos.x, yOffset[i] + pos.y);
 				if (voisin.estValide(taille))
 				{
 					int score = this->getScoreMouvement(voisin, peuple);
@@ -111,16 +111,15 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 * \param       *xOffset    le pointeur pou les coodonnées x voisines
 * \param       *yOffset    le pointeur pou les coodonnées y voisines
 */
-void SuggestionCase::getVoisin(int x, int *xOffset[6], int *yOffset[6]) const{
+void SuggestionCase::getVoisin(int x, int xOffset[6], int yOffset[6]) const{
+
 	if (x % 2 == 0){
 		int tabX[6] = { -1, -1, 0, 0, 1, 1 };
 		int tabY[6] = { -1, 0, -1, 1, -1, 0 };
 
 		for (int i = 0; i < 6; i++){
-			xOffset[i] = new int;
-			*xOffset[i] = tabX[i];
-			yOffset[i] = new int;
-			*yOffset[i] = tabY[i];
+			xOffset[i] = tabX[i];
+			yOffset[i] = tabY[i];
 		}
 	}
 	else if (x % 2 == 1){
@@ -128,10 +127,8 @@ void SuggestionCase::getVoisin(int x, int *xOffset[6], int *yOffset[6]) const{
 		int tabY[6] = { 0, 1, -1, 1, 0, 1 };
 
 		for (int i = 0; i < 6; i++){
-			xOffset[i] = new int;
-			*xOffset[i] = tabX[i];
-			yOffset[i] = new int;
-			*yOffset[i] = tabY[i];
+			xOffset[i] = tabX[i];
+			yOffset[i] = tabY[i];
 		}
 	}
 }
@@ -197,23 +194,23 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 	int scoresOrc[4] = { 1, 0, 0, 0 }; double deplOrc[4] = { 0.5, 1, 1, 1 };
 	int score = 0;
 	switch (peuple){
-	case ELF:
-		score = scoreElf[square];
-		if (ptsDeplacement < deplElf[square])
-			score = INT_MIN;
-		break;
-	case NAIN:
-		score = scoreNain[square];
-		if (ptsDeplacement < deplNain[square])
-			score = INT_MIN;
-		break;
-	case ORC:
-		score = scoresOrc[square];
-		if (ptsDeplacement < deplOrc[square])
-			score = INT_MIN;
-		break;
-	default:
-		break;
+		case ELF:
+			score = scoreElf[square];
+			if (ptsDeplacement < deplElf[square])
+				score = INT_MIN;
+			break;
+		case NAIN:
+			score = scoreNain[square];
+			if (ptsDeplacement < deplNain[square])
+				score = INT_MIN;
+			break;
+		case ORC:
+			score = scoresOrc[square];
+			if (ptsDeplacement < deplOrc[square])
+				score = INT_MIN;
+			break;
+		default:
+			break;
 	}
 	return score;
 }
