@@ -306,7 +306,7 @@ namespace SmallWorld
         public Double CalculAttaque(Unite unite)
         {
             Double x = ((Double)unite.PointsDeVie / (Double)unite.PvDefault);
-            return Math.Floor(((Double)unite.PointsAttaque * x) * 100);
+            return Math.Floor(((Double)unite.GetAttaqueTerrain(this.jeu.Carte.GetCase(destination)) * x) * 100);
         }
 
         /// <summary>
@@ -317,7 +317,7 @@ namespace SmallWorld
         public Double CalculDefense(Unite unite)
         {
             Double x = ((Double)unite.PointsDeVie / (Double)unite.PvDefault);
-            return Math.Ceiling(((Double)unite.PointsDefense * x) * 100);
+            return Math.Ceiling(((Double)unite.GetDefenseTerrain(this.jeu.Carte.GetCase(destination)) * x) * 100);
         }
 
         /// <summary>

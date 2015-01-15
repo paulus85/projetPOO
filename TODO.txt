@@ -10,7 +10,9 @@
 
 - Mettre nombre unité case en bas des cases
 
-- Régler problème résumé combat (partie GRAPHIQUE -> PAUL !!!!!!!!!!)
+- ZOOOOOMMMMMMMMMMMMMMMM !!!!!!!!!!! (molette..)
+
+- Mettre à jour point attaque/defense coté graphique
 
 ////////////////////////////////
 		MOINS URGENT
