@@ -90,7 +90,7 @@ namespace UnitTestProject1
                             tour.SelectUnites(unitsL, pos);
 
                             Point destination = GetDestination(jeu, pos, unit);
-                            if (destination != null)
+                            if (destination != null && jeu.JoueurCourant.Equals(jeu.Joueur1))
                             {
                                 Assert.IsTrue(jeu.JoueurCourant.Equals(jeu.Joueur1));
                                 Unite enemy;

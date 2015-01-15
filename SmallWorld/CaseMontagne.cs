@@ -41,7 +41,7 @@ namespace SmallWorld
         /// <param name="info">Données</param>
         /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
-            info.AddValue("Number", 3);
+            info.AddValue("Number", (int)NumCase.MONTAGNE);
         }
     }
 }

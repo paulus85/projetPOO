@@ -7,20 +7,20 @@ using System.Text;
 namespace SmallWorld
 {
     [Serializable()]
-    public class CasePlaine : Case
+    public class CaseMarais : Case
     {
         public int Numero
         {
             get
             {
-                return (int)NumCase.PLAINE;
+                return (int)NumCase.MARAIS;
             }
         }
 
         /// <summary>
         /// Constructeur vide
         /// </summary>
-        public CasePlaine()
+        public CaseMarais()
         {
 
         }
@@ -30,7 +30,7 @@ namespace SmallWorld
         /// </summary>
         /// <param name="info">Données</param>
         /// <param name="context">Contexte</param>
-        public CasePlaine(SerializationInfo info, StreamingContext context)
+        public CaseMarais(SerializationInfo info, StreamingContext context)
         {
 
         }
@@ -41,7 +41,7 @@ namespace SmallWorld
         /// <param name="info">Données</param>
         /// <param name="context">Contexte</param>
         public void GetObjectData(SerializationInfo info, StreamingContext context) {
-            info.AddValue("Number", (int)NumCase.PLAINE);
+            info.AddValue("Number", (int)NumCase.MARAIS);
         }        
     }
 }

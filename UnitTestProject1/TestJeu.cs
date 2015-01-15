@@ -32,7 +32,7 @@ namespace UnitTestSmallWorld
             Dictionary<Unite, Point> dico = new Dictionary<Unite, Point>();
             dico = demo.Carte.GetUnites(demo.Joueur1);
             
-            if(demo.JoueurCourant.Equals(demo.Joueur1))
+            if(demo.JoueurCourant.Equals(demo.Joueur1) && demo.GetNbUnites(new PointImpl(0,0)) != 0)
             {
                 ((UniteOrc)demo.Carte.Unites[0, 0][0]).AddPointBonus();
                 demo.FinTour();
@@ -43,7 +43,18 @@ namespace UnitTestSmallWorld
                 demo.FinTour();
                 Assert.IsTrue(demo.Joueur1.Points > 0);
             }
-            else
+            else if (demo.JoueurCourant.Equals(demo.Joueur1) && demo.GetNbUnites(new PointImpl(0, demo.Carte.Taille - 1)) != 0)
+            {
+                ((UniteOrc)demo.Carte.Unites[0, 0][0]).AddPointBonus();
+                demo.FinTour();
+                Assert.IsTrue(demo.Joueur1.Points > 0);
+                demo.FinTour();
+                Assert.AreEqual(demo.Joueur2.Points, 1);
+                demo.Carte.SupprimerUnite(dico.Keys.First(), dico.Values.First());
+                demo.FinTour();
+                Assert.IsTrue(demo.Joueur1.Points > 0);
+            }
+            else if (demo.JoueurCourant.Equals(demo.Joueur2) && demo.GetNbUnites(new PointImpl(demo.Carte.Taille - 1, demo.Carte.Taille - 1)) != 0)
             {
                 demo.FinTour();
                 Assert.AreEqual(demo.Joueur2.Points, 1);
@@ -54,7 +65,6 @@ namespace UnitTestSmallWorld
                 demo.FinTour();
                 Assert.IsTrue(demo.Joueur1.Points > 0);
             }
-            
         }
 
         [TestMethod]

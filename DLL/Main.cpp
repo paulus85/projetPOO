@@ -13,8 +13,6 @@ int main()
 	carte[2][0] = DESERT;
 	carte[2][1] = PLAINE;
 	SuggestionCase generator = SuggestionCase(carte, taille, NAIN, ORC);
-
-
 	Joueur** unites = new Joueur*[taille];
 	for (int i = 0; i < taille; i++)
 	{

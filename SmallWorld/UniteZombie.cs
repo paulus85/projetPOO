@@ -7,15 +7,22 @@ using System.Text;
 namespace SmallWorld
 {
     [Serializable()]
-    public class UniteNain : UniteImpl
+    public class UniteZombie : UniteImpl
     {
+        private int pointBonus;
+
+        public int PointBonus
+        {
+            get { return pointBonus; }
+        }
+
         /// <summary>
         /// Constructeur de l'unité
         /// </summary>
         /// <param name="j">Le joueur auxquel appartient l'unité</param>
-        public UniteNain(Joueur j) : base(j)
+        public UniteZombie(Joueur j) : base(j)
         {
-
+            this.pointBonus = 0;
         }
 
         /// <summary>
@@ -23,12 +30,19 @@ namespace SmallWorld
         /// </summary>
         /// <param name="typeCase">La case où se trouve l'unité</param>
         /// <returns>Le nombre de point</returns>
-        public override int GetPoints(Case typeCase)
-        {
-            if (typeCase.Numero == (int)NumCase.PLAINE)
+        public override int GetPoints(Case typeCase){
+            if (typeCase.Numero == (int)NumCase.FORET)
                 return 0;
             else
                 return 1;
+        }
+
+        /// <summary>
+        /// Ajouter 1 points aux points bonus
+        /// </summary>
+        public void AddPointBonus()
+        {
+            this.pointBonus += 1;
         }
 
         /// <summary>
@@ -45,10 +59,6 @@ namespace SmallWorld
             {
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT / 2
                     && destination.EstJoignable(pointCourant);
-            }
-            else if (caseDest.Numero == (int)NumCase.MONTAGNE && caseCour.Numero == (int)NumCase.MONTAGNE && pointCourant != destination)
-            {
-                return this.pointsDeplacementRestant >= COUT_DEPLACEMENT;
             }
             return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest);
         }

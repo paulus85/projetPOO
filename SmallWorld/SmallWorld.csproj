@@ -82,6 +82,7 @@
     <Compile Include="CaseDesert.cs" />
     <Compile Include="CaseForet.cs" />
     <Compile Include="CaseMontagne.cs" />
+    <Compile Include="CaseMarais.cs" />
     <Compile Include="CasePlaine.cs" />
     <Compile Include="Peuple.cs" />
     <Compile Include="Tour.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="UniteElfe.cs" />
     <Compile Include="UniteImpl.cs" />
     <Compile Include="UniteNain.cs" />
+    <Compile Include="UniteZombie.cs" />
     <Compile Include="UniteOrc.cs" />
   </ItemGroup>
   <ItemGroup>
