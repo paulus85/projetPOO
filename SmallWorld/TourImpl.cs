@@ -101,8 +101,8 @@ namespace SmallWorld
             bool res = true;
             foreach (Unite unite in this.unitesSelectionnes)
             {
-                bool occupé = jeu.Carte.EstPositionEnnemie(destination, unite);
-                if (!unite.ValidationDeplacement(this.positionSelectionne, jeu.Carte.GetCase(this.positionSelectionne), destination, jeu.Carte.GetCase(destination)))
+                bool occupe = jeu.Carte.EstPositionEnnemie(destination, unite);
+                if (!unite.ValidationDeplacement(this.positionSelectionne, jeu.Carte.GetCase(this.positionSelectionne), destination, jeu.Carte.GetCase(destination), occupe))
                 {
                     res = false;
                     break;
@@ -118,16 +118,17 @@ namespace SmallWorld
         }
 
         /// <summary>
-        /// Exécuter le deplacement des unités selectionnés et mener des combats si il y a des unités ennemies sur la destination
+        /// Exécuter le déplacement des unités selectionnés et mener des combats si il y a des unités ennemies sur la destination
         /// </summary>
         public void ExecuterDeplacement()
         {
             for (int i = 0; i < this.unitesSelectionnes.Count; i++)
             {
                 Unite unite = this.unitesSelectionnes[i];
+                bool occupe = jeu.Carte.EstPositionEnnemie(destination, unite);
                 if (this.jeu.Carte.EstPositionEnnemie(this.destination, unite))
                 {
-                    if (!unite.Deplacement(jeu.Carte.GetCase(destination)))
+                    if (!unite.Deplacement(jeu.Carte.GetCase(destination), occupe))
                     {
                         //ne devrait pas arriver
                         //TODO exception
@@ -143,7 +144,7 @@ namespace SmallWorld
                 }
                 else
                 {
-                    if (!unite.Deplacement(jeu.Carte.GetCase(destination)))
+                    if (!unite.Deplacement(jeu.Carte.GetCase(destination), occupe))
                     {
                         //ne devrait pas arriver
                         //TODO exception

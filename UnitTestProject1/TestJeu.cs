@@ -45,7 +45,7 @@ namespace UnitTestSmallWorld
             }
             else if (demo.JoueurCourant.Equals(demo.Joueur1) && demo.GetNbUnites(new PointImpl(0, demo.Carte.Taille - 1)) != 0)
             {
-                ((UniteOrc)demo.Carte.Unites[0, 0][0]).AddPointBonus();
+                ((UniteOrc)demo.Carte.Unites[0, demo.Carte.Taille - 1][0]).AddPointBonus();
                 demo.FinTour();
                 Assert.IsTrue(demo.Joueur1.Points > 0);
                 demo.FinTour();
@@ -58,7 +58,7 @@ namespace UnitTestSmallWorld
             {
                 demo.FinTour();
                 Assert.AreEqual(demo.Joueur2.Points, 1);
-                ((UniteOrc)demo.Carte.Unites[0, 0][0]).AddPointBonus();
+                ((UniteOrc)demo.Carte.Unites[demo.Carte.Taille - 1, demo.Carte.Taille - 1][0]).AddPointBonus();
                 demo.FinTour();
                 Assert.IsTrue(demo.Joueur1.Points > 0);
                 demo.Carte.SupprimerUnite(dico.Keys.First(), dico.Values.First());

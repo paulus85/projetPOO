@@ -19,6 +19,7 @@ namespace SmallWorld
     {
         ELF = 0,
         NAIN,
-        ORC
+        ORC,
+        ZOMBIE
     }
 }

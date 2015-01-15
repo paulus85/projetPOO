@@ -39,14 +39,10 @@ namespace UnitTestWrapper
         private void TestPlacementJoueurs(int size)
         {
             int[][] points =  Wrapper.Wrapper.placementJoueur(size);
-            Assert.AreEqual(points[0][0], 0);
-            Assert.AreEqual(points[0][1], 0);
-            Assert.AreEqual(points[1][0], size-1);
-            Assert.AreEqual(points[1][1], size-1);
+            Assert.IsTrue(points[0][0] >= 0); Assert.IsTrue(points[0][0] < size);
+            Assert.IsTrue(points[0][1] >= 0); Assert.IsTrue(points[0][0] < size);
+            Assert.IsTrue(points[1][0] >= 0); Assert.IsTrue(points[0][0] < size);
+            Assert.IsTrue(points[1][1] >= 0); Assert.IsTrue(points[0][0] < size);
         }
-
-        
-
-
     }
 }

@@ -44,7 +44,7 @@ namespace SmallWorld
         /// <param name="destination">Le point de destination</param>
         /// <param name="caseDest">La case de destination</param>
         /// <returns>Vrai si l'unité peut se déplacer</returns>
-        public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest)
+        public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest, bool occuper)
         {
             if (caseDest.Numero == (int)NumCase.DESERT)
             {
@@ -56,7 +56,7 @@ namespace SmallWorld
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT / 2
                     && destination.EstJoignable(pointCourant);
             }
-            return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest);
+            return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest, occuper);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace SmallWorld
         /// </summary>
         /// <param name="destination">La case de destination du déplacement</param>
         /// <returns>Vrai si tous s'est bien déroulé</returns>
-        public override bool Deplacement(Case destination)
+        public override bool Deplacement(Case destination, bool occupe)
         {
             if (destination.Numero == (int)NumCase.DESERT)
             {
@@ -86,7 +86,7 @@ namespace SmallWorld
                 this.pointsDeplacementRestant -= cout_deplacement;
                 return true;
             }
-            return base.Deplacement(destination);
+            return base.Deplacement(destination, occupe);
         }
     }
 }
