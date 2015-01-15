@@ -16,6 +16,7 @@ using System.Windows.Threading;
 using SmallWorld;
 using System.Collections.ObjectModel;
 using Microsoft.Win32;
+using System.Windows.Media.Effects;
 
 namespace WpfApplication
 {
@@ -658,9 +659,14 @@ namespace WpfApplication
             undisplaySelection();
             if (engine.FinDuJeu())
             {
+                refreshUI();
+                string message;
                 Joueur winner = engine.Vainqueur();
-                if (winner == null) MessageBox.Show("Match nul! ");
-                else MessageBox.Show("Bravo ! " + Environment.NewLine + "Le gagnant est : " + winner.NomJoueur + " avec " + winner.Points + " points.");
+                if (winner == null) message = "Match nul! ";
+                else message = "Bravo ! " + Environment.NewLine + "Le gagnant est " + winner.NomJoueur + " avec " + winner.Points + " points.";
+                MessageEcranFin.Text = message;
+                InterfaceJeu.Effect = new BlurEffect();
+                EcranFin.Visibility = Visibility.Visible;
             }
             else
             {  
@@ -735,6 +741,7 @@ namespace WpfApplication
                 //Gestion de la sélection 
                 if(pointSurvol != null) selectionChange(pointSurvol);
             }
+
         }
 
 
@@ -801,12 +808,35 @@ namespace WpfApplication
             zoomSlider.Value += (e.Delta > 0) ? 0.1 : -0.1;
 
         }
+
+        /// <summary>
+        /// Gère l'événement de clic sur le bouton Recommencer la partie lors de la fin de la partie.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
+        private void RecommencerPartie_Click(object sender, RoutedEventArgs e)
+        {
+            parent.Content = new NouveauJeu();
+        }
+        /// <summary>
+        /// Gère l'événement de clic sur le bouton Retour au menu lors de la fin de la partie.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
+        private void RetourMenu_Click(object sender, RoutedEventArgs e)
+        {
+            parent.Content = new MenuDebut();
+        }
+
         #endregion events
 
-        private void Page_PreviewGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
-        {
-            Console.WriteLine(Keyboard.FocusedElement);
-        }
+        //private void Page_PreviewGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        //{
+        //    Console.WriteLine(Keyboard.FocusedElement);
+        //}
+
+
+
 
        
 

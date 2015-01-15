@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
 	Title="Jeu" Loaded="Page_Loaded" 
-      PreviewKeyDown="Page_PreviewKeyDown" PreviewMouseWheel="Page_MouseWheel" PreviewGotKeyboardFocus="Page_PreviewGotKeyboardFocus">
+      PreviewKeyDown="Page_PreviewKeyDown" PreviewMouseWheel="Page_MouseWheel">
     
    
     <Page.Resources>
@@ -168,7 +168,7 @@
     </Page.Background>
 
     <Grid Focusable="False">
-    <DockPanel Focusable="False">
+    <DockPanel Focusable="False" x:Name="InterfaceJeu">
         <Grid DockPanel.Dock="Left" Focusable="False">
             <Grid.Background>
                 <SolidColorBrush Color="Azure" Opacity=".5"/>
@@ -254,5 +254,10 @@
         </ScrollViewer>
 
     </DockPanel>
+        <StackPanel Orientation="Vertical" x:Name="EcranFin" Visibility="Collapsed" VerticalAlignment="Center" HorizontalAlignment="Center" Height="250" Width="500" Background="Azure">
+            <TextBlock Text="Message" FontSize="20" x:Name="MessageEcranFin" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" />
+            <Button Height="80" Width="220" Click="RecommencerPartie_Click" Style="{StaticResource ButtonWood}" Foreground="White" FontFamily="pack://application:,,,/Ressources/#Hobo Std" FontSize="16" VerticalAlignment="Bottom">Recommencer la partie</Button>
+            <Button Height="80" Width="220" Click="RetourMenu_Click" Style="{StaticResource ButtonWood2}" Foreground="White" FontFamily="pack://application:,,,/Ressources/#Hobo Std" FontSize="16" VerticalAlignment="Bottom">Retour au menu</Button>
+        </StackPanel>
     </Grid>
 </Page>
