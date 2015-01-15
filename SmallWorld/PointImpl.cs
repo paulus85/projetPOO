@@ -126,5 +126,10 @@ namespace SmallWorld
             info.AddValue("x", this.x);
             info.AddValue("y", this.y);
         }
+
+        public override string ToString()
+        {
+            return "" + x + ";" + y;
+        }
     }
 }

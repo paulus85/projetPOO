@@ -37,6 +37,7 @@ namespace WpfApplication
         private bool selectionCaseFaite = false;
         private bool selectionUniteFaite = false;
         private SmallWorld.Point pointSelection = null;
+        private SmallWorld.Point pointSurvol = null;
 
         ObservableCollection<UniteUC> listeUniteUC;
         /// <summary>
@@ -111,28 +112,7 @@ namespace WpfApplication
         /// </summary>
         private void refreshUI()
         {
-            //List<UniteUC> listUniteUC = new List<UniteUC>();
             
-            //SmallWorld.Unite u = new SmallWorld.UniteOrc(null);
-            //UniteUC uniteuc = new UniteUC(u);
-            //ListeUniteUC.Add(uniteuc);
-            //SmallWorld.Unite u1 = new SmallWorld.UniteElfe();
-            //UniteUC uniteuc1 = new UniteUC(u1);
-            //ListeUniteUC.Add(uniteuc1);
-            //SmallWorld.Unite u2 = new SmallWorld.UniteElfe();
-            //UniteUC uniteuc2 = new UniteUC(u2);
-            //ListeUniteUC.Add(uniteuc2);
-            
-            //list.ItemsSource = ListeUniteUC;
-
-            //SmallWorld.Joueur j1 = new SmallWorld.JoueurImpl();
-            //SmallWorld.Joueur j2 = new SmallWorld.JoueurImpl();
-            //JoueurUC uc1 = new JoueurUC(j1,engine.GetNbUnites(j1));
-            //Grid.SetColumn(uc1, 0);
-            //JoueurUC uc2 = new JoueurUC(j2, engine.GetNbUnites(j2));
-            //Grid.SetColumn(uc2, 1);
-            //listJoueurs.Children.Add(uc1); 
-            //listJoueurs.Children.Add(uc2);
             canvas.Children.Clear();
             refreshCarte();
 
@@ -207,6 +187,7 @@ namespace WpfApplication
             }
             b.Background = chooseBackground(c);
             b.Tag = new SmallWorld.PointImpl(i, j);
+            b.Focusable = false;
             b.Click += polygon_MouseClick;
             b.MouseEnter += polygon_MouseEnter;
             int[] coordCanvas = FromCoordToCanvas(i, j);
@@ -232,6 +213,7 @@ namespace WpfApplication
                 b.Style = FindResource("PolygonUnite") as Style;
             }
             b.Background = chooseBackgroundUnite(u);
+            b.Focusable = false;
             b.Content = null;
             int[] coordCanvas = FromCoordToCanvas(i, j);
             Canvas.SetLeft(b, coordCanvas[0]);
@@ -240,7 +222,11 @@ namespace WpfApplication
             canvas.Children.Add(b);
         }
 
-
+        /// <summary>
+        /// Affiche les suggestions de cases
+        /// </summary>
+        /// <param name="u">L'unité qui doit se déplacer.</param>
+        /// <param name="p">Le point où se trouve l'unité.</param>
         public void afficherSuggestions(Unite u, SmallWorld.Point p)
         {
             masquerSuggestions();
@@ -252,7 +238,6 @@ namespace WpfApplication
                 if (FindResource("PolygonSuggestion") != null)
                 {
                     b.Style = FindResource("PolygonSuggestion") as Style;
-                    Console.WriteLine("ok ressource");
                 }
                 int[] coordCanvas = FromCoordToCanvas(pt.x, pt.y);
                 Canvas.SetLeft(b, coordCanvas[0]);
@@ -261,7 +246,9 @@ namespace WpfApplication
                 canvas1.Children.Add(b);
             }
         }
-
+        /// <summary>
+        /// Masque les suggestions.
+        /// </summary>
         public void masquerSuggestions()
         {
             canvas1.Children.Clear();
@@ -270,11 +257,11 @@ namespace WpfApplication
 
         #region Translation
         /// <summary>
-        /// Translates line and column number to TOP and LEFT value for the canvas.
+        /// Traduit les numéros de ligne et colonne en valeurs Top et Left pour le canvas.
         /// </summary>
-        /// <param name="i">The i.</param>
-        /// <param name="j">The j.</param>
-        /// <returns>The table with correct values. res[0] = left ; res[1] = top</returns>
+        /// <param name="i">Le numéro de ligne</param>
+        /// <param name="j">Le numéro de colonne</param>
+        /// <returns>La table avec les valeurs correctes. res[0] = left ; res[1] = top</returns>
         private int[] FromCoordToCanvas(int i, int j)
         {
             int[] res = new int[2];
@@ -296,11 +283,11 @@ namespace WpfApplication
       
 
         /// <summary>
-        /// Froms the canvas to coord.
+        /// Traduit les valeurs Top et Left du canvas en numéros de ligne/colonne
         /// </summary>
-        /// <param name="left">The left.</param>
-        /// <param name="top">The top.</param>
-        /// <returns>A table with line number in [0] and column number in [1]</returns>
+        /// <param name="left">La valeur Left du canvas</param>
+        /// <param name="top">La valeur Top du canvas</param>
+        /// <returns>Un tableau avec le numéro de ligne en [0] et le numéro de colonne en [1]</returns>
         public int[] FromCanvasToCoord(double left, double top)
         {
             int[] res = new int[2];
@@ -323,9 +310,10 @@ namespace WpfApplication
 
         /// <summary>
         /// Chooses the background for a type of case 
+        /// Choisit le fond selon le type de la case
         /// </summary>
-        /// <param name="s">The type of case.</param>
-        /// <returns>The appropriate background</returns>
+        /// <param name="c">La case dont il faut le fond</param>
+        /// <returns>L'<see cref="ImageBrush"/> adapté selon la case</returns>
         private ImageBrush chooseBackground(SmallWorld.Case c)
         {
             if (c is CaseDesert)
@@ -387,22 +375,9 @@ namespace WpfApplication
                     }
         }
 
-        //public void creerCarte()
-        //{
-        //    SmallWorld.CarteImpl carte = SmallWorld.CarteImpl.Instance;
-        //    carte.instanciateCasesTab(2, 2);
-        //    carte.Cases[1, 1] = carte.fabrique.creerDesert();
-        //    carte.Cases[0, 0] = carte.fabrique.creerDesert();
-        //    Rectangle rec = new Rectangle();
-        //    //canvas.Children.Add(new Rectangle())
-        //    rec.Height = 10;
-        //    rec.Width = 20;
-        //    rec.Stroke = Brushes.Aqua;
-        //    canvas.Children.Add(rec);
-        //}
 
         /// <summary>
-        /// Method to refresh correctly the UI for each new Tour
+        /// Rafraichit l'interface à chaque nouveau tour
         /// </summary>
         private void NouveauTour()
         {
@@ -412,10 +387,10 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Allows to write a text in the console displayed in game.
+        /// Permet d'écrire un texte dans la console intégrée.
         /// </summary>
-        /// <param name="p">The p.</param>
-        /// <exception cref="System.NotImplementedException"></exception>
+        /// <param name="p">La chaine de caractère à écrire.</param>
+        /// <remarks>Le texte reste à l'écran seulement 3 secondes.</remarks>
         private void ecritureConsole(string p)
         {
             console.Text = p;
@@ -425,6 +400,9 @@ namespace WpfApplication
             messageTimer.Start();
         }
 
+        /// <summary>
+        /// Vide la console intégrée.
+        /// </summary>
         private void clearConsole()
         {
             console.Text = "";
@@ -437,69 +415,88 @@ namespace WpfApplication
        
 
         /// <summary>
-        /// Handles the MouseEnter event of the polygon control.
+        /// Gère l'événement MouseEnter sur le polygone de la carte
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseEventArgs" /> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="MouseEventArgs" /> qui contient les données de l'événement</param>
         void polygon_MouseEnter(object sender, MouseEventArgs e)
         {
             FrameworkElement ender = sender as FrameworkElement;
-            double top = (double)ender.GetValue(Canvas.TopProperty);
-            //Console.Write(top);
-            double left = (double)ender.GetValue(Canvas.LeftProperty);
-            //Console.WriteLine(" " + left);
-            int[] coord = FromCanvasToCoord(left, top);
-            Console.Write("coordLineColumn : ");
-            Console.Write("" + coord[0]);
-            Console.WriteLine(" ; " + coord[1]);
+            SmallWorld.Point point = (sender as Button).Tag as SmallWorld.Point;
+            pointSurvol = point;
+            displayPolygonSurvole(point);
+            //double top = (double)ender.GetValue(Canvas.TopProperty);
+            //double left = (double)ender.GetValue(Canvas.LeftProperty);
+
+            //int[] coord = FromCanvasToCoord(left, top);
+            //Console.Write("coordLineColumn : ");
+            //Console.Write("" + coord[0]);
+            //Console.WriteLine(" ; " + coord[1]);
+            //Canvas.SetTop(PolygonSurvole, top);
+            //Canvas.SetLeft(PolygonSurvole, left);
+            //PolygonSurvole.Visibility = Visibility.Visible;
+            e.Handled = true;
+        }
+
+        private void displayPolygonSurvole(SmallWorld.Point point)
+        {
+            int[] canvasCoord = FromCoordToCanvas(point.x, point.y);
+            double top = canvasCoord[1];
+            double left = canvasCoord[0];
             Canvas.SetTop(PolygonSurvole, top);
             Canvas.SetLeft(PolygonSurvole, left);
             PolygonSurvole.Visibility = Visibility.Visible;
-            e.Handled = true;
-            Console.WriteLine("MouseEnter");
         }
 
+        /// <summary>
+        /// Gère l'événement MouseClick sur le polygone de la carte
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void polygon_MouseClick(object sender, RoutedEventArgs e)
         {
             SmallWorld.Point point = (sender as Button).Tag as SmallWorld.Point;
+            selectionChange(point);
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Méthode de changement de sélection de cases.
+        /// </summary>
+        /// <param name="pt">Le point sous-jacent à la case sélectionné.</param>
+        private void selectionChange(SmallWorld.Point pt)
+        {
             if (selectionUniteFaite)
             {
-                bool val = engine.Tour.SetDestination(point);
-                if (val) {
+                bool val = engine.Tour.SetDestination(pt);
+                if (val)
+                {
                     engine.Tour.ExecuterDeplacement();
-                    polygon_NoSelection(sender, null);
+                    undisplaySelection();
                     refreshUI();
                 }
                 else
                 {
                     ecritureConsole("Déplacement impossible");
-                    Console.WriteLine("Déplacement impossible");
-                    polygon_NoSelection(sender, null);
+                    undisplaySelection();
                 }
 
             }
             else
             {
-                if (selectionCaseFaite && this.pointSelection.Equals(point))
+                if (selectionCaseFaite && this.pointSelection.Equals(pt))
                 {
                     //Déselection
-                    polygon_NoSelection(sender, null);
+                    undisplaySelection();
                 }
                 else
                 {
-                    PolygonSurvole.Visibility = Visibility.Hidden;
-                    FrameworkElement ender = sender as FrameworkElement;
-                    double top = (double)ender.GetValue(Canvas.TopProperty);
-                    double left = (double)ender.GetValue(Canvas.LeftProperty);
-                    Canvas.SetTop(PolygonSelection, top);
-                    Canvas.SetLeft(PolygonSelection, left);
-                    PolygonSelection.Visibility = Visibility.Visible;
-                    this.pointSelection = point;
+                    this.pointSelection = pt;
+                    displayPolygonSelection(pt);
                     selectionCaseFaite = true;
-                    e.Handled = true;
                     Console.WriteLine("Polygon_mouseClick");
                     //Mise à jour de la liste d'unités
-                    List<Unite> listUnites = engine.Carte.GetUnites(point);
+                    List<Unite> listUnites = engine.Carte.GetUnites(pt);
                     ListeUniteUC.Clear();
                     foreach (Unite u in listUnites)
                     {
@@ -511,11 +508,41 @@ namespace WpfApplication
             }
         }
 
-        
+        /// <summary>
+        /// Affiche le polygone de sélection.
+        /// </summary>
+        /// <param name="point">Le point sous-jacent à la case sélectionné.</param>
+        private void displayPolygonSelection(SmallWorld.Point point)
+        {
+            PolygonSurvole.Visibility = Visibility.Hidden;
+            int[] canvasCoord = FromCoordToCanvas(point.x, point.y);
+            double top = canvasCoord[1];
+            double left = canvasCoord[0];
+            Canvas.SetTop(PolygonSelection, top);
+            Canvas.SetLeft(PolygonSelection, left);
+            PolygonSelection.Visibility = Visibility.Visible;
+            Console.WriteLine("Point Sélection : " + point.ToString());
+        }
 
-      
 
+
+
+
+        /// <summary>
+        /// Gère l'événement de déselection d'un polygone.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="MouseButtonEventArgs" /> qui contient les données de l'événement</param>
         private void polygon_NoSelection(object sender, MouseButtonEventArgs e)
+        {
+            undisplaySelection();
+            e.Handled = true;
+        }
+
+        /// <summary>
+        /// Efface le polygone de sélection de case.
+        /// </summary>
+        private void undisplaySelection()
         {
             PolygonSelection.Visibility = Visibility.Hidden;
             this.pointSelection = null;
@@ -527,20 +554,21 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Handles the MouseLeave event of the canvas control. Allows to mask the selection Polygon.
+        /// Gère l'événement MouseLeave du canvas. Permet de masquer le polygone de sélection.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="MouseEventArgs" /> qui contient les données de l'événement</param>
         private void canvas_MouseLeave(object sender, MouseEventArgs e)
         {
             PolygonSurvole.Visibility = Visibility.Hidden;
+            pointSurvol = null;
         }
 
         /// <summary>
-        /// Handles the PreviewMouseDown event of the list control. Allows to deselect an item from the UniteUC listBox with one click only.
+        /// Gère l'événement PreviewMouseDown sur la liste des unités. Permet de déselectionner un item de la listBox d'UniteUC avec juste un seul clic.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseButtonEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="MouseButtonEventArgs" /> qui contient les données de l'événement</param>
         private void list_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             DependencyObject dep = (DependencyObject)e.OriginalSource;
@@ -561,10 +589,10 @@ namespace WpfApplication
 
 
         /// <summary>
-        /// Handles the SelectionChanged event of the list control.
+        /// Gère l'événement SelectionChanged de la liste d'unités. Permet de contrôler les unités et de préparer les méthodes de changements de position.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="SelectionChangedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="SelectionChangedEventArgs" /> qui contient les données de l'événement</param>
         private void list_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             engine.Tour.UnselectUnites();
@@ -580,13 +608,6 @@ namespace WpfApplication
             {
                 selectionUniteFaite = true;
             }
-            //foreach (UniteUC uuc in listUC)
-            //{
-            //    if (uuc.Unite.PointsDeplacementRestant > 0)
-            //    {
-            //        listUCvalide.Add(uuc);
-            //    }
-            //}
             foreach (UniteUC uuc in listUC)
             {
                 listUnitesSelectionnees.Add(uuc.Unite);
@@ -602,6 +623,11 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Gère l'événement Click sur le bouton Fin de Tour.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void FindeTour_Click(object sender, RoutedEventArgs e)
         {
             if (engine.FinDuJeu())
@@ -616,6 +642,11 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Gère l'événement Tick sur le contrôle messageTimer. Est appelée à chaque tic du timer de la console intégrée, et efface le contenu de la console.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="EventArgs" /> qui contient les données de l'événement</param>
         private void messageTimer_Tick(object sender, EventArgs e)
         {
             clearConsole();
@@ -624,21 +655,77 @@ namespace WpfApplication
 
 
 
-        private void Page_KeyDown(object sender, KeyEventArgs e)
+        /// <summary>
+        /// Gère l'événement PreviewKeyDown de la page. Exécute les commandes associées à chaque appui de touche.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="KeyEventArgs" /> qui contient les données de l'événement</param>
+        private void Page_PreviewKeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
                 FindeTour_Click(this, null);
             }
+            else if (e.Key == Key.Right)
+            {
+                //Déplacement du survol vers la droite
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else pointSurvol.y = (pointSurvol.y + 1) % engine.Carte.Taille;
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.Left)
+            {
+                //Déplacement du survol vers la gauche
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else
+                {
+                    if (pointSurvol.y == 0) pointSurvol.y = engine.Carte.Taille - 1;
+                    else pointSurvol.y--;
+                }
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.Down)
+            {
+                //Déplacement du survol vers le haut
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else pointSurvol.x = (pointSurvol.x + 1) % engine.Carte.Taille;
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.Up)
+            {
+                //Déplacement du survol vers le haut
+                if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
+                else
+                {
+                    if (pointSurvol.x == 0) pointSurvol.x = engine.Carte.Taille - 1;
+                    else pointSurvol.x--;
+                }
+                displayPolygonSurvole(pointSurvol);
+            }
+            else if (e.Key == Key.LeftCtrl | e.Key == Key.RightCtrl)
+            {
+                //Gestion de la sélection 
+                if(pointSurvol != null) selectionChange(pointSurvol);
+            }
         }
-            
 
+
+        /// <summary>
+        /// Gère l'événement PageLoaded de la page. Se lance dès que la page avec le jeu est chargée.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            this.Focus();
-            this.KeyDown += Page_KeyDown;
+            this.Focusable = true;
+            Keyboard.Focus(this);
         }
 
+        /// <summary>
+        /// Gère l'événement Click sur le bouton Sauvegarde. Enclenche les mécanismes de sauvegarde du jeu.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void Sauvegarde_Click(object sender, RoutedEventArgs e)
         {
             SaveFileDialog sfd = new SaveFileDialog();
@@ -650,6 +737,11 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Gère l'événement Click sur le bouton Menu. Quitte le jeu et affiche le menu principal.
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void Menu_Click(object sender, RoutedEventArgs e)
         {
             String messageBoxMessage = "Êtes-vous sûr de vouloir revenir au menu principal ? \nLes changements non sauvegardés ne seront pas conservés.";

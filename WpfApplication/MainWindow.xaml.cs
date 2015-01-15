@@ -27,5 +27,11 @@ namespace WpfApplication
             InitializeComponent();
             this.Content = new MenuDebut();
         }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            
+        }
     }
 }
