@@ -57,6 +57,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 					int score = this->getScoreMouvement(voisin, peuple);
 					score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 					score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
+					score += getScoreBonusAttaqueDefense(voisin, peuple);
 					scores.insert(make_pair(voisin, score));
 				}
 			}
@@ -70,6 +71,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 							int score = this->getScoreMouvement(voisin, peuple);
 							score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 							score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
+							score += getScoreBonusAttaqueDefense(voisin, peuple);
 							scores.insert(make_pair(voisin, score));
 						}
 					}
@@ -85,6 +87,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 					int score = this->getScoreMouvement(voisin, peuple);
 					score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 					score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
+					score += getScoreBonusAttaqueDefense(voisin, peuple);
 					scores.insert(make_pair(voisin, score));
 				}
 			}
@@ -112,7 +115,6 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 * \param       *yOffset    le pointeur pou les coodonnées y voisines
 */
 void SuggestionCase::getVoisin(int x, int xOffset[6], int yOffset[6]) const{
-
 	if (x % 2 == 0){
 		int tabX[6] = { -1, -1, 0, 0, 1, 1 };
 		int tabY[6] = { -1, 0, -1, 1, -1, 0 };
@@ -172,21 +174,21 @@ int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peupl
 	}
 
 	switch (peuple){
-	case ORC:
-		//Avec le point bonus l'orc devrait attaquer
-		if (occupant != NONE){
-			return 2; break;
-		}
-		return 0; break;
-	case ZOMBIE:
-		//Avec sa capacité à attaquer 2 fois le zombie devrait attaquer
-		if (occupant != NONE){
-			return 2; break;
-		}
-		return 0; break;
+		case ORC:
+			//Avec le point bonus l'orc devrait attaquer
+			if (occupant != NONE){
+				return 2; break;
+			}
+			return 0; break;
+		case ZOMBIE:
+			//Avec sa capacité à attaquer 2 fois le zombie devrait attaquer
+			if (occupant != NONE){
+				return 2; break;
+			}
+			return 0; break;
 
-	default:
-		return 0; break;
+		default:
+			return 0; break;
 	}
 }
 
@@ -223,6 +225,37 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 			score = scoresZombie[square];
 			if (ptsDeplacement < deplZombie[square])
 				score = INT_MIN;
+			break;
+		default:
+			break;
+	}
+	return score;
+}
+
+/**
+* \brief       Retourne le score par rapport au bonus terrain qui varie l'attaque et la défense de l'unité
+* \param       dest				Le point de destination
+* \param       peuple           Le peuple du joueur courant
+*/
+int SuggestionCase::getScoreBonusAttaqueDefense(Point dest, Peuple peuple) const {
+	Case square = this->carte[dest.x][dest.y];
+	int scoreElf[5] = { 0, 0, 0, 1, -1 };
+	int scoreNain[5] = { -1, 0, 1, 0, 0 };
+	int scoresOrc[5] = { 1, 0, 0, -1, 0 };
+	int scoresZombie[5] = { 0, 0, -1, 0, 1 };
+	int score = 0;
+	switch (peuple){
+		case ELF:
+			score = scoreElf[square];
+			break;
+		case NAIN:
+			score = scoreNain[square];
+			break;
+		case ORC:
+			score = scoresOrc[square];
+			break;
+		case ZOMBIE:
+			score = scoresZombie[square];
 			break;
 		default:
 			break;

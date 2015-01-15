@@ -5,25 +5,25 @@ using SmallWorld;
 namespace UnitTestProject1
 {
     [TestClass]
-    public class TestElf
+    public class TestElfe
     {
-        private static Joueur joueurElf = new JoueurImpl("test", (int)NumUnite.ELF);
-        private static Unite elf = new UniteElfe(joueurElf);
+        private static Joueur joueurElfe = new JoueurImpl("test", (int)NumUnite.ELF);
+        private static Unite elfe = new UniteElfe(joueurElfe);
 
         [TestMethod]
-        public void TestCanMoveElf()
+        public void TestCanMoveElfe()
         {
-            Assert.IsTrue(elf.ValidationDeplacement(new PointImpl(0, 0), new CasePlaine(), new PointImpl(0, 1), new CaseForet(), false));
+            Assert.IsTrue(elfe.ValidationDeplacement(new PointImpl(0, 0), new CasePlaine(), new PointImpl(0, 1), new CaseForet(), false));
         }
 
         [TestMethod]
-        public void TestGetPoints()
+        public void TestGetPointsElfe()
         {
-            Assert.AreEqual(1, elf.GetPoints(new CaseForet()));
-            Assert.AreEqual(1, elf.GetPoints(new CaseDesert()));
-            Assert.AreEqual(1, elf.GetPoints(new CaseMontagne()));
-            Assert.AreEqual(1, elf.GetPoints(new CasePlaine()));
-            Assert.AreEqual(1, elf.GetPoints(new CaseMarais()));
+            Assert.AreEqual(1, elfe.GetPoints(new CaseForet()));
+            Assert.AreEqual(1, elfe.GetPoints(new CaseDesert()));
+            Assert.AreEqual(1, elfe.GetPoints(new CaseMontagne()));
+            Assert.AreEqual(1, elfe.GetPoints(new CasePlaine()));
+            Assert.AreEqual(1, elfe.GetPoints(new CaseMarais()));
         }
     }
 }

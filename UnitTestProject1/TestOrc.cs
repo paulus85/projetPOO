@@ -17,7 +17,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestGetPoints()
+        public void TestGetPointsOrc()
         {
             Assert.AreEqual(0, nain.GetPoints(new CaseForet()));
             Assert.AreEqual(1, nain.GetPoints(new CaseDesert()));

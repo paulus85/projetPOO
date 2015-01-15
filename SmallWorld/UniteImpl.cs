@@ -14,8 +14,8 @@ namespace SmallWorld
         private int numero;
         private static int cpt = 0;
 
-        protected const double POINT_ATTAQUE = 2;
-        protected const double POINT_DEFENSE = 1;
+        protected const int POINT_ATTAQUE = 3;
+        protected const int POINT_DEFENSE = 2;
         protected const int PV_DEFAULT = 5;
         protected const int COUT_DEPLACEMENT = 1;
         protected const int POINTS_DEPLACEMENT_DEFAULT = 1;
@@ -28,12 +28,12 @@ namespace SmallWorld
             get { return this.pointsDeplacementRestant; }
         }
 
-        public double PointsAttaque 
+        public int PointsAttaque 
         {
             get { return POINT_ATTAQUE; }
         }
 
-        public double PointsDefense { 
+        public int PointsDefense { 
             get { return POINT_DEFENSE; } 
         }
 
@@ -132,38 +132,23 @@ namespace SmallWorld
         }
 
         /// <summary>
-        /// Redéfinition de la méthode Equals d'une unité
+        /// Récupérer les points d'attaques en fonction du terrain
         /// </summary>
-        /// <param name="obj">L'unité comparé</param>
-        /// <returns>Vrai si les 2 unités sont égales</returns>
-        public override bool Equals(Object obj)
+        /// <param name="unite">La case visée</param>
+        /// <returns>L'attaque de l'unité</returns>
+        public virtual int GetAttaqueTerrain(Case typeCase)
         {
-            if (obj == null || GetType() != obj.GetType())
-            {
-                return false;
-            }
-            Unite unit = (Unite)obj;
-            return this.numero == unit.Numero;
+            return POINT_ATTAQUE;
         }
 
         /// <summary>
-        /// Redéfinition de la méthode GetHashCode
-        /// (Nécessaire pour redéfinir la méthode Equals)
+        /// Récupérer les points de défenses en fonction du terrain
         /// </summary>
-        /// <returns></returns>
-        public override int GetHashCode()
+        /// <param name="unite">La case visée</param>
+        /// <returns>La défense de l'unité</returns>
+        public virtual int GetDefenseTerrain(Case typeCase)
         {
-            return this.numero.GetHashCode();
-        }
-
-        /// Redéfinition de la méthode ToString
-        /// </summary>
-        /// <returns></returns>
-        public override String ToString()
-        {
-            String chaine = Convert.ToString(this.GetType());
-            int indice = chaine.IndexOf("SmallWorld.Unite");
-            return chaine.Substring(indice, chaine.Length);
+            return POINT_DEFENSE;
         }
 
         /// <summary>
@@ -196,5 +181,42 @@ namespace SmallWorld
             info.AddValue("Proprio", this.proprio);
             info.AddValue("Numero", this.numero);
         }
+
+    /// <summary>
+        /// Redéfinition de la méthode Equals d'une unité
+        /// </summary>
+        /// <param name="obj">L'unité comparé</param>
+        /// <returns>Vrai si les 2 unités sont égales</returns>
+        public override bool Equals(Object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+            Unite unit = (Unite)obj;
+            return this.numero == unit.Numero;
+        }
+
+        /// <summary>
+        /// Redéfinition de la méthode GetHashCode
+        /// (Nécessaire pour redéfinir la méthode Equals)
+        /// </summary>
+        /// <returns></returns>
+        public override int GetHashCode()
+        {
+            return this.numero.GetHashCode();
+        }
+
+        /// <summary>
+        /// Redéfinition de la méthode ToString
+        /// </summary>
+        /// <returns></returns>
+        public override String ToString()
+        {
+            String chaine = Convert.ToString(this.GetType());
+            int indice = chaine.IndexOf("SmallWorld.Unite");
+            return chaine.Substring(indice, chaine.Length);
+        }
+
     }
 }

@@ -93,5 +93,7 @@ public:
 	* \return      Les points suggérés
 	*/
 	EXTERNC DLL Point* getSuggestion(int x, int y, Joueur** unites, double** ptsDeplacement, Joueur joueur) const;
+
+	EXTERNC DLL int SuggestionCase::getScoreBonusAttaqueDefense(Point dest, Peuple peuple) const;
 };
 

@@ -17,7 +17,7 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void TestGetPoints()
+        public void TestGetPointsZombie()
         {
             Assert.AreEqual(1, zombie.GetPoints(new CaseForet()));
             Assert.AreEqual(0, zombie.GetPoints(new CaseDesert()));

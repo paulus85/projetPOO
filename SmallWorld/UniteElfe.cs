@@ -37,6 +37,34 @@ namespace SmallWorld
         }
 
         /// <summary>
+        /// Récupérer les points d'attaques en fonction du terrain
+        /// </summary>
+        /// <param name="unite">La case visée</param>
+        /// <returns>L'attaque de l'unité</returns>
+        public override int GetAttaqueTerrain(Case typeCase)
+        {
+            if (typeCase.Numero == (int)NumCase.MARAIS)
+                return POINT_ATTAQUE - 1;
+            if (typeCase.Numero == (int)NumCase.FORET)
+                return POINT_ATTAQUE + 1;
+            return base.GetAttaqueTerrain(typeCase);
+        }
+
+        /// <summary>
+        /// Récupérer les points de défenses en fonction du terrain
+        /// </summary>
+        /// <param name="unite">La case visée</param>
+        /// <returns>La défense de l'unité</returns>
+        public override int GetDefenseTerrain(Case typeCase)
+        {
+            if (typeCase.Numero == (int)NumCase.MARAIS)
+                return POINT_ATTAQUE - 1;
+            if (typeCase.Numero == (int)NumCase.FORET)
+                return POINT_ATTAQUE + 1;
+            return base.GetAttaqueTerrain(typeCase);
+        }
+
+        /// <summary>
         /// Valider le déplacement d'une unité 
         /// </summary>
         /// <param name="pointCourant">Le point de départ</param>
