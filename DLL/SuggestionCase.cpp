@@ -179,6 +179,7 @@ int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peupl
 		}
 		return 0; break;
 	case ZOMBIE:
+		//Avec sa capacité à attaquer 2 fois le zombie devrait attaquer
 		if (occupant != NONE){
 			return 2; break;
 		}
@@ -200,7 +201,7 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 	int scoreElf[5] = { 0, -1, 0, 1, 0 }; double deplElf[5] = { 1, 2, 1, 0.5, 1 };
 	int scoreNain[5] = { 1, 0, 1, 0, 0 }; double deplNain[5] = { 0.5, 1, 1, 1, 1 };
 	int scoresOrc[5] = { 1, 0, 0, 0, 0 }; double deplOrc[5] = { 0.5, 1, 1, 1, 1 };
-	int scoresZombie[5] = { 0, 0, 0, 0, 1 }; double deplZOmbie[5] = { 1, 1, 1, 1, 0.5 };
+	int scoresZombie[5] = { 0, 0, 0, 0, 1 }; double deplZombie[5] = { 1, 1, 1, 1, 0.5 };
 	int score = 0;
 	switch (peuple){
 		case ELF:
@@ -216,6 +217,11 @@ int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peupl
 		case ORC:
 			score = scoresOrc[square];
 			if (ptsDeplacement < deplOrc[square])
+				score = INT_MIN;
+			break;
+		case ZOMBIE:
+			score = scoresZombie[square];
+			if (ptsDeplacement < deplZombie[square])
 				score = INT_MIN;
 			break;
 		default:

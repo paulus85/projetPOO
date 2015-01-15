@@ -218,6 +218,7 @@ namespace SmallWorld
                 }
 
                 NbAttaques--;
+                round++;
             }
 
             if (!unite.EstEnVie())
