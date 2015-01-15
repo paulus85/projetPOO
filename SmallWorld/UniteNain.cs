@@ -39,18 +39,18 @@ namespace SmallWorld
         /// <param name="destination">Le point de destination</param>
         /// <param name="caseDest">La case de destination</param>
         /// <returns>Vrai si l'unité peut se déplacer</returns>
-        public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest, bool occuper)
+        public override bool ValidationDeplacement(Point pointCourant, Case caseCour, Point destination, Case caseDest, bool occupé)
         {
             if (caseDest.Numero == (int)NumCase.PLAINE)
             {
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT / 2
                     && destination.EstJoignable(pointCourant);
             }
-            else if (caseDest.Numero == (int)NumCase.MONTAGNE && caseCour.Numero == (int)NumCase.MONTAGNE && pointCourant != destination)
+            else if (caseDest.Numero == (int)NumCase.MONTAGNE && caseCour.Numero == (int)NumCase.MONTAGNE && pointCourant != destination && !occupé)
             {
                 return this.pointsDeplacementRestant >= COUT_DEPLACEMENT;
             }
-            return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest, occuper);
+            return base.ValidationDeplacement(pointCourant, caseCour, destination, caseDest, occupé);
         }
 
         /// <summary>
