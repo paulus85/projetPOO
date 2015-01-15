@@ -6,12 +6,12 @@
 	mc:Ignorable="d"
 	x:Class="WpfApplication.UniteUC"
 	x:Name="UniteUserControl"
-	d:DesignWidth="150" d:DesignHeight="100" Margin="2">
+	d:DesignWidth="155" d:DesignHeight="100" Margin="2">
 	<UserControl.Triggers>
 		
 	</UserControl.Triggers>
 
-    <Grid x:Name="LayoutRoot" Height="90" Width="150">
+    <Grid x:Name="LayoutRoot" Height="90" Width="155">
     	<VisualStateManager.VisualStateGroups>
     		<VisualStateGroup x:Name="VisualStateGroup"/>
     	</VisualStateManager.VisualStateGroups>

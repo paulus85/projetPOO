@@ -31,15 +31,15 @@
         					<RadioButton Style="{StaticResource RadioButtonMenu}" Tag="elfe" GroupName="{TemplateBinding GroupName}">
         						<Grid>
         							<Grid.RowDefinitions>
-        								<RowDefinition Height="200"/>
+        								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
         								<RowDefinition Height="*"/>
         							</Grid.RowDefinitions>
         							<Image Grid.Row="0" Source="pack://application:,,,/Ressources/peupleElf.png" Stretch="Uniform" Margin="0,0,0,5"/>
         							<StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Coût de déplacement sur case Forêt divisé par 2"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Coût de déplacement sur case Désert multiplié par 2"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="50% de chance de se replier lors d'un combat"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Forêt divisé par 2"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Désert multiplié par 2"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="50% de chance de se replier lors d'un combat"/></TextBlock>
         							</StackPanel>
         						</Grid>
         					</RadioButton>
@@ -58,15 +58,15 @@
                             <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="nain" GroupName="{TemplateBinding GroupName}">
         						<Grid>
         							<Grid.RowDefinitions>
-        								<RowDefinition Height="200"/>
+        								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
         								<RowDefinition Height="*"/>
         							</Grid.RowDefinitions>
         							<Image Grid.Row="0" Source="pack://application:,,,/Ressources/peupleNain.png" Stretch="Uniform" Margin="0,0,0,5"/>
         							<StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Coût de déplacement sur case Plaine divisé par 2"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Aucun point sur une case Plaine"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Déplacement possible entre cases Montagne"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Plaine divisé par 2"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Aucun point sur une case Plaine"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Déplacement possible entre cases Montagne"/></TextBlock>
         							</StackPanel>
         						</Grid>
         					</RadioButton>
@@ -85,15 +85,15 @@
                             <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="orc" GroupName="{TemplateBinding GroupName}">
         						<Grid>
         							<Grid.RowDefinitions>
-        								<RowDefinition Height="200"/>
+        								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
         								<RowDefinition Height="*"/>
         							</Grid.RowDefinitions>
         							<Image Grid.Row="0" Source="pack://application:,,,/Ressources/peupleOrc.png" Stretch="Uniform" Margin="0,0,0,5"/>
         							<StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Coût de déplacement sur case Plaine divisé par 2"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Aucun point sur une case Forêt"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="1 point bonus si une unité détruit une unité adverse"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Plaine divisé par 2"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Aucun point sur une case Forêt"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="1 point bonus si une unité détruit une unité adverse"/></TextBlock>
         							</StackPanel>
         						</Grid>
         					</RadioButton>
@@ -112,15 +112,15 @@
                             <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="zombie" GroupName="{TemplateBinding GroupName}">
         						<Grid>
         							<Grid.RowDefinitions>
-        								<RowDefinition Height="200"/>
+        								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
         								<RowDefinition Height="*"/>
         							</Grid.RowDefinitions>
         							<Image Grid.Row="0" Source="pack://application:,,,/Ressources/PeupleZombie.png" Stretch="Uniform" Margin="0,0,0,5"/>
         							<StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Coût de déplacement sur case Plaine divisé par 2"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="Aucun point sur une case Forêt"/></TextBlock>
-        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="15"><Run Text="1 point bonus si une unité détruit une unité adverse"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Plaine divisé par 2"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Aucun point sur une case Forêt"/></TextBlock>
+        								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="1 point bonus si une unité détruit une unité adverse"/></TextBlock>
         							</StackPanel>
         						</Grid>
         					</RadioButton>
@@ -137,6 +137,7 @@
         <ImageBrush ImageSource="Ressources/vieux-papier.jpg" Stretch="UniformToFill"/>
     </Page.Background>
 
+    <Viewbox>
     <Grid Margin="10,5">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -148,16 +149,20 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <GroupBox Grid.Column="0" Header="Joueur 1" Padding="2" BorderThickness=".5">
+            <GroupBox Grid.Column="0" Header="Joueur 1" Padding="2" BorderThickness=".5" FontSize="14">
                 <StackPanel Orientation="Vertical">
                     <Grid Margin="0,0,0,5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Nom : </Label>
-                        <TextBox Grid.Column="1" TabIndex="0" Text="{Binding Path=NomJoueur1}"/>
-                    </Grid>
+                        <Label Grid.Column="0" FontSize="14">Nom : </Label>
+                            <TextBox Grid.Column="1" TabIndex="0" Text="{Binding Path=NomJoueur1}">
+                                <TextBox.Background>
+                                    <SolidColorBrush Color="Azure" Opacity="0.6" />
+                                </TextBox.Background>
+                            </TextBox>
+                        </Grid>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition />
@@ -174,15 +179,19 @@
                     </Grid>
                 </StackPanel>
             </GroupBox>
-            <GroupBox Grid.Column="1" Header="Joueur 2" Padding="2" BorderThickness=".5">
+            <GroupBox Grid.Column="1" Header="Joueur 2" Padding="2" BorderThickness=".5" FontSize="14">
                 <StackPanel Orientation="Vertical">
                     <Grid Margin="0,0,0,5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0">Nom :</Label>
-                        <TextBox Grid.Column="1" TabIndex="1" Text="{Binding Path=NomJoueur2}"></TextBox>
+                        <Label Grid.Column="0" FontSize="14">Nom :</Label>
+                        <TextBox Grid.Column="1" TabIndex="1" Text="{Binding Path=NomJoueur2}">
+                                <TextBox.Background>
+                                    <SolidColorBrush Color="Azure" Opacity="0.6" />
+                                </TextBox.Background>
+                            </TextBox>
                     </Grid>
                     <Grid>
                         <Grid.RowDefinitions>
@@ -201,51 +210,61 @@
                 </StackPanel>
             </GroupBox>
         </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Column="0" Header="Choix de la taille de la carte" Padding="0,2,2,4" BorderThickness=".5">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+                        <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="demo">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.6*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
+                                <Label Grid.Row="0" Content="6x6" Foreground="Black" FontSize="16"/>
+                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Démo</TextBlock>
+                            </Grid>
+                        </RadioButton>
+                        <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="petite">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.6*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
+                                <Label Grid.Row="0" Content="10x10" Foreground="Black" FontSize="16"/>
+                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Démo</TextBlock>
+                            </Grid>
+                        </RadioButton>
+                        <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="normale">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="0.6*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
+                                <Label Grid.Row="0" Content="14x14" Foreground="Black" FontSize="16"/>
+                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Démo</TextBlock>
+                            </Grid>
+                        </RadioButton>
+                    </StackPanel>
+                </GroupBox>
+                <Button Grid.Column="1" Height="80" Width="220" HorizontalAlignment="Center" Click="Commencer_Click" Style="{StaticResource ButtonWood}" Foreground="White" FontFamily="pack://application:,,,/Ressources/#Hobo Std" FontSize="16">
+                    Commencer la partie !
+                </Button>
+            </Grid>
         
-        <GroupBox Grid.Row="1" Header="Choix de la taille de la carte" Padding="0,2,2,4" BorderThickness=".5">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
-                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="demo" Width="200" >
-					<Grid>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="150" />
-							<RowDefinition Height="Auto" />
-						</Grid.RowDefinitions>
-                        <Image Grid.Row="0" Source="pack://application:,,,/Ressources/button_Map_dim_base.png" Stretch="Uniform" Margin="0,2,0,0"/>
-                        <Label Grid.Row="0" Content="6x6" Foreground="White" FontSize="16"/>
-                        <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2">Taille Démo</TextBlock>
-                    </Grid>
-				</RadioButton>
-                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="petite" Width="200">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="150" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Source="pack://application:,,,/Ressources/button_Map_dim_base.png" Stretch="Uniform" Margin="0,2,0,0"/>
-                        <Label Grid.Row="0" Content="10x10" Foreground="White" FontSize="16"/>
-                        <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2">Taille Démo</TextBlock>
-                    </Grid>
-                </RadioButton>
-                <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="normale" Width="200">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="150" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Image Grid.Row="0" Source="pack://application:,,,/Ressources/button_Map_dim_base.png" Stretch="Uniform" Margin="0,2,0,0"/>
-                        <Label Grid.Row="0" Content="14x14" Foreground="White" FontSize="16"/>
-                        <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2">Taille Démo</TextBlock>
-                    </Grid>
-                </RadioButton>
-            </StackPanel>
-        </GroupBox>
+       
         
         <StackPanel Grid.Row="2" Margin="5">
-            <Button HorizontalAlignment="Right" Click="Commencer_Click">
-                Commencer la partie !
-            </Button>
+                
         </StackPanel>
         
         
     </Grid>
+    </Viewbox>
 </Page>

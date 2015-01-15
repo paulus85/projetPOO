@@ -87,5 +87,10 @@ namespace WpfApplication
             parent.Content = new NouveauJeu();
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
