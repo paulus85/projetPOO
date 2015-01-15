@@ -28,7 +28,7 @@ namespace WpfApplication
     public partial class Jeu : Page
     {
 
-        const int paddingLigneImpaire = 44;
+        const int paddingLigneImpaire = 61;
         const int paddingLignePaire = 0;
 
         private SmallWorld.Jeu engine;
@@ -160,8 +160,8 @@ namespace WpfApplication
                     }
                 }
             }
-            canvas.Height = 100 * (1 + 0.75 * (h - 1));
-            canvas.Width = l * 88 + paddingLigneImpaire;
+            canvas.Height = 140 * (1 + 0.75 * (h - 1));
+            canvas.Width = l * 120 + paddingLigneImpaire;
             canvas2.Height = canvas.Height;
             canvas2.Width = canvas.Width;
             canvas1.Height = canvas.Height;
@@ -278,8 +278,8 @@ namespace WpfApplication
                 //Ligne impaire
                 paddingLigne = paddingLigneImpaire;
             }
-            res[0] = paddingLigne + j * 87;
-            res[1] = 0 + i * 75;
+            res[0] = paddingLigne + j * 122;
+            res[1] = 0 + i * 106;
             return res;
         }
       
@@ -365,23 +365,31 @@ namespace WpfApplication
             if (u is UniteElfe)
             {
                 ImageBrush ib = new ImageBrush();
-                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteElfe.png"));
                 ib.Stretch = Stretch.Uniform;
                 return ib;
-            } else
-                if (u is UniteNain)
-                {
-                    ImageBrush ib = new ImageBrush();
-                    ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_nain.png"));
-                    ib.Stretch = Stretch.Uniform;
-                    return ib;
-                } else
-                    {
-                        ImageBrush ib = new ImageBrush();
-                        ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_orc.png"));
-                        ib.Stretch = Stretch.Uniform;
-                        return ib;
-                    }
+            } 
+            else if (u is UniteNain)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteNain.png"));
+                ib.Stretch = Stretch.Uniform;
+                return ib;
+            } 
+            else if (u is UniteZombie)
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteZombie.png"));
+                ib.Stretch = Stretch.Uniform;
+                return ib;
+            }
+            else 
+            {
+                ImageBrush ib = new ImageBrush();
+                ib.ImageSource = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteOrc.png"));
+                ib.Stretch = Stretch.Uniform;
+                return ib;
+            }
         }
 
 
@@ -442,19 +450,13 @@ namespace WpfApplication
             SmallWorld.Point point = (sender as Button).Tag as SmallWorld.Point;
             pointSurvol = point;
             displayPolygonSurvole(point);
-            //double top = (double)ender.GetValue(Canvas.TopProperty);
-            //double left = (double)ender.GetValue(Canvas.LeftProperty);
-
-            //int[] coord = FromCanvasToCoord(left, top);
-            //Console.Write("coordLineColumn : ");
-            //Console.Write("" + coord[0]);
-            //Console.WriteLine(" ; " + coord[1]);
-            //Canvas.SetTop(PolygonSurvole, top);
-            //Canvas.SetLeft(PolygonSurvole, left);
-            //PolygonSurvole.Visibility = Visibility.Visible;
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Affiche le polygone de survol
+        /// </summary>
+        /// <param name="point">Le point correspondant à la case survolée.</param>
         private void displayPolygonSurvole(SmallWorld.Point point)
         {
             int[] canvasCoord = FromCoordToCanvas(point.x, point.y);
@@ -519,7 +521,7 @@ namespace WpfApplication
                     ListeUniteUC.Clear();
                     foreach (Unite u in listUnites)
                     {
-                        UniteUC uuc = new UniteUC(u);
+                        UniteUC uuc = new UniteUC(u,engine.Carte.GetCase(pt));
                         uuc.IsSelectable = (u.PointsDeplacementRestant > 0) && (u.Proprio.Equals(engine.JoueurCourant));
                         ListeUniteUC.Add(uuc);
                     }

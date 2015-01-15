@@ -22,11 +22,11 @@ namespace WpfApplication
         public Unite Unite { get; set; }
         public bool IsSelectable { get; set; }
 
-		public UniteUC(Unite u)
+		public UniteUC(Unite u, Case c)
 		{
 			this.InitializeComponent();
             Unite = u;
-
+            
             //Initialisation des différents champs
             //Gestion de l'image associée
             image.Source = getSprite();
@@ -35,29 +35,37 @@ namespace WpfApplication
             //Point de déplacement
             pdL.Text = ""+Unite.PointsDeplacementRestant;
             //Point d'attaque
-            attL.Text = ""+Unite.PointsAttaque;
+            attL.Text = "" + Unite.GetAttaqueTerrain(c);
             //Point de défense 
-            defL.Text = "" + Unite.PointsDefense;
+            defL.Text = "" + Unite.GetDefenseTerrain(c);
             //Nom du joueur 
             nomJoueur.Content = "" + Unite.Proprio.NomJoueur;
 
 		}
 
+        /// <summary>
+        /// Permet d'obtenir le bon visuel selon le type de l'unité.
+        /// </summary>
+        /// <returns>L'image correspondant au type de l'unité.</returns>
         private BitmapImage getSprite()
         {
             //return new ImageBrush(new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/mer.png")));
             BitmapImage bi = null;
             if (Unite is UniteElfe)
             {
-                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_elfe.png"));
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteElfe.png"));
             }
             else if (Unite is UniteNain)
             {
-                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_nain.png"));
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteNain.png"));
             }
             else if (Unite is UniteOrc)
             {
-                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/sprite_orc.png"));
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteOrc.png"));
+            }
+            else if (Unite is UniteZombie)
+            {
+                bi = new BitmapImage(new Uri(BaseUriHelper.GetBaseUri(this), "Ressources/uniteZombie.png"));
             }
             return bi;
         }  

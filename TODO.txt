@@ -6,20 +6,12 @@
 
 - Gérer les exceptions côté code
 
-- Gérer la cas où il n'y a pas de gagnant pour la partie
-
-- Mettre nombre unité case en bas des cases
-
-- ZOOOOOMMMMMMMMMMMMMMMM !!!!!!!!!!! (molette..)
-
-- Mettre à jour point attaque/defense coté graphique
 
 ////////////////////////////////
 		MOINS URGENT
 ///////////////////////////////
 - Revoir le graphisme général de l'application
 
-- Finir de traduire les commentaires pour la partie graphique
 
 
 ////////////////////////////////
