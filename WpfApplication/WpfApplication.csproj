@@ -195,6 +195,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Ressources\paneaux1.psd" />
+    <None Include="Ressources\paneaux2.psd" />
+    <None Include="Ressources\paneaux3.psd" />
     <None Include="WpfApplication_CléTemporaire.pfx" />
   </ItemGroup>
   <ItemGroup>
@@ -281,6 +284,9 @@
     <Resource Include="Ressources\uniteNain.png" />
     <Resource Include="Ressources\uniteOrc.png" />
     <Resource Include="Ressources\uniteZombie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\elf.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
