@@ -15,10 +15,10 @@
             <Setter Property="Margin" Value="5"/>
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
-                    <Setter Property="Background" Value="#FF615E5E"/>
+                    <Setter Property="Background" Value="#99615E5E"/>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FF997D7D"/>
+                    <Setter Property="Background" Value="#99997D7D"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -172,7 +172,7 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <RadioButton Grid.Row="0" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="elfe" Content="" Style="{DynamicResource RadioButtonElfe}"/>
+                        <RadioButton Grid.Row="0" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="elfe" Content="" Style="{DynamicResource RadioButtonElfe}" Background="White"/>
                         <RadioButton Grid.Row="0" Grid.Column="1" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="nain" Content="" Style="{DynamicResource RadioButtonNain}"/>
                         <RadioButton Grid.Row="1" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="orc" Content="" Style="{DynamicResource RadioButtonOrc}"/>
                         <RadioButton Grid.Row="1" Grid.Column="1" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="zombie" Content="" Style="{DynamicResource RadioButtonZombie}"/>
@@ -237,7 +237,7 @@
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
                                 <Label Grid.Row="0" Content="10x10" Foreground="Black" FontSize="16"/>
-                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Démo</TextBlock>
+                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Petite</TextBlock>
                             </Grid>
                         </RadioButton>
                         <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="normale">
@@ -248,7 +248,7 @@
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
                                 <Label Grid.Row="0" Content="14x14" Foreground="Black" FontSize="16"/>
-                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Démo</TextBlock>
+                                <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Normale</TextBlock>
                             </Grid>
                         </RadioButton>
                     </StackPanel>
