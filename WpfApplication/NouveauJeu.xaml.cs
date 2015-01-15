@@ -47,10 +47,11 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Handles the Click event of the Commencer button. Check if all is OK and call constructor of Jeu view with all parameters needed.
+        /// Traitant de l'événement de clic sur le bouton Commencer. Vérifie sit tout est OK et appelle le constructeur avec tous les paramètres nécessaires.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement.</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
+
         private void Commencer_Click(object sender, RoutedEventArgs e)
         {
             if (!(String.IsNullOrWhiteSpace(PeupleJoueur1)) && !(String.IsNullOrWhiteSpace(PeupleJoueur2)) && !(String.IsNullOrWhiteSpace(NomJoueur1)) && !(String.IsNullOrWhiteSpace(NomJoueur2)) && !(String.IsNullOrWhiteSpace(TailleCarte)))
@@ -110,10 +111,10 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Handles the Checked event of the ChoixPeupleJ1 control. Check if Joueur1's Peuple is different from Joueur2's one.
+        /// Traitant de l'événement de clic sur un des RadioButton de choix de peuple du joueur 1. Vérifie sur le peuple du Joueur 1 est différente de celle du Joueur 2.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
         private void ChoixPeupleJ1_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
@@ -129,10 +130,10 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Handles the Checked event of the ChoixPeupleJ2 control. Check if Joueur2's Peuple is different from Joueur1's one.
+        /// Traitant de l'événement de clic sur un des RadioButton de choix de peuple du joueur 2. Vérifie sur le peuple du Joueur 2 est différente de celle du Joueur 1.
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
         private void ChoixPeupleJ2_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
@@ -149,10 +150,10 @@ namespace WpfApplication
         }
 
         /// <summary>
-        /// Handles the Checked event of the TailleCarte control.
+        /// Traitant de l'événement de clic sur un des RadioButton de choix de taille de carte. 
         /// </summary>
-        /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
         private void TailleCarte_Checked(object sender, RoutedEventArgs e)
         {
             RadioButton rd = (sender as RadioButton);
@@ -160,9 +161,5 @@ namespace WpfApplication
             
         }
 
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

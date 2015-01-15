@@ -39,7 +39,7 @@ namespace WpfApplication
         /// Traitant de l'événement de clic sur le bouton "Quitter"
         /// </summary>
         /// <param name="sender">La source de l'événement</param>
-        /// <param name="e">The <see cref="RoutedEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
         private void Quitter_Click(object sender, RoutedEventArgs e)
         {
             // Configuration de la boite de dialogue
@@ -59,6 +59,11 @@ namespace WpfApplication
 
         }
 
+        /// <summary>
+        /// Traitant de l'événement de clic sur le bouton "Charger"
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
         private void Charger_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
@@ -72,6 +77,11 @@ namespace WpfApplication
             }
         }
 
+        /// <summary>
+        /// Traitant de l'événement de clic sur le bouton "Nouvelle Partie"
+        /// </summary>
+        /// <param name="sender">La source de l'événement</param>
+        /// <param name="e">L'instance de <see cref="RoutedEventArgs"/> contenant les données de l'événement</param>
         private void NouvellePartie_Click(object sender, RoutedEventArgs e)
         {
             parent.Content = new NouveauJeu();
