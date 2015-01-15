@@ -19,7 +19,8 @@ const enum Case {
 const enum Peuple {
 	ELF = 0,
 	NAIN,
-	ORC
+	ORC,
+	ZOMBIE
 };
 
 /**

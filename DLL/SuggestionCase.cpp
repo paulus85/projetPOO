@@ -140,17 +140,20 @@ void SuggestionCase::getVoisin(int x, int xOffset[6], int yOffset[6]) const{
 */
 int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 	Case square = this->carte[dest.x][dest.y];
-	int scoreElf[4] = { 1, 0, 1, 1 };
-	int scoreNain[4] = { 0, 1, 1, 1 };
-	int scoresOrc[4] = { 1, 1, 1, 0 };
+	int scoresElf[5] = { 1, 0, 1, 1, 1 };
+	int scoresNain[5] = { 0, 1, 1, 1, 1};
+	int scoresOrc[5] = { 1, 1, 1, 0, 1};
+	int scoresZombie[5] = { 1, 0, 1, 1, 1 };
 	int score = 0;
 	switch (peuple){
 		case ELF:
-			score = scoreElf[square]; break;
+			score = scoresElf[square]; break;
 		case NAIN:
-			score = scoreNain[square]; break;
+			score = scoresNain[square]; break;
 		case ORC:
 			score = scoresOrc[square]; break;
+		case ZOMBIE:
+			score = scoresZombie[square]; break;
 		default:
 			break;
 	}
@@ -175,6 +178,11 @@ int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peupl
 			return 2; break;
 		}
 		return 0; break;
+	case ZOMBIE:
+		if (occupant != NONE){
+			return 2; break;
+		}
+		return 0; break;
 
 	default:
 		return 0; break;
@@ -189,9 +197,10 @@ int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peupl
 */
 int SuggestionCase::getScoreDeplacement(Point dest, double ptsDeplacement, Peuple peuple) const {
 	Case square = this->carte[dest.x][dest.y];
-	int scoreElf[4] = { 0, -1, 0, 1 }; double deplElf[4] = { 1, 2, 1, 0.5 };
-	int scoreNain[4] = { 1, 0, 1, 0 }; double deplNain[4] = { 0.5, 1, 1, 1 };
-	int scoresOrc[4] = { 1, 0, 0, 0 }; double deplOrc[4] = { 0.5, 1, 1, 1 };
+	int scoreElf[5] = { 0, -1, 0, 1, 0 }; double deplElf[5] = { 1, 2, 1, 0.5, 1 };
+	int scoreNain[5] = { 1, 0, 1, 0, 0 }; double deplNain[5] = { 0.5, 1, 1, 1, 1 };
+	int scoresOrc[5] = { 1, 0, 0, 0, 0 }; double deplOrc[5] = { 0.5, 1, 1, 1, 1 };
+	int scoresZombie[5] = { 0, 0, 0, 0, 1 }; double deplZOmbie[5] = { 1, 1, 1, 1, 0.5 };
 	int score = 0;
 	switch (peuple){
 		case ELF:

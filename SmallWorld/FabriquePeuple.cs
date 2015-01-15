@@ -30,6 +30,8 @@ namespace SmallWorld
                     return new PeupleNain();
                 case (int)NumUnite.ORC:
                     return new PeupleOrc();
+                case (int)NumUnite.ZOMBIE:
+                    return new PeupleZombie();
                 default:
                     return null;
             }

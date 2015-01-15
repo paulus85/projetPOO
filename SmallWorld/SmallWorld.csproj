@@ -85,6 +85,7 @@
     <Compile Include="CaseMarais.cs" />
     <Compile Include="CasePlaine.cs" />
     <Compile Include="Peuple.cs" />
+    <Compile Include="PeupleZombie.cs" />
     <Compile Include="Tour.cs" />
     <Compile Include="MonteurNPartieDemo.cs" />
     <Compile Include="FabriqueCase.cs" />

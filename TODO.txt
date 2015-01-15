@@ -8,7 +8,11 @@
 
 - Gérer la cas où il n'y a pas de gagnant pour la partie
 
+- Mettre nombre unité case en bas des cases
 
+- Menu à la fin du jeu quand quelqu'un gagne
+
+- Fenetre de sauvegarde quand on veut quitter le jeu par la croix rouge de la fenetre windows
 
 ////////////////////////////////
 		MOINS URGENT
@@ -26,7 +30,5 @@
 ////////////////////////////////
 		EN BONUS
 ///////////////////////////////
-
-- Ajouter un type d'unité et de case en plus (zombie et marais)
 
 - Ajouter des bonus d'attaque et de défense en fonction du terrain
