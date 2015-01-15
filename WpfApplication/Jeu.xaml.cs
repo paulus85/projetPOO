@@ -485,6 +485,7 @@ namespace WpfApplication
         /// <param name="pt">Le point sous-jacent à la case sélectionné.</param>
         private void selectionChange(SmallWorld.Point pt)
         {
+            Console.WriteLine(pt.ToString());
             if (selectionUniteFaite)
             {
                 bool val = engine.Tour.SetDestination(pt);
@@ -692,14 +693,14 @@ namespace WpfApplication
             {
                 FindeTour_Click(this, null);
             }
-            else if (e.Key == Key.Right)
+            else if (e.Key == Key.D)
             {
                 //Déplacement du survol vers la droite
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
                 else pointSurvol.y = (pointSurvol.y + 1) % engine.Carte.Taille;
                 displayPolygonSurvole(pointSurvol);
             }
-            else if (e.Key == Key.Left)
+            else if (e.Key == Key.Q)
             {
                 //Déplacement du survol vers la gauche
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
@@ -710,14 +711,14 @@ namespace WpfApplication
                 }
                 displayPolygonSurvole(pointSurvol);
             }
-            else if (e.Key == Key.Down)
+            else if (e.Key == Key.S)
             {
-                //Déplacement du survol vers le haut
+                //Déplacement du survol vers le bas
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
                 else pointSurvol.x = (pointSurvol.x + 1) % engine.Carte.Taille;
                 displayPolygonSurvole(pointSurvol);
             }
-            else if (e.Key == Key.Up)
+            else if (e.Key == Key.Z)
             {
                 //Déplacement du survol vers le haut
                 if (pointSurvol == null) pointSurvol = new SmallWorld.PointImpl(0, 0);
@@ -730,6 +731,7 @@ namespace WpfApplication
             }
             else if (e.Key == Key.LeftCtrl | e.Key == Key.RightCtrl)
             {
+                Console.WriteLine(pointSurvol.ToString());
                 //Gestion de la sélection 
                 if(pointSurvol != null) selectionChange(pointSurvol);
             }
@@ -800,6 +802,11 @@ namespace WpfApplication
 
         }
         #endregion events
+
+        private void Page_PreviewGotKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            Console.WriteLine(Keyboard.FocusedElement);
+        }
 
        
 

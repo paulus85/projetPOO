@@ -195,6 +195,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <Resource Include="Ressources\HoboStd.otf" />
     <None Include="Ressources\paneaux1.psd" />
     <None Include="Ressources\paneaux2.psd" />
     <None Include="Ressources\paneaux3.psd" />
@@ -205,10 +206,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="elfe_base.png" />
-    <Resource Include="Ressources\desert.png" />
-    <Resource Include="Ressources\foret.png" />
-    <Resource Include="Ressources\ocean.png" />
-    <Resource Include="Ressources\plaine.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmallWorld\SmallWorld.csproj">
@@ -217,25 +214,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ressources\mer.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Ressources\smallworld_main.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\button_Map_dim_base.png" />
-    <Resource Include="Ressources\elfe_choixPeuple.png" />
-    <Resource Include="Ressources\nain_choixPeuple.png" />
-    <Resource Include="Ressources\orc_choixPeuple.png" />
-    <Resource Include="Ressources\sprite_elfe.png" />
-    <Resource Include="Ressources\sprite_nain.png" />
-    <Resource Include="Ressources\sprite_orc.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Ressources\foret2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Ressources\generation_montagne.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\desert_ok.png" />
@@ -288,6 +270,19 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\peupleElf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\carte.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\paneaux30.png" />
+    <Resource Include="Ressources\paneaux31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ressources\paneaux10.png" />
+    <Resource Include="Ressources\paneaux11.png" />
+    <Resource Include="Ressources\paneaux20.png" />
+    <Resource Include="Ressources\paneaux21.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
