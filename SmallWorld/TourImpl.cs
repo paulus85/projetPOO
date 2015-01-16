@@ -210,12 +210,12 @@ namespace SmallWorld
                 if (N >= PctgAttaquant)
                 {
                     uniteAdverse.EnleverPV();
-                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.ToString() + " gagne");
+                    resumeCombat.Add("Round " + round + " : " + unite.ToString() + " gagne");
                 }
                 else
                 {
                     unite.EnleverPV();
-                    resumeCombat.Add("Round " + round + " : " + uniteAdverse.ToString() + " perd");
+                    resumeCombat.Add("Round " + round + " : " + unite.ToString() + " perd");
                 }
 
                 NbAttaques--;
@@ -345,8 +345,8 @@ namespace SmallWorld
                     if (unitsAtPos.Count > 0)
                     {
                         unites[i][j] = unitsAtPos[0].Proprio.Numero;
+                        ptsdeplacement[i][j] = unitesSelectionnes[0].PointsDeplacementRestant;
                     }
-                    ptsdeplacement[i][j] = unitesSelectionnes[0].PointsDeplacementRestant;
                 }
             }
 

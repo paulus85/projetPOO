@@ -244,35 +244,53 @@
                 <GroupBox Grid.Column="0" Header="Choix de la taille de la carte" Padding="0,2,2,4" BorderThickness=".5">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
                         <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="demo">
+                            <RadioButton.Background>
+                                <SolidColorBrush Color="AntiqueWhite" Opacity="0.5"/>
+                            </RadioButton.Background>
+                            <RadioButton.BorderBrush>
+                                <SolidColorBrush Color="Transparent"/>
+                            </RadioButton.BorderBrush>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0.6*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
-                                <Label Grid.Row="0" Content="6x6" Foreground="Black" FontSize="16"/>
+                                <Label Grid.Row="0" Content="5x5" Foreground="White" FontSize="16"/>
                                 <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Démo</TextBlock>
                             </Grid>
                         </RadioButton>
                         <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="petite">
+                            <RadioButton.Background>
+                                <SolidColorBrush Color="AntiqueWhite" Opacity="0.5"/>
+                            </RadioButton.Background>
+                            <RadioButton.BorderBrush>
+                                <SolidColorBrush Color="Transparent"/>
+                            </RadioButton.BorderBrush>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0.6*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
-                                <Label Grid.Row="0" Content="10x10" Foreground="Black" FontSize="16"/>
+                                <Label Grid.Row="0" Content="10x10" Foreground="White" FontSize="16"/>
                                 <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Petite</TextBlock>
                             </Grid>
                         </RadioButton>
                         <RadioButton Checked="TailleCarte_Checked" Style="{StaticResource RadioButtonMenu}" x:Name="normale">
+                            <RadioButton.Background>
+                                <SolidColorBrush Color="AntiqueWhite" Opacity="0.5"/>
+                            </RadioButton.Background>
+                            <RadioButton.BorderBrush>
+                                <SolidColorBrush Color="Transparent"/>
+                            </RadioButton.BorderBrush>
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="0.6*" />
                                     <RowDefinition Height="Auto" />
                                 </Grid.RowDefinitions>
                                 <Image Grid.Row="0" Source="pack://application:,,,/Ressources/carte.jpg" Stretch="Uniform" Margin="0,2,0,0"/>
-                                <Label Grid.Row="0" Content="14x14" Foreground="Black" FontSize="16"/>
+                                <Label Grid.Row="0" Content="15x15" Foreground="White" FontSize="16"/>
                                 <TextBlock Grid.Row="1" FontSize="18" TextAlignment="Center" HorizontalAlignment="Center" Margin="0,2" VerticalAlignment="Center">Taille Normale</TextBlock>
                             </Grid>
                         </RadioButton>

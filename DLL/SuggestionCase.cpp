@@ -57,7 +57,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 					int score = this->getScoreMouvement(voisin, peuple);
 					score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 					score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
-					score += getScoreBonusAttaqueDefense(voisin, peuple);
+					score += this->getScoreBonusAttaqueDefense(voisin, peuple);
 					scores.insert(make_pair(voisin, score));
 				}
 			}
@@ -67,11 +67,11 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 				for (int i = 0; i < this->taille; i++){
 					for (int j = 0; j < this->taille; j++){
 						Point voisin = Point(i, j);
-						if (voisin.estValide(taille) && voisin.estMontagne(this->carte) && voisin.x != x && voisin.y != y){
+						if (voisin.estValide(taille) && voisin.estMontagne(this->carte) && voisin.x != x && voisin.y != y && unites[voisin.x][voisin.y] != (joueur || NONE)){
 							int score = this->getScoreMouvement(voisin, peuple);
 							score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 							score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
-							score += getScoreBonusAttaqueDefense(voisin, peuple);
+							score += this->getScoreBonusAttaqueDefense(voisin, peuple);
 							scores.insert(make_pair(voisin, score));
 						}
 					}
@@ -87,7 +87,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 					int score = this->getScoreMouvement(voisin, peuple);
 					score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 					score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
-					score += getScoreBonusAttaqueDefense(voisin, peuple);
+					score += this->getScoreBonusAttaqueDefense(voisin, peuple);
 					scores.insert(make_pair(voisin, score));
 				}
 			}
@@ -96,9 +96,9 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 	
 	Point* res = new Point[3];
 	int nbResults = 0;
-	for (int score = 4; nbResults < 3 && score > 0; score--) {
+	for (int score = 5; nbResults < 3 && score > 0; score--) {
 		for (map<Point, int>::iterator it = scores.begin(); nbResults<3 && it != scores.end(); it++) {
-			if (it->second >= 0 && it->second == score) {
+			if (it->second > 0 && it->second == score) {
 				res[nbResults] = it->first;
 				nbResults++;
 			}

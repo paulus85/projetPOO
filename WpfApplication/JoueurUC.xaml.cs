@@ -68,6 +68,10 @@ namespace WpfApplication
             {
                 res = "Orc";
             }
+            else if (fp is PeupleZombie)
+            {
+                res = "Zombie";
+            }
             return res;
         }
 

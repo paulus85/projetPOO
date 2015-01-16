@@ -9,17 +9,17 @@ namespace SmallWorld
     public enum NumCase
     {
         PLAINE = 0,
-        DESERT,
-        MONTAGNE,
-        FORET,
+        DESERT = 1,
+        MONTAGNE = 2,
+        FORET = 3,
         MARAIS
     }
 
     public enum NumUnite
     {
         ELF = 0,
-        NAIN,
-        ORC,
+        NAIN = 1,
+        ORC = 2,
         ZOMBIE
     }
 }

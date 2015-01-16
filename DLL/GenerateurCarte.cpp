@@ -23,6 +23,7 @@
 Point* GenerateurCarte::departUnites(int nbCases) {
 	srand((unsigned int)time(NULL));
 	Point* result = new Point[2];
+
 	if (rand() % 2 == 0){
 		result[0] = Point(0, 0);
 		result[1] = Point(nbCases - 1, nbCases - 1);

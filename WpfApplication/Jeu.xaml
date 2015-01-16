@@ -179,7 +179,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Width="350" x:Name="wrapUnite">
+            <Grid Grid.Row="0" Width="360" x:Name="wrapUnite">
                 <ListBox x:Name="list" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding ListeUniteUC}"  SelectionMode="Multiple" SelectionChanged="list_SelectionChanged" ItemContainerStyle="{DynamicResource styleLBUnite}" KeyboardNavigation.TabNavigation="Cycle">
                     <ListBox.Background>
                         <SolidColorBrush Color="Transparent"  />
@@ -196,7 +196,7 @@
                     </ListBox.Resources>
                 </ListBox>
             </Grid>
-            <TextBlock Grid.Row="1" x:Name="consoleInterne" TextAlignment="Center" ScrollViewer.CanContentScroll="True" Background="Transparent" TextWrapping="Wrap"></TextBlock>
+            <TextBlock Grid.Row="1" x:Name="consoleInterne" TextAlignment="Center" ScrollViewer.CanContentScroll="True" Background="Transparent" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto" ></TextBlock>
             <Border  Grid.Row="2" BorderBrush="CadetBlue" BorderThickness="1">
                 <Grid x:Name="listJoueurs">
                     <Grid.ColumnDefinitions>

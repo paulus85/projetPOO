@@ -232,8 +232,10 @@ namespace WpfApplication
         /// <param name="p">Le point où se trouve l'unité.</param>
         public void afficherSuggestions(Unite u, SmallWorld.Point p)
         {
+            Console.Write("Suggestion : " + u + " " + p.ToString());
             masquerSuggestions();
             List<SmallWorld.Point> listPoints = engine.Tour.SuggestionsCase(u, p);
+            Console.WriteLine(" " + listPoints.Count);
             foreach (SmallWorld.Point pt in listPoints)
             {
                 Button b = new Button();

@@ -115,7 +115,7 @@ namespace SmallWorld
         }
 
         /// <summary>
-        /// Savoir si un joueur esr vaincu ou non
+        /// Savoir si un joueur est vaincu ou non
         /// </summary>
         /// <param name="j">Le joueur concerné</param>
         /// <returns>Vrai si le joueur est vaincu</returns>

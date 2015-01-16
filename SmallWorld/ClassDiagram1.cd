@@ -24,21 +24,21 @@
   <Class Name="SmallWorld.Monteur">
     <Position X="18.25" Y="1" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAIQBAAAAAAAAIACAAAAAAAAAAAAAACQAAADAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAIACAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Monteur.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.FabriquePeuple">
     <Position X="0.5" Y="5.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAAAAAABAAAAAAACAAQAAAACAAAACAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FabriquePeuple.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.PeupleImpl">
     <Position X="2.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>PeupleImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -46,28 +46,28 @@
   <Class Name="SmallWorld.PeupleOrc">
     <Position X="0.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>PeupleOrc.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.PeupleElfe">
     <Position X="4.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>PeupleElfe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.PeupleNain">
     <Position X="2.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>PeupleNain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteImpl">
     <Position X="8" Y="8.5" Width="2" />
     <TypeIdentifier>
-      <HashCode>IEAAYSBAACEAQAAEAAAARAgACAEIARAAAIAQAAgAEgA=</HashCode>
+      <HashCode>IEAAYSBAACEEEAAEgAAAQAggCAEIAZAAAIEQIAgBEAA=</HashCode>
       <FileName>UniteImpl.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
@@ -75,33 +75,30 @@
   <Class Name="SmallWorld.UniteOrc">
     <Position X="10.25" Y="14" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAIAAAAAAEEIAAAACAAAAAAAAAAUAAAAAAIAAAAAA=</HashCode>
       <FileName>UniteOrc.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteElfe">
     <Position X="8.25" Y="14" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAIAAAAAAEEAAAAAAAAAAAAAEAAQAAAAAAIAAAAAA=</HashCode>
       <FileName>UniteElfe.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.UniteNain">
     <Position X="6.25" Y="14" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAgA=</HashCode>
+      <HashCode>AAAAIAAAAAAEEAAAAAAAAAAAAAAAAQAAAAAAIAAAAAA=</HashCode>
       <FileName>UniteNain.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.CarteImpl">
     <Position X="5.5" Y="4" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAQAAAAIAQAAAAEAABAAAAAQAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAABgBAAEIASABAAkgABAAAAAYAAAAAAAgAA=</HashCode>
       <FileName>CarteImpl.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="Cases" />
-    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.Case">
@@ -114,54 +111,51 @@
   <Class Name="SmallWorld.CasePlaine">
     <Position X="8.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>CasePlaine.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.CaseDesert">
     <Position X="9.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>CaseDesert.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.CaseMontagne">
     <Position X="11.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>CaseMontagne.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.CaseForet">
     <Position X="12.75" Y="5.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAABAAA=</HashCode>
       <FileName>CaseForet.cs</FileName>
     </TypeIdentifier>
-  </Class>
-  <Class Name="SmallWorld.TypePartie">
-    <Position X="17.5" Y="5.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAIACAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>TypePartie.cs</FileName>
-    </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.TypeDemo">
-    <Position X="15.5" Y="8.25" Width="1.5" />
+    <Position X="15.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypeDemo.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypePetite">
-    <Position X="17.5" Y="8.25" Width="1.5" />
+    <Position X="17.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypePetite.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.TypeNormale">
-    <Position X="19.5" Y="8.25" Width="1.5" />
+    <Position X="19.75" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAIAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>TypeNormale.cs</FileName>
@@ -169,41 +163,30 @@
   </Class>
   <Class Name="SmallWorld.JoueurImpl">
     <Position X="2.5" Y="3.25" Width="2.25" />
-    <AssociationLine Name="PeupleImpl" Type="SmallWorld.PeupleImpl">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.185" Y="-0.046" />
-      </MemberNameLabel>
-    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAABAAAAAQAAAAQAAAAAAAAIAAAAAIQAAA=</HashCode>
+      <HashCode>AAAAgACAAIAAgAAAoAAAAAAwAAAAAIAAAIEAIAARAAA=</HashCode>
       <FileName>JoueurImpl.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="PeupleImpl" />
-    </ShowAsAssociation>
-    <ShowAsCollectionAssociation>
-      <Property Name="UniteImpl" />
-    </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="SmallWorld.FabriqueCase">
     <Position X="10.5" Y="7.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAgABCAABAQAAAAAAAAAE=</HashCode>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAwABCAABAQAAAAAAAAAE=</HashCode>
       <FileName>FabriqueCase.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.MonteurNPartie">
     <Position X="16.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MonteurNPartie.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SmallWorld.MonteurPartieSauv">
     <Position X="19.5" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAIABAAAAAAAAAAAAAAAAAAAAAAAAACQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MonteurPartieSauv.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -215,7 +198,7 @@
       </MemberNameLabel>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAIgQAQCIAAAAEgAAAhAAAAJABAAAAAAAABAABAATFA=</HashCode>
+      <HashCode>IAIgQAQCIAAAAEgAAAgAAAAoAJCAEAAAAAAAARAASFA=</HashCode>
       <FileName>JeuManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -226,35 +209,35 @@
   <Interface Name="SmallWorld.Peuple" Collapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
-      <FileName>Peuples.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Peuple.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Joueur" Collapsed="true">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAIAAgAAAIAAAAAAQAAAAAAAAAAAAIAABAAA=</HashCode>
       <FileName>Joueur.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Carte" Collapsed="true">
     <Position X="6.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <HashCode>AAAAAAAAAABgBAAEAACABAAEgAAAAAAAIAAAAAAAgAA=</HashCode>
       <FileName>Carte.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Unite" Collapsed="true">
     <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAAAAAABAAAAAEAARAAAAAQAAgAAgA=</HashCode>
+      <HashCode>IEAAYAAAAAEEEAAAAAAAAAAAAAEIARAAAAAQIAgBAAA=</HashCode>
       <FileName>Unite.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="SmallWorld.Jeu">
     <Position X="8.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAASEA=</HashCode>
+      <HashCode>IAAgAAQCAAAAAAAAAAAAAAAIAJAAEAAAAAAAARAASEA=</HashCode>
       <FileName>Jeu.cs</FileName>
     </TypeIdentifier>
   </Interface>

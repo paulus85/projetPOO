@@ -19,9 +19,9 @@ namespace UnitTestSmallWorld
         [TestMethod]
         public void TestCarte()
         {
-            Assert.AreEqual(demo.Carte.Taille, 6);
+            Assert.AreEqual(demo.Carte.Taille, 5);
             Assert.AreEqual(petite.Carte.Taille, 10);
-            Assert.AreEqual(normale.Carte.Taille, 14);
+            Assert.AreEqual(normale.Carte.Taille, 15);
         }
 
         //Juste tester sur la demo
@@ -54,11 +54,14 @@ namespace UnitTestSmallWorld
                 demo.FinTour();
                 Assert.IsTrue(demo.Joueur1.Points > 0);
             }
-            else if (demo.JoueurCourant.Equals(demo.Joueur2) && demo.GetNbUnites(new PointImpl(demo.Carte.Taille - 1, demo.Carte.Taille - 1)) != 0)
+            else if (demo.JoueurCourant.Equals(demo.Joueur2))
             {
                 demo.FinTour();
                 Assert.AreEqual(demo.Joueur2.Points, 1);
-                ((UniteOrc)demo.Carte.Unites[demo.Carte.Taille - 1, demo.Carte.Taille - 1][0]).AddPointBonus();
+                if (demo.GetNbUnites(new PointImpl(0, 0)) != 0)
+                    ((UniteOrc)demo.Carte.Unites[0, 0][0]).AddPointBonus();
+                else
+                    ((UniteOrc)demo.Carte.Unites[0, demo.Carte.Taille - 1][0]).AddPointBonus();
                 demo.FinTour();
                 Assert.IsTrue(demo.Joueur1.Points > 0);
                 demo.Carte.SupprimerUnite(dico.Keys.First(), dico.Values.First());

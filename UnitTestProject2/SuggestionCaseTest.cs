@@ -13,8 +13,8 @@ namespace UnitTestWrapper
             for (int size = 5; size < 20; size += 5)
             {
                 this.TestSuggestionCase(size, 0, 1);
-                //this.TestSuggestionCase(size, 1, 2);
-                //this.TestSuggestionCase(size, 2, 0);
+                this.TestSuggestionCase(size, 1, 2);
+                this.TestSuggestionCase(size, 2, 0);
             }
         }
 
