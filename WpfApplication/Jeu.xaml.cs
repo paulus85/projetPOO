@@ -400,6 +400,7 @@ namespace WpfApplication
         private void NouveauTour()
         {
             refreshUI();
+            clearConsole();
             texteJoueurActif.Text = "C'est au tour de " + engine.JoueurCourant.NomJoueur + " de jouer !";
             numeroTour.Content = "" + engine.TourActuelle + "/" + engine.NbTour;
         }
@@ -431,7 +432,7 @@ namespace WpfApplication
         /// </summary>
         private void clearConsole()
         {
-            consoleInterne.Text = null;
+            consoleInterne.Text = "";
         }
 
 
@@ -654,8 +655,7 @@ namespace WpfApplication
         /// <param name="sender">La source de l'événement</param>
         /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void FindeTour_Click(object sender, RoutedEventArgs e)
-        {
-            engine.FinTour();
+        {  
             undisplaySelection();
             if (engine.FinDuJeu())
             {
@@ -669,7 +669,8 @@ namespace WpfApplication
                 EcranFin.Visibility = Visibility.Visible;
             }
             else
-            {  
+            {
+                engine.FinTour();
                 NouveauTour();
             }
         }

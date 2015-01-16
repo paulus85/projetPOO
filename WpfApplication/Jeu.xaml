@@ -231,7 +231,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <Slider x:Name="zoomSlider" Minimum="0.7" Maximum="2" Value="1" Visibility="Collapsed"/>
+                <Slider x:Name="zoomSlider" Minimum="0.5" Maximum="2" Value="1" Visibility="Collapsed"/>
                 <Canvas Grid.Row="0" Grid.Column="0" x:Name="canvas" Background="Transparent" MouseLeave="canvas_MouseLeave" >
                     <Canvas.LayoutTransform>
                         <ScaleTransform ScaleX="{Binding Path=Value, ElementName=zoomSlider}" ScaleY="{Binding Path=Value, ElementName=zoomSlider}" />
