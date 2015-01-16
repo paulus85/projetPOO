@@ -400,6 +400,7 @@ namespace WpfApplication
         private void NouveauTour()
         {
             refreshUI();
+            clearConsole();
             texteJoueurActif.Text = "C'est au tour de " + engine.JoueurCourant.NomJoueur + " de jouer !";
             numeroTour.Content = "" + engine.TourActuelle + "/" + engine.NbTour;
         }
@@ -431,7 +432,7 @@ namespace WpfApplication
         /// </summary>
         private void clearConsole()
         {
-            consoleInterne.Text = null;
+            consoleInterne.Text = "";
         }
 
 
@@ -497,6 +498,17 @@ namespace WpfApplication
                     ecritureConsole(engine.Tour.ResumeCombat);
                     undisplaySelection();
                     refreshUI();
+                    if (engine.FinDuJeu())
+                    {
+                        refreshUI();
+                        string message;
+                        Joueur winner = engine.Vainqueur();
+                        if (winner == null) message = "Match nul! ";
+                        else message = "Bravo ! " + Environment.NewLine + "Le gagnant est " + winner.NomJoueur + " avec " + winner.Points + " points.";
+                        MessageEcranFin.Text = message;
+                        InterfaceJeu.Effect = new BlurEffect();
+                        EcranFin.Visibility = Visibility.Visible;
+                    }
                 }
                 else
                 {
@@ -654,8 +666,7 @@ namespace WpfApplication
         /// <param name="sender">La source de l'événement</param>
         /// <param name="e">L'instance de <see cref="RoutedEventArgs" /> qui contient les données de l'événement</param>
         private void FindeTour_Click(object sender, RoutedEventArgs e)
-        {
-            engine.FinTour();
+        {  
             undisplaySelection();
             if (engine.FinDuJeu())
             {
@@ -669,7 +680,8 @@ namespace WpfApplication
                 EcranFin.Visibility = Visibility.Visible;
             }
             else
-            {  
+            {
+                engine.FinTour();
                 NouveauTour();
             }
         }
