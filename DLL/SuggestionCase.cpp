@@ -170,7 +170,7 @@ int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 */
 int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
 	if (occupant == joueur) {
-		return -4;
+		return -5;
 	}
 
 	switch (peuple){

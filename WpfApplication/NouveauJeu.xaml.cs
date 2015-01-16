@@ -36,8 +36,8 @@ namespace WpfApplication
             InitializeComponent();
             // TODO: redimensionner la fenetre pour que ça soit plus joli
             DataContext = this;
-            NomJoueur1 = "Paul";
-            NomJoueur2 = "Stone";
+            NomJoueur1 = "";
+            NomJoueur2 = "";
             PeupleJoueur1 = "";
             PeupleJoueur2 = "";
             TailleCarte = "";

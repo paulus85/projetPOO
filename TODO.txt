@@ -8,6 +8,10 @@
 
 - PB FOCUS
 
+- PB Peuple zombie affiche nom peuple dans Console quand la partie est lancé
+
+- Changer règle sur zombie dans choix peuple
+
 
 ////////////////////////////////
 		MOINS URGENT

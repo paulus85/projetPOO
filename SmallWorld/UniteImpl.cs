@@ -214,8 +214,8 @@ namespace SmallWorld
         public override String ToString()
         {
             String chaine = Convert.ToString(this.GetType());
-            int indice = chaine.IndexOf("SmallWorld.Unite");
-            return chaine.Substring(indice, chaine.Length);
+            int indice = "SmallWorld.Unite".Length;
+            return chaine.Substring(indice, chaine.Length - indice);
         }
 
     }

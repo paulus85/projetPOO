@@ -9,7 +9,7 @@ namespace SmallWorld
     {
         private const int NB_TOURS = 30;
         private const int NB_UNITES = 8;
-        private const int NB_CASES = 14;
+        private const int NB_CASES = 15;
 
         public MonteurNPartieNormale()
         {
