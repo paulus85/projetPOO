@@ -27,15 +27,22 @@
         	<Setter Property="Template">
         		<Setter.Value>
         			<ControlTemplate TargetType="{x:Type RadioButton}">
-        				<Grid>
-        					<RadioButton Style="{StaticResource RadioButtonMenu}" Tag="elfe" GroupName="{TemplateBinding GroupName}">
-        						<Grid>
-        							<Grid.RowDefinitions>
+                        
+                        <Grid>
+                            <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="elfe" GroupName="{TemplateBinding GroupName}">
+                                <RadioButton.Background>
+                                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.5"/>
+                                </RadioButton.Background>
+                                <RadioButton.BorderBrush>
+                                    <SolidColorBrush Color="Transparent"/>
+                                </RadioButton.BorderBrush>
+                                <Grid>
+                                    <Grid.RowDefinitions>
         								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
         								<RowDefinition Height="*"/>
         							</Grid.RowDefinitions>
-        							<Image Grid.Row="0" Source="pack://application:,,,/Ressources/peupleElf.png" Stretch="Uniform" Margin="0,0,0,5"/>
+        							<Image Grid.Row="0" Source="pack://application:,,,/Ressources/peupleElf.png" Opacity="1" Stretch="Uniform" Margin="0,0,0,5"/>
         							<StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center">
         								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Forêt divisé par 2"/></TextBlock>
         								<TextBlock TextWrapping="Wrap" TextAlignment="Center" Margin="0,2" HorizontalAlignment="Center" FontSize="12"><Run Text="Coût de déplacement sur case Désert multiplié par 2"/></TextBlock>
@@ -56,7 +63,13 @@
         			<ControlTemplate TargetType="{x:Type RadioButton}">
         				<Grid>
                             <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="nain" GroupName="{TemplateBinding GroupName}">
-        						<Grid>
+                                <RadioButton.Background>
+                                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.5"/>
+                                </RadioButton.Background>
+                                <RadioButton.BorderBrush>
+                                    <SolidColorBrush Color="Transparent"/>
+                                </RadioButton.BorderBrush>
+                                <Grid>
         							<Grid.RowDefinitions>
         								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
@@ -83,7 +96,13 @@
         			<ControlTemplate TargetType="{x:Type RadioButton}">
         				<Grid>
                             <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="orc" GroupName="{TemplateBinding GroupName}">
-        						<Grid>
+                                <RadioButton.Background>
+                                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.5"/>
+                                </RadioButton.Background>
+                                <RadioButton.BorderBrush>
+                                    <SolidColorBrush Color="Transparent"/>
+                                </RadioButton.BorderBrush>
+                                <Grid>
         							<Grid.RowDefinitions>
         								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
@@ -110,7 +129,13 @@
         			<ControlTemplate TargetType="{x:Type RadioButton}">
         				<Grid>
                             <RadioButton Style="{StaticResource RadioButtonMenu}" Tag="zombie" GroupName="{TemplateBinding GroupName}">
-        						<Grid>
+                                <RadioButton.Background>
+                                    <SolidColorBrush Color="AntiqueWhite" Opacity="0.5" />
+                                </RadioButton.Background>
+                                <RadioButton.BorderBrush>
+                                    <SolidColorBrush Color="Transparent"/>
+                                </RadioButton.BorderBrush>
+                                <Grid>
         							<Grid.RowDefinitions>
         								<RowDefinition Height="150"/>
         								<RowDefinition Height="auto"/>
@@ -172,10 +197,10 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <RadioButton Grid.Row="0" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="elfe" Content="" Style="{DynamicResource RadioButtonElfe}" Background="White"/>
-                        <RadioButton Grid.Row="0" Grid.Column="1" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="nain" Content="" Style="{DynamicResource RadioButtonNain}"/>
-                        <RadioButton Grid.Row="1" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="orc" Content="" Style="{DynamicResource RadioButtonOrc}"/>
-                        <RadioButton Grid.Row="1" Grid.Column="1" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="zombie" Content="" Style="{DynamicResource RadioButtonZombie}"/>
+                            <RadioButton Grid.Row="0" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="elfe" Content="" Style="{DynamicResource RadioButtonElfe}"/>
+                            <RadioButton Grid.Row="0" Grid.Column="1" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="nain" Content="" Style="{DynamicResource RadioButtonNain}"/>
+                            <RadioButton Grid.Row="1" Grid.Column="0" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="orc" Content="" Style="{DynamicResource RadioButtonOrc}"/>
+                            <RadioButton Grid.Row="1" Grid.Column="1" GroupName="PJ1" Checked="ChoixPeupleJ1_Checked" Tag="zombie" Content="" Style="{DynamicResource RadioButtonZombie}"/>
                     </Grid>
                 </StackPanel>
             </GroupBox>
