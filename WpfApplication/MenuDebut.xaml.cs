@@ -71,7 +71,6 @@ namespace WpfApplication
             ofd.Filter = "Fichier de sauvegarde (*.yolo)|*.yolo";
             if (ofd.ShowDialog() == true)
             {
-                Console.WriteLine(ofd.FileName);
                 SmallWorld.MonteurPartieSauv monteur = new SmallWorld.MonteurPartieSauv();
                 parent.Content = new Jeu(monteur, ofd.FileName);
             }

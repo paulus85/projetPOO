@@ -57,7 +57,6 @@ namespace WpfApplication
             if (!(String.IsNullOrWhiteSpace(PeupleJoueur1)) && !(String.IsNullOrWhiteSpace(PeupleJoueur2)) && !(String.IsNullOrWhiteSpace(NomJoueur1)) && !(String.IsNullOrWhiteSpace(NomJoueur2)) && !(String.IsNullOrWhiteSpace(TailleCarte)))
             {
                 //Passage des paramètres via l'objet parent. --> appel aux méthodes de construction du jeu
-                Console.WriteLine("All is OK");
                 //Récupération des bons éléments en fonction des choix du joueur
                 switch(TailleCarte)
                 {
@@ -119,7 +118,6 @@ namespace WpfApplication
         {
             RadioButton rd = (sender as RadioButton);
             PeupleJoueur1 = rd.Tag.ToString();
-            Console.WriteLine("Joueur1 : " + PeupleJoueur1);
             // Vérification si le peuple n'est pas choisi 2 fois
             if (PeupleJoueur1 == PeupleJoueur2)
             {
@@ -138,7 +136,6 @@ namespace WpfApplication
         {
             RadioButton rd = (sender as RadioButton);
             PeupleJoueur2 = rd.Tag.ToString();
-            Console.WriteLine("Joueur2 : " + PeupleJoueur2);
 
             // Vérification si le peuple n'est pas choisi 2 fois
             if (PeupleJoueur1 == PeupleJoueur2)

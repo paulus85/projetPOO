@@ -70,12 +70,10 @@ namespace WpfApplication
         public Jeu(SmallWorld.MonteurNPartie monteur, string NomJoueur1, int fb1, string NomJoueur2, int fb2)
         {
             listeUniteUC = new ObservableCollection<UniteUC>();
-            Console.WriteLine("Début Jeu");
             InitializeComponent();
             DataContext = this;
             parent = (Application.Current.MainWindow as MainWindow);
             engine = monteur.CreerJeu(NomJoueur1, fb1, NomJoueur2, fb2);
-            Console.WriteLine("taille : " + engine.Carte.Cases.GetLength(0));
             createUI();
             refreshUI();
             NouveauTour();
@@ -413,7 +411,6 @@ namespace WpfApplication
         private void ecritureConsole(string p)
         {
             consoleInterne.Text = p + Environment.NewLine;
-            Console.WriteLine(p);
             //messageTimer.Start();
         }
 
@@ -422,7 +419,6 @@ namespace WpfApplication
             foreach (string s in list)
             {
                 consoleInterne.Text = consoleInterne.Text + s + Environment.NewLine;
-                Console.WriteLine(s);
             }
             //messageTimer.Start();
         }
@@ -487,14 +483,12 @@ namespace WpfApplication
         /// <param name="pt">Le point sous-jacent à la case sélectionné.</param>
         private void selectionChange(SmallWorld.Point pt)
         {
-            Console.WriteLine(pt.ToString());
             if (selectionUniteFaite)
             {
                 bool val = engine.Tour.SetDestination(pt);
                 if (val)
                 {
                     engine.Tour.ExecuterDeplacement();
-                    Console.WriteLine(engine.Tour.ResumeCombat);
                     ecritureConsole(engine.Tour.ResumeCombat);
                     undisplaySelection();
                     refreshUI();
@@ -529,7 +523,6 @@ namespace WpfApplication
                     this.pointSelection = pt;
                     displayPolygonSelection(pt);
                     selectionCaseFaite = true;
-                    Console.WriteLine("Polygon_mouseClick");
                     //Mise à jour de la liste d'unités
                     List<Unite> listUnites = engine.Carte.GetUnites(pt);
                     ListeUniteUC.Clear();
@@ -558,7 +551,6 @@ namespace WpfApplication
             Canvas.SetTop(PolygonSelection, top);
             Canvas.SetLeft(PolygonSelection, left);
             PolygonSelection.Visibility = Visibility.Visible;
-            Console.WriteLine("Point Sélection : " + point.ToString());
         }
 
 
@@ -586,7 +578,6 @@ namespace WpfApplication
             selectionCaseFaite = false;
             selectionUniteFaite = false;
             ListeUniteUC.Clear();
-            Console.WriteLine("NoSelection");
             masquerSuggestions();
         }
 
@@ -749,7 +740,6 @@ namespace WpfApplication
             }
             else if (e.Key == Key.LeftCtrl | e.Key == Key.RightCtrl)
             {
-                Console.WriteLine(pointSurvol.ToString());
                 //Gestion de la sélection 
                 if(pointSurvol != null) selectionChange(pointSurvol);
             }
@@ -783,7 +773,6 @@ namespace WpfApplication
             sfd.Filter = "Fichier de sauvegarde (*.yolo)|*.yolo";
             if (sfd.ShowDialog() == true)
             {
-                Console.WriteLine(sfd.FileName);
                 engine.SauvegarderJeu(sfd.FileName);
             }
         }
