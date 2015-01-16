@@ -196,16 +196,10 @@
     </None>
     <AppDesigner Include="Properties\" />
     <Resource Include="Ressources\HoboStd.otf" />
-    <None Include="Ressources\paneaux1.psd" />
-    <None Include="Ressources\paneaux2.psd" />
-    <None Include="Ressources\paneaux3.psd" />
     <None Include="WpfApplication_CléTemporaire.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="elfe_base.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmallWorld\SmallWorld.csproj">
@@ -215,9 +209,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\smallworld_main.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Ressources\button_Map_dim_base.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Ressources\desert_ok.png" />
