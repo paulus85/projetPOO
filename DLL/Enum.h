@@ -22,13 +22,3 @@ const enum Peuple {
 	ORC,
 	ZOMBIE
 };
-
-/**
-* \brief     Type de joueur possible au cours d'une partie.
-* \details   Correspond au compteur static de la classe Joueur lors de la création d'un joueur
-*/
-const enum Joueur {
-	NONE = 0,
-	JOUEUR1,
-	JOUEUR2
-};

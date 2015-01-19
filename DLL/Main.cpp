@@ -12,14 +12,14 @@ int main()
 	carte[1][taille-2] = MONTAGNE;
 	carte[1][taille-1] = FORET;
 	SuggestionCase generator = SuggestionCase(carte, taille, NAIN, ORC);
-	Joueur** unites = new Joueur*[taille];
+	int** unites = new int*[taille];
 	for (int i = 0; i < taille; i++)
 	{
-		unites[i] = new Joueur[taille];
+		unites[i] = new int[taille];
 		for (int j = 0; j < taille; j++)
-			unites[i][j] = NONE;
+			unites[i][j] = 0;
 	}
-	unites[0][0] = JOUEUR1;
+	unites[0][0] = 1;
 	//unites[1][0] = JOUEUR1;
 	//unites[taille - 1][taille - 1] = JOUEUR2;
 	//unites[0][1] = JOUEUR1;
@@ -36,7 +36,7 @@ int main()
 	//ptsDeplacement[0][1] = 1;
 	//ptsDeplacement[1][1] = 1;
 
-	Point* advice = generator.getSuggestion(0, taille-1, unites, ptsDeplacement, JOUEUR1);
+	Point* advice = generator.getSuggestion(0, taille-1, unites, ptsDeplacement, 1);
 
 	int** result = new int*[3];
 	for (int i = 0; i < 3; i++) {

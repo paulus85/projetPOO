@@ -75,11 +75,11 @@ array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, i
 	}
 	SuggestionCase generator = SuggestionCase(carteBis, taille, (Peuple)peupleJoueur1, (Peuple)peupleJoueur2);
 
-	Joueur** unitesBis = new Joueur*[taille];
+	int** unitesBis = new int*[taille];
 	for (int i = 0; i<taille; i++) {
-		unitesBis[i] = new Joueur[taille];
+		unitesBis[i] = new int[taille];
 		for (int j = 0; j<taille; j++) {
-			unitesBis[i][j] = (Joueur)unites[i][j];
+			unitesBis[i][j] = unites[i][j];
 		}
 	}
 
@@ -91,7 +91,7 @@ array<array<int>^>^ Wrapper::Wrapper::getSuggestion(array<array<int>^>^ carte, i
 		}
 	}
 
-	Point* advice = generator.getSuggestion(x, y, unitesBis, ptsDeplacementBis, (Joueur)joueur);
+	Point* advice = generator.getSuggestion(x, y, unitesBis, ptsDeplacementBis, joueur);
 
 	array<array<int>^>^ result = gcnew array<array<int>^>(3);
 	for (int i = 0; i < 3; i++) {

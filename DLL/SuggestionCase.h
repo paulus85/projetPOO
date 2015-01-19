@@ -60,7 +60,7 @@ private:
 	* \param       joueur       Le joueur courant
 	* \param       peuple       Le peuple du joueur courant
 	*/
-	int getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const;
+	int getScoreCapture(int occupant, int joueur, Peuple peuple) const;
 
 	/**
 	* \brief       Retourne le score par rapport à la pertinence du déplacement et aux points de déplacement de l'unité
@@ -92,7 +92,7 @@ public:
 	* \param       joueur			Le joueur courant
 	* \return      Les points suggérés
 	*/
-	EXTERNC DLL Point* getSuggestion(int x, int y, Joueur** unites, double** ptsDeplacement, Joueur joueur) const;
+	EXTERNC DLL Point* getSuggestion(int x, int y, int** unites, double** ptsDeplacement, int joueur) const;
 
 	EXTERNC DLL int SuggestionCase::getScoreBonusAttaqueDefense(Point dest, Peuple peuple) const;
 };

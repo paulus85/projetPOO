@@ -38,8 +38,11 @@ SuggestionCase::SuggestionCase(Case** carte, int taille, Peuple peuplej1, Peuple
 * \param       joueur			Le joueur courant
 * \return      Les points suggérés
 */
-Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** ptsDeplacement, Joueur joueur) const {
-	Peuple peuple = peuples[joueur - 1];
+Point* SuggestionCase::getSuggestion(int x, int y, int** unites, double** ptsDeplacement, int joueur) const {
+	Peuple peuple = peuples[0];
+	if (joueur%2 == 0)
+		peuple = peuples[1];
+
 	map<Point, int> scores;
 	Point pos = Point(x, y);
 
@@ -67,7 +70,7 @@ Point* SuggestionCase::getSuggestion(int x, int y, Joueur** unites, double** pts
 				for (int i = 0; i < this->taille; i++){
 					for (int j = 0; j < this->taille; j++){
 						Point voisin = Point(i, j);
-						if (voisin.estValide(taille) && voisin.estMontagne(this->carte) && voisin.x != x && voisin.y != y && unites[voisin.x][voisin.y] != (joueur || NONE)){
+						if (voisin.estValide(taille) && voisin.estMontagne(this->carte) && voisin.x != x && voisin.y != y && unites[voisin.x][voisin.y] != joueur){
 							int score = this->getScoreMouvement(voisin, peuple);
 							score += this->getScoreCapture(unites[voisin.x][voisin.y], joueur, peuple);
 							score += this->getScoreDeplacement(voisin, ptsDeplacement[x][y], peuple);
@@ -168,7 +171,7 @@ int SuggestionCase::getScoreMouvement(Point dest, Peuple peuple) const {
 * \param       joueur       Le joueur courant
 * \param       peuple       Le peuple du joueur courant
 */
-int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peuple) const {
+int SuggestionCase::getScoreCapture(int occupant, int joueur, Peuple peuple) const {
 	if (occupant == joueur) {
 		return -5;
 	}
@@ -176,13 +179,13 @@ int SuggestionCase::getScoreCapture(Joueur occupant, Joueur joueur, Peuple peupl
 	switch (peuple){
 		case ORC:
 			//Avec le point bonus l'orc devrait attaquer
-			if (occupant != NONE){
+			if (occupant != 0){
 				return 2; break;
 			}
 			return 0; break;
 		case ZOMBIE:
 			//Avec sa capacité à attaquer 2 fois le zombie devrait attaquer
-			if (occupant != NONE){
+			if (occupant != 0){
 				return 2; break;
 			}
 			return 0; break;
